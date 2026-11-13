@@ -1,0 +1,184 @@
+[[term]]
+term = "Activation energy (E<sub>a</sub>)"
+definition = "Parameter of the Arrhenius equation setting how steeply a rate constant rises with temperature. Appendix C, Chapters 5 and 8."
+
+[[term]]
+term = "Aroma extract dilution analysis (AEDA)"
+definition = "Aroma extract dilution analysis: GC-olfactometry of serial dilutions; the highest dilution at which an odour is detected is its flavour dilution factor. Chapter 1, Appendix D."
+
+[[term]]
+term = "Alkalinity"
+definition = "Capacity of water to neutralise acid, mostly from bicarbonate; reported as mg/L as CaCO<sub>3</sub>. The water variable with the largest demonstrated effect on flavour. Chapter 3."
+
+[[term]]
+term = "Amadori product"
+definition = "Product of the rearrangement of the first sugar-amine condensation product (from an aldose) in the Maillard reaction, formed from an aldose such as glucose. Chapter 8, Appendix B."
+
+[[term]]
+term = "Analysis of variance (ANOVA)"
+definition = "Analysis of variance: tests whether several group means differ by comparing between-group and within-group variation. Appendix E, Chapter 9."
+
+[[term]]
+term = "Arrhenius equation"
+definition = "k = A exp(&minus;E<sub>a</sub>/RT): temperature dependence of a rate constant. Appendix C."
+
+[[term]]
+term = "Biot number"
+definition = "Ratio of internal conduction resistance to surface heat-transfer resistance, hL<sub>c</sub>/k; above about 0.1 the inside of a body lags its surface. Chapter 7, Appendix C."
+
+[[term]]
+term = "Bloom"
+definition = "Swelling and bubbling of fresh grounds when first wetted, caused by escaping CO<sub>2</sub>. Chapter 5."
+
+[[term]]
+term = "Brew ratio"
+definition = "Mass of brew water divided by mass of dry coffee. Chapter 2A."
+
+[[term]]
+term = "Brewing control chart"
+definition = "Plot of TDS against extraction yield with brew-ratio lines; re-mapped with sensory and consumer data in 2023. Chapter 2A."
+
+[[term]]
+term = "Buffer"
+definition = "Mixture of a weak acid and its conjugate base that resists pH change; brewed coffee is one. Appendix A."
+
+[[term]]
+term = "Bypass"
+definition = "Water routed around the bed in a batch brewer to dilute a strong extract. Chapter 2B."
+
+[[term]]
+term = "Channel"
+definition = "A path of preferential flow of water through part of a coffee bed, leaving the rest under-extracted. Chapter 2B."
+
+[[term]]
+term = "Chlorogenic acids"
+definition = "Esters of quinic acid with hydroxycinnamic acids; abundant in green coffee and precursors of bitter lactones and phenolic volatiles. Chapters 1, 6 and 8."
+
+[[term]]
+term = "Coffee Value Assessment (CVA)"
+definition = "The SCA cupping standard adopted in 2024 (SCA 102, 103 and 104), separating descriptive from affective assessment. Chapter 1."
+
+[[term]]
+term = "Darcy's law"
+definition = "Flow through a porous bed is proportional to permeability, area and pressure drop, and inversely to viscosity and bed thickness. Chapter 2B."
+
+[[term]]
+term = "Development time"
+definition = "Time from first crack to the end of the roast; shown to change sensory and chemical profiles, partly confounded with colour. Chapter 7."
+
+[[term]]
+term = "Extraction equilibrium constant (K)"
+definition = "In the desorption model of immersion brewing, the fraction of soluble material in solution at equilibrium; about 0.72. Chapter 2A."
+
+[[term]]
+term = "Extraction yield (EY)"
+definition = "Mass of coffee solids dissolved into the brew as a fraction of the dry dose. Chapter 2A."
+
+[[term]]
+term = "Fines"
+definition = "Particles below about 100 &micro;m; a small share of mass, most of the particle count and much of the surface; they control bed permeability. Chapters 2B and 4."
+
+[[term]]
+term = "First crack"
+definition = "Audible fracturing of beans from internal steam and CO<sub>2</sub> pressure during roasting. Chapter 7."
+
+[[term]]
+term = "2-Furfurylthiol"
+definition = "Potent roasty odorant formed from furfuryl alcohol and cysteine during roasting; lost in the brew by binding to quinones and by radicals. Chapters 1, 5 and 8."
+
+[[term]]
+term = "Glass transition"
+definition = "Temperature range over which an amorphous solid softens from glassy to rubbery; allows bean cell walls to stretch during roasting. Chapter 7."
+
+[[term]]
+term = "Hardness"
+definition = "Concentration of divalent cations (calcium and magnesium) in water, reported as mg/L as CaCO<sub>3</sub>. Chapter 3."
+
+[[term]]
+term = "Henderson-Hasselbalch equation"
+definition = "pH = pK<sub>a</sub> + log([A<sup>&minus;</sup>]/[HA]). Appendix A."
+
+[[term]]
+term = "Kozeny-Carman relation"
+definition = "Estimate of bed permeability from particle diameter and porosity. Chapter 2B."
+
+[[term]]
+term = "Langelier saturation index"
+definition = "pH minus the pH of calcite saturation; positive values predict scale. Chapter 3."
+
+[[term]]
+term = "Maillard reaction"
+definition = "Network of reactions between reducing sugars and amino groups producing colour, aroma and melanoidins. Chapter 8, Appendix B."
+
+[[term]]
+term = "Melanoidins"
+definition = "Brown, high-molecular-weight, nitrogenous polymers formed late in the Maillard reaction; colour, body and astringency. Chapters 1 and 8."
+
+[[term]]
+term = "Ochratoxin A (OTA)"
+definition = "Mycotoxin from moulds on poorly dried or stored coffee; only partly destroyed by roasting. Chapter 6."
+
+[[term]]
+term = "Odour activity value (OAV)"
+definition = "Concentration of an odorant divided by its odour threshold. Chapter 1."
+
+[[term]]
+term = "Statistical power"
+definition = "Probability that an experiment detects a real effect of a stated size. Appendix E, Chapter 9."
+
+[[term]]
+term = "Proportion of discriminators (p<sub>d</sub>)"
+definition = "Estimated share of a population able to perceive a difference in a discrimination test. Chapter 1, Appendix E."
+
+[[term]]
+term = "Pseudo-replication"
+definition = "Treating repeated measurements of one experimental unit as independent replicates. Chapter 9."
+
+[[term]]
+term = "Rate of rise (RoR)"
+definition = "Slope of the bean-temperature curve during roasting, usually in &deg;C per minute. Chapter 7."
+
+[[term]]
+term = "Retronasal"
+definition = "Describes smell perceived from volatiles travelling from the mouth to the nose while eating or drinking. Chapter 1."
+
+[[term]]
+term = "Specific surface area"
+definition = "Surface area per unit mass of a particle population. Chapter 4."
+
+[[term]]
+term = "Stable isotope dilution analysis (SIDA)"
+definition = "Quantification using an isotopically labelled internal standard added at the start, so that losses cancel. Appendix D."
+
+[[term]]
+term = "Strecker degradation"
+definition = "Reaction of an amino acid with a dicarbonyl giving an aldehyde with one fewer carbon, CO<sub>2</sub> and an aminoketone. Chapter 8."
+
+[[term]]
+term = "Titratable acidity"
+definition = "Amount of base needed to bring a sample to a set pH endpoint (8.2 for coffee); predicts sourness better than pH. Chapters 0 and 1."
+
+[[term]]
+term = "Total dissolved solids (TDS)"
+definition = "Mass fraction of dissolved coffee solids in a brew, in percent. Chapter 2A."
+
+[[term]]
+term = "Triangle test"
+definition = "Discrimination test in which a taster picks the odd sample of three; chance probability 1/3. Chapter 1."
+
+[[term]]
+term = "Triboelectric charging"
+definition = "Static charge from friction and fracture during grinding; reduced by bean moisture and by adding water before grinding. Chapter 4."
+
+[[term]]
+term = "Trigonelline"
+definition = "N-methylnicotinic acid; degrades during roasting mainly to pyridines and other nitrogen compounds. Chapters 6 and 8."
+
+[[term]]
+term = "Water activity (a<sub>w</sub>)"
+definition = "Ratio of a sample's water vapour pressure to that of pure water; governs microbial and chemical stability. Chapter 6."
+
+[[term]]
+term = "Weibull model"
+definition = "F = 1 &minus; exp[&minus;(t/&tau;)<sup>&beta;</sup>], used for CO<sub>2</sub> release from roasted coffee. Chapter 5."
+

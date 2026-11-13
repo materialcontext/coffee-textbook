@@ -1,0 +1,39 @@
+/* Dark colours, used only when the reader's system asks for them.
+   The page links this file with media="screen and (prefers-color-scheme: dark)",
+   and the rules are also wrapped in the same query, so a browser that does not
+   understand media queries (Internet Explorer 8 and older, early Firefox and
+   Opera) skips them twice over. Printing always uses the light colours. */
+@media screen and (prefers-color-scheme: dark) {
+  body { background: #1b1714; color: #e4ddd3; }
+  h1, h2, h3, .boxhead, .lbl, dfn { color: #efcfa6; }
+  h2, .nav { border-color: #4a4036; }
+  .bottom { border-color: #4a4036; }
+  a { color: #f0a868; }
+  a:visited { color: #c9a3d6; }
+  .lead, .byline, .toc .q, .small, .foot, .caption, .restate { color: #b9ae9f; }
+  .off { color: #7d7468; }
+  .note { background: #3b3220; color: #f1e3c0; }
+  table, th, td { border-color: #4a4036; }
+  th { background: #2c2520; }
+  pre { background: #26211c; }
+  blockquote { border-color: #4a4036; color: #cfc6ba; }
+  .widget, .quiz, .lab { background: #221d19; border-color: #4a4036; }
+  .formula { background: #2b251f; color: #e4ddd3; }
+  .example { background: #221d19; border-color: #c9824a; }
+  .evidence { background: #262016; border-color: #a88a52; }
+  .misc { background: #221d19; border-color: #d0605a; }
+  .deeper { background: #1d2328; border-color: #3e4c58; }
+  .objectives { background: #241f1b; border-color: #4a4036; }
+  .step, .tier { color: #f0a868; }
+  .right { color: #86c98f; }
+  .wrong { color: #f28b84; }
+  .figure img { background: #fff; padding: 4px; border-color: #4a4036; }
+  input, select, textarea { background: #2a241f; color: #e4ddd3; border: 1px solid #5a4f44; }
+  table.bcc th { background: #1b1714; }
+  table.bcc td { border-color: #3a322b; }
+  table.bcc td.line { background: #8a6a45; }
+  table.bcc td.hit { background: #f0a868; }
+  .bar { background: #f0a868; }
+  table.deq td, table.where td { border: 0; }
+  table.where td.w { color: #b9ae9f; }
+}

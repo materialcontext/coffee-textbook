@@ -1,0 +1,5 @@
+target/
+dist/
+tests/js/node_modules/
+tests/js/package-lock.json
+tests/perf/last-results.json

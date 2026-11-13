@@ -1,0 +1,10 @@
+[package]
+name = "upstream"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+pulldown-cmark = { version = "0.12", default-features = false, features = ["html"] }
+serde = { version = "1.0.229", features = ["derive"] }
+toml = "0.8"
+zip = { version = "2", default-features = false, features = ["deflate"] }
