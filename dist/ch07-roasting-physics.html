@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7. Roasting I: heat and mass transfer - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch06-green-coffee.html" rel="prev" title="6. Green coffee: the roasting input">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch08-roasting-chemistry.html" rel="next" title="8. Roasting II: chemistry">Next &gt;</a></div>
+<h1>7. Roasting I: heat and mass transfer</h1>
+<p class="lead">How does heat get into a bean, where does it go, and what can a roast log tell you?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Write an energy balance for a roasting batch, solve it numerically, and explain the shape of a roast curve.</li>
+<li>Estimate the Biot number of a bean and the lag between its surface and centre.</li>
+<li>Compute rate of rise from logged data and explain the trade-off between noise and delay.</li>
+<li>Explain bean expansion, porosity, the glass transition and internal pressure.</li>
+<li>Describe the acoustic and chemical signals used to monitor roasting.</li>
+<li>Explain common roast defects from the energy balance.</li>
+<li>Design an experiment that separates development time from roast colour.</li>
+</ul>
+<p class="small">Prerequisites: Chapter 6, Section 4 (heat budget); Appendix C, Sections C.3 and C.6 (Arrhenius, heat transfer).</p>
+</div>
+<p>A roaster logs two batches of the same green coffee. Both reach the same end temperature and the same colour, but one took nine minutes and the other fourteen, and they taste different. A third batch reached first crack sooner than expected and scorched. The roaster's software shows each batch as a curve of temperature against time. What does the shape of that curve say about what happened inside the beans?</p>
+<p>This chapter treats a roast as a problem in heat and mass transfer: heat flows into the beans from the machine, and water and gas flow out. Sections 1 to 3 set out the routes by which heat arrives and build an energy balance that reproduces the shape of a roast curve. Sections 4 to 7 look inside the bean at temperature gradients, water, reaction heat and structure. Sections 8 to 12 turn to measurement, development time, defects and profile design.</p>
+<h2>1. Safety</h2>
+<p>Roasting produces smoke, carbon monoxide and chaff that can catch fire. Roast outdoors or under extraction, never leave a running roaster, keep a lid or extinguisher at hand, and remember that roaster bodies and freshly dropped beans stay hot enough to burn skin for several minutes. Carbon monoxide has no smell; commercial roasteries use detectors. A modified popcorn popper runs its motor and heater beyond their design limits, so watch it throughout.</p>
+<h2>2. How heat reaches a bean</h2>
+<p>Heat reaches a bean by three routes (Appendix C.6). <dfn id="t-conduction">Conduction</dfn> carries heat through solid contact, from hot metal or neighbouring beans. <dfn id="t-convection">Convection</dfn> carries heat from a moving fluid, here hot gas, to a surface. <dfn id="t-radiation">Radiation</dfn> carries heat as infrared light from any hot surface to cooler ones. Their shares depend on the machine.</p>
+<p>A <dfn id="t-drum-roaster">drum roaster</dfn> tumbles beans inside a heated rotating cylinder while hot gas is drawn through it. All three routes contribute, and the beans spend much of their time in a moving pile, exchanging heat with each other. A <dfn id="t-fluid-bed-roaster">fluid-bed roaster</dfn> suspends beans in a fast jet of hot air and heats them almost entirely by convection.</p>
+<p>Each route has its own law. Convection delivers a heat flux q = h(T<sub>gas</sub> − T<sub>s</sub>), where h is the heat-transfer coefficient and T<sub>s</sub> the surface temperature. Radiation from a wall at temperature T<sub>w</sub> to a bean surface delivers</p>
+<table class="deq" summary="Equation 7.1"><tr><td class="f">q = &epsilon; &sigma; (T<sub>w</sub><sup>4</sup> &minus; T<sub>s</sub><sup>4</sup>)</td><td class="n" id="eq-rad">(7.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">q</td><td>heat flux (W/m<sup>2</sup>)</td></tr>
+<tr><td class="w"></td><td class="s">&epsilon;</td><td>emissivity of the surface, 0 to 1</td></tr>
+<tr><td class="w"></td><td class="s">&sigma;</td><td>Stefan-Boltzmann constant, 5.67 × 10<sup>−8</sup> (W/(m<sup>2</sup> K<sup>4</sup>))</td></tr>
+<tr><td class="w"></td><td class="s">T<sub>w</sub>, T<sub>s</sub></td><td>wall and bean-surface temperatures (K)</td></tr>
+</table>
+<p><dfn id="t-emissivity">Emissivity</dfn> measures how effectively a surface emits and absorbs radiation compared with a perfect absorber.</p>
+<div class="example">
+<p class="boxhead">Worked example: Radiation against convection in a drum</p>
+<p><span class="step">Problem.</span> A drum wall at 300 °C radiates to beans at 150 °C with emissivity 0.9. Hot air with h = 17 W/(m<sup>2</sup> K) flows past the same beans 100 K hotter than them. Compare the two heat fluxes.</p>
+<p><span class="step">Plan.</span> Convert to kelvin for <a href="#eq-rad">Equation 7.1</a>; the convective flux is hΔT.</p>
+<p><span class="step">Solution.</span> Radiation: 0.9 × 5.67 × 10<sup>−8</sup> × (573<sup>4</sup> − 423<sup>4</sup>) = 3.9 kW/m<sup>2</sup>. Convection: 17 × 100 = 1.7 kW/m<sup>2</sup>.</p>
+<p><span class="step">Check.</span> The fourth power makes radiation grow rapidly with wall temperature. A 2025 study fitted overall coefficients of 60 to 103 W/(m<sup>2</sup> K) at air temperatures of 200 to 280 °C [1]. The convective part alone was only 16 to 17, so radiation dominated in that roaster at low air speed.</p>
+</div>
+<h2>3. The batch energy balance</h2>
+<p>To predict how bean temperature changes, we write an <dfn id="t-energy-balance">energy balance</dfn>: the rate at which a system's stored heat rises equals the rate at which heat enters minus the rate at which it leaves, plus any heat generated inside. Following the approach of Chapter 2A, we treat the whole batch as one lump at a single temperature T. Heat enters through an effective transfer term, is spent warming dry matter and water and evaporating water, and is added by reactions that release heat:</p>
+<table class="deq" summary="Equation 7.2"><tr><td class="f">C dT/dt = hA (T<sub>air</sub> &minus; T) &minus; L<sub>v</sub> (&minus;dm<sub>w</sub>/dt) + Q<sub>rxn</sub></td><td class="n" id="eq-balance">(7.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">C</td><td>heat capacity of the batch, m<sub>dry</sub>c<sub>p,dry</sub> + m<sub>w</sub>c<sub>p,water</sub> (J/K)</td></tr>
+<tr><td class="w"></td><td class="s">hA</td><td>effective heat-transfer coefficient times area for the whole batch (W/K)</td></tr>
+<tr><td class="w"></td><td class="s">T<sub>air</sub></td><td>effective temperature of the heat source (&deg;C)</td></tr>
+<tr><td class="w"></td><td class="s">L<sub>v</sub></td><td>latent heat of vaporisation, 2,257 (kJ/kg)</td></tr>
+<tr><td class="w"></td><td class="s">m<sub>w</sub></td><td>mass of water in the beans (kg)</td></tr>
+<tr><td class="w"></td><td class="s">Q<sub>rxn</sub></td><td>rate of heat release by reactions (W)</td></tr>
+</table>
+<p>The left side is the rate at which the batch stores heat. The first term on the right is heat in; the second is heat used to evaporate water (dm<sub>w</sub>/dt is negative while water leaves, so −dm<sub>w</sub>/dt is positive); the third is reaction heat. Chapter 6 supplied c<sub>p,dry</sub> ≈ 1.4 kJ/(kg K) and L<sub>v</sub>. The total heat released by roasting reactions has been estimated at about 232 kJ per kg of dry matter, starting near 150 °C [1]. A reaction that releases heat is <dfn id="t-exothermic">exothermic</dfn>; one that absorbs heat is <dfn id="t-endothermic">endothermic</dfn>.</p>
+<div class="example">
+<p class="boxhead">Worked example: The first minute</p>
+<p><span class="step">Problem.</span> A 1 kg batch at 11% moisture is charged at 25 °C into a roaster with an effective hA of 6 W/K per kg and T<sub>air</sub> = 250 °C. What is the initial heating rate?</p>
+<p><span class="step">Plan.</span> At charge no water is evaporating yet and no reaction heat is released, so only the first term of <a href="#eq-balance">Equation 7.2</a> acts.</p>
+<p><span class="step">Solution.</span> The batch heat capacity is C = 0.89 × 1.4 + 0.11 × 4.18 = 1.71 kJ/K. Heat flow: 6 × (250 − 25) = 1,350 W. Heating rate: 1,350/1,710 = 0.79 K/s, or 47 °C/min.</p>
+<p><span class="step">Check.</span> As T rises the driving difference T<sub>air</sub> − T shrinks, so the rate must fall; the simulator below shows it doing so.</p>
+</div>
+<p>Solving <a href="#eq-balance">Equation 7.2</a> by hand is impractical, because the evaporation and reaction terms themselves depend on temperature. The calculator below solves it step by step: it computes every term at the current temperature, advances time by a small step, updates the temperature and water content, and repeats.</p>
+<div class="widget">
+<h3>Lumped energy balance for a roasting batch</h3>
+<form class="w" id="ch07-roasting-physics-w9" action="#">
+<div><input type="hidden" name="kind" value="roast-sim"></div>
+<div class="f"><label for="ch07-roasting-physics-w9-mass">Green batch mass</label> <input type="text" size="7" name="mass" id="ch07-roasting-physics-w9-mass" value="1"> kg</div>
+<div class="f"><label for="ch07-roasting-physics-w9-w0">Initial moisture (wet basis)</label> <input type="text" size="7" name="w0" id="ch07-roasting-physics-w9-w0" value="11"> %</div>
+<div class="f"><label for="ch07-roasting-physics-w9-tair">Effective air/drum temperature</label> <input type="text" size="7" name="tair" id="ch07-roasting-physics-w9-tair" value="250"> &deg;C</div>
+<div class="f"><label for="ch07-roasting-physics-w9-ha">Heat transfer h A per kg of green coffee</label> <input type="text" size="7" name="ha" id="ch07-roasting-physics-w9-ha" value="0.006"> kW/(K kg)</div>
+<div class="f"><label for="ch07-roasting-physics-w9-cp">Specific heat of dry bean</label> <input type="text" size="7" name="cp" id="ch07-roasting-physics-w9-cp" value="1.4"> kJ/(kg K)</div>
+<div class="f"><label for="ch07-roasting-physics-w9-tend">Drop temperature</label> <input type="text" size="7" name="tend" id="ch07-roasting-physics-w9-tend" value="215"> &deg;C</div>
+<div class="f"><label for="ch07-roasting-physics-w9-het">Reaction heat released</label> <input type="text" size="7" name="het" id="ch07-roasting-physics-w9-het" value="232"> kJ per kg dry matter</div>
+<p class="formula">m c<sub>p</sub> dT/dt = hA (T<sub>air</sub> &minus; T) &minus; L<sub>v</sub> dm<sub>w</sub>/dt + Q<sub>rxn</sub>. Drying above 100 &deg;C at a rate proportional to remaining water; reaction heat released by a first-order process above 150 &deg;C.</p>
+<p class="small">A teaching model with illustrative rate constants. It reproduces the shape of a roast curve (fast rise, drying plateau, exothermic acceleration), not a particular roaster.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch07-roasting-physics-w9-out"></div>
+</form>
+</div>
+<p><a href="#fig-roastmodel">Figure 7.1</a> shows the model with and without its evaporation and reaction terms. Early on, the large temperature difference drives a fast rise. Between about 100 and 160 °C, evaporation absorbs much of the incoming heat and the rise slows to a plateau. Above 150 °C the reactions add heat. Bustos-Vanegas and colleagues found that leaving evaporation out of their bean model gave larger errors than leaving out the reaction heat [1], which the figure reproduces.</p>
+<div class="figure" id="fig-roastmodel">
+<img src="figures/ch07-roastmodel.gif" width="454" height="284" alt="Simulated bean temperature against time for three versions of the lumped model: full model, model without reaction heat, and model without evaporation; the no-evaporation curve rises much faster through the middle of the roast.">
+<p class="caption">Figure 7.1. The teaching model with and without its evaporation and reaction terms (1 kg, 11% moisture, T<sub>air</sub> 250 °C). Compare the middle of the roast, where evaporation matters most, with the end, where reaction heat shortens the roast.</p>
+</div>
+<p>The teaching model also shows its limits. With a constant air temperature, its heating rate climbs at the end as reaction heat accelerates, and nearly all the water leaves. Real roasters reduce heat late in the roast, and real beans finish with 1.5 to 4% moisture, because removing the last water is limited by vapour diffusing out of the bean rather than by heat supply [1]. The model's effective hA of 6 W/K per kg corresponds, at about 1.1 m<sup>2</sup> of bean surface per kg, to only about 5.5 W/(m<sup>2</sup> K), far below single-bean values. In a drum, most bean surface is hidden inside the pile at any moment, and the roaster's heat supply is shared by the whole batch.</p>
+<div class="quiz">
+<h3>Check your understanding: Sections 2 and 3</h3>
+<form class="quiz-form" id="ch07-roasting-physics-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. According to Bustos-Vanegas et al., omitting which term from the bean energy balance gave the larger error?</p>
+<p class="opts">
+<input type="radio" name="ch07-roasting-physics-q0-0" id="ch07-roasting-physics-q0-0-0" value="0"> <label for="ch07-roasting-physics-q0-0-0">Evaporation</label><br>
+<input type="radio" name="ch07-roasting-physics-q0-0" id="ch07-roasting-physics-q0-0-1" value="1"> <label for="ch07-roasting-physics-q0-0-1">The reaction heat</label><br>
+<input type="radio" name="ch07-roasting-physics-q0-0" id="ch07-roasting-physics-q0-0-2" value="2"> <label for="ch07-roasting-physics-q0-0-2">Radiation</label><br>
+</p>
+<div><input type="hidden" name="ch07-roasting-physics-q0-0-kind" value="choice"><input type="hidden" name="ch07-roasting-physics-q0-0-ans" value="0"></div>
+<p class="fb" id="ch07-roasting-physics-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. In the lumped model, what is the initial heating rate in °C/min of a 1 kg batch at 13% moisture with hA = 6 W/K, T<sub>air</sub> = 250 °C and T = 25 °C?</p>
+<p class="opts"><label for="ch07-roasting-physics-q0-1">Answer:</label> <input type="text" size="8" name="ch07-roasting-physics-q0-1" id="ch07-roasting-physics-q0-1"> &amp;deg;C/min</p>
+<div><input type="hidden" name="ch07-roasting-physics-q0-1-kind" value="numeric"><input type="hidden" name="ch07-roasting-physics-q0-1-ans" value="46"><input type="hidden" name="ch07-roasting-physics-q0-1-tol" value="1"></div>
+<p class="fb" id="ch07-roasting-physics-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch07-roasting-physics-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch07-roasting-physics-q0">Answers</a></p>
+</form>
+</div>
+<h2>4. Inside the bean: the Biot number</h2>
+<p>The energy balance treats each bean as having one temperature. Whether that is reasonable depends on a comparison: how fast heat arrives at the surface against how fast it travels inward. The <dfn id="t-biot-number">Biot number</dfn> expresses the comparison:</p>
+<table class="deq" summary="Equation 7.3"><tr><td class="f">Bi = h L<sub>c</sub> / &lambda;</td><td class="n" id="eq-biot">(7.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">Bi</td><td>Biot number (dimensionless)</td></tr>
+<tr><td class="w"></td><td class="s">h</td><td>heat-transfer coefficient at the surface (W/(m<sup>2</sup> K))</td></tr>
+<tr><td class="w"></td><td class="s">L<sub>c</sub></td><td>characteristic length, volume divided by surface area (m)</td></tr>
+<tr><td class="w"></td><td class="s">&lambda;</td><td>thermal conductivity of the bean (W/(m K))</td></tr>
+</table>
+<p>Below about 0.1, the inside keeps pace with the surface and one temperature is enough. Chapter 6 estimated Bi for a green bean at 0.2 to 0.8 depending on h; the 2025 study reported 0.48 to 0.82 [1]. The surface therefore heats ahead of the centre. A computational study cited there found about 16 °C between bean centre and surface during roasting [1].</p>
+<p>How long does the centre take to catch up? Heat spreads through a solid by a diffusion process like the one in Chapter 2A, with the <dfn id="t-thermal-diffusivity">thermal diffusivity</dfn> α = λ/(ρc<sub>p</sub>) in place of D. The time scale is about r<sup>2</sup>/α, which for a bean of radius 3 mm is roughly two minutes (Appendix C.6). In a fast roast, the surface can reach temperatures where browning proceeds quickly while the centre is still drying, which is the physical basis of several defects (Section 11).</p>
+<h2>5. Water and the drying phase</h2>
+<p>At first, water moves to the bean surface and evaporates. As the outer layers dry, the remaining water must leave as vapour through the bean, so the drying rate falls even though heat keeps arriving. Most of the green bean's 10 to 12% moisture leaves in the first two thirds of a roast. The drying phase consumes about half the heat a roast requires (Chapter 6, Section 4) and builds the steam pressure that later drives expansion.</p>
+<h2>6. Reaction heat</h2>
+<p>Once the bean is hot enough, the reactions of Chapter 8 (browning, sugar breakdown and breakdown of chlorogenic acids) release heat overall. In the model this appears as a rate that rises exponentially with temperature, following the Arrhenius equation (Appendix C.3). Roasters see it as a change in the slope of the temperature curve near and after first crack. Controlling it is one reason heat input is reduced late in a roast. The figure of 232 kJ/kg comes from one kinetic model; published values vary, and some studies find that parts of the roast absorb heat overall.</p>
+<h2>7. Structure, expansion and gas</h2>
+<p>Roasting turns a dense, moist, tough bean into a porous, dry, brittle one. Schenker's study at ETH Zurich compared two kinds of hot-air roast matched on colour and mass loss [2]. One used a high temperature for a short time (260 °C, 155 to 180 s); the other a low temperature for a long time (220 °C, 540 to 720 s). That work and the literature it reviews report four findings.</p>
+<ul>
+<li>Beans expand more at higher roasting temperature: their volume grew by a factor of 1.59 to 1.84 across 220 to 295 °C for a Colombian arabica.</li>
+<li>Higher-temperature roasts have larger pores at equal roast degree.</li>
+<li>The porosity of roasted beans is about 0.38 to 0.49.</li>
+<li>The cell-wall material passes through a <dfn id="t-glass-transition">glass transition</dfn>, cited near 216 °C under roasting conditions, above which it softens from rigid and glassy to rubbery and can stretch under internal pressure. Internal pressures from steam and CO<sub>2</sub> reach about 550 to 800 kPa.</li>
+</ul>
+<p>Expansion therefore depends on the path as well as the end point: a fast roast expands and opens the bean more. That changes degassing (Chapter 5), grinding (Chapter 4) and extraction (Chapter 2A), even at equal colour.</p>
+<h2>8. First and second crack</h2>
+<p><dfn id="t-first-crack">First crack</dfn> is an audible popping as internal pressure fractures the bean structure, often starting near 195 to 205 °C on typical probes. <dfn id="t-second-crack">Second crack</dfn>, in darker roasts, comes from further breakdown of the weakened cell walls. Wilson recorded both acoustically and found first-crack events about 15% louder in peak pressure than second-crack events, at a frequency nearly 19 times lower, with second-crack events about five times more frequent [3]. The difference is large enough for automatic detection.</p>
+<h2>9. Measuring the process</h2>
+<h3>Probes and the roast log</h3>
+<p>A bean-temperature probe sits in the tumbling mass of beans and reads somewhere between bean surfaces, the air between them and its own lagging metal. It reads neither the bean's centre nor its surface. Probes of different thickness on one roaster give different curves, and position matters. Treat logged bean temperature as a reproducible index for one machine and one probe.</p>
+<p>A roast log uses standard landmarks. <dfn id="t-charge">Charge</dfn> is the moment green coffee enters. The probe reading falls as cold beans surround it, reaches a <dfn id="t-turning-point">turning point</dfn>, then rises. <dfn id="t-rate-of-rise">Rate of rise</dfn> (RoR) is the slope of the bean-temperature curve, the heating rate γ in °C per minute. <dfn id="t-drop">Drop</dfn> is the end of the roast. <dfn id="t-development-time">Development time</dfn> is the time from first crack to drop, and the <dfn id="t-development-time-ratio">development time ratio</dfn> is that time as a fraction of the whole roast:</p>
+<table class="deq" summary="Equation 7.4"><tr><td class="f">DTR = (t<sub>drop</sub> &minus; t<sub>FC</sub>) / t<sub>drop</sub></td><td class="n" id="eq-dtr">(7.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">DTR</td><td>development time ratio (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">t<sub>drop</sub></td><td>time from charge to drop (s)</td></tr>
+<tr><td class="w"></td><td class="s">t<sub>FC</sub></td><td>time from charge to first crack (s)</td></tr>
+</table>
+<div class="widget">
+<h3>Roast log arithmetic</h3>
+<form class="w" id="ch07-roasting-physics-w18" action="#">
+<div><input type="hidden" name="kind" value="roastlog"></div>
+<div class="f"><label for="ch07-roasting-physics-w18-green">Green mass</label> <input type="text" size="7" name="green" id="ch07-roasting-physics-w18-green" value="250"> g</div>
+<div class="f"><label for="ch07-roasting-physics-w18-roasted">Roasted mass</label> <input type="text" size="7" name="roasted" id="ch07-roasting-physics-w18-roasted" value="215"> g</div>
+<div class="f"><label for="ch07-roasting-physics-w18-fc">First crack at</label> <input type="text" size="7" name="fc" id="ch07-roasting-physics-w18-fc" value="8.5"> min</div>
+<div class="f"><label for="ch07-roasting-physics-w18-drop">Drop (end of roast) at</label> <input type="text" size="7" name="drop" id="ch07-roasting-physics-w18-drop" value="10.5"> min</div>
+<div class="f"><label for="ch07-roasting-physics-w18-t1">Bean probe reading</label> <input type="text" size="7" name="t1" id="ch07-roasting-physics-w18-t1" value="180"> &deg;C</div>
+<div class="f"><label for="ch07-roasting-physics-w18-t2">Reading one interval later</label> <input type="text" size="7" name="t2" id="ch07-roasting-physics-w18-t2" value="189"> &deg;C</div>
+<div class="f"><label for="ch07-roasting-physics-w18-dt">Interval</label> <input type="text" size="7" name="dt" id="ch07-roasting-physics-w18-dt" value="1"> min</div>
+<p class="formula">Mass loss = 1 &minus; roasted/green. Development time = drop &minus; first crack; ratio = development / drop. Rate of rise = (T<sub>2</sub> &minus; T<sub>1</sub>) / interval.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch07-roasting-physics-w18-out"></div>
+</form>
+</div>
+<h3>Rate of rise and noise</h3>
+<p>Rate of rise is a derivative, and differentiating noisy data amplifies the noise. The usual remedy is to fit a straight line by least squares through a window of recent readings and report its slope.</p>
+<div class="example">
+<p class="boxhead">Worked example: Noise against smoothing</p>
+<p><span class="step">Problem.</span> A probe logs once per second with random noise of standard deviation 0.2 °C. Compare the noise in a rate of rise computed from consecutive readings with one computed by least squares over a 31-second window.</p>
+<p><span class="step">Plan.</span> For consecutive readings, the difference of two noisy values has standard deviation 0.2√2. For a least-squares slope through n evenly spaced points, the standard deviation is σ/√[n(n<sup>2</sup> − 1)/12] (Appendix E.5).</p>
+<p><span class="step">Solution.</span> Consecutive readings: 0.2 × √2 = 0.28 °C/s, or 17 °C/min, larger than the signal itself. With n = 31: 0.2/√(31 × 960/12) = 0.004 °C/s, or 0.24 °C/min.</p>
+<p><span class="step">Check.</span> The cost is delay: a 31-second window reports the average slope centred 15 s in the past, and smooths away changes shorter than the window, such as the brief jump at first crack.</p>
+</div>
+<div class="widget">
+<h3>Rate of rise from a roast log</h3>
+<form class="w" id="ch07-roasting-physics-w21" action="#">
+<div><input type="hidden" name="kind" value="ror"></div>
+<div class="f"><label for="ch07-roasting-physics-w21-data">One reading per line: seconds, bean probe &deg;C</label><br><textarea name="data" id="ch07-roasting-physics-w21-data" rows="8" cols="36">0 200
+60 110
+120 118
+180 132
+240 146
+300 158
+360 169
+420 178
+480 186
+540 193
+600 199
+660 204</textarea></div>
+<div class="f"><label for="ch07-roasting-physics-w21-win">Window (readings)</label> <input type="text" size="7" name="win" id="ch07-roasting-physics-w21-win" value="3"> </div>
+<p class="formula">RoR at each point = slope of a least-squares line through the surrounding window of readings, in &deg;C per minute.</p>
+<p class="small">Wider windows smooth noise but delay and flatten real changes.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch07-roasting-physics-w21-out"></div>
+</form>
+</div>
+<h3>Colour</h3>
+<p>Roast colour is measured by reflectance on whole beans or ground coffee (Chapter 0, Section 7). Low-cost optical sensors have been validated against reference methods for consistency within a roastery [4]. Ground colour reflects the whole bean; whole-bean colour mostly reflects the surface. The difference between them is itself a measure of how far the centre lags the surface.</p>
+<h3>Watching the chemistry</h3>
+<p><dfn id="t-proton-transfer-reaction-mass-spectrometry">Proton-transfer-reaction mass spectrometry</dfn> (PTR-MS) identifies volatile compounds in a gas stream by giving each molecule a proton and weighing the resulting ion (Appendix D.7). Wieland and colleagues sampled roaster exhaust once per second across 42 drum roasts [5]. The signals changed sharply at the switch from heat-absorbing drying to heat-releasing reactions (about 625 s in one dark roast) and again at first crack (about 730 s). Hot-air temperature mainly set the speed of the process. A statistical model built from 23 ion signals separated roast degrees and predicted the final roast degree to within about one colour unit after first crack.</p>
+<h2>10. Development time: what the evidence shows</h2>
+<p>Development time is widely used to describe and control roasts, but its effect is easily confused with others. Lengthening development at a fixed end temperature also changes the whole time-temperature history, and usually the colour.</p>
+<p>Alstrup and colleagues (2020) roasted one coffee with four profiles that differed subtly in development time and analysed the brews by descriptive sensory analysis and two chemical methods [6]. Longer development shifted the chemical and sensory profiles significantly: shorter development was associated with fruity, sweet and acidic attributes, longer with roasty, nutty and bitter ones. Related work by the same group examined how development time and roast colour relate [7]. Development time is therefore a demonstrated control variable. What remains open is how much of its effect is separate from colour and from the total heat the bean receives.</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"A development time ratio of 20 to 25% is what makes a roast well developed." No controlled study has established a universal target ratio. The ratio depends on how long the roast took to reach first crack, so the same development time gives different ratios in fast and slow roasts. The evidence supports development time as a variable that changes flavour, to be tuned for each coffee, not a fixed target.</p>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: Separating development time from colour</p>
+<p><span class="step">Problem.</span> Design an experiment to test whether development time changes sourness at fixed roast colour.</p>
+<p><span class="step">Plan.</span> Development time and colour are linked, so they must be crossed deliberately in a factorial design (Chapter 9).</p>
+<p><span class="step">Solution.</span> Cross end colour at two levels (for example ground reflectance 65 and 55 on one instrument) with development time at two levels (75 and 150 s), giving four profiles. Reaching the same colour with different development times requires changing the heat earlier in the roast: more heat before first crack and a gentler finish for the long-development profile. Roast each profile three times on separate days in random order, verify colour on ground coffee, and analyse sourness scores and titratable acidity with a two-way ANOVA (Appendix E.4).</p>
+<p><span class="step">Check.</span> A significant development-time effect at fixed colour shows an effect beyond colour. A significant interaction shows that the effect depends on roast degree. Chapter 9 works through this design with data.</p>
+</div>
+<h2>11. Defects explained by the energy balance</h2>
+<p>Each common defect points to a term in the energy balance.</p>
+<ul>
+<li>Scorching: dark patches on the flat face of beans, from intense conduction where beans rest against a very hot drum early in the roast, while they are still moist and moving slowly.</li>
+<li>Tipping: burnt ends, where thin geometry and escaping steam concentrate heating; associated with very high early heat input.</li>
+<li>Facing: burns on the flat face from contact with the drum, in roasters with too little bean movement or too high a drum temperature.</li>
+<li>Baking: a flat, papery, bready flavour, associated with a roast whose rate of rise stalls or falls too low for too long. It is described from experience; controlled sensory studies of it are scarce.</li>
+<li>Underdevelopment: grassy, sour, cereal flavours and a pale centre, when the surface reaches the target colour but the centre lags (high Biot number, short roast). Ground colour is then noticeably lighter than whole-bean colour.</li>
+</ul>
+<p>Scorching, tipping and facing come from excessive heat flux at the surface. Baking comes from too little heat at the wrong time. Underdevelopment comes from too little time for the centre to follow the surface.</p>
+<h2>12. Designing a profile</h2>
+<p>A <dfn id="t-roast-profile">roast profile</dfn> is a plan for heat input over time. The energy balance identifies the controls. Charge temperature and early heat set the drying phase. Heat in the middle of the roast sets the pace of browning. Reducing heat before and through first crack controls the reaction heat and development. Drop temperature, or colour, sets the end point. Because different profiles can reach the same colour, specify a profile by its measured outcomes (colour, mass loss, development time) and evaluate it by tasting and, where possible, by titratable acidity and extraction yield at a fixed recipe.</p>
+<h2>Looking ahead</h2>
+<p>This chapter treated the reactions inside the bean as a source of heat. Chapter 8 opens them up: which reactions run, what they make and destroy, and how the temperature path decides the balance between acids, bitter compounds and aroma.</p>
+<h2>Key equations</h2>
+<table class="eqs" summary="Key equations">
+<tr><th>Quantity</th><th>Equation</th><th>Notes</th></tr>
+<tr><td>Radiative heat flux</td><td class="eq">q = &epsilon;&sigma;(T<sub>w</sub><sup>4</sup> &minus; T<sub>s</sub><sup>4</sup>)</td><td>Equation 7.1. Kelvin.</td></tr>
+<tr><td>Batch energy balance</td><td class="eq">C dT/dt = hA(T<sub>air</sub> &minus; T) &minus; L<sub>v</sub>(&minus;dm<sub>w</sub>/dt) + Q<sub>rxn</sub></td><td>Equation 7.2.</td></tr>
+<tr><td>Biot number</td><td class="eq">Bi = h L<sub>c</sub> / &lambda;</td><td>Equation 7.3. One temperature is adequate if Bi &lt; 0.1.</td></tr>
+<tr><td>Development time ratio</td><td class="eq">DTR = (t<sub>drop</sub> &minus; t<sub>FC</sub>) / t<sub>drop</sub></td><td>Equation 7.4.</td></tr>
+</table>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-biot-number">Biot number</a>; <a href="#t-charge">Charge</a>; <a href="#t-conduction">Conduction</a>; <a href="#t-convection">Convection</a>; <a href="#t-development-time">Development time</a>; <a href="#t-development-time-ratio">development time ratio</a>; <a href="#t-drop">Drop</a>; <a href="#t-drum-roaster">drum roaster</a>; <a href="#t-emissivity">Emissivity</a>; <a href="#t-endothermic">endothermic</a>; <a href="#t-energy-balance">energy balance</a>; <a href="#t-exothermic">exothermic</a>; <a href="#t-first-crack">First crack</a>; <a href="#t-fluid-bed-roaster">fluid-bed roaster</a>; <a href="#t-glass-transition">glass transition</a>; <a href="#t-proton-transfer-reaction-mass-spectrometry">Proton-transfer-reaction mass spectrometry</a>; <a href="#t-radiation">Radiation</a>; <a href="#t-rate-of-rise">Rate of rise</a>; <a href="#t-roast-profile">roast profile</a>; <a href="#t-second-crack">Second crack</a>; <a href="#t-thermal-diffusivity">thermal diffusivity</a>; <a href="#t-turning-point">turning point</a>.</p>
+<div class="quiz">
+<h3>Chapter review</h3>
+<form class="quiz-form" id="ch07-roasting-physics-q1" action="#answers">
+<div class="q">
+<p class="prompt">1. A roast has first crack at 9:30 and drop at 11:30. What is the development time ratio, in percent?</p>
+<p class="opts"><label for="ch07-roasting-physics-q1-0">Answer:</label> <input type="text" size="8" name="ch07-roasting-physics-q1-0" id="ch07-roasting-physics-q1-0"> %</p>
+<div><input type="hidden" name="ch07-roasting-physics-q1-0-kind" value="numeric"><input type="hidden" name="ch07-roasting-physics-q1-0-ans" value="17.4"><input type="hidden" name="ch07-roasting-physics-q1-0-tol" value="0.1"></div>
+<p class="fb" id="ch07-roasting-physics-q1-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. At equal roast colour, a high-temperature, short-time roast usually gives</p>
+<p class="opts">
+<input type="radio" name="ch07-roasting-physics-q1-1" id="ch07-roasting-physics-q1-1-0" value="0"> <label for="ch07-roasting-physics-q1-1-0">more expansion and larger pores</label><br>
+<input type="radio" name="ch07-roasting-physics-q1-1" id="ch07-roasting-physics-q1-1-1" value="1"> <label for="ch07-roasting-physics-q1-1-1">less expansion</label><br>
+<input type="radio" name="ch07-roasting-physics-q1-1" id="ch07-roasting-physics-q1-1-2" value="2"> <label for="ch07-roasting-physics-q1-1-2">identical structure</label><br>
+</p>
+<div><input type="hidden" name="ch07-roasting-physics-q1-1-kind" value="choice"><input type="hidden" name="ch07-roasting-physics-q1-1-ans" value="0"></div>
+<p class="fb" id="ch07-roasting-physics-q1-1-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">3. Widening the rate-of-rise window from 15 to 60 seconds will</p>
+<p class="opts">
+<input type="radio" name="ch07-roasting-physics-q1-2" id="ch07-roasting-physics-q1-2-0" value="0"> <label for="ch07-roasting-physics-q1-2-0">reduce noise and increase delay</label><br>
+<input type="radio" name="ch07-roasting-physics-q1-2" id="ch07-roasting-physics-q1-2-1" value="1"> <label for="ch07-roasting-physics-q1-2-1">increase noise and reduce delay</label><br>
+<input type="radio" name="ch07-roasting-physics-q1-2" id="ch07-roasting-physics-q1-2-2" value="2"> <label for="ch07-roasting-physics-q1-2-2">change neither</label><br>
+</p>
+<div><input type="hidden" name="ch07-roasting-physics-q1-2-kind" value="choice"><input type="hidden" name="ch07-roasting-physics-q1-2-ans" value="0"></div>
+<p class="fb" id="ch07-roasting-physics-q1-2-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch07-roasting-physics-q1"><input type="hidden" name="quiz-n" value="3"><input type="button" class="check" value="Check answers"> <a href="#ans-ch07-roasting-physics-q1">Answers</a></p>
+</form>
+</div>
+<h2>Labs</h2>
+<div class="lab">
+<h3 id="lab-L7.1">Lab L7.1: Two profiles, one colour</h3>
+<p><span class="lbl">Aim.</span> Roast one coffee by two profiles to the same colour and mass loss, and test whether they differ in the cup.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Follow Section 1: extraction, supervision, fire control and carbon monoxide awareness.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>Roaster with logging</li>
+<li>Colour meter or a fixed reference for ground colour</li>
+<li>Balance</li>
+<li>Cupping or brewing equipment</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Profile A is fast (higher charge temperature and early heat); profile B is slow (lower charge temperature, gentler throughout). Aim for the same ground colour.</li>
+<li>Roast each profile three times; record the log, mass loss, colour, and first crack and drop times.</li>
+<li>Rest both equally, brew at matched extraction yield, and run triangle tests and descriptive scoring blind.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Roast</th><th>Profile</th><th>Total time</th><th>Dev. time</th><th>Mass loss (%)</th><th>Ground colour</th><th>Notes</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Did the profiles match on colour and mass loss? If so, did tasters detect a difference?</li>
+</ol>
+</div>
+<div class="lab">
+<h3 id="lab-L7.2">Lab L7.2: Rate of rise from a log</h3>
+<p><span class="lbl">Aim.</span> Compute rate of rise from your own logged data and choose a window.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>A roast log exported at 1 to 5 s resolution</li>
+<li>The rate-of-rise calculator or a spreadsheet</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Compute rate of rise with windows of 3, 15, 30 and 60 s.</li>
+<li>Mark the turning point, first crack and drop.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Window (s)</th><th>Noise before first crack (SD)</th><th>RoR at first crack</th><th>First crack visible?</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Which window best balances noise against delay for your roaster?</li>
+</ol>
+</div>
+<div class="lab">
+<h3 id="lab-L7.3">Lab L7.3: Listening to cracks</h3>
+<p><span class="lbl">Aim.</span> Record first and second crack and compare their event rates and frequencies.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>Phone with a recording app</li>
+<li>Free audio software with a spectrogram view</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Record a roast through first crack and into second crack, with the phone at a fixed distance.</li>
+<li>Count crack events per 10 s and inspect spectrograms of each type.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Interval</th><th>First-crack events</th><th>Second-crack events</th><th>Dominant frequency</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Compare the event rates and frequencies with Wilson's results.</li>
+</ol>
+</div>
+<div class="lab">
+<h3 id="lab-L7.4">Lab L7.4: Expansion and density</h3>
+<p><span class="lbl">Aim.</span> Measure the change in volume and density on roasting for two profiles.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>1 L cylinder</li>
+<li>Balance</li>
+<li>Green and roasted beans from L7.1</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Measure the bulk density of the green coffee and of each roasted batch; compute mass loss and relative volume per gram of green coffee.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Sample</th><th>Bulk density (g/L)</th><th>Mass loss (%)</th><th>Relative volume</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Relative volume = (green density/roasted density) × (1 − mass loss). Which profile expanded more?</li>
+</ol>
+</div>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section 2]</span> Name the three routes of heat transfer in a drum roaster, and say which dominates in a fluid-bed roaster. <a class="sol" href="ch07-roasting-physics-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section 9]</span> Why should logged bean temperatures from two different roasters not be compared directly? <a class="sol" href="ch07-roasting-physics-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section 9]</span> A batch of 12.0 kg of green coffee yields 10.25 kg roasted. Compute the mass loss. <a class="sol" href="ch07-roasting-physics-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section 2]</span> Compute the radiative flux from a drum wall at 280 °C to beans at 180 °C with emissivity 0.85. <a class="sol" href="ch07-roasting-physics-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section 3]</span> Use the simulator to compare drop times at T<sub>air</sub> = 250 and 230 °C, and at 11% and 13% moisture. Which change has the larger effect, and why? <a class="sol" href="ch07-roasting-physics-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section 9]</span> Estimate the standard deviation of a rate of rise computed by least squares over 11 readings at 1 s spacing, with probe noise of 0.3 °C. <a class="sol" href="ch07-roasting-physics-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section 7]</span> Green bulk density is 700 g/L and roasted bulk density 380 g/L after a 15% mass loss. Compute the relative volume per gram of green coffee. <a class="sol" href="ch07-roasting-physics-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section 6]</span> Using 232 kJ per kg of dry matter, how much reaction heat would a 15 kg batch at 11% moisture release if all of it were released by drop? Compare with the heat needed for evaporation. <a class="sol" href="ch07-roasting-physics-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[B, Section 3]</span> Why does the teaching model finish with almost no moisture while real roasted beans keep 1.5 to 4%? <a class="sol" href="ch07-roasting-physics-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[C, Section 4]</span> Explain, using the Biot number and the internal time scale, why ground colour can be lighter than whole-bean colour after a fast roast, and what that predicts for the cup. <a class="sol" href="ch07-roasting-physics-solutions.html#s10">Solution</a></li>
+<li id="p0-11"><span class="tier">[C, Section 11]</span> A roaster claims that rate of rise must decline continuously to avoid baked coffee. Frame this as a testable hypothesis and design the test. <a class="sol" href="ch07-roasting-physics-solutions.html#s11">Solution</a></li>
+<li id="p0-12"><span class="tier">[C, Section 7]</span> Why does a high-temperature, short-time roast change extraction yield at equal colour? <a class="sol" href="ch07-roasting-physics-solutions.html#s12">Solution</a></li>
+<li id="p0-13"><span class="tier">[C, Section 9]</span> Propose how online exhaust measurements could replace or supplement bean probes for profile control. <a class="sol" href="ch07-roasting-physics-solutions.html#s13">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>References</h2>
+<ol>
+<li>Bustos-Vanegas J.D. et al. (2025), Modeling and simulation of coffee bean heating during roasting: effect of heat generation, <em>Frontiers in Food Science and Technology</em>.</li>
+<li>Schenker S. (2000), Investigations on the hot air roasting of coffee beans, Dissertation ETH Zurich No. 13620.</li>
+<li>Wilson P.S. (2014), Coffee roasting acoustics, <em>Journal of the Acoustical Society of America</em>; summarised by Daily Coffee News.</li>
+<li>Roasted coffee beans characterization through optoelectronic color sensing (Brazilian coffee research repository).</li>
+<li>Wieland F., Gloess A.N., Keller M., Wetzel A., Schenker S., Yeretzian C. (2012), Online monitoring of coffee roasting by proton transfer reaction time-of-flight mass spectrometry, <em>Analytical and Bioanalytical Chemistry</em> 402:2531.</li>
+<li>Alstrup J., Petersen M.A., Larsen F.H., Münchow M. (2020), The effect of roast development time modulations on the sensory profile and chemical composition of the coffee brew as measured by NMR and DHS-GC-MS, <em>Beverages</em> 6:70.</li>
+<li>Münchow M., Alstrup J., Flavor development: the relationship between time and color in coffee roasting, <em>Roast Magazine</em>.</li>
+</ol>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-ch07-roasting-physics-q0">Check your understanding: Sections 2 and 3</h3>
+<ol>
+<li><span class="key">Evaporation.</span> <span id="ch07-roasting-physics-q0-0-ex">Evaporation, which begins near 100 °C, is the largest heat sink in the middle of the roast.</span></li>
+<li><span class="key">46 &amp;deg;C/min.</span> <span id="ch07-roasting-physics-q0-1-ex">C = 0.87 × 1.4 + 0.13 × 4.18 = 1.761 kJ/K. 1,350 W/1,761 J/K = 0.767 K/s = 46 °C/min.</span></li>
+</ol>
+<h3 id="ans-ch07-roasting-physics-q1">Chapter review</h3>
+<ol>
+<li><span class="key">17.4 %.</span> <span id="ch07-roasting-physics-q1-0-ex">120 s/690 s = 17.4%.</span></li>
+<li><span class="key">more expansion and larger pores.</span> <span id="ch07-roasting-physics-q1-1-ex">Higher temperatures expand the bean more and create larger pores.</span></li>
+<li><span class="key">reduce noise and increase delay.</span> <span id="ch07-roasting-physics-q1-2-ex">Fitting more points reduces noise but reports a slope centred further in the past.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="ch07-roasting-physics-solutions.html">7. Roasting I: heat and mass transfer solutions</a>.</p>
+
+<div class="nav bottom"><a href="ch06-green-coffee.html" rel="prev" title="6. Green coffee: the roasting input">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch08-roasting-chemistry.html" rel="next" title="8. Roasting II: chemistry">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

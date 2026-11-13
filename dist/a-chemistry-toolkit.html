@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix A. Chemistry toolkit - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch09-capstone.html" rel="prev" title="9. Capstone: experimental design and one variable followed to the cup">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="b-organic-chemistry.html" rel="next" title="Appendix B. Organic chemistry for coffee">Next &gt;</a></div>
+<h1>Appendix A. Chemistry toolkit</h1>
+<p class="lead">Which general chemistry does the rest of the book assume, and how does it apply to a cup?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Convert between mass fraction, mass concentration, molarity, ppm and 'as CaCO<sub>3</sub>' units.</li>
+<li>Use molar masses and balanced equations to move between mass and amount of substance.</li>
+<li>Write an equilibrium constant and use K<sub>a</sub>, pK<sub>a</sub> and the fraction dissociated at a given pH.</li>
+<li>Derive and apply the Henderson-Hasselbalch equation, and explain buffering.</li>
+<li>Explain how bicarbonate in brew water neutralises coffee acids.</li>
+<li>Use a solubility product to decide whether scale will form.</li>
+</ul>
+</div>
+<p>This appendix collects the general chemistry that the chapters use, explained through coffee examples. It assumes you met moles and equations in a first chemistry course and supplies what has faded. Each section is referred to from the chapters where it is needed; read it then, or straight through as a refresher. A free general chemistry textbook such as OpenStax <em>Chemistry 2e</em> gives a fuller treatment.</p>
+<h2>A.1 Amount of substance</h2>
+<p>Chemists count particles in <dfn id="t-mole">moles</dfn>. One mole is 6.022 × 10<sup>23</sup> particles, a number chosen so that one mole of carbon-12 atoms weighs exactly 12 g. The <dfn id="t-molar-mass">molar mass</dfn> M of a compound, in g/mol, is the sum of the masses of the atoms in its formula. The amount of substance follows from the mass:</p>
+<table class="deq" summary="Equation A.1"><tr><td class="f">n = m / M</td><td class="n" id="eq-amount">(A.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">n</td><td>amount of substance (mol)</td></tr>
+<tr><td class="w"></td><td class="s">m</td><td>mass (g)</td></tr>
+<tr><td class="w"></td><td class="s">M</td><td>molar mass (g/mol)</td></tr>
+</table>
+<p>The compounds used most often in this book:</p>
+<table><thead><tr><th>Compound</th><th>Formula</th><th>M (g/mol)</th><th>Where it appears</th></tr></thead><tbody>
+<tr><td>Caffeine</td><td>C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub></td><td>194.19</td><td>Bitterness, Chapter 1</td></tr>
+<tr><td>5-Caffeoylquinic acid</td><td>C<sub>16</sub>H<sub>18</sub>O<sub>9</sub></td><td>354.31</td><td>Main chlorogenic acid, Chapter 8</td></tr>
+<tr><td>Sucrose</td><td>C<sub>12</sub>H<sub>22</sub>O<sub>11</sub></td><td>342.30</td><td>Green coffee sugar, Chapters 6 and 8</td></tr>
+<tr><td>Calcium carbonate</td><td>CaCO<sub>3</sub></td><td>100.09</td><td>Hardness and alkalinity units, Chapter 3</td></tr>
+<tr><td>Bicarbonate ion</td><td>HCO<sub>3</sub><sup>−</sup></td><td>61.02</td><td>Alkalinity, Chapter 3</td></tr>
+<tr><td>Epsom salt</td><td>MgSO<sub>4</sub>·7H<sub>2</sub>O</td><td>246.47</td><td>Water recipes, Chapter 3</td></tr>
+<tr><td>Sodium hydroxide</td><td>NaOH</td><td>40.00</td><td>Titration, Chapter 0</td></tr>
+</tbody></table>
+<p>Some salts crystallise with water molecules built into their structure, called <dfn id="t-water-of-crystallisation">water of crystallisation</dfn>. The formula and molar mass of such a <dfn id="t-hydrate">hydrate</dfn> include that water. Epsom salt, MgSO<sub>4</sub>·7H<sub>2</sub>O, is 9.86% magnesium by mass (24.305/246.47), whereas anhydrous MgSO<sub>4</sub> is 20.2%. Using the wrong one doubles the magnesium in a water recipe.</p>
+<div class="example">
+<p class="boxhead">Worked example: Caffeine in a cup</p>
+<p><span class="step">Problem.</span> A 240 mL cup contains 95 mg of caffeine. What is the caffeine concentration in mmol/L?</p>
+<p><span class="step">Plan.</span> Convert mass to moles with <a href="#eq-amount">Equation A.1</a>, then divide by volume in litres.</p>
+<p><span class="step">Solution.</span> n = 0.095 g / 194.19 g/mol = 4.89 × 10<sup>−4</sup> mol. Concentration = 4.89 × 10<sup>−4</sup> mol / 0.240 L = 2.04 × 10<sup>−3</sup> mol/L, or 2.04 mmol/L.</p>
+<p><span class="step">Check.</span> Units: mol divided by L gives mol/L, and 1 mol/L = 1,000 mmol/L.</p>
+</div>
+<h2>A.2 Concentration units</h2>
+<p>Coffee work uses several concentration units at once, and most errors in water recipes and brew calculations are unit errors.</p>
+<p><dfn id="t-mass-fraction">Mass fraction</dfn> is the mass of solute divided by the mass of solution. TDS is a mass fraction quoted in percent: a brew at 1.35% TDS has 1.35 g of dissolved solids per 100 g of brew.</p>
+<p><dfn id="t-mass-concentration">Mass concentration</dfn> is mass of solute per volume of solution, in g/L or mg/L. For a dilute solution whose density is close to 1.00 g/mL, a mass fraction of 1.35% is about 13.5 g/L. Brewed coffee is about 1.00 to 1.01 g/mL at room temperature, so the difference is under 1%. Espresso at 10% TDS is near 1.04 g/mL, and the difference matters.</p>
+<p><dfn id="t-molarity">Molarity</dfn>, in mol/L, counts particles per litre. It is the natural unit for reactions and equilibria, because reactions combine particles in fixed numbers.</p>
+<p><dfn id="t-parts-per-million">Parts per million</dfn> (ppm) is a mass ratio: 1 ppm = 1 mg of solute per kg of solution. For dilute water, 1 kg occupies very nearly 1 L, so 1 ppm ≈ 1 mg/L.</p>
+<h3>Equivalents and "as CaCO<sub>3</sub>"</h3>
+<p>Some quantities depend on electric charge rather than on the number of particles. An <dfn id="t-equivalent">equivalent</dfn> is one mole of charge, and a milliequivalent (meq) is a thousandth of that. One millimole of Ca<sup>2+</sup> carries 2 meq of positive charge; one millimole of HCO<sub>3</sub><sup>−</sup> carries 1 meq of negative charge.</p>
+<p>Water hardness and alkalinity are reported in mg/L "as CaCO<sub>3</sub>". The convention asks: how many milligrams of calcium carbonate per litre would carry the same number of equivalents? Calcium carbonate has a molar mass of 100.09 g/mol and carries 2 equivalents per mole, so one equivalent of CaCO<sub>3</sub> weighs 50.04 g. Two consequences follow.</p>
+<ul>
+<li>Hardness counts Ca<sup>2+</sup> and Mg<sup>2+</sup>, each carrying 2 meq per mmol, so each mmol/L of either is reported as 2 × 50.04 = 100.09 mg/L as CaCO<sub>3</sub>.</li>
+<li>Alkalinity counts the capacity to neutralise acid. Each mmol/L of HCO<sub>3</sub><sup>−</sup> neutralises 1 mmol/L of hydrogen ions (1 meq/L), and is reported as 50.04 mg/L as CaCO<sub>3</sub>.</li>
+</ul>
+<div class="example">
+<p class="boxhead">Worked example: Hardness from a water report</p>
+<p><span class="step">Problem.</span> A water contains Ca<sup>2+</sup> 25 mg/L and Mg<sup>2+</sup> 8.0 mg/L. What is its hardness as CaCO<sub>3</sub>?</p>
+<p><span class="step">Plan.</span> Convert each ion to mmol/L, add, and multiply by 100.09.</p>
+<p><span class="step">Solution.</span> Calcium: 25/40.08 = 0.624 mmol/L. Magnesium: 8.0/24.31 = 0.329 mmol/L. Total: 0.953 mmol/L, so hardness = 0.953 × 100.09 = 95.4 mg/L as CaCO<sub>3</sub>.</p>
+<p><span class="step">Check.</span> Per milligram, magnesium contributes 40.08/24.31 = 1.65 times as much hardness as calcium, because it is the lighter atom: each milligram contains more atoms.</p>
+</div>
+<div class="quiz">
+<h3>Check your understanding: Sections A.1 and A.2</h3>
+<form class="quiz-form" id="a-chemistry-toolkit-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. A 30 mL espresso contains 65 mg of caffeine. What is the caffeine concentration in mmol/L?</p>
+<p class="opts"><label for="a-chemistry-toolkit-q0-0">Answer:</label> <input type="text" size="8" name="a-chemistry-toolkit-q0-0" id="a-chemistry-toolkit-q0-0"> mmol/L</p>
+<div><input type="hidden" name="a-chemistry-toolkit-q0-0-kind" value="numeric"><input type="hidden" name="a-chemistry-toolkit-q0-0-ans" value="11.2"><input type="hidden" name="a-chemistry-toolkit-q0-0-tol" value="0.1"></div>
+<p class="fb" id="a-chemistry-toolkit-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. A water contains 61 mg/L of bicarbonate. What is its alkalinity in mg/L as CaCO<sub>3</sub>?</p>
+<p class="opts"><label for="a-chemistry-toolkit-q0-1">Answer:</label> <input type="text" size="8" name="a-chemistry-toolkit-q0-1" id="a-chemistry-toolkit-q0-1"> mg/L</p>
+<div><input type="hidden" name="a-chemistry-toolkit-q0-1-kind" value="numeric"><input type="hidden" name="a-chemistry-toolkit-q0-1-ans" value="50"><input type="hidden" name="a-chemistry-toolkit-q0-1-tol" value="0.2"></div>
+<p class="fb" id="a-chemistry-toolkit-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="a-chemistry-toolkit-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-a-chemistry-toolkit-q0">Answers</a></p>
+</form>
+</div>
+<h2>A.3 Balanced equations and stoichiometry</h2>
+<p>A balanced chemical equation states the ratios in which particles react, and <dfn id="t-stoichiometry">stoichiometry</dfn> is the arithmetic that follows from those ratios. Bicarbonate in brew water reacts with a coffee acid, written HA:</p>
+<table class="deq" summary="Equation A.2"><tr><td class="f">HA + HCO<sub>3</sub><sup>&minus;</sup> &rarr; A<sup>&minus;</sup> + CO<sub>2</sub> + H<sub>2</sub>O</td><td class="n" id="eq-neut">(A.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">HA</td><td>an acid with one acidic hydrogen</td></tr>
+<tr><td class="w"></td><td class="s">A<sup>&minus;</sup></td><td>the acid's conjugate base</td></tr>
+</table>
+<p>One mole of bicarbonate removes one mole of acidic hydrogen. A water with 40 mg/L alkalinity contains 40/50.04 = 0.80 mmol/L of bicarbonate, and therefore neutralises 0.80 mmol of acid per litre before the coffee is ever tasted. Chapter 0 gives a typical titratable acidity for drip coffee of about 1.6 mmol/L, measured after brewing. Moderately alkaline water therefore neutralises an amount of acid comparable to what remains, which is the stoichiometric reason that alkalinity dominates the effect of water on acidity (Chapter 3).</p>
+<h2>A.4 Chemical equilibrium</h2>
+<p>Many reactions do not run to completion. They reach a state of <dfn id="t-chemical-equilibrium">chemical equilibrium</dfn> in which the forward and reverse reactions proceed at equal rates, so concentrations stop changing. For a reaction aA + bB ↔ cC + dD at equilibrium,</p>
+<table class="deq" summary="Equation A.3"><tr><td class="f">K = [C]<sup>c</sup>[D]<sup>d</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>)</td><td class="n" id="eq-k">(A.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">K</td><td>equilibrium constant (depends on the reaction)</td></tr>
+<tr><td class="w"></td><td class="s">[X]</td><td>equilibrium concentration of species X (mol/L)</td></tr>
+<tr><td class="w"></td><td class="s">a, b, c, d</td><td>coefficients in the balanced equation</td></tr>
+</table>
+<p>Strictly, the concentrations should be replaced by <dfn id="t-activity">activities</dfn>, effective concentrations that account for interactions between ions. In dilute brew water the difference is a few percent; in espresso it can be larger. K depends on temperature but not on the concentrations themselves.</p>
+<p>The <dfn id="t-reaction-quotient">reaction quotient</dfn> Q has the same form as K but uses the concentrations present at any moment. If Q is less than K, the reaction proceeds forward; if Q is greater, it proceeds backward. <dfn id="t-le-chatelier-s-principle">Le Chatelier's principle</dfn> summarises the consequence: a system at equilibrium responds to a change by partly reversing it. Removing a product, such as CO<sub>2</sub> escaping from a hot brew, drives the reaction forward.</p>
+<h2>A.5 Acids, bases and pH</h2>
+<p>An <dfn id="t-acid">acid</dfn> is a substance that donates a hydrogen ion (a proton, H<sup>+</sup>); a <dfn id="t-base">base</dfn> accepts one. The <dfn id="t-conjugate-base">conjugate base</dfn> of an acid HA is the species A<sup>−</sup> left after the proton is lost.</p>
+<p>The concentration of free hydrogen ions is expressed on a logarithmic scale:</p>
+<table class="deq" summary="Equation A.4"><tr><td class="f">pH = &minus;log<sub>10</sub>[H<sup>+</sup>]</td><td class="n" id="eq-ph">(A.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">[H<sup>+</sup>]</td><td>concentration of hydrogen ions (strictly, activity) (mol/L)</td></tr>
+</table>
+<p>A brew at pH 5.0 has [H<sup>+</sup>] = 1.0 × 10<sup>−5</sup> mol/L. Because the scale is logarithmic, a brew at pH 4.9 has 10<sup>0.1</sup> = 1.26 times as many free hydrogen ions.</p>
+<p>A <dfn id="t-weak-acid">weak acid</dfn> gives up its proton only partly. For HA ↔ H<sup>+</sup> + A<sup>−</sup>, the equilibrium constant is called the <dfn id="t-acid-dissociation-constant">acid dissociation constant</dfn>:</p>
+<table class="deq" summary="Equation A.5"><tr><td class="f">K<sub>a</sub> = [H<sup>+</sup>][A<sup>&minus;</sup>] / [HA], and pK<sub>a</sub> = &minus;log<sub>10</sub> K<sub>a</sub></td><td class="n" id="eq-ka">(A.5)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">K<sub>a</sub></td><td>acid dissociation constant (mol/L)</td></tr>
+<tr><td class="w"></td><td class="s">pK<sub>a</sub></td><td>its negative logarithm; smaller pK<sub>a</sub> means a stronger acid</td></tr>
+</table>
+<h3>What fraction of an acid is dissociated?</h3>
+<p>The fraction present as the conjugate base, α, follows from <a href="#eq-ka">Equation A.5</a> in three steps. First, rearrange to [A<sup>−</sup>]/[HA] = K<sub>a</sub>/[H<sup>+</sup>]. Second, write α = [A<sup>−</sup>]/([HA] + [A<sup>−</sup>]) and divide top and bottom by [A<sup>−</sup>]: α = 1/(1 + [HA]/[A<sup>−</sup>]) = 1/(1 + [H<sup>+</sup>]/K<sub>a</sub>). Third, express the ratio in logarithms: [H<sup>+</sup>]/K<sub>a</sub> = 10<sup>pK<sub>a</sub> − pH</sup>. So</p>
+<table class="deq" summary="Equation A.6"><tr><td class="f">&alpha; = 1 / (1 + 10<sup>pK<sub>a</sub> &minus; pH</sup>)</td><td class="n" id="eq-alpha">(A.6)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">&alpha;</td><td>fraction of the acid present as its conjugate base (fraction)</td></tr>
+</table>
+<p>When pH equals pK<sub>a</sub>, α = 1/2: the acid is half dissociated. Each pH unit above pK<sub>a</sub> multiplies the ratio of conjugate base to acid by 10.</p>
+<p>Approximate pK<sub>a</sub> values at 25 °C for the acids of coffee:</p>
+<table><thead><tr><th>Acid</th><th>pK<sub>a</sub> values</th></tr></thead><tbody>
+<tr><td>Phosphoric</td><td>2.15, 7.20, 12.35</td></tr>
+<tr><td>Citric</td><td>3.13, 4.76, 6.40</td></tr>
+<tr><td>Malic</td><td>3.40, 5.20</td></tr>
+<tr><td>Chlorogenic (5-caffeoylquinic, acid group)</td><td>about 3.4</td></tr>
+<tr><td>Quinic</td><td>about 3.5</td></tr>
+<tr><td>Lactic</td><td>3.86</td></tr>
+<tr><td>Acetic</td><td>4.76</td></tr>
+<tr><td>Carbonic</td><td>6.35, 10.33</td></tr>
+</tbody></table>
+<p>Acids with more than one value are <dfn id="t-polyprotic-acid">polyprotic</dfn>: they can give up more than one proton, each with its own pK<sub>a</sub>.</p>
+<div class="example">
+<p class="boxhead">Worked example: Speciation at brew pH</p>
+<p><span class="step">Problem.</span> At pH 5.0, what fractions of acetic acid, 5-caffeoylquinic acid and citric acid (each of its three steps) are dissociated?</p>
+<p><span class="step">Plan.</span> Apply <a href="#eq-alpha">Equation A.6</a> to each pK<sub>a</sub>, treating the steps of citric acid as independent, a good approximation when the pK<sub>a</sub> values are well separated.</p>
+<p><span class="step">Solution.</span> Acetic acid (4.76): 1/(1 + 10<sup>−0.24</sup>) = 0.635, so 36.5% remains as the neutral molecule. 5-Caffeoylquinic acid (3.4): 1/(1 + 10<sup>−1.6</sup>) = 0.975. Citric acid: first step 0.987, second 0.635, third 0.038.</p>
+<p><span class="step">Check.</span> Two consequences follow. Most of the acid in a brew is already present as conjugate base, which is why the brew resists changes in pH. And the neutral fraction differs greatly between acids: acetic acid can be smelled only in its neutral, volatile form, and that form is a larger share for acetic acid than for any other main coffee acid.</p>
+</div>
+<h2>A.6 Buffers</h2>
+<p>A <dfn id="t-buffer">buffer</dfn> is a mixture of a weak acid and its conjugate base. Taking logarithms of <a href="#eq-ka">Equation A.5</a> and rearranging gives the <dfn id="t-henderson-hasselbalch-equation">Henderson-Hasselbalch equation</dfn>:</p>
+<table class="deq" summary="Equation A.7"><tr><td class="f">pH = pK<sub>a</sub> + log<sub>10</sub>([A<sup>&minus;</sup>] / [HA])</td><td class="n" id="eq-hh">(A.7)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">[A<sup>&minus;</sup>]/[HA]</td><td>ratio of conjugate base to acid</td></tr>
+</table>
+<p>The pH depends on the ratio of base to acid, not on their total amount. Diluting a buffer leaves the ratio almost unchanged, so the pH barely moves, while the total amount of acid that can be titrated falls in proportion. Brewed coffee is a buffer of many acids and their salts. That is why stronger and weaker brews of the same coffee have almost the same pH but different titratable acidity, and why titratable acidity tracks sourness better (Chapters 0 and 1).</p>
+<p><dfn id="t-buffer-capacity">Buffer capacity</dfn>, the amount of strong acid or base needed to change the pH by one unit, is greatest when pH equals pK<sub>a</sub> and grows with the total concentration of the buffer. Near brew pH 5, the second step of citric acid and acetic acid buffer most effectively.</p>
+<div class="widget">
+<h3>Carbonate speciation</h3>
+<form class="w" id="a-chemistry-toolkit-w22" action="#">
+<div><input type="hidden" name="kind" value="speciation"></div>
+<div class="f"><label for="a-chemistry-toolkit-w22-ph">pH</label> <input type="text" size="7" name="ph" id="a-chemistry-toolkit-w22-ph" value="7.5"> </div>
+<div class="f"><label for="a-chemistry-toolkit-w22-alk">Alkalinity</label> <input type="text" size="7" name="alk" id="a-chemistry-toolkit-w22-alk" value="40"> mg/L as CaCO<sub>3</sub></div>
+<div class="f"><label for="a-chemistry-toolkit-w22-pka1">pK<sub>a1</sub></label> <input type="text" size="7" name="pka1" id="a-chemistry-toolkit-w22-pka1" value="6.35"> </div>
+<div class="f"><label for="a-chemistry-toolkit-w22-pka2">pK<sub>a2</sub></label> <input type="text" size="7" name="pka2" id="a-chemistry-toolkit-w22-pka2" value="10.33"> </div>
+<p class="formula">&alpha;<sub>0</sub> = [H<sup>+</sup>]<sup>2</sup>/D, &alpha;<sub>1</sub> = [H<sup>+</sup>]K<sub>1</sub>/D, &alpha;<sub>2</sub> = K<sub>1</sub>K<sub>2</sub>/D, D = [H<sup>+</sup>]<sup>2</sup> + [H<sup>+</sup>]K<sub>1</sub> + K<sub>1</sub>K<sub>2</sub>.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="a-chemistry-toolkit-w22-out"></div>
+</form>
+</div>
+<p>The calculator applies the same fractions to carbonic acid, whose forms control the behaviour of brew water (Chapter 3). Between pH 6.5 and 8.5, almost all dissolved inorganic carbon is bicarbonate.</p>
+<h2>A.7 Solubility and scale</h2>
+<p>A sparingly soluble salt such as calcite (crystalline CaCO<sub>3</sub>) dissolves until an equilibrium is reached: CaCO<sub>3</sub>(s) ↔ Ca<sup>2+</sup> + CO<sub>3</sub><sup>2−</sup>. Because the solid's concentration does not change, it is left out of the equilibrium constant, which is called the <dfn id="t-solubility-product">solubility product</dfn>:</p>
+<table class="deq" summary="Equation A.8"><tr><td class="f">K<sub>sp</sub> = [Ca<sup>2+</sup>][CO<sub>3</sub><sup>2&minus;</sup>] &asymp; 3.3 &times; 10<sup>&minus;9</sup> at 25 &deg;C</td><td class="n" id="eq-ksp">(A.8)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">K<sub>sp</sub></td><td>solubility product of calcite (mol<sup>2</sup>/L<sup>2</sup>)</td></tr>
+</table>
+<p>If the product of the actual concentrations, the <dfn id="t-ion-product">ion product</dfn>, exceeds K<sub>sp</sub>, the solution is <dfn id="t-supersaturated">supersaturated</dfn> and calcite can deposit as scale.</p>
+<p>Calcite becomes less soluble as temperature rises, unlike most salts. Heating also drives CO<sub>2</sub> out of solution, and bicarbonate then converts to carbonate: 2HCO<sub>3</sub><sup>−</sup> → CO<sub>3</sub><sup>2−</sup> + CO<sub>2</sub> + H<sub>2</sub>O. Both effects raise the ion product in a boiler, so water that is stable in a pipe can scale a coffee machine. Chapter 3 introduces the Langelier saturation index, which packages this calculation.</p>
+<div class="example">
+<p class="boxhead">Worked example: Will this water scale?</p>
+<p><span class="step">Problem.</span> Boiler water contains Ca<sup>2+</sup> at 40 mg/L, and heating has raised carbonate to 1.0 mg/L. Is the water supersaturated with calcite?</p>
+<p><span class="step">Plan.</span> Convert both ions to mol/L, multiply, and compare with K<sub>sp</sub>.</p>
+<p><span class="step">Solution.</span> [Ca<sup>2+</sup>] = 0.040/40.08 = 9.98 × 10<sup>−4</sup> mol/L. [CO<sub>3</sub><sup>2−</sup>] = 0.0010/60.01 = 1.67 × 10<sup>−5</sup> mol/L. Ion product = 1.66 × 10<sup>−8</sup>, five times K<sub>sp</sub> at 25 °C and further above it at boiler temperature. Calcite will deposit.</p>
+<p><span class="step">Check.</span> Activity corrections lower the effective ion product by tens of percent at this concentration, not by a factor of five, so the conclusion holds.</p>
+</div>
+<h2>A.8 Logarithms and significant figures</h2>
+<p>pH, pK<sub>a</sub>, Arrhenius plots and first-order kinetics all use logarithms. The rules needed are log(ab) = log a + log b; log(a<sup>n</sup>) = n log a; ln x = 2.303 log<sub>10</sub> x; and e<sup>ln x</sup> = x. A pH quoted to two decimal places supports two significant figures in [H<sup>+</sup>]: pH 5.03 means [H<sup>+</sup>] = 9.3 × 10<sup>−6</sup> mol/L. Report results to the precision the measurement supports (Chapter 0).</p>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-acid">acid</a>; <a href="#t-acid-dissociation-constant">acid dissociation constant</a>; <a href="#t-activity">activity</a>; <a href="#t-base">base</a>; <a href="#t-buffer">buffer</a>; <a href="#t-buffer-capacity">Buffer capacity</a>; <a href="#t-chemical-equilibrium">chemical equilibrium</a>; <a href="#t-conjugate-base">conjugate base</a>; <a href="#t-equivalent">equivalent</a>; <a href="#t-henderson-hasselbalch-equation">Henderson-Hasselbalch equation</a>; <a href="#t-hydrate">hydrate</a>; <a href="#t-ion-product">ion product</a>; <a href="#t-le-chatelier-s-principle">Le Chatelier's principle</a>; <a href="#t-mass-concentration">Mass concentration</a>; <a href="#t-mass-fraction">Mass fraction</a>; <a href="#t-molar-mass">molar mass</a>; <a href="#t-molarity">Molarity</a>; <a href="#t-mole">mole</a>; <a href="#t-parts-per-million">Parts per million</a>; <a href="#t-polyprotic-acid">polyprotic acid</a>; <a href="#t-reaction-quotient">reaction quotient</a>; <a href="#t-solubility-product">solubility product</a>; <a href="#t-stoichiometry">stoichiometry</a>; <a href="#t-supersaturated">supersaturated</a>; <a href="#t-water-of-crystallisation">water of crystallisation</a>; <a href="#t-weak-acid">weak acid</a>.</p>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section A.2]</span> Convert 1.40% TDS to g/L, taking the density as 1.00 g/mL. Then estimate the error of the same approximation for an espresso at 10% TDS with density 1.04 g/mL. <a class="sol" href="a-chemistry-toolkit-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section A.5]</span> How many times more free hydrogen ions does a brew at pH 4.80 have than one at pH 5.10? <a class="sol" href="a-chemistry-toolkit-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[B, Section A.1]</span> You dissolve 0.120 g of Epsom salt in 1.000 L of water. Compute the magnesium concentration in mg/L and the hardness it contributes. <a class="sol" href="a-chemistry-toolkit-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section A.2]</span> How much sodium bicarbonate (84.01 g/mol) is needed per litre to make water with 40 mg/L alkalinity as CaCO<sub>3</sub>? <a class="sol" href="a-chemistry-toolkit-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section A.5]</span> What fraction of malic acid's first acidic group is dissociated at pH 4.9? What fraction of its second? <a class="sol" href="a-chemistry-toolkit-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section A.6]</span> An acetate buffer contains twice as much acetate as acetic acid. What is its pH? What happens to the pH if the buffer is diluted tenfold? <a class="sol" href="a-chemistry-toolkit-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section A.6]</span> Derive the Henderson-Hasselbalch equation from the definition of K<sub>a</sub>. <a class="sol" href="a-chemistry-toolkit-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section A.3]</span> A 250 mL brew is made with water of 80 mg/L alkalinity. How many millimoles of acidic hydrogen does the water neutralise? Compare with a titratable acidity of 1.6 mmol/L in the finished cup. <a class="sol" href="a-chemistry-toolkit-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[B, Section A.7]</span> A water contains Ca<sup>2+</sup> at 20 mg/L and CO<sub>3</sub><sup>2−</sup> at 0.30 mg/L. Is it supersaturated with calcite at 25 °C? <a class="sol" href="a-chemistry-toolkit-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[C, Section A.3]</span> Explain why adding bicarbonate to brew water lowers perceived sourness more than adding the same number of millimoles of calcium chloride, even though both raise the mineral content. <a class="sol" href="a-chemistry-toolkit-solutions.html#s10">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>Further reading</h2>
+<p>OpenStax, <em>Chemistry 2e</em>, chapters on stoichiometry, equilibrium and acid-base equilibria (free online, CC BY-NC-SA). Any general chemistry textbook covers the same ground.</p>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-a-chemistry-toolkit-q0">Check your understanding: Sections A.1 and A.2</h3>
+<ol>
+<li><span class="key">11.2 mmol/L.</span> <span id="a-chemistry-toolkit-q0-0-ex">0.065/194.19 = 3.35 × 10<sup>−4</sup> mol in 0.030 L gives 11.2 mmol/L.</span></li>
+<li><span class="key">50 mg/L.</span> <span id="a-chemistry-toolkit-q0-1-ex">61/61.02 = 1.00 mmol/L = 1.00 meq/L; × 50.04 = 50.0.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="a-chemistry-toolkit-solutions.html">Appendix A. Chemistry toolkit solutions</a>.</p>
+
+<div class="nav bottom"><a href="ch09-capstone.html" rel="prev" title="9. Capstone: experimental design and one variable followed to the cup">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="b-organic-chemistry.html" rel="next" title="Appendix B. Organic chemistry for coffee">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

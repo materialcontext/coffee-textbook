@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix D. Analytical methods - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="c-physical-chemistry.html" rel="prev" title="Appendix C. Physical chemistry and transport">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="e-statistics.html" rel="next" title="Appendix E. Statistics for sensory work and experiments">Next &gt;</a></div>
+<h1>Appendix D. Analytical methods</h1>
+<p class="lead">How are the numbers in coffee research measured, and what limits each method?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Explain the principle, calibration and main sources of error of gravimetry, titration, pH and conductivity measurement.</li>
+<li>Apply the Beer-Lambert law to UV-visible absorbance data.</li>
+<li>Describe HPLC, gas chromatography and mass spectrometry, and calculate chromatographic resolution.</li>
+<li>Explain GC-olfactometry, aroma extract dilution analysis and stable isotope dilution analysis.</li>
+<li>Describe NMR, colour measurement and particle sizing as used in coffee studies.</li>
+</ul>
+</div>
+<p>The chapters quote measurements made by many methods: a refractometer reading, a titration, an HPLC result, a mass spectrum, a colour number. To judge a result you need to know what the method measures, how it is calibrated and what can go wrong. This appendix covers each method the book cites, from the simplest to the most specialised.</p>
+<h2>D.1 Gravimetry</h2>
+<p><dfn id="t-gravimetry">Gravimetry</dfn> measures mass. Oven drying gives moisture content (Chapter 6) and, applied to a brew, dissolved solids (Chapter 0). Its accuracy depends on the balance and on whether drying removes only water. Volatile compounds lost with the water bias the result upward; incomplete drying biases it downward. The usual test of completion is <dfn id="t-constant-mass">constant mass</dfn>: successive weighings after further drying agree within a set tolerance.</p>
+<h2>D.2 Titration and pH</h2>
+<p>In an acid-base <dfn id="t-titration">titration</dfn>, a solution of known concentration is added to a measured sample until an endpoint is reached: pH 8.2 for coffee acidity (Chapter 0) or pH 4.5 for water alkalinity, titrated with acid (Chapter 3). The titrant must be <dfn id="t-standardisation">standardised</dfn>, its exact concentration found by titrating a <dfn id="t-primary-standard">primary standard</dfn>, a pure, stable substance weighed accurately. Potassium hydrogen phthalate is the usual primary standard for sodium hydroxide, which absorbs CO<sub>2</sub> from the air and slowly loses strength.</p>
+<p>A <dfn id="t-glass-electrode">glass electrode</dfn> measures pH. A thin glass membrane develops an electrical potential that depends on the hydrogen-ion activity on each side. The ideal response is given by the Nernst equation:</p>
+<table class="deq" summary="Equation D.1"><tr><td class="f">slope = 2.303 RT / F = 59.16 mV per pH unit at 25 &deg;C</td><td class="n" id="eq-nernst">(D.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">F</td><td>Faraday constant, 96,485 (C/mol)</td></tr>
+<tr><td class="w"></td><td class="s">T</td><td>absolute temperature (K)</td></tr>
+</table>
+<p>The slope is proportional to absolute temperature, which is why pH meters need temperature compensation. Calibrating with two or three buffers of known pH fixes the meter's zero and slope. A slope below about 95% of the ideal value indicates an ageing or dirty electrode.</p>
+<div class="example">
+<p class="boxhead">Worked example: Calibrating a pH meter</p>
+<p><span class="step">Problem.</span> A meter reads +177.0 mV in pH 4.01 buffer and 0.0 mV in pH 7.00 buffer at 25 °C. What is its slope as a percentage of ideal, and what is the pH of a brew reading +118.0 mV?</p>
+<p><span class="step">Plan.</span> The slope is the change in potential per pH unit between the buffers; then interpolate from the pH 7 buffer.</p>
+<p><span class="step">Solution.</span> Slope = 177.0/(7.00 − 4.01) = 59.2 mV per pH, 100.1% of the Nernst value. pH = 7.00 − 118.0/59.2 = 5.01.</p>
+<p><span class="step">Check.</span> A positive reading means the sample is more acidic than pH 7, as a brew should be.</p>
+</div>
+<h2>D.3 Conductivity and "TDS" meters</h2>
+<p><dfn id="t-conductivity">Conductivity</dfn>, in µS/cm, measures how well a solution carries electric current, which rises with the concentration and mobility of its ions. Handheld "TDS" meters for water multiply conductivity by a fixed factor, typically 0.5 to 0.7, to give mg/L, assuming a particular salt. Waters with equal readings can differ greatly in hardness and alkalinity, which is why Chapter 3 works from individual ion concentrations. A reading of 300 µS/cm with a factor of 0.65 is displayed as 195 mg/L.</p>
+<h2>D.4 Refractometry</h2>
+<p>A refractometer measures the refractive index of a liquid, which rises with dissolved solids. Coffee refractometers convert it to TDS with a calibration specific to coffee. Temperature, filtration of the sample and calibration against standards made by mass are the main controls of accuracy (Chapter 0, Section 4).</p>
+<h2>D.5 UV-visible spectroscopy</h2>
+<p>Molecules with alternating double and single bonds absorb ultraviolet or visible light. A spectrophotometer passes light of one wavelength through a sample and measures the fraction transmitted. <dfn id="t-absorbance">Absorbance</dfn> is defined as A = log<sub>10</sub>(I<sub>0</sub>/I), where I<sub>0</sub> and I are the intensities entering and leaving. The <dfn id="t-beer-lambert-law">Beer-Lambert law</dfn> relates absorbance to concentration:</p>
+<table class="deq" summary="Equation D.2"><tr><td class="f">A = &epsilon; l c</td><td class="n" id="eq-beer">(D.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">A</td><td>absorbance (dimensionless)</td></tr>
+<tr><td class="w"></td><td class="s">&epsilon;</td><td>molar absorptivity (L mol<sup>&minus;1</sup> cm<sup>&minus;1</sup>)</td></tr>
+<tr><td class="w"></td><td class="s">l</td><td>path length through the sample (cm)</td></tr>
+<tr><td class="w"></td><td class="s">c</td><td>concentration (mol/L)</td></tr>
+</table>
+<p>The law holds best for dilute solutions, with absorbances between about 0.1 and 1.</p>
+<div class="example">
+<p class="boxhead">Worked example: Chlorogenic acids by absorbance</p>
+<p><span class="step">Problem.</span> 0.50 g of ground coffee is extracted into 50 mL of hot water, filtered and diluted 1:50. The diluted extract has an absorbance of 0.300 at 325 nm in a 1 cm cell. Taking ε = 1.9 × 10<sup>4</sup> L mol<sup>−1</sup> cm<sup>−1</sup> for 5-caffeoylquinic acid (values vary with solvent), estimate the chlorogenic acid content of the coffee.</p>
+<p><span class="step">Plan.</span> Find c from <a href="#eq-beer">Equation D.2</a>, convert to mass concentration, undo the dilution, then divide by the coffee mass.</p>
+<p><span class="step">Solution.</span> c = 0.300/(1.9 × 10<sup>4</sup> × 1) = 1.58 × 10<sup>−5</sup> mol/L, or 5.6 mg/L as 5-caffeoylquinic acid (354.31 g/mol). Undiluted: 280 mg/L. In 0.050 L: 14.0 mg. In 0.50 g of coffee: 2.8% by mass.</p>
+<p><span class="step">Check.</span> Other compounds also absorb at 325 nm, melanoidins most of all, so the result is an upper estimate of total chlorogenic acids, biased upward more in dark roasts.</p>
+</div>
+<h2>D.6 Chromatography</h2>
+<p><dfn id="t-chromatography">Chromatography</dfn> separates a mixture by passing it through a column. A <dfn id="t-stationary-phase">stationary phase</dfn> is fixed inside the column and a <dfn id="t-mobile-phase">mobile phase</dfn> flows through it. Each compound spends a characteristic share of its time held by the stationary phase, so compounds leave the column at different <dfn id="t-retention-time">retention times</dfn>.</p>
+<p><dfn id="t-high-performance-liquid-chromatography">High-performance liquid chromatography</dfn> (HPLC) pumps a liquid mobile phase at high pressure through a packed column. Reversed-phase columns, with a non-polar stationary phase and a water-methanol or water-acetonitrile mobile phase, separate caffeine, trigonelline and the chlorogenic acid isomers. A UV detector measures each compound as it leaves, quantified against standards.</p>
+<p>Gas chromatography (GC) uses a gas mobile phase and a heated capillary column, for volatile compounds. Coffee volatiles must first be collected: by solvent extraction, by solvent-assisted flavour evaporation (SAFE), by sampling the gas above the coffee, or by solid-phase microextraction (SPME), in which a coated fibre absorbs volatiles. The choice of method changes which compounds are recovered (Chapter 1).</p>
+<p><dfn id="t-resolution">Resolution</dfn> measures how well two neighbouring peaks are separated:</p>
+<table class="deq" summary="Equation D.3"><tr><td class="f">R<sub>s</sub> = 2(t<sub>2</sub> &minus; t<sub>1</sub>) / (w<sub>1</sub> + w<sub>2</sub>)</td><td class="n" id="eq-rs">(D.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">t<sub>1</sub>, t<sub>2</sub></td><td>retention times of the two peaks (min)</td></tr>
+<tr><td class="w"></td><td class="s">w<sub>1</sub>, w<sub>2</sub></td><td>widths of the peaks at their base (min)</td></tr>
+</table>
+<p>R<sub>s</sub> = 1.5 gives essentially complete separation.</p>
+<h2>D.7 Mass spectrometry</h2>
+<p>A <dfn id="t-mass-spectrometer">mass spectrometer</dfn> turns molecules into ions and separates the ions by their mass-to-charge ratio, m/z. In <dfn id="t-electron-ionisation">electron ionisation</dfn>, the standard source for GC-MS, energetic electrons knock an electron out of each molecule, and the resulting ion often breaks into fragments in a reproducible pattern that can be matched against libraries. 2-Furfurylthiol (C<sub>5</sub>H<sub>6</sub>OS, molar mass 114) shows its molecular ion at m/z 114 and a dominant fragment at m/z 81, the furfuryl cation: the same species from which it forms during roasting (Chapter 8).</p>
+<p>Gentler ionisation fragments less. <dfn id="t-proton-transfer-reaction-mass-spectrometry">Proton-transfer-reaction mass spectrometry</dfn> (PTR-MS) transfers a proton from H<sub>3</sub>O<sup>+</sup> ions to volatile molecules, giving mostly the protonated molecule. It needs no chromatography and can follow roaster exhaust once per second (Chapter 7), but it cannot separate different compounds that have the same mass.</p>
+<h3>Stable isotope dilution analysis</h3>
+<p>Recovery of trace volatiles varies from sample to sample. In <dfn id="t-stable-isotope-dilution-analysis">stable isotope dilution analysis</dfn> (SIDA), a known amount of the target compound labelled with a heavy isotope (deuterium or carbon-13) is added at the start. It behaves chemically like the natural compound through every step but has a different mass, so the mass spectrometer can measure both:</p>
+<table class="deq" summary="Equation D.4"><tr><td class="f">n<sub>analyte</sub> = n<sub>label</sub> &times; (A<sub>analyte</sub> / A<sub>label</sub>) &times; RF</td><td class="n" id="eq-sida">(D.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">n</td><td>amount of analyte or of added label (ng)</td></tr>
+<tr><td class="w"></td><td class="s">A</td><td>peak area of analyte or label</td></tr>
+<tr><td class="w"></td><td class="s">RF</td><td>response factor, measured from known mixtures (dimensionless)</td></tr>
+</table>
+<p>Losses affect the analyte and the label equally and cancel in the ratio, which makes SIDA the reference method for trace odorants such as thiols.</p>
+<h2>D.8 GC-olfactometry and dilution analysis</h2>
+<p>In <dfn id="t-gas-chromatography-olfactometry">gas chromatography-olfactometry</dfn> (GC-O), the gas leaving the column is split between a detector and a sniffing port, where an assessor records the time and character of each odour. Aroma extract dilution analysis (AEDA) repeats this on a series of dilutions, and a compound's flavour dilution factor is the highest dilution at which it can still be smelled (Chapter 1, Equation 1.3). These methods rank odorants by potency, but the ranking depends on the extraction, the assessors and the column, and says nothing about interactions in the cup. Recombination and omission tests address those.</p>
+<h2>D.9 NMR spectroscopy</h2>
+<p><dfn id="t-nuclear-magnetic-resonance">Nuclear magnetic resonance</dfn> (NMR) spectroscopy places a sample in a strong magnetic field and measures how atomic nuclei with magnetic properties, such as <sup>1</sup>H and <sup>13</sup>C, absorb radio-frequency energy. The absorption frequency depends on each nucleus's chemical surroundings; it is reported as a <dfn id="t-chemical-shift">chemical shift</dfn> in parts per million. In <sup>1</sup>H NMR, the area of each signal is proportional to the number of hydrogen atoms producing it. Quantitative NMR can therefore measure caffeine, trigonelline, chlorogenic acids, acetic and formic acids and sugars in a brew with little preparation and a single internal standard, which is why roasting studies use it alongside GC-MS (Chapter 7). It is much less sensitive than mass spectrometry: it sees major and minor components, not trace odorants.</p>
+<h2>D.10 Colour measurement</h2>
+<p>Roast colour is measured by reflectance. Near-infrared instruments built for coffee report a number on their own scale. Colorimeters report CIE L*a*b* coordinates: L* is lightness from 0 (black) to 100 (white), a* runs from green (negative) to red (positive), and b* from blue (negative) to yellow (positive). The colour difference between two samples is</p>
+<table class="deq" summary="Equation D.5"><tr><td class="f">&Delta;E = &radic;[(&Delta;L&#42;)<sup>2</sup> + (&Delta;a&#42;)<sup>2</sup> + (&Delta;b&#42;)<sup>2</sup>]</td><td class="n" id="eq-de">(D.5)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">&Delta;E</td><td>colour difference (dimensionless)</td></tr>
+</table>
+<p>Readings depend on grind, packing, sample surface and instrument, so comparisons are valid only within one instrument and protocol (Chapters 0 and 7).</p>
+<h2>D.11 Particle sizing</h2>
+<p>Sieving, laser diffraction and image analysis are compared in Chapter 4. They differ chiefly in how particles are weighted (by mass, volume or number) and in how irregular or clumping particles are handled, so results from different methods should not be compared directly.</p>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-absorbance">Absorbance</a>; <a href="#t-beer-lambert-law">Beer-Lambert law</a>; <a href="#t-chemical-shift">chemical shift</a>; <a href="#t-chromatography">Chromatography</a>; <a href="#t-conductivity">Conductivity</a>; <a href="#t-constant-mass">constant mass</a>; <a href="#t-electron-ionisation">electron ionisation</a>; <a href="#t-gas-chromatography-olfactometry">gas chromatography-olfactometry</a>; <a href="#t-glass-electrode">glass electrode</a>; <a href="#t-gravimetry">Gravimetry</a>; <a href="#t-high-performance-liquid-chromatography">High-performance liquid chromatography</a>; <a href="#t-mass-spectrometer">mass spectrometer</a>; <a href="#t-mobile-phase">mobile phase</a>; <a href="#t-nuclear-magnetic-resonance">Nuclear magnetic resonance</a>; <a href="#t-primary-standard">primary standard</a>; <a href="#t-proton-transfer-reaction-mass-spectrometry">Proton-transfer-reaction mass spectrometry</a>; <a href="#t-resolution">Resolution</a>; <a href="#t-retention-time">retention time</a>; <a href="#t-stable-isotope-dilution-analysis">stable isotope dilution analysis</a>; <a href="#t-standardisation">standardisation</a>; <a href="#t-stationary-phase">stationary phase</a>; <a href="#t-titration">titration</a>.</p>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section D.2]</span> Why must sodium hydroxide titrant be standardised regularly? <a class="sol" href="d-analytical-methods-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section D.3]</span> Two waters both read 150 mg/L on a TDS meter. Can they have different alkalinities? Explain. <a class="sol" href="d-analytical-methods-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section D.6]</span> What does a resolution of 1.5 mean for two chromatographic peaks? <a class="sol" href="d-analytical-methods-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section D.2]</span> A pH electrode reads +165 mV in pH 4.01 buffer and +2 mV in pH 7.00 buffer at 25 °C. Compute its slope as a percentage of ideal, and the pH of a sample reading +120 mV. <a class="sol" href="d-analytical-methods-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section D.5]</span> A caffeine standard (ε = 9,700 L mol<sup>−1</sup> cm<sup>−1</sup> at 273 nm) gives A = 0.485 in a 1 cm cell. What is its concentration in mg/L? <a class="sol" href="d-analytical-methods-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section D.6]</span> Peaks at 5.20 and 5.65 min have base widths of 0.30 and 0.32 min. Compute the resolution. <a class="sol" href="d-analytical-methods-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section D.7]</span> In a SIDA measurement, 50 ng of deuterated 2-furfurylthiol is added to a coffee sample. The analyte-to-label peak area ratio is 0.84 and the response factor is 1.05. How much 2-furfurylthiol was in the sample? <a class="sol" href="d-analytical-methods-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section D.10]</span> Two roasts measure L*a*b* = (24.1, 9.8, 14.2) and (22.6, 9.1, 12.9). Compute ΔE. <a class="sol" href="d-analytical-methods-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[C, Section D.7]</span> A study reports no 2-furfurylthiol among its key odorants using SPME and GC-MS. Explain why, and propose a method that would detect it. <a class="sol" href="d-analytical-methods-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[C, Section D.9]</span> Compare NMR and GC-MS for following acetic acid and 2-furfurylthiol during roasting, and choose a method for each. <a class="sol" href="d-analytical-methods-solutions.html#s10">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>Further reading</h2>
+<p>Harris D.C., <em>Quantitative Chemical Analysis</em>; Skoog D.A., Holler F.J., Crouch S.R., <em>Principles of Instrumental Analysis</em>; papers by Grosch, Schieberle and colleagues on AEDA and SIDA for food odorants.</p>
+<p class="small">Worked solutions to all problems: <a href="d-analytical-methods-solutions.html">Appendix D. Analytical methods solutions</a>.</p>
+
+<div class="nav bottom"><a href="c-physical-chemistry.html" rel="prev" title="Appendix C. Physical chemistry and transport">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="e-statistics.html" rel="next" title="Appendix E. Statistics for sensory work and experiments">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

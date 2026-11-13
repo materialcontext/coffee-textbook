@@ -1,0 +1,392 @@
+#separator:tab
+#html:true
+#deck:Upstream
+#notetype:Basic
+#columns:Front	Back	Tags
+#tags column:3
+accuracy	Accuracy describes how close their average is to the true value. A refractometer can be precise and inaccurate at once: it gives the same reading every time, and that reading is wrong.	upstream chapter-0 term
+brew ratio	Mass of brew water divided by mass of dry coffee. Chapter 2A.	upstream chapter-0 term
+buffer	Mixture of a weak acid and its conjugate base that resists pH change; brewed coffee is one. Appendix A.	upstream chapter-0 term
+buffer solution	A pH meter is calibrated with two buffer solutions of known pH that bracket the samples (pH 4 and 7 for coffee) and rinsed between samples.	upstream chapter-0 term
+calibration	Only calibration, comparing the instrument against something whose value is known, removes systematic error.	upstream chapter-0 term
+drift	Drift is a slow change of reading with time. Load cells drift as they warm, and a cup of hot coffee loses a few tenths of a gram per minute by evaporation.	upstream chapter-0 term
+endpoint	In a titration, a base of known concentration (here sodium hydroxide, NaOH) is added to a measured volume of brew until the pH reaches a chosen endpoint.	upstream chapter-0 term
+extraction yield	Mass of coffee solids dissolved into the brew as a fraction of the dry dose. Chapter 2A.	upstream chapter-0 term
+in quadrature	The rule for combining them is called addition in quadrature: square the individual uncertainties, add the squares, and take the square root.	upstream chapter-0 term
+least squares	The method of least squares chooses the slope and intercept that make the sum of squared vertical distances from the points to the line as small as possible (Appendix E.5).	upstream chapter-0 term
+linearity	Linearity is whether the reading is proportional to the true mass across the range you use.	upstream chapter-0 term
+load cell	Coffee and kitchen scales weigh with a load cell, a metal element whose electrical resistance changes slightly as it bends under load.	upstream chapter-0 term
+measurement uncertainty	That statement is the uncertainty, written after the value with a plus-or-minus sign.	upstream chapter-0 term
+particle size distribution	A grind is described by its particle size distribution, the proportion of material in each range of particle sizes.	upstream chapter-0 term
+pH	pH measures the hydrogen ions that are free in solution at the moment of measurement: pH = −log<sub>10</sub>[H<sup>+</sup>], with [H<sup>+</sup>] in mol/L (Appendix A.5).	upstream chapter-0 term
+precision	Precision describes how closely repeated readings agree with each other. Accuracy describes how close their average is to the true value.	upstream chapter-0 term
+random error	Random error scatters repeated readings around their average. The last digit of a refractometer flickers; one pour is a gram heavier than the next.	upstream chapter-0 term
+reflectance	A reflectance instrument shines light on a sample, usually ground coffee pressed flat, and measures the fraction reflected.	upstream chapter-0 term
+refractive index	The amount of bending depends on the refractive index of each material, a number that rises as more material is dissolved in a liquid.	upstream chapter-0 term
+refractometer	A refractometer measures the refractive index of a drop of liquid on a glass prism.	upstream chapter-0 term
+repeatability	Repeatability is the standard deviation of repeated weighings of one object, removing and replacing it each time.	upstream chapter-0 term
+resolution	Resolution is the smallest step the display shows. It is not the uncertainty: a scale that displays 0.1 g may repeat only to 0.2 g.	upstream chapter-0 term
+response time	A probe also has a response time: a thick probe can take thirty seconds to settle.	upstream chapter-0 term
+sample standard deviation	The scatter of n repeated readings x<sub>1</sub>, x<sub>2</sub>, …, x<sub>n</sub> is measured by the standard deviation, s, defined in Appendix E.1.	upstream chapter-0 term
+significant figures	Digits that the uncertainty does not support are not significant figures.  ### Combining uncertainties	upstream chapter-0 term
+standard error of the mean	Its uncertainty is the standard error:	upstream chapter-0 term
+systematic error	Systematic error shifts every reading in the same direction by the same amount. A thermometer that reads 2 °C low is wrong by 2 °C every time, so averaging a hundred readings leaves the 2 °C error untouched.	upstream chapter-0 term
+threshold	A threshold is the smallest concentration of a substance that the taster can detect.	upstream chapter-0 term
+titratable acidity	Amount of base needed to bring a sample to a set pH endpoint (8.2 for coffee); predicts sourness better than pH. Chapters 0 and 1.	upstream chapter-0 term
+titration	In a titration, a base of known concentration (here sodium hydroxide, NaOH) is added to a measured volume of brew until the pH reaches a chosen endpoint.	upstream chapter-0 term
+total dissolved solids	Mass fraction of dissolved coffee solids in a brew, in percent. Chapter 2A.	upstream chapter-0 term
+weak acid	Most acids in coffee are weak acids: at the pH of a brew, most of their molecules keep their hydrogen ions rather than releasing them.	upstream chapter-0 term
+Averaging twenty refractometer readings of one sample reduces<br>(a) random error only<br>(b) systematic error only<br>(c) both random and systematic error	<b>(a) random error only</b><br>Averaging reduces scatter. A calibration offset is identical in every reading and survives averaging.	upstream chapter-0 check
+Ten readings have a standard deviation of 0.030%. What is the standard error of their mean, in %?	<b>0.0095 %</b><br>SE = 0.030/√10 = 0.0095%.	upstream chapter-0 check
+A refractometer is zeroed with distilled water and then reads a brew made with mineral-rich water. The TDS of the coffee alone is<br>(a) overstated by the minerals' contribution<br>(b) understated by the minerals' contribution<br>(c) unaffected	<b>(a) overstated by the minerals' contribution</b><br>Zeroing with distilled water counts the dissolved minerals of the brew water as if they came from the coffee.	upstream chapter-0 check
+A calibration gives reading = 0.010 + 0.985 × true. A brew reads 1.380%. What is its true TDS, in %?	<b>1.391 %</b><br>true = (1.380 − 0.010)/0.985 = 1.391%.	upstream chapter-0 check
+Two coffees have the same pH, but one tastes much more sour. Which measurement is most likely to differ?<br>(a) Titratable acidity<br>(b) Refractive index of the brew water<br>(c) Roast colour	<b>(a) Titratable acidity</b><br>Titratable acidity counts all acidic hydrogens up to the endpoint and tracks sourness better than pH.	upstream chapter-0 check
+50.0 mL of cold brew needs 2.95 mL of 0.0200 mol/L NaOH to reach pH 8.2. What is its titratable acidity in mmol/L?	<b>1.18 mmol/L</b><br>2.95 × 10<sup>−3</sup> × 0.0200 = 5.90 × 10<sup>−5</sup> mol in 0.0500 L gives 1.18 mmol/L.	upstream chapter-0 check
+A brew has dose 20.0 ± 0.1 g, beverage 320 ± 2 g and TDS 1.30 ± 0.03%. What is the relative uncertainty of its extraction yield, in percent?	<b>2.4 %</b><br>Relative errors 0.50%, 0.63% and 2.31% combine in quadrature to about 2.4%.	upstream chapter-0 check
+An immersion brew is dried to measure extraction. Ignoring the liquid held in the grounds makes the measured yield<br>(a) too high<br>(b) too low<br>(c) unaffected	<b>(b) too low</b><br>Solids dissolved in the retained liquid stay on the grounds and are counted as unextracted.	upstream chapter-0 check
+Which property of a scale is tested by weighing one object ten times?<br>(a) Linearity<br>(b) Repeatability<br>(c) Resolution	<b>(b) Repeatability</b><br>Repeatability is the spread of repeated weighings of one object.	upstream chapter-0 check
+Why do researchers match roasts on both colour and mass loss?<br>(a) Colour readings are too imprecise to use<br>(b) Colour describes the ground surface, while mass loss reflects the whole bean, and the two can disagree<br>(c) Mass loss is required by the SCA standard	<b>(b) Colour describes the ground surface, while mass loss reflects the whole bean, and the two can disagree</b><br>Two roasts can match on one measure and differ on the other, especially when heating rates differ.	upstream chapter-0 check
+affective test	Affective tests ask how much a person likes the result. A trained panel can agree that a coffee is intensely acidic and still disagree on whether the acidity is good, so the two questions should be kept apart.	upstream chapter-1 term
+analysis of variance	Analysis of variance: tests whether several group means differ by comparing between-group and within-group variation. Appendix E, Chapter 9.	upstream chapter-1 term
+aroma extract dilution analysis	Aroma extract dilution analysis: GC-olfactometry of serial dilutions; the highest dilution at which an odour is detected is its flavour dilution factor. Chapter 1, Appendix D.	upstream chapter-1 term
+astringency	Nerves in the mouth detect temperature, thickness, particles and the drying, puckering sensation called astringency.	upstream chapter-1 term
+best-estimate threshold	The best-estimate threshold is the geometric mean of the last concentration missed and the first concentration from which every answer is correct:	upstream chapter-1 term
+binomial distribution	Under that assumption the number of correct answers follows the binomial distribution (Appendix E.2).	upstream chapter-1 term
+chlorogenic acid lactones	Roasting converts part of the chlorogenic acids to lactones, ring-shaped molecules formed when an acid group and an alcohol group in the same molecule join and release water (Appendix B.3).	upstream chapter-1 term
+chlorogenic acids	Esters of quinic acid with hydroxycinnamic acids; abundant in green coffee and precursors of bitter lactones and phenolic volatiles. Chapters 1, 6 and 8.	upstream chapter-1 term
+Coffee Value Assessment	The SCA cupping standard adopted in 2024 (SCA 102, 103 and 104), separating descriptive from affective assessment. Chapter 1.	upstream chapter-1 term
+descriptive analysis	Descriptive analysis asks which attributes are present and how strong they are. Affective tests ask how much a person likes the result.	upstream chapter-1 term
+detection threshold	The detection threshold is the lowest concentration at which a substance can be told apart from a blank.	upstream chapter-1 term
+discrimination test	A discrimination test answers exactly that and nothing more.  | Test | Task | Probability of a correct guess | |---|---|---| | Triangle (ISO 4120) | Three cups, two alike: pick the odd one | 1/3 | | Duo-trio | A reference cup and two test cups: pick the test cup that matches the reference | 1/2 | | Two-alternative forced choice (2-AFC) | Two cups: pick the one with more of a named attribute | 1/2 | | Tetrad | Four cups, two of each sample: sort them into two pairs | 1/3 |	upstream chapter-1 term
+diterpene	The same study found that cafestol and kahweol, two oil-soluble compounds of the class called diterpenes, also activated the receptors, and that kahweol partly blocked the response to mozambioside.	upstream chapter-1 term
+flavour dilution factor	A compound's flavour dilution factor is the highest dilution at which it can still be smelled:	upstream chapter-1 term
+gas chromatography	In gas chromatography (GC), a mixture of volatiles is carried by a gas through a long, thin column, and each compound leaves the column at its own characteristic time (Appendix D.6).	upstream chapter-1 term
+gas chromatography-olfactometry	In gas chromatography-olfactometry (GC-O), the gas leaving the column is split: part goes to a detector, and part to a sniffing port where a trained assessor records each odour and when it appears.	upstream chapter-1 term
+hierarchical clustering	Counting how often each pair of attributes was grouped together gave a measure of similarity, and hierarchical clustering, a method that repeatedly merges the most similar items into groups, produced a tree.	upstream chapter-1 term
+intensity	To describe how strong an attribute is, tasters rate intensity on a line or a scale numbered from 0 to 15.	upstream chapter-1 term
+melanoidins	Brown, high-molecular-weight, nitrogenous polymers formed late in the Maillard reaction; colour, body and astringency. Chapters 1 and 8.	upstream chapter-1 term
+mouthfeel	These sensations make up mouthfeel, which coffee tasters call body.  The brain combines the three inputs and refers them all to the mouth.	upstream chapter-1 term
+null hypothesis	The analysis starts from a null hypothesis, the assumption that there is no perceptible difference, so that every taster is guessing with a probability of 1/3 of being right.	upstream chapter-1 term
+odour activity value	Concentration of an odorant divided by its odour threshold. Chapter 1.	upstream chapter-1 term
+odour threshold	A second screening measure compares a compound's concentration with its odour threshold, the lowest concentration at which it can be smelled in a stated medium.	upstream chapter-1 term
+olfactory receptor	Several hundred kinds of olfactory receptors in the upper nasal cavity respond to volatile compounds, substances that evaporate readily enough to travel through air.	upstream chapter-1 term
+omission test	In an omission test, one compound at a time is left out of the mixture and tasters perform triangle tests to see whether its absence is noticed.	upstream chapter-1 term
+orthonasal	Sniffing the cup carries them in through the nostrils (orthonasal smell). Drinking carries them from the back of the mouth up into the nasal cavity as you swallow and breathe out (retronasal smell).	upstream chapter-1 term
+p-value	The p-value is the probability, computed under the null hypothesis, of getting a result at least as extreme as the one observed.	upstream chapter-1 term
+proportion of discriminators	Estimated share of a population able to perceive a difference in a discrimination test. Chapter 1, Appendix E.	upstream chapter-1 term
+receptor	On the tongue and palate, taste receptor cells carry protein receptors, molecules that bind particular substances and send a signal when they do.	upstream chapter-1 term
+recognition threshold	The recognition threshold, usually higher, is the concentration at which its quality can be named.	upstream chapter-1 term
+recombination test	The confirmation is a recombination test: a model mixture is made from pure compounds at the concentrations measured in the coffee and compared with the real coffee.	upstream chapter-1 term
+reference standard	Trained panels therefore anchor the scale with reference standards, physical samples assigned fixed values, for example a citric acid solution of stated strength as sourness 5.	upstream chapter-1 term
+retronasal	Describes smell perceived from volatiles travelling from the mouth to the nose while eating or drinking. Chapter 1.	upstream chapter-1 term
+sensory lexicon	A sensory lexicon provides them: a list of attributes, each with a written definition, a physical reference sample and an intensity anchor.	upstream chapter-1 term
+statistical power	Probability that an experiment detects a real effect of a stated size. Appendix E, Chapter 9.	upstream chapter-1 term
+taste receptor cell	On the tongue and palate, taste receptor cells carry protein receptors, molecules that bind particular substances and send a signal when they do.	upstream chapter-1 term
+triangle test	Discrimination test in which a taster picks the odd sample of three; chance probability 1/3. Chapter 1.	upstream chapter-1 term
+viscosity	The usual account of body is physical: thickness comes from viscosity (resistance to flow) and from suspended material such as oil droplets, fine particles and dissolved polysaccharides.	upstream chapter-1 term
+volatile	Several hundred kinds of olfactory receptors in the upper nasal cavity respond to volatile compounds, substances that evaporate readily enough to travel through air.	upstream chapter-1 term
+A taster wearing a nose clip can still detect<br>(a) blueberry and chocolate notes<br>(b) sourness and bitterness<br>(c) neither	<b>(b) sourness and bitterness</b><br>Taste qualities are sensed in the mouth. Descriptors such as blueberry are retronasal aroma and need airflow to the nose.	upstream chapter-1 check
+A taster misses caffeine at 0.15 g/L and identifies it from 0.30 g/L upward. What is the best-estimate threshold in g/L?	<b>0.21 g/L</b><br>√(0.15 × 0.30) = 0.21 g/L.	upstream chapter-1 check
+A triangle test gives 14 correct out of 30. Estimate the proportion of discriminators.	<b>0.2 </b><br>p<sub>c</sub> = 14/30 = 0.467; p<sub>d</sub> = (3 × 0.467 − 1)/2 = 0.20.	upstream chapter-1 check
+In a duo-trio test the probability of a correct guess is<br>(a) 1/3<br>(b) 1/2<br>(c) 1/4	<b>(b) 1/2</b><br>The taster chooses between two test cups, one of which matches the reference.	upstream chapter-1 check
+Which measurement best predicts trained-panel sourness in drip coffee?<br>(a) Titratable acidity<br>(b) pH<br>(c) Caffeine concentration	<b>(a) Titratable acidity</b><br>Titratable acidity tracked sourness far better than pH in the UC Davis drip coffee work.	upstream chapter-1 check
+In receptor experiments, caffeine activated the bitter receptor TAS2R43<br>(a) more strongly than any roast compound<br>(b) only at much higher concentrations than mozambioside or bengalensol<br>(c) not at all	<b>(b) only at much higher concentrations than mozambioside or bengalensol</b><br>About 30 and 300 times higher concentrations were needed for the same response.	upstream chapter-1 check
+A duo-trio test has a guessing probability of 1/2. With 20 trials, how many correct answers are needed for significance at 0.05 (one-sided)?	<b>15 </b><br>P(X ≥ 15 | n = 20, p = 0.5) = 0.021; P(X ≥ 14) = 0.058.	upstream chapter-1 check
+With nose clips on, trained tasters' differences in coffee sweetness were<br>(a) eliminated<br>(b) smaller but still present<br>(c) larger than without clips	<b>(b) smaller but still present</b><br>The range fell from 6 to 3.6 points on a 15-point scale, so aroma contributes but is not the whole story.	upstream chapter-1 check
+What does SCA 104-2024 cover?<br>(a) Sample preparation<br>(b) Descriptive assessment<br>(c) Affective assessment of quality	<b>(c) Affective assessment of quality</b><br>SCA 102 covers preparation, 103 description and 104 the cupper's judgement of quality.	upstream chapter-1 check
+Why can two odorant studies of similar coffees disagree about thiols?<br>(a) Thiols vary randomly between cups<br>(b) Thiols are at trace levels and need dedicated extraction and detection<br>(c) Thiols have no odour	<b>(b) Thiols are at trace levels and need dedicated extraction and detection</b><br>Without a thiol-specific method, thiols are lost or fall below detection.	upstream chapter-1 check
+adsorption	Desorption is the release of a substance from a solid surface into a liquid; its reverse, the uptake of dissolved material back onto the solid, is adsorption.	upstream chapter-2A term
+boundary layer	Solute must diffuse across this boundary layer as well as through the particle. Stirring thins the layer and carries fresh liquid to the particle surface.	upstream chapter-2A term
+brewing control chart	Plot of TDS against extraction yield with brew-ratio lines; re-mapped with sensory and consumer data in 2023. Chapter 2A.	upstream chapter-2A term
+desorption	Liang, Chan and Ristenpart (2021) explained the gap with a desorption model [1]. Desorption is the release of a substance from a solid surface into a liquid; its reverse, the uptake of dissolved material back onto the solid, is adsorption.	upstream chapter-2A term
+diffusion	They travel by diffusion, the net movement of molecules from regions of high concentration to regions of low concentration, caused by their random thermal motion.	upstream chapter-2A term
+diffusivity	How quickly a substance diffuses is described by its diffusivity D, in m<sup>2</sup>/s. Appendix C.4 shows that in a time t a molecule typically wanders a distance of order √(Dt).	upstream chapter-2A term
+equilibrium	At equilibrium the two rates are equal, so k<sub>D</sub>(M − x) = k<sub>A</sub> x.	upstream chapter-2A term
+extraction equilibrium constant	In the desorption model of immersion brewing, the fraction of soluble material in solution at equilibrium; about 0.72. Chapter 2A.	upstream chapter-2A term
+immersion	In an immersion brew (French press, cupping bowl), all the water and all the coffee sit together.	upstream chapter-2A term
+lumped model	The model treats all soluble material as a single substance, an approximation called lumping.	upstream chapter-2A term
+mass balance	The two are linked by a mass balance, an account of where every gram ends up.	upstream chapter-2A term
+maximum extractable fraction	Let M be the mass of soluble material in the dose, which is E<sub>max</sub> m<sub>c</sub>, where the maximum extractable fraction E<sub>max</sub> ≈ 0.30.	upstream chapter-2A term
+percolation	In a percolation brew (pour-over, batch filter, espresso), fresh water passes through a bed of grounds and leaves as beverage.	upstream chapter-2A term
+retained liquid	A related quantity is the retained liquid, r<sub>ret</sub>, the mass of liquid held per gram of grounds after brewing.	upstream chapter-2A term
+time constant	For a sphere, solving the diffusion equation exactly (see the box below) gives the precise time constant:	upstream chapter-2A term
+A French press uses 30 g of coffee in 500 g of water, and the liquid reads 1.30% TDS. What is the extraction yield in percent?	<b>21.95 %</b><br>r = 16.67; E = 16.67 × 0.0130/0.987 = 0.2195, or 21.95%.	upstream chapter-2A check
+According to the equilibrium model, doubling the brew ratio of an immersion brew at equilibrium will<br>(a) roughly halve the strength and leave the yield unchanged<br>(b) halve both strength and yield<br>(c) leave strength unchanged and double yield	<b>(a) roughly halve the strength and leave the yield unchanged</b><br>E<sub>eq</sub> = K E<sub>max</sub> does not depend on r, while S<sub>eq</sub> falls roughly as 1/r.	upstream chapter-2A check
+If the diffusion time constant of an 800 µm particle is 80 s, what is it for a 200 µm particle of the same material, in seconds?	<b>5 s</b><br>τ scales with d<sup>2</sup>: 80 × (200/800)<sup>2</sup> = 5 s.	upstream chapter-2A check
+Two drip brews have identical strength and extraction yield but were brewed at 87 °C and 93 °C. You should expect<br>(a) a large difference in bitterness<br>(b) little sensory difference<br>(c) the cooler brew to be more acidic	<b>(b) little sensory difference</b><br>At fixed strength and extraction, a trained panel found little difference across this range.	upstream chapter-2A check
+On the percolation chart, what beverage-to-dose ratio passes through 1.35% TDS at 20.25% extraction?	<b>15 </b><br>m<sub>b</sub>/m<sub>c</sub> = E/S = 20.25/1.35 = 15.0.	upstream chapter-2A check
+bypass	Water routed around the bed in a batch brewer to dilute a strong extract. Chapter 2B.	upstream chapter-2B term
+channel	A path of preferential flow of water through part of a coffee bed, leaving the rest under-extracted. Chapter 2B.	upstream chapter-2B term
+Darcy's law	Flow through a porous bed is proportional to permeability, area and pressure drop, and inversely to viscosity and bed thickness. Chapter 2B.	upstream chapter-2B term
+effective particle diameter	The effective particle diameter in Equation 2B.2 is therefore much smaller than the median particle size.	upstream chapter-2B term
+espresso	Espresso pushes water at about 9 bar through a compacted bed of fine grounds called the puck.	upstream chapter-2B term
+hydrostatic pressure	In a pour-over the driving pressure is only the weight of liquid above the filter, the hydrostatic pressure ΔP = ρgh, where g = 9.81 m/s<sup>2</sup> and h is the height of liquid.	upstream chapter-2B term
+Kozeny-Carman relation	Estimate of bed permeability from particle diameter and porosity. Chapter 2B.	upstream chapter-2B term
+laminar	Below Re of about 1, viscous forces dominate and the flow is smooth, or laminar.	upstream chapter-2B term
+permeability	The permeability κ is a property of the bed alone: how easily it lets fluid through.	upstream chapter-2B term
+poroelastic compaction	Their explanation is poroelastic compaction: the pressure gradient pushes particles together, porosity falls, and permeability falls with ε<sup>3</sup>.	upstream chapter-2B term
+porosity	The porosity ε of a bed is the fraction of its volume that is open space.	upstream chapter-2B term
+porous medium	A coffee bed is a porous medium: a solid framework of particles with connected spaces between them through which liquid can flow.	upstream chapter-2B term
+pre-infusion	Pre-infusion wets the puck at low pressure first, so that it swells and settles before full pressure is applied.	upstream chapter-2B term
+preprint	The poroelastic result is a preprint, a paper posted publicly before peer review, from one apparatus.	upstream chapter-2B term
+puck	Espresso pushes water at about 9 bar through a compacted bed of fine grounds called the puck.	upstream chapter-2B term
+Reynolds number	The Reynolds number measures the balance between the two. For flow through a bed it is	upstream chapter-2B term
+superficial velocity	The superficial velocity is the flow rate divided by the whole cross-section of the bed, as if the particles were not there.	upstream chapter-2B term
+By what factor does Kozeny-Carman permeability change if the effective particle diameter halves at constant porosity?	<b>0.25 </b><br>κ scales with d<sup>2</sup>: (1/2)<sup>2</sup> = 0.25.	upstream chapter-2B check
+In Darcy's law, doubling the bed thickness at constant pressure will<br>(a) double the flow<br>(b) halve the flow<br>(c) leave the flow unchanged	<b>(b) halve the flow</b><br>Q is inversely proportional to L.	upstream chapter-2B check
+A 40 g shot at 9.0% TDS comes from 18 g of coffee. What is the extraction yield in percent?	<b>20 %</b><br>E = S m<sub>b</sub>/m<sub>c</sub> = 0.090 × 40/18 = 20.0%.	upstream chapter-2B check
+According to Schmieder et al., which variable most directly controls how much of each soluble reaches the espresso cup?<br>(a) Flow rate and beverage mass<br>(b) Brew temperature<br>(c) Tamping pressure	<b>(a) Flow rate and beverage mass</b><br>Flow rate dominated; grind size and temperature had minor effects by comparison.	upstream chapter-2B check
+In the two-path model, what channel fraction f gives a measured yield of 18% when E<sub>b</sub> = 22% and E<sub>c</sub> = 12%?	<b>0.4 </b><br>18 = 22 − 10f, so f = 0.4.	upstream chapter-2B check
+activated carbon	Activated carbon adsorbs chlorine and many organic off-flavours. Chloramine, a longer-lasting disinfectant, needs longer contact time or a catalytic carbon.	upstream chapter-3 term
+alkalinity	Capacity of water to neutralise acid, mostly from bicarbonate; reported as mg/L as CaCO<sub>3</sub>. The water variable with the largest demonstrated effect on flavour. Chapter 3.	upstream chapter-3 term
+anion	Positive ions are cations; negative ions are anions. A water report lists their concentrations in mg/L.	upstream chapter-3 term
+cation	Positive ions are cations; negative ions are anions. A water report lists their concentrations in mg/L.	upstream chapter-3 term
+concentrate	Because the masses needed per litre are tenths of a gram, it is easier to make a concentrate: a known mass of one salt dissolved in a known mass of distilled water, dosed by weight into each batch.	upstream chapter-3 term
+density functional theory	They used density functional theory, a method that computes how strongly molecules attract one another from the physics of their electrons.	upstream chapter-3 term
+hardness	Concentration of divalent cations (calcium and magnesium) in water, reported as mg/L as CaCO<sub>3</sub>. Chapter 3.	upstream chapter-3 term
+ion	The minerals separate into ions, atoms or groups of atoms that carry an electric charge.	upstream chapter-3 term
+ion exchange	Ion exchange resins swap ions in the water for ions held on the resin.	upstream chapter-3 term
+Langelier saturation index	pH minus the pH of calcite saturation; positive values predict scale. Chapter 3.	upstream chapter-3 term
+milliequivalent	Charge is counted in milliequivalents (meq): one millimole of an ion with charge z carries z milliequivalents of charge.	upstream chapter-3 term
+reverse osmosis	Reverse osmosis forces water through a membrane that holds back most ions. The product is then remineralised or blended [5].	upstream chapter-3 term
+scale	Calcium carbonate deposits as scale when the product of calcium and carbonate concentrations exceeds calcite's solubility product, K<sub>sp</sub> (Appendix A.7).	upstream chapter-3 term
+solubility product	Calcium carbonate deposits as scale when the product of calcium and carbonate concentrations exceeds calcite's solubility product, K<sub>sp</sub> (Appendix A.7).	upstream chapter-3 term
+speciation	Calculating these fractions is called speciation. Writing K<sub>1</sub> = 10<sup>−6.35</sup> and K<sub>2</sub> = 10<sup>−10.33</sup> for the two acid constants, the fraction present as bicarbonate is	upstream chapter-3 term
+A water contains 20 mg/L Ca<sup>2+</sup> and no magnesium. What is its hardness in mg/L as CaCO<sub>3</sub>?	<b>49.9 mg/L</b><br>20/40.08 = 0.499 mmol/L; × 100.09 = 49.9.	upstream chapter-3 check
+How many millimoles of acidic hydrogen does 250 mL of water with 80 mg/L alkalinity neutralise?	<b>0.4 mmol</b><br>80/50.04 = 1.60 mmol/L; × 0.250 L = 0.40 mmol.	upstream chapter-3 check
+In the 2026 sensory study, which water variable had a clear effect on coffee flavour across its whole range?<br>(a) Calcium hardness<br>(b) Magnesium hardness<br>(c) Bicarbonate (alkalinity)	<b>(c) Bicarbonate (alkalinity)</b><br>Hardness alone produced no marked change; bicarbonate reduced acidity and fruitiness and increased roasted and bitter notes.	upstream chapter-3 check
+A sodium-exchange water softener<br>(a) removes alkalinity<br>(b) removes hardness but leaves alkalinity unchanged<br>(c) removes both	<b>(b) removes hardness but leaves alkalinity unchanged</b><br>It swaps Ca<sup>2+</sup> and Mg<sup>2+</sup> for Na<sup>+</sup>; bicarbonate is untouched.	upstream chapter-3 check
+Why does a boiler scale when the same water does not scale in the pipes?<br>(a) Heating lowers calcite solubility and drives off CO<sub>2</sub>, shifting bicarbonate to carbonate<br>(b) Heating adds calcium<br>(c) Boilers are made of reactive metals	<b>(a) Heating lowers calcite solubility and drives off CO<sub>2</sub>, shifting bicarbonate to carbonate</b><br>Both effects raise the ion product relative to K<sub>sp</sub>.	upstream chapter-3 check
+bimodal	A distribution with two peaks like this is called bimodal.  ### How much energy does grinding take?	upstream chapter-4 term
+brittle	Roasting dries the bean's cell walls and fills its cells with gas, turning a tough, moist seed into a brittle solid: one that breaks without first bending or stretching.	upstream chapter-4 term
+comminution	Reducing a material to smaller particles is called comminution. Three classical laws relate the energy E per unit mass to the feed size d<sub>1</sub> and the product size d<sub>2</sub>.	upstream chapter-4 term
+conical burrs	Conical burrs are a toothed cone turning inside a toothed ring; beans are drawn downward through a tapering gap.	upstream chapter-4 term
+d50	The d50, or volume median, is the size below which half the volume lies; d<sub>10</sub> and d<sub>90</sub> are defined in the same way for 10% and 90%.	upstream chapter-4 term
+fines	Particles below about 100 µm; a small share of mass, most of the particle count and much of the surface; they control bed permeability. Chapters 2B and 4.	upstream chapter-4 term
+flat burrs	Flat burrs are two parallel toothed discs, one rotating. Beans enter at the centre, are broken progressively as they move outward, and leave at the rim once they fit through the gap.	upstream chapter-4 term
+Griffith criterion	This Griffith criterion predicts that larger flaws need less force to grow. Large particles contain larger flaws and break easily; small particles contain only small flaws and resist.	upstream chapter-4 term
+image analysis	Image analysis photographs particles spread on a contrasting surface and measures each one. A phone camera and free software resolve particles down to about 50 to 100 µm.	upstream chapter-4 term
+laser diffraction	Laser diffraction disperses particles in air or liquid and shines a laser through them.	upstream chapter-4 term
+number weighting	Number weighting counts every particle equally. - Volume weighting counts each particle in proportion to its volume, which scales as d<sup>3</sup>.	upstream chapter-4 term
+percentile	A volume distribution is summarised by percentiles. The d50, or volume median, is the size below which half the volume lies; d<sub>10</sub> and d<sub>90</sub> are defined in the same way for 10% and 90%.	upstream chapter-4 term
+sieving	Sieving shakes a sample through a stack of sieves with decreasing openings and weighs what each retains.	upstream chapter-4 term
+span	The width of the distribution is summarised by its span:	upstream chapter-4 term
+specific surface area	Surface area per unit mass of a particle population. Chapter 4.	upstream chapter-4 term
+triboelectric charging	Static charge from friction and fracture during grinding; reduced by bean moisture and by adding water before grinding. Chapter 4.	upstream chapter-4 term
+volume weighting	Volume weighting counts each particle in proportion to its volume, which scales as d<sup>3</sup>.	upstream chapter-4 term
+A grind is 5% fines (below 100 µm) by mass. By number, the fines are likely to be<br>(a) about 5% of the particles<br>(b) about half of the particles<br>(c) the large majority of the particles	<b>(c) the large majority of the particles</b><br>Number scales as mass divided by d<sup>3</sup>, so small particles are vastly more numerous per gram.	upstream chapter-4 check
+Volume percentiles are d<sub>10</sub> = 150, d<sub>50</sub> = 500 and d<sub>90</sub> = 900 µm. What is the span?	<b>1.5 </b><br>(900 − 150)/500 = 1.5.	upstream chapter-4 check
+In Uman et al., grinding colder beans at a fixed setting gave<br>(a) a finer, narrower distribution<br>(b) a coarser distribution<br>(c) no change	<b>(a) a finer, narrower distribution</b><br>Cold beans fracture more cleanly, giving a finer and narrower grind.	upstream chapter-4 check
+Adding a few drops of water to beans before grinding mainly<br>(a) reduces static charge and clumping<br>(b) softens the beans so they grind coarser<br>(c) extracts some solubles before brewing	<b>(a) reduces static charge and clumping</b><br>Water suppresses triboelectric charging, reducing clumping and spray.	upstream chapter-4 check
+Why do sieves usually under-report fines compared with laser diffraction in liquid?<br>(a) Fines pass through every sieve<br>(b) Dry fines cling to larger particles and to the mesh<br>(c) Laser diffraction counts air bubbles as fines	<b>(b) Dry fines cling to larger particles and to the mesh</b><br>Static and cohesion hold dry fines on coarser sieves; liquid dispersion separates them.	upstream chapter-4 check
+accelerated shelf-life testing	Shelf life is often estimated by accelerated shelf-life testing: samples are stored at raised temperatures so that they stale faster, a quality marker is measured, and the results are extrapolated to the storage temperature with the Arrhenius equation (Appendix C.3).	upstream chapter-5 term
+bloom	Swelling and bubbling of fresh grounds when first wetted, caused by escaping CO<sub>2</sub>. Chapter 5.	upstream chapter-5 term
+crema	The bubbles, stabilised by dissolved and suspended coffee material, form the foam called crema.	upstream chapter-5 term
+degassing	The loss of CO<sub>2</sub> from roasted coffee over time is called degassing. Smrke, Yeretzian and colleagues (2018) measured it by weighing: coffee was sealed in a container vented through a fine tube, and the slow loss of mass was logged for weeks [2].	upstream chapter-5 term
+Fenton reaction	Traces of iron react with hydrogen peroxide in the brew to produce hydroxyl radicals (the Fenton reaction), and these destroy 2-furfurylthiol.	upstream chapter-5 term
+freshness index	They proposed a freshness index, the ratio of two compounds that move in opposite directions:	upstream chapter-5 term
+headspace	Flushing the bag with nitrogen before sealing lowers the oxygen in the headspace, the gas-filled space around the beans.	upstream chapter-5 term
+lipid oxidation	Lipid oxidation is slower than thiol loss and dominates long-term staling.  ## 5.	upstream chapter-5 term
+one-way valve	A one-way valve lets CO<sub>2</sub> out of a sealed bag without letting air in, so freshly roasted coffee can be sealed immediately.	upstream chapter-5 term
+phenol	Roasting breaks chlorogenic acids into smaller phenols, compounds with an OH group on a benzene ring.	upstream chapter-5 term
+quinone	One of them, hydroxyhydroquinone, reacts with oxygen to form a quinone, a reactive ring compound that thiols attach to (Appendix B.4).	upstream chapter-5 term
+radical	A radical is a molecule with an unpaired electron, which makes it highly reactive.	upstream chapter-5 term
+staling	These changes, together called staling, are what make old coffee taste flat.  ### Measuring freshness with ratios	upstream chapter-5 term
+Weibull model	F = 1 − exp[−(t/τ)<sup>β</sup>], used for CO<sub>2</sub> release from roasted coffee. Chapter 5.	upstream chapter-5 term
+zero-order	A 2025 study of packaged specialty coffee found that total polyphenols decreased at a constant rate, a zero-order loss in which the amount lost per day does not depend on how much remains:	upstream chapter-5 term
+For Weibull release with τ = 100 h and β = 1, what fraction of the gas has left after 100 h?	<b>0.632 </b><br>F = 1 − e<sup>−1</sup> = 0.632.	upstream chapter-5 check
+A Weibull shape parameter β below 1 indicates<br>(a) release that slows faster than first order, with a long tail<br>(b) release at a constant rate<br>(c) release that speeds up over time	<b>(a) release that slows faster than first order, with a long tail</b><br>Gas near the surface leaves quickly and gas deep in the bean lingers.	upstream chapter-5 check
+Which pair of processes explains the loss of 2-furfurylthiol in brewed coffee?<br>(a) Binding to quinones and destruction by hydroxyl radicals<br>(b) Evaporation and hydrolysis<br>(c) Oil oxidation and Maillard reactions	<b>(a) Binding to quinones and destruction by hydroxyl radicals</b><br>Thiols attach to oxidised hydroxyhydroquinone and are destroyed by radicals from the Fenton reaction.	upstream chapter-5 check
+In the 2022 storage study, which method preserved aroma best after opening?<br>(a) Metal canister<br>(b) Screw cap<br>(c) Adhesive tape	<b>(b) Screw cap</b><br>The screw cap kept oxygen out best.	upstream chapter-5 check
+Using τ = 166 h and β = 0.69, how many hours until half the gas has left?	<b>97.6 h</b><br>t = 166 × (ln 2)<sup>1/0.69</sup> = 166 × 0.588 = 97.6 h.	upstream chapter-5 check
+bulk density	Bulk density, the mass of beans that fills a given volume including the gaps between them, is commonly 650 to 750 g/L for green coffee, with dense high-grown beans at the upper end.	upstream chapter-6 term
+dry basis	The dry basis divides the mass of water by the mass of dry matter; drying and heating calculations use it, because the dry matter stays constant while water leaves.	upstream chapter-6 term
+dry matter	Percentages here are of dry matter, the mass that remains after all water has been removed.	upstream chapter-6 term
+latent heat of vaporisation	The latent heat of vaporisation, L<sub>v</sub>, about 2,257 kJ/kg, is the heat needed to turn water into vapour without changing its temperature.	upstream chapter-6 term
+mycotoxin	A mycotoxin is a toxic compound produced by moulds. Ochratoxin A (OTA) is produced by some <em>Aspergillus</em> and <em>Penicillium</em> moulds when coffee cherries or beans dry slowly or are stored damp.	upstream chapter-6 term
+ochratoxin A	Mycotoxin from moulds on poorly dried or stored coffee; only partly destroyed by roasting. Chapter 6.	upstream chapter-6 term
+polysaccharides	Polysaccharides are long chains of sugar units that make up the cell walls. Sucrose is ordinary table sugar, a molecule made of one glucose and one fructose unit.	upstream chapter-6 term
+precursor	Sucrose is a precursor, a starting material from which other compounds form, for most of the acids created in roasting and for many caramel-like aroma compounds (Chapter 8).	upstream chapter-6 term
+reducing sugar	Robusta also contains more reducing sugars, sugars such as glucose and fructose whose open-chain form has a free carbonyl group able to react with amino acids [1].	upstream chapter-6 term
+screen size	Green coffee is sorted by screen size, the sieve opening a bean will not pass through, in units of 1/64 inch:	upstream chapter-6 term
+sorption isotherm	The link between moisture content and water activity is the sorption isotherm: a curve of the moisture content a material reaches in equilibrium with air of each relative humidity, at fixed temperature.	upstream chapter-6 term
+specific heat capacity	The specific heat capacity, c<sub>p</sub>, is the heat needed to warm 1 kg of a material by 1 K: about 1.4 kJ/(kg K) for coffee dry matter and 4.18 kJ/(kg K) for water.	upstream chapter-6 term
+sucrose	Sucrose is ordinary table sugar, a molecule made of one glucose and one fructose unit.	upstream chapter-6 term
+thermal conductivity	It took the bean's thermal conductivity as 0.11 W/(m K) and its initial moisture as 0.13 on a dry basis.	upstream chapter-6 term
+trigonelline	N-methylnicotinic acid; degrades during roasting mainly to pyridines and other nitrogen compounds. Chapters 6 and 8.	upstream chapter-6 term
+water activity	Ratio of a sample's water vapour pressure to that of pure water; governs microbial and chemical stability. Chapter 6.	upstream chapter-6 term
+wet basis	The wet basis divides the mass of water by the total mass; trade specifications use it.	upstream chapter-6 term
+Convert 10.0% wet-basis moisture to dry basis, in percent.	<b>11.11 %</b><br>X = 0.10/0.90 = 0.1111.	upstream chapter-6 check
+Which component of green coffee is the main precursor of the acids formed in roasting?<br>(a) Sucrose<br>(b) Caffeine<br>(c) Lipids	<b>(a) Sucrose</b><br>Sucrose breaks down into formic, acetic, glycolic and lactic acids, among other products.	upstream chapter-6 check
+Two green coffees both have 11% moisture. Their water activities<br>(a) must be equal<br>(b) can differ, because sorption isotherms depend on composition and structure<br>(c) differ only if their temperatures differ	<b>(b) can differ, because sorption isotherms depend on composition and structure</b><br>Moisture content and water activity are linked by an isotherm specific to each material.	upstream chapter-6 check
+What is the aperture of a screen 18 sieve in millimetres?	<b>7.14 mm</b><br>25.4 × 18/64 = 7.14 mm.	upstream chapter-6 check
+In the heat budget for a 1 kg batch at 11% moisture, which term is largest?<br>(a) Warming the water to 100 °C<br>(b) Evaporating the water<br>(c) Neither; warming the dry matter is ten times larger	<b>(b) Evaporating the water</b><br>Evaporation takes about 248 kJ, slightly more than the 237 kJ for warming the dry matter.	upstream chapter-6 check
+Biot number	Ratio of internal conduction resistance to surface heat-transfer resistance, hL<sub>c</sub>/k; above about 0.1 the inside of a body lags its surface. Chapter 7, Appendix C.	upstream chapter-7 term
+charge	Charge is the moment green coffee enters. The probe reading falls as cold beans surround it, reaches a turning point, then rises.	upstream chapter-7 term
+conduction	Conduction carries heat through solid contact, from hot metal or neighbouring beans. Convection carries heat from a moving fluid, here hot gas, to a surface.	upstream chapter-7 term
+convection	Convection carries heat from a moving fluid, here hot gas, to a surface. Radiation carries heat as infrared light from any hot surface to cooler ones.	upstream chapter-7 term
+development time	Time from first crack to the end of the roast; shown to change sensory and chemical profiles, partly confounded with colour. Chapter 7.	upstream chapter-7 term
+development time ratio	Development time is the time from first crack to drop, and the development time ratio is that time as a fraction of the whole roast:	upstream chapter-7 term
+drop	Drop is the end of the roast. Development time is the time from first crack to drop, and the development time ratio is that time as a fraction of the whole roast:	upstream chapter-7 term
+drum roaster	A drum roaster tumbles beans inside a heated rotating cylinder while hot gas is drawn through it.	upstream chapter-7 term
+emissivity	Emissivity measures how effectively a surface emits and absorbs radiation compared with a perfect absorber.	upstream chapter-7 term
+endothermic	A reaction that releases heat is exothermic; one that absorbs heat is endothermic.	upstream chapter-7 term
+energy balance	To predict how bean temperature changes, we write an energy balance: the rate at which a system's stored heat rises equals the rate at which heat enters minus the rate at which it leaves, plus any heat generated inside.	upstream chapter-7 term
+exothermic	A reaction that releases heat is exothermic; one that absorbs heat is endothermic.	upstream chapter-7 term
+first crack	Audible fracturing of beans from internal steam and CO<sub>2</sub> pressure during roasting. Chapter 7.	upstream chapter-7 term
+fluid-bed roaster	A fluid-bed roaster suspends beans in a fast jet of hot air and heats them almost entirely by convection.	upstream chapter-7 term
+glass transition	Temperature range over which an amorphous solid softens from glassy to rubbery; allows bean cell walls to stretch during roasting. Chapter 7.	upstream chapter-7 term
+proton-transfer-reaction mass spectrometry	Proton-transfer-reaction mass spectrometry (PTR-MS) identifies volatile compounds in a gas stream by giving each molecule a proton and weighing the resulting ion (Appendix D.7).	upstream chapter-7 term
+radiation	Radiation carries heat as infrared light from any hot surface to cooler ones. Their shares depend on the machine.	upstream chapter-7 term
+rate of rise	Slope of the bean-temperature curve during roasting, usually in °C per minute. Chapter 7.	upstream chapter-7 term
+roast profile	A roast profile is a plan for heat input over time. The energy balance identifies the controls.	upstream chapter-7 term
+second crack	Second crack, in darker roasts, comes from further breakdown of the weakened cell walls.	upstream chapter-7 term
+thermal diffusivity	Heat spreads through a solid by a diffusion process like the one in Chapter 2A, with the thermal diffusivity α = λ/(ρc<sub>p</sub>) in place of D.	upstream chapter-7 term
+turning point	The probe reading falls as cold beans surround it, reaches a turning point, then rises.	upstream chapter-7 term
+According to Bustos-Vanegas et al., omitting which term from the bean energy balance gave the larger error?<br>(a) Evaporation<br>(b) The reaction heat<br>(c) Radiation	<b>(a) Evaporation</b><br>Evaporation, which begins near 100 °C, is the largest heat sink in the middle of the roast.	upstream chapter-7 check
+In the lumped model, what is the initial heating rate in °C/min of a 1 kg batch at 13% moisture with hA = 6 W/K, T<sub>air</sub> = 250 °C and T = 25 °C?	<b>46 &deg;C/min</b><br>C = 0.87 × 1.4 + 0.13 × 4.18 = 1.761 kJ/K. 1,350 W/1,761 J/K = 0.767 K/s = 46 °C/min.	upstream chapter-7 check
+A roast has first crack at 9:30 and drop at 11:30. What is the development time ratio, in percent?	<b>17.4 %</b><br>120 s/690 s = 17.4%.	upstream chapter-7 check
+At equal roast colour, a high-temperature, short-time roast usually gives<br>(a) more expansion and larger pores<br>(b) less expansion<br>(c) identical structure	<b>(a) more expansion and larger pores</b><br>Higher temperatures expand the bean more and create larger pores.	upstream chapter-7 check
+Widening the rate-of-rise window from 15 to 60 seconds will<br>(a) reduce noise and increase delay<br>(b) increase noise and reduce delay<br>(c) change neither	<b>(a) reduce noise and increase delay</b><br>Fitting more points reduces noise but reports a slope centred further in the past.	upstream chapter-7 check
+2-Furfurylthiol	Potent roasty odorant formed from furfuryl alcohol and cysteine during roasting; lost in the brew by binding to quinones and by radicals. Chapters 1, 5 and 8.	upstream chapter-8 term
+acrylamide	Acrylamide forms from the amino acid asparagine and reducing sugars by a Maillard route.	upstream chapter-8 term
+Amadori product	Product of the rearrangement of the first sugar-amine condensation product (from an aldose) in the Maillard reaction, formed from an aldose such as glucose. Chapter 8, Appendix B.	upstream chapter-8 term
+amino group	An amino group, –NH<sub>2</sub>, carries a pair of electrons that it can share. Amino acids and proteins contain amino groups.	upstream chapter-8 term
+caramelisation	Breakdown of sugars without nitrogen is called caramelisation.  When amino groups are present, sugars enter a far larger network, the Maillard reaction, which produces most of coffee's colour and much of its aroma.	upstream chapter-8 term
+carbonyl group	A carbonyl group is a carbon atom double-bonded to an oxygen, C=O. Oxygen pulls electrons toward itself, leaving the carbon slightly positive and open to attack.	upstream chapter-8 term
+carboxylic acid	A carboxylic acid, –COOH, is the acidic group of organic acids such as acetic and citric acid.	upstream chapter-8 term
+catechol	In dark roasts they break down further, through caffeic acid and compounds with two neighbouring OH groups on a benzene ring, called catechols, to phenylindanes, whose bitterness is harsher and lingers longer [6].	upstream chapter-8 term
+consecutive reactions	The simplest model is a pair of consecutive reactions, A → B → C, in which an intermediate B builds up and then disappears (Appendix C.2).	upstream chapter-8 term
+decarboxylation	In decarboxylation, a carboxylic acid loses carbon dioxide; it is one source of the gas in roasted coffee (Chapter 5).	upstream chapter-8 term
+dicarbonyl	The Amadori and Heyns products lose water and fragment into furans, pyrroles and especially dicarbonyls, compounds with two carbonyl groups.	upstream chapter-8 term
+ester	An ester forms when a carboxylic acid joins an alcohol (–OH) and releases water.	upstream chapter-8 term
+first-order reaction	At constant temperature, a first-order reaction removes a fixed fraction of the remaining reactant per unit time, so its concentration C falls as C = C<sub>0</sub>e<sup>−kt</sup> (Appendix C.1).	upstream chapter-8 term
+fragmentation	In fragmentation, a molecule breaks into smaller pieces, as sugars do when heated.  ## 2.	upstream chapter-8 term
+functional group	A few functional groups, small arrangements of atoms that react in characteristic ways, account for most of it.	upstream chapter-8 term
+Heyns product	From an aldose (a sugar whose carbonyl is at the end of the chain, such as glucose) the result is an Amadori product; from a ketose (carbonyl inside the chain, such as fructose) it is a Heyns product.	upstream chapter-8 term
+hydrolysis	They hydrolyse, splitting with water back into quinic and caffeic acids. And they lose water internally to form lactones called caffeoylquinides, which are bitter.	upstream chapter-8 term
+imine	The product loses water to form an imine, a compound with a carbon-nitrogen double bond, which closes into a ring.	upstream chapter-8 term
+lactone	A lactone is an ester in which both groups belong to the same molecule, so the product is a ring.	upstream chapter-8 term
+Maillard reaction	Network of reactions between reducing sugars and amino groups producing colour, aroma and melanoidins. Chapter 8, Appendix B.	upstream chapter-8 term
+nucleophile	A nucleophile is a molecule or group that donates an electron pair to form a new bond with an electron-poor atom.	upstream chapter-8 term
+phenylindane	In dark roasts they break down further, through caffeic acid and compounds with two neighbouring OH groups on a benzene ring, called catechols, to phenylindanes, whose bitterness is harsher and lingers longer [6].	upstream chapter-8 term
+pyrazine	Two aminoketones then join and are oxidised to a pyrazine, a six-membered ring containing two nitrogen atoms.	upstream chapter-8 term
+Strecker degradation	Reaction of an amino acid with a dicarbonyl giving an aldehyde with one fewer carbon, CO<sub>2</sub> and an aminoketone. Chapter 8.	upstream chapter-8 term
+Which reaction converts an amino acid into an aldehyde with one fewer carbon atom and releases CO<sub>2</sub>?<br>(a) Amadori rearrangement<br>(b) Strecker degradation<br>(c) Lactone formation	<b>(b) Strecker degradation</b><br>In the Strecker degradation the amino acid loses CO<sub>2</sub> and becomes an aldehyde.	upstream chapter-8 check
+A first-order roast reaction leaves 60% of a compound on a 10 °C/min ramp. What fraction remains on a 5 °C/min ramp between the same temperatures?	<b>0.36 </b><br>Halving the heating rate doubles the integral: 0.60<sup>2</sup> = 0.36.	upstream chapter-8 check
+Which green-coffee component is the main precursor of the formic, acetic, glycolic and lactic acids formed in roasting?<br>(a) Sucrose<br>(b) Chlorogenic acids<br>(c) Trigonelline	<b>(a) Sucrose</b><br>Ginz et al. showed these acids form mainly from sucrose.	upstream chapter-8 check
+Acrylamide in Schouten et al.'s roasting series<br>(a) rose steadily with roast degree<br>(b) peaked at light-medium roast and fell sharply by dark roast<br>(c) was absent	<b>(b) peaked at light-medium roast and fell sharply by dark roast</b><br>It peaked at light-medium roast and fell by 85 to 88% by dark roast.	upstream chapter-8 check
+Why does a faster ramp to the same drop temperature keep more acid relative to lactones in the teaching model?<br>(a) It spends less time at temperatures where acids are destroyed and lactones form<br>(b) It reaches a higher final temperature<br>(c) It contains more sucrose	<b>(a) It spends less time at temperatures where acids are destroyed and lactones form</b><br>Every first-order reaction proceeds less far when the heating rate is higher (Equation 8.1).	upstream chapter-8 check
+blocking	Blocking. When a nuisance factor cannot be held constant, arrange for each block of the experiment to contain every treatment.	upstream chapter-9 term
+confidence interval	Report effect sizes with confidence intervals alongside p-values. A 95% confidence interval is a range constructed so that, over many repetitions of the experiment, 95% of such ranges would contain the true value.	upstream chapter-9 term
+confounding	Many roasting comparisons are confounded: two variables change together, so their effects cannot be separated.	upstream chapter-9 term
+control	Control. Hold every variable fixed except the one under study, and record what you cannot fix.	upstream chapter-9 term
+effect size	Include the direction of the effect and the smallest effect size you would care about.	upstream chapter-9 term
+experimental unit	Repeat the treatment on independent experimental units, the things to which the treatment is applied.	upstream chapter-9 term
+factorial design	Factorial design. When two variables are naturally linked, cross them deliberately: test every combination of their levels.	upstream chapter-9 term
+hypothesis	Turn the question into a hypothesis, a precise prediction that data could contradict. Include the direction of the effect and the smallest effect size you would care about.	upstream chapter-9 term
+interaction	It also estimates their interaction, which tells you whether the effect of one variable depends on the level of the other.	upstream chapter-9 term
+pre-registration	This pre-registration, even if only in a notebook, protects you from quietly adjusting the question to fit whatever the data show.	upstream chapter-9 term
+pseudo-replication	Treating repeated measurements of one experimental unit as independent replicates. Chapter 9.	upstream chapter-9 term
+randomisation	Randomisation. Decide the order of roasts, brews and servings by chance, so that slow drifts (a machine warming up, tasters tiring, room temperature changing) are not lined up with the treatment.	upstream chapter-9 term
+replication	Replication. Repeat the treatment on independent experimental units, the things to which the treatment is applied.	upstream chapter-9 term
+Three cups brewed from one roast are<br>(a) three replicates of the roast treatment<br>(b) three measurements of one replicate<br>(c) a block	<b>(b) three measurements of one replicate</b><br>The treatment was applied once, to one roast; the cups measure that single replicate.	upstream chapter-9 check
+Roasting one batch of each level on each of three days, and analysing day as a factor, is an example of<br>(a) blocking<br>(b) pseudo-replication<br>(c) pre-registration	<b>(a) blocking</b><br>Each day is a block containing every treatment; variation between days is removed in the analysis.	upstream chapter-9 check
+In a 2 × 2 design of colour and development time, a significant interaction would mean<br>(a) both factors have effects<br>(b) the effect of development time depends on colour<br>(c) the experiment was confounded	<b>(b) the effect of development time depends on colour</b><br>An interaction means that one factor's effect changes with the level of the other.	upstream chapter-9 check
+About how many triangle trials are needed for 80% power to detect p<sub>d</sub> = 0.30 at the 0.05 level?	<b>40 </b><br>From the binomial calculation in Chapter 1: 40 trials, with 19 correct needed.	upstream chapter-9 check
+acid	An acid is a substance that donates a hydrogen ion (a proton, H<sup>+</sup>); a base accepts one.	upstream appendix-A term
+acid dissociation constant	For HA ↔ H<sup>+</sup> + A<sup>−</sup>, the equilibrium constant is called the acid dissociation constant:	upstream appendix-A term
+activity	Strictly, the concentrations should be replaced by activities, effective concentrations that account for interactions between ions.	upstream appendix-A term
+base	An acid is a substance that donates a hydrogen ion (a proton, H<sup>+</sup>); a base accepts one.	upstream appendix-A term
+buffer capacity	Buffer capacity, the amount of strong acid or base needed to change the pH by one unit, is greatest when pH equals pK<sub>a</sub> and grows with the total concentration of the buffer.	upstream appendix-A term
+chemical equilibrium	They reach a state of chemical equilibrium in which the forward and reverse reactions proceed at equal rates, so concentrations stop changing.	upstream appendix-A term
+conjugate base	The conjugate base of an acid HA is the species A<sup>−</sup> left after the proton is lost.	upstream appendix-A term
+equivalent	An equivalent is one mole of charge, and a milliequivalent (meq) is a thousandth of that.	upstream appendix-A term
+Henderson-Hasselbalch equation	pH = pK<sub>a</sub> + log([A<sup>−</sup>]/[HA]). Appendix A.	upstream appendix-A term
+hydrate	The formula and molar mass of such a hydrate include that water. Epsom salt, MgSO<sub>4</sub>·7H<sub>2</sub>O, is 9.86% magnesium by mass (24.305/246.47), whereas anhydrous MgSO<sub>4</sub> is 20.2%.	upstream appendix-A term
+ion product	If the product of the actual concentrations, the ion product, exceeds K<sub>sp</sub>, the solution is supersaturated and calcite can deposit as scale.	upstream appendix-A term
+Le Chatelier's principle	Le Chatelier's principle summarises the consequence: a system at equilibrium responds to a change by partly reversing it.	upstream appendix-A term
+mass concentration	Mass concentration is mass of solute per volume of solution, in g/L or mg/L.	upstream appendix-A term
+mass fraction	Mass fraction is the mass of solute divided by the mass of solution. TDS is a mass fraction quoted in percent: a brew at 1.35% TDS has 1.35 g of dissolved solids per 100 g of brew.	upstream appendix-A term
+molar mass	The molar mass M of a compound, in g/mol, is the sum of the masses of the atoms in its formula.	upstream appendix-A term
+molarity	Molarity, in mol/L, counts particles per litre. It is the natural unit for reactions and equilibria, because reactions combine particles in fixed numbers.	upstream appendix-A term
+mole	Chemists count particles in moles. One mole is 6.022 × 10<sup>23</sup> particles, a number chosen so that one mole of carbon-12 atoms weighs exactly 12 g.	upstream appendix-A term
+parts per million	Parts per million (ppm) is a mass ratio: 1 ppm = 1 mg of solute per kg of solution.	upstream appendix-A term
+polyprotic acid	Acids with more than one value are polyprotic: they can give up more than one proton, each with its own pK<sub>a</sub>.	upstream appendix-A term
+reaction quotient	The reaction quotient Q has the same form as K but uses the concentrations present at any moment.	upstream appendix-A term
+stoichiometry	A balanced chemical equation states the ratios in which particles react, and stoichiometry is the arithmetic that follows from those ratios.	upstream appendix-A term
+supersaturated	If the product of the actual concentrations, the ion product, exceeds K<sub>sp</sub>, the solution is supersaturated and calcite can deposit as scale.	upstream appendix-A term
+water of crystallisation	Some salts crystallise with water molecules built into their structure, called water of crystallisation.	upstream appendix-A term
+A 30 mL espresso contains 65 mg of caffeine. What is the caffeine concentration in mmol/L?	<b>11.2 mmol/L</b><br>0.065/194.19 = 3.35 × 10<sup>−4</sup> mol in 0.030 L gives 11.2 mmol/L.	upstream appendix-A check
+A water contains 61 mg/L of bicarbonate. What is its alkalinity in mg/L as CaCO<sub>3</sub>?	<b>50 mg/L</b><br>61/61.02 = 1.00 mmol/L = 1.00 meq/L; × 50.04 = 50.0.	upstream appendix-A check
+aldol reaction	This aldol reaction is often followed by loss of water, giving a C=C double bond next to the C=O.	upstream appendix-B term
+aromatic	A ring is aromatic when it is flat, every ring atom takes part in a continuous system of shared electrons, and that system contains 2, 6, 10 or, in general, 4n + 2 electrons (Hückel's rule).	upstream appendix-B term
+benzene ring	A phenol has an OH group on a benzene ring, a flat six-carbon ring whose electrons are shared around the whole ring.	upstream appendix-B term
+chiral	Stereoisomers differ in three-dimensional arrangement at a chiral carbon, one bonded to four different groups.	upstream appendix-B term
+conjugate addition	The reaction adds the nucleophile to a carbon of the ring, a process called conjugate addition.	upstream appendix-B term
+covalent bond	Carbon forms four covalent bonds, each a pair of electrons shared between two atoms.	upstream appendix-B term
+disulfide	Two thiols oxidise to a disulfide, R–S–S–R:	upstream appendix-B term
+double bond	Two atoms can share two pairs, a double bond, as in C=O and C=C.	upstream appendix-B term
+electronegativity	Oxygen and nitrogen attract electrons more strongly than carbon and hydrogen do; this attraction is called electronegativity.	upstream appendix-B term
+enol	The product, which has an OH on a double-bonded carbon, is an enol. A pair of forms like this, interconverting by moving a hydrogen and a double bond, are tautomers.	upstream appendix-B term
+esterification	The reaction, esterification, is catalysed by acid and reversible:	upstream appendix-B term
+hemiacetal	The OH on its fifth carbon attacks its own aldehyde, closing a six-membered ring called a hemiacetal.	upstream appendix-B term
+heterocycle	Rings that contain an atom other than carbon are heterocycles. Many of coffee's aroma compounds are aromatic heterocycles:	upstream appendix-B term
+isomer	Isomers are compounds with the same formula but different structures, and they can differ in taste, odour and reactivity.	upstream appendix-B term
+nucleophilic addition	In nucleophilic addition, the nucleophile bonds to the carbonyl carbon, and the pair of electrons from the C=O double bond moves onto the oxygen, which then picks up a proton.	upstream appendix-B term
+ortho-quinone	A catechol, with two neighbouring OH groups, is oxidised by oxygen, especially when metal ions are present, to an ortho-quinone.	upstream appendix-B term
+polar bond	When two atoms share electrons unequally, the bond is polar. Oxygen and nitrogen attract electrons more strongly than carbon and hydrogen do; this attraction is called electronegativity.	upstream appendix-B term
+retro-aldol	The reverse reaction, retro-aldol fragmentation, splits a sugar between two carbons. It is how six-carbon sugars break into the two- and three-carbon fragments that become acetic acid, methylglyoxal and other small compounds during roasting.	upstream appendix-B term
+tautomer	A pair of forms like this, interconverting by moving a hydrogen and a double bond, are tautomers.	upstream appendix-B term
+thiol	A thiol, R–SH, is the sulfur counterpart of an alcohol. Sulfur is larger than oxygen and holds its outer electrons more loosely.	upstream appendix-B term
+Why is the carbon of a C=O group attacked by nucleophiles?<br>(a) Oxygen draws electrons away, leaving the carbon partly positive<br>(b) The carbon carries a negative charge<br>(c) Carbon forms only two bonds	<b>(a) Oxygen draws electrons away, leaving the carbon partly positive</b><br>Oxygen is more electronegative, so the bond is polar and the carbon is electron-poor.	upstream appendix-B check
+Why is imine formation slow in strongly acidic solution?<br>(a) Acid destroys the carbonyl group<br>(b) The amine picks up a proton and stops being a nucleophile<br>(c) Water cannot be lost in acid	<b>(b) The amine picks up a proton and stops being a nucleophile</b><br>A protonated amine has no free electron pair to donate.	upstream appendix-B check
+activation energy	Parameter of the Arrhenius equation setting how steeply a rate constant rises with temperature. Appendix C, Chapters 5 and 8.	upstream appendix-C term
+Arrhenius equation	k = A exp(−E<sub>a</sub>/RT): temperature dependence of a rate constant. Appendix C.	upstream appendix-C term
+diffusion length	The diffusion length in time t is of order	upstream appendix-C term
+Fick's first law	Fick's first law states that the flux of molecules is proportional to the concentration gradient:	upstream appendix-C term
+half-life	The half-life, the time for the concentration to halve, follows by setting [A] = [A]<sub>0</sub>/2: t<sub>1/2</sub> = ln 2/k.	upstream appendix-C term
+heat-transfer coefficient	Convection carries heat between a surface and a moving fluid: q = h(T<sub>∞</sub> − T<sub>s</sub>), where h is the heat-transfer coefficient, T<sub>∞</sub> the fluid temperature and T<sub>s</sub> the surface temperature.	upstream appendix-C term
+Henry's law	Henry's law gives how much gas dissolves in a liquid:	upstream appendix-C term
+ideal gas law	The ideal gas law gives the volume of a known amount of gas:	upstream appendix-C term
+pseudo-first-order	Many processes in coffee are pseudo-first-order: a second reactant, such as water or oxygen in the headspace, is present in such excess that its concentration barely changes, so it can be absorbed into k.	upstream appendix-C term
+Q10	The Q10 factor, the ratio of rates 10 K apart, expresses the same information over a narrow range: Q<sub>10</sub> = exp[(E<sub>a</sub>/R)(1/T − 1/(T + 10))].	upstream appendix-C term
+rate constant	The constant k is the rate constant, and n is the reaction order. The order is found by experiment; it cannot in general be read from the balanced equation.	upstream appendix-C term
+reaction order	The constant k is the rate constant, and n is the reaction order. The order is found by experiment; it cannot in general be read from the balanced equation.	upstream appendix-C term
+reaction rate	The reaction rate of a reaction A → products is how fast the concentration of A falls: r = −d[A]/dt.	upstream appendix-C term
+A first-order process has a half-life of 12 days. What fraction remains after 30 days?	<b>0.177 </b><br>k = ln 2/12 = 0.0578 per day; e<sup>−0.0578 × 30</sup> = 0.177.	upstream appendix-C check
+A rate constant doubles between 180 and 190 °C. What is the activation energy in kJ/mol?	<b>121 kJ/mol</b><br>8.314 ln 2/(1/453.15 − 1/463.15) = 121 kJ/mol.	upstream appendix-C check
+absorbance	Absorbance is defined as A = log<sub>10</sub>(I<sub>0</sub>/I), where I<sub>0</sub> and I are the intensities entering and leaving.	upstream appendix-D term
+Beer-Lambert law	The Beer-Lambert law relates absorbance to concentration:	upstream appendix-D term
+chemical shift	The absorption frequency depends on each nucleus's chemical surroundings; it is reported as a chemical shift in parts per million.	upstream appendix-D term
+chromatography	Chromatography separates a mixture by passing it through a column. A stationary phase is fixed inside the column and a mobile phase flows through it.	upstream appendix-D term
+conductivity	Conductivity, in µS/cm, measures how well a solution carries electric current, which rises with the concentration and mobility of its ions.	upstream appendix-D term
+constant mass	The usual test of completion is constant mass: successive weighings after further drying agree within a set tolerance.	upstream appendix-D term
+electron ionisation	In electron ionisation, the standard source for GC-MS, energetic electrons knock an electron out of each molecule, and the resulting ion often breaks into fragments in a reproducible pattern that can be matched against libraries.	upstream appendix-D term
+glass electrode	A glass electrode measures pH. A thin glass membrane develops an electrical potential that depends on the hydrogen-ion activity on each side.	upstream appendix-D term
+gravimetry	Gravimetry measures mass. Oven drying gives moisture content (Chapter 6) and, applied to a brew, dissolved solids (Chapter 0).	upstream appendix-D term
+high-performance liquid chromatography	High-performance liquid chromatography (HPLC) pumps a liquid mobile phase at high pressure through a packed column.	upstream appendix-D term
+mass spectrometer	A mass spectrometer turns molecules into ions and separates the ions by their mass-to-charge ratio, m/z.	upstream appendix-D term
+mobile phase	A stationary phase is fixed inside the column and a mobile phase flows through it.	upstream appendix-D term
+nuclear magnetic resonance	Nuclear magnetic resonance (NMR) spectroscopy places a sample in a strong magnetic field and measures how atomic nuclei with magnetic properties, such as <sup>1</sup>H and <sup>13</sup>C, absorb radio-frequency energy.	upstream appendix-D term
+primary standard	The titrant must be standardised, its exact concentration found by titrating a primary standard, a pure, stable substance weighed accurately.	upstream appendix-D term
+retention time	Each compound spends a characteristic share of its time held by the stationary phase, so compounds leave the column at different retention times.	upstream appendix-D term
+stable isotope dilution analysis	Quantification using an isotopically labelled internal standard added at the start, so that losses cancel. Appendix D.	upstream appendix-D term
+standardisation	The titrant must be standardised, its exact concentration found by titrating a primary standard, a pure, stable substance weighed accurately.	upstream appendix-D term
+stationary phase	A stationary phase is fixed inside the column and a mobile phase flows through it.	upstream appendix-D term
+correlation coefficient	The correlation coefficient r measures linear association on a scale from −1 to 1.	upstream appendix-E term
+d prime	They describe the sensory difference as d', the distance between the two samples' distributions of perceived intensity, measured in units of their standard deviation.	upstream appendix-E term
+hypothesis test	A hypothesis test starts from a null hypothesis, here that tasters are guessing, and asks how surprising the data would be if it were true.	upstream appendix-E term
+linear regression	Linear regression fits a straight line y = a + bx to paired data.	upstream appendix-E term
+population	If we brewed the same recipe forever, the extraction yields would form a population with some true mean and spread.	upstream appendix-E term
+post-hoc test	Run a one-way ANOVA; if it is significant, use Tukey's test, a post-hoc test that compares every pair while keeping the overall false-positive rate at 0.05.	upstream appendix-E term
+principal component analysis	Principal component analysis (PCA) finds new axes, each a weighted combination of the original attributes, that capture as much as possible of the variation between samples.	upstream appendix-E term
+residual	The residuals, observed minus fitted values, are the main diagnostic: they should scatter without pattern.	upstream appendix-E term
+sample	In practice we have a sample: a handful of measurements from which to estimate those population values.	upstream appendix-E term
+sample mean	For n values x<sub>1</sub>, …, x<sub>n</sub>, the sample mean is m<sub>x</sub> = Σx<sub>i</sub>/n (many texts write it as x with a bar).	upstream appendix-E term
+significance level	A small p-value, conventionally below the significance level α = 0.05, leads us to reject the null hypothesis.	upstream appendix-E term
+t distribution	The t distribution is used instead of the normal distribution because s is itself an estimate; with few data, the interval must be wider to allow for that extra uncertainty.	upstream appendix-E term
+t-test	A t-test asks whether a difference between two means is large compared with its standard error.	upstream appendix-E term
+thurstonian model	Thurstonian models separate the two. They describe the sensory difference as d', the distance between the two samples' distributions of perceived intensity, measured in units of their standard deviation.	upstream appendix-E term
+To describe how variable individual espresso shots are, report the<br>(a) standard deviation<br>(b) standard error of the mean<br>(c) p-value	<b>(a) standard deviation</b><br>The standard deviation describes individual values; the standard error describes the precision of the mean.	upstream appendix-E check
+Ten tasters score bitterness for two brews; the differences have mean 0.8 and standard deviation 1.2. What is the paired t statistic?	<b>2.11 </b><br>t = 0.8/(1.2/√10) = 2.11.	upstream appendix-E check

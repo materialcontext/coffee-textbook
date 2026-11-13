@@ -1,0 +1,360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2B. Extraction II: percolation and espresso - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch02a-extraction-immersion.html" rel="prev" title="2A. Extraction I: immersion, equilibrium and kinetics">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch03-water.html" rel="next" title="3. Water">Next &gt;</a></div>
+<h1>2B. Extraction II: percolation and espresso</h1>
+<p class="lead">What happens when water is forced through a bed instead of sitting in it?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Apply Darcy's law and the Kozeny-Carman relation to a coffee bed, and predict how grind, porosity, dose and pressure change the flow.</li>
+<li>Explain how pouring mixes a filter bed and why fine particles move during brewing.</li>
+<li>Calculate the strength and extraction yield of a batch brew with bypass.</li>
+<li>Explain why espresso yield peaks at an intermediate grind, and why flow and beverage mass dominate the outcome.</li>
+<li>Describe puck compaction and why flow levels off as pressure rises.</li>
+<li>Design an espresso recipe from these principles and test it.</li>
+</ul>
+<p class="small">Prerequisites: Chapter 2A; Appendix C, Section C.5 (viscosity).</p>
+</div>
+<p>An espresso machine pushes water through 18 g of coffee at nine times atmospheric pressure. A pour-over relies on a few centimetres of water standing above the grounds. The driving pressures differ by a factor of about a thousand, yet both brews flow at one or two millilitres per second. The two coffee beds must therefore differ enormously in how strongly they resist flow. Understanding that resistance explains why espresso is so sensitive to grind, why pressure is a weak control, and why some shots extract unevenly.</p>
+<p>This chapter applies the extraction ideas of Chapter 2A to <dfn id="t-percolation">percolation</dfn>, brewing in which water flows through a bed of grounds. Section 1 builds the physics of flow through a porous bed. Sections 2 and 3 apply it to filter brewing; Sections 4 to 6 apply it to espresso; Section 7 turns it into a method for designing recipes.</p>
+<h2>1. Flow through a porous bed</h2>
+<p>A coffee bed is a <dfn id="t-porous-medium">porous medium</dfn>: a solid framework of particles with connected spaces between them through which liquid can flow. The <dfn id="t-porosity">porosity</dfn> ε of a bed is the fraction of its volume that is open space. A loose bed of filter grounds has a porosity near 0.4; a tamped espresso puck, near 0.2.</p>
+<h3>Darcy's law</h3>
+<p>In 1856 Henry Darcy measured water flowing through sand filters and found that the flow rate is proportional to the pressure difference across the bed. The result, <dfn id="t-darcy-s-law">Darcy's law</dfn>, holds for slow flow through any porous medium:</p>
+<table class="deq" summary="Equation 2B.1"><tr><td class="f">Q = &kappa; A &Delta;P / (&mu; L)</td><td class="n" id="eq-darcy">(2B.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">Q</td><td>volumetric flow rate (m<sup>3</sup>/s)</td></tr>
+<tr><td class="w"></td><td class="s">&kappa;</td><td>permeability of the bed (m<sup>2</sup>)</td></tr>
+<tr><td class="w"></td><td class="s">A</td><td>cross-sectional area of the bed (m<sup>2</sup>)</td></tr>
+<tr><td class="w"></td><td class="s">&Delta;P</td><td>pressure difference across the bed (Pa)</td></tr>
+<tr><td class="w"></td><td class="s">&mu;</td><td>dynamic viscosity of the liquid (Pa s)</td></tr>
+<tr><td class="w"></td><td class="s">L</td><td>thickness of the bed (m)</td></tr>
+</table>
+<p>Darcy's law has the same form as Ohm's law for an electrical resistor. Pressure difference plays the role of voltage, flow rate the role of current, and L/(κA) the role of resistance. A thicker bed resists more; a wider bed resists less. <dfn id="t-viscosity">Viscosity</dfn>, the liquid's internal resistance to flowing, appears because a thicker liquid moves more slowly under the same push.</p>
+<p>The <dfn id="t-permeability">permeability</dfn> κ is a property of the bed alone: how easily it lets fluid through. It has units of area, because it is set by the size of the channels between particles.</p>
+<h3>Estimating permeability: Kozeny-Carman</h3>
+<p>Permeability can be measured, but it is useful to estimate it from the particles. For a bed of spheres of diameter d, the <dfn id="t-kozeny-carman-relation">Kozeny-Carman relation</dfn> gives</p>
+<table class="deq" summary="Equation 2B.2"><tr><td class="f">&kappa; = d<sup>2</sup> &epsilon;<sup>3</sup> / [180 (1 &minus; &epsilon;)<sup>2</sup>]</td><td class="n" id="eq-kc">(2B.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">d</td><td>particle diameter (for a real grind, an effective diameter) (m)</td></tr>
+<tr><td class="w"></td><td class="s">&epsilon;</td><td>porosity (fraction)</td></tr>
+</table>
+<p>The numerical factor 180 comes from fitting the relation to experiments on packed beds. Two features matter for coffee. Permeability rises with d<sup>2</sup>, so halving the particle size quarters the flow. Permeability is also sensitive to porosity, through the factor ε<sup>3</sup>: reducing ε from 0.20 to 0.17 cuts κ by about 40%.</p>
+<p>What is d for a grind that contains fines of a few micrometres and particles near a millimetre? Liquid flows through the gaps between particles, and the narrowest gaps are set by the smallest particles packed among the larger ones. The <dfn id="t-effective-particle-diameter">effective particle diameter</dfn> in <a href="#eq-kc">Equation 2B.2</a> is therefore much smaller than the median particle size. Chapter 4 shows that most particles in a typical grind, counted one by one, are fines.</p>
+<div class="widget">
+<h3>Flow through an espresso puck (Darcy and Kozeny-Carman)</h3>
+<form class="w" id="ch02b-percolation-espresso-w5" action="#">
+<div><input type="hidden" name="kind" value="darcy"></div>
+<div class="f"><label for="ch02b-percolation-espresso-w5-dp">Effective particle diameter</label> <input type="text" size="7" name="dp" id="ch02b-percolation-espresso-w5-dp" value="7"> &micro;m</div>
+<div class="f"><label for="ch02b-percolation-espresso-w5-eps">Porosity</label> <input type="text" size="7" name="eps" id="ch02b-percolation-espresso-w5-eps" value="0.2"> </div>
+<div class="f"><label for="ch02b-percolation-espresso-w5-dia">Basket diameter</label> <input type="text" size="7" name="dia" id="ch02b-percolation-espresso-w5-dia" value="58"> mm</div>
+<div class="f"><label for="ch02b-percolation-espresso-w5-len">Puck thickness</label> <input type="text" size="7" name="len" id="ch02b-percolation-espresso-w5-len" value="12"> mm</div>
+<div class="f"><label for="ch02b-percolation-espresso-w5-mu">Water viscosity at 93 &deg;C</label> <input type="text" size="7" name="mu" id="ch02b-percolation-espresso-w5-mu" value="0.3"> mPa s</div>
+<div class="f"><label for="ch02b-percolation-espresso-w5-pbar">Pressure drop</label> <input type="text" size="7" name="pbar" id="ch02b-percolation-espresso-w5-pbar" value="9"> bar</div>
+<p class="formula">k = d<sup>2</sup>&epsilon;<sup>3</sup>/[180(1 &minus; &epsilon;)<sup>2</sup>]; Q = k A &Delta;P / (&mu; L).</p>
+<p class="small">Permeability is set by the fine particles, so the effective diameter is far below the median grind size; about 7 &micro;m reproduces a typical 2 mL/s shot. Real pucks also compact and channel (Chapter 2B).</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch02b-percolation-espresso-w5-out"></div>
+</form>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: What an espresso puck's permeability must be</p>
+<p><span class="step">Problem.</span> A shot runs at 2.2 mL/s through an 18 g puck in a 58 mm basket, 12 mm thick, at 9 bar (9 × 10<sup>5</sup> Pa) with water at 93 °C (μ = 0.30 mPa s). Find the permeability, and the effective particle size it implies if ε = 0.20.</p>
+<p><span class="step">Plan.</span> Rearrange <a href="#eq-darcy">Equation 2B.1</a> for κ, then solve <a href="#eq-kc">Equation 2B.2</a> for d.</p>
+<p><span class="step">Solution.</span> The area is A = π(0.029 m)<sup>2</sup> = 2.64 × 10<sup>−3</sup> m<sup>2</sup>, and Q = 2.2 × 10<sup>−6</sup> m<sup>3</sup>/s. Then κ = Q μ L/(A ΔP) = (2.2 × 10<sup>−6</sup>)(3.0 × 10<sup>−4</sup>)(0.012)/[(2.64 × 10<sup>−3</sup>)(9 × 10<sup>5</sup>)] = 3.3 × 10<sup>−15</sup> m<sup>2</sup>. With ε = 0.20, the factor ε<sup>3</sup>/[180(1 − ε)<sup>2</sup>] = 0.008/115.2 = 6.9 × 10<sup>−5</sup>, so d<sup>2</sup> = 3.3 × 10<sup>−15</sup>/6.9 × 10<sup>−5</sup> = 4.8 × 10<sup>−11</sup> m<sup>2</sup> and d ≈ 7 µm.</p>
+<p><span class="step">Check.</span> A typical espresso grind has a median near 300 µm, forty times larger. The flow is controlled by the fines, as the argument above predicted.</p>
+</div>
+<div class="evidence">
+<p class="boxhead">Status of the evidence</p>
+<p>Mo and colleagues (2023) imaged espresso beds by X-ray micro-tomography (three-dimensional X-ray imaging) and simulated flow through the images [1]. They reported porosity near 0.17 and a permeability near 5.5 × 10<sup>−13</sup> m<sup>2</sup> at low pressure, with corrections for inertia at espresso pressures and higher porosity near the outlet after extraction. That permeability is over a hundred times the value the worked example requires. Possible reasons include fines smaller than the scan could resolve, fines migrating to the outlet, compaction of the wet puck under load, and the resistance of the basket screen. The discrepancy is unresolved. Simple models like Kozeny-Carman are reliable for how flow scales and unreliable for absolute numbers.</p>
+</div>
+<h3>Is the flow slow enough for Darcy's law?</h3>
+<p>Darcy's law assumes that viscous forces dominate the flow and that inertia is negligible. The <dfn id="t-reynolds-number">Reynolds number</dfn> measures the balance between the two. For flow through a bed it is</p>
+<table class="deq" summary="Equation 2B.3"><tr><td class="f">Re = &rho; v d / &mu;</td><td class="n" id="eq-re">(2B.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">&rho;</td><td>density of the liquid (kg/m<sup>3</sup>)</td></tr>
+<tr><td class="w"></td><td class="s">v</td><td>superficial velocity, Q/A (m/s)</td></tr>
+</table>
+<p>The <dfn id="t-superficial-velocity">superficial velocity</dfn> is the flow rate divided by the whole cross-section of the bed, as if the particles were not there. Below Re of about 1, viscous forces dominate and the flow is smooth, or <dfn id="t-laminar">laminar</dfn>. In the worked example v = Q/A = 0.85 mm/s, so with ρ = 965 kg/m<sup>3</sup> the Reynolds number is 0.02 for d = 7 µm and 0.8 for d = 300 µm. Darcy's law is a reasonable approximation on average; inertia matters only locally, in wide pores and channels.</p>
+<div class="quiz">
+<h3>Check your understanding: Section 1</h3>
+<form class="quiz-form" id="ch02b-percolation-espresso-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. By what factor does Kozeny-Carman permeability change if the effective particle diameter halves at constant porosity?</p>
+<p class="opts"><label for="ch02b-percolation-espresso-q0-0">Answer:</label> <input type="text" size="8" name="ch02b-percolation-espresso-q0-0" id="ch02b-percolation-espresso-q0-0"> </p>
+<div><input type="hidden" name="ch02b-percolation-espresso-q0-0-kind" value="numeric"><input type="hidden" name="ch02b-percolation-espresso-q0-0-ans" value="0.25"><input type="hidden" name="ch02b-percolation-espresso-q0-0-tol" value="0.001"></div>
+<p class="fb" id="ch02b-percolation-espresso-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. In Darcy's law, doubling the bed thickness at constant pressure will</p>
+<p class="opts">
+<input type="radio" name="ch02b-percolation-espresso-q0-1" id="ch02b-percolation-espresso-q0-1-0" value="0"> <label for="ch02b-percolation-espresso-q0-1-0">double the flow</label><br>
+<input type="radio" name="ch02b-percolation-espresso-q0-1" id="ch02b-percolation-espresso-q0-1-1" value="1"> <label for="ch02b-percolation-espresso-q0-1-1">halve the flow</label><br>
+<input type="radio" name="ch02b-percolation-espresso-q0-1" id="ch02b-percolation-espresso-q0-1-2" value="2"> <label for="ch02b-percolation-espresso-q0-1-2">leave the flow unchanged</label><br>
+</p>
+<div><input type="hidden" name="ch02b-percolation-espresso-q0-1-kind" value="choice"><input type="hidden" name="ch02b-percolation-espresso-q0-1-ans" value="1"></div>
+<p class="fb" id="ch02b-percolation-espresso-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch02b-percolation-espresso-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch02b-percolation-espresso-q0">Answers</a></p>
+</form>
+</div>
+<h2>2. Pour-over: gravity, jets and moving fines</h2>
+<p>With the physics in hand we can answer the opening puzzle. In a pour-over the driving pressure is only the weight of liquid above the filter, the <dfn id="t-hydrostatic-pressure">hydrostatic pressure</dfn> ΔP = ρgh, where g = 9.81 m/s<sup>2</sup> and h is the height of liquid. With 8 cm of liquid and bed, ΔP = 965 × 9.81 × 0.08 ≈ 760 Pa.</p>
+<div class="example">
+<p class="boxhead">Worked example: Why filter grind is coarser than espresso grind</p>
+<p><span class="step">Problem.</span> A pour-over runs at about 1.5 mL/s under 0.8 kPa through a bed 30 mm thick. An espresso runs at 2 mL/s under 900 kPa through 12 mm. Taking similar bed areas, how much more permeable must the filter bed be, and what effective particle size does that imply?</p>
+<p><span class="step">Plan.</span> From <a href="#eq-darcy">Equation 2B.1</a>, κ is proportional to QL/ΔP at fixed area and viscosity. Then separate the contributions of porosity and particle size using <a href="#eq-kc">Equation 2B.2</a>.</p>
+<p><span class="step">Solution.</span> The permeability ratio is κ<sub>filter</sub>/κ<sub>espresso</sub> = (1.5/2)(900/0.8)(30/12) ≈ 2,100. Porosity accounts for part of this: ε<sup>3</sup>/(1 − ε)<sup>2</sup> is 0.178 for a loose bed at 0.40 and 0.0125 for a puck at 0.20, a ratio of 14. The rest must come from particle size: d<sub>filter</sub>/d<sub>espresso</sub> = √(2,100/14) ≈ 12. If the espresso's effective size is 7 µm, the filter bed's is about 85 µm.</p>
+<p><span class="step">Check.</span> The argument rests on scaling rather than measurement, but it explains why the controlling size in a filter grind is roughly ten times larger, and why a small change in fines content changes drawdown time markedly.</p>
+</div>
+<p>Pouring also mixes the bed. Park, Young and Mathijssen (2025) filmed jets of water striking a transparent model of a coffee bed [2]. A smooth, unbroken jet triggered avalanches of particles that stirred grounds and liquid together; a jet that broke into droplets mixed poorly. Pouring from as high as the jet stays unbroken, with a thick enough stream, raised extraction from the same dose. A gooseneck kettle's job is to deliver a controlled, unbroken jet.</p>
+<p>Fine particles move during the brew. Liquid flowing through the bed carries the smallest particles downward, and they can collect at the filter, lowering permeability as the brew goes on. Stirring or swirling late in a brew lifts fines, which then settle on top of the bed or at the filter depending on timing. Because the effect on drawdown depends on where they end up, it is best determined by experiment (Lab L2.3).</p>
+<h3>Filters</h3>
+<p>Paper filters hold back fines, insoluble oils and most of the cafestol and kahweol, two oil-soluble compounds that raise blood cholesterol in people who drink large amounts of unfiltered coffee [3]. Metal filters and French presses let more of these through, giving a heavier, cloudier cup. Papers also differ in their own resistance to flow, and a dense paper can be the main resistance in a fast, coarse brew.</p>
+<h2>3. Batch brewers and bypass</h2>
+<p>Large batch brewers face a scaling problem: a big bed needs either a very coarse grind or a very long contact time to avoid over-strong coffee. Many solve it with <dfn id="t-bypass">bypass</dfn>, sending part of the water around the bed directly into the carafe. The bed then runs at higher strength, and the bypass water dilutes it to drinking strength.</p>
+<div class="example">
+<p class="boxhead">Worked example: A two-litre batch with 20% bypass</p>
+<p><span class="step">Problem.</span> A brewer uses 2,000 g of water, 110 g of coffee and 20% bypass. The grounds retain 2.0 g of liquid per gram, and the extract leaving the bed reads 1.90% TDS. Find the extraction yield and the final strength.</p>
+<p><span class="step">Plan.</span> Follow the water: through the bed, held in the bed, out of the bed, then diluted. Use the percolation mass balance, Equation 2A.2, for the bed.</p>
+<p><span class="step">Solution.</span> Water through the bed: 0.80 × 2,000 = 1,600 g. Held in the grounds: 2.0 × 110 = 220 g. Extract leaving the bed: 1,380 g. Solids extracted: 0.0190 × 1,380 = 26.2 g, so E = 26.2/110 = 23.8%. Final beverage: 1,380 + 400 = 1,780 g, with S = 26.2/1,780 = 1.47%.</p>
+<p><span class="step">Check.</span> The final strength is lower than the bed's strength by the dilution factor 1,380/1,780 = 0.78, as expected. Bypass lets strength and extraction be set separately.</p>
+</div>
+<h2>4. Espresso as pressure-driven percolation</h2>
+<p><dfn id="t-espresso">Espresso</dfn> pushes water at about 9 bar through a compacted bed of fine grounds called the <dfn id="t-puck">puck</dfn>. A typical recipe takes 18 g of coffee to 36 g of beverage in 25 to 35 s, with strength around 8 to 12%. A 36 g shot at 9.5% TDS from 18 g therefore has an extraction yield of 0.095 × 36/18 = 19.0%.</p>
+<h3>The grind paradox</h3>
+<p>Finer grinding shortens diffusion times (Chapter 2A), so a model with uniform flow predicts that yield should keep rising as the grind gets finer. Cameron and colleagues (2020) built such a model and compared it with careful experiments [4]. Measured yield rose with finer grinding to a maximum and then fell. Their explanation was that at fine settings the flow through the puck becomes uneven: water finds faster paths and bypasses regions that remain under-extracted (Section 6). Grinding coarser and reducing the dose, while keeping beverage mass and yield the same, gave more reproducible shots and used less coffee.</p>
+<h3>Fines</h3>
+<p>A 2024 study varied the fraction of fines in espresso beds [5]. Adding fines lengthened shot time substantially by lowering permeability but barely changed extraction yield, and the added fines did not lower sensory scores. Fines act mainly on flow, as the Darcy analysis predicts.</p>
+<h3>What controls what reaches the cup</h3>
+<p>Schmieder and colleagues (2023) built a model espresso system in which they could set flow rate, particle size and temperature independently [6]. They measured trigonelline, caffeine, 5-caffeoylquinic acid and total dissolved solids in successive fractions of the beverage. Flow rate had by far the strongest effect on how much of each reached the cup; grind size and temperature had minor effects by comparison.</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"A good espresso takes 25 to 30 seconds." Shot time is a symptom of flow resistance, not a cause of extraction. What fixes how much is extracted is how much water passed through, which is measured by beverage mass. Weigh the beverage and stop at a target mass; use time only to diagnose grind and puck preparation.</p>
+</div>
+<h2>5. Puck compaction and the pressure plateau</h2>
+<p>If a puck were rigid, <a href="#eq-darcy">Equation 2B.1</a> would make flow proportional to pressure. Measurements show something else: above a few bar, raising the pressure barely raises the flow.</p>
+<p>Waszkiewicz and colleagues (2026) measured flow against pressure for many grinds and doses [7]. Flow rose in proportion to pressure below about 5 bar and then levelled off. Their explanation is <dfn id="t-poroelastic-compaction">poroelastic compaction</dfn>: the pressure gradient pushes particles together, porosity falls, and permeability falls with ε<sup>3</sup>. The reduced permeability offsets the increased push. When flow and pressure were scaled by characteristic values for each puck, all the measurements fell on one curve, shown in <a href="#fig-poro">Figure 2B.1</a>.</p>
+<div class="figure" id="fig-poro">
+<img src="figures/ch02b-poroelastic.gif" width="450" height="273" alt="Graph of normalised flow against normalised pressure; a dashed straight line for a rigid puck rises steeply, while the curve for a compacting puck bends over and flattens at the critical pressure.">
+<p class="caption">Figure 2B.1. Flow against pressure for a rigid bed (Darcy's law, dashed) and for a compacting bed, in units scaled by the critical pressure and flow (after Waszkiewicz et al., 2026, preprint). Notice how far the two curves have separated by the critical pressure.</p>
+</div>
+<div class="evidence">
+<p class="boxhead">Status of the evidence</p>
+<p>The poroelastic result is a <dfn id="t-preprint">preprint</dfn>, a paper posted publicly before peer review, from one apparatus. It agrees with long-standing barista experience that raising pressure above about 6 bar changes flow less than changing the grind does, and with the porosity gradient found by micro-tomography [1]. Treat the plateau as well supported in its general shape and the exact curve as provisional.</p>
+</div>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"Higher pump pressure makes espresso flow faster and extract more." For a compacting puck, pressures above the critical value compress the bed and lower its permeability, so flow barely rises. Compaction is one reason shots at about 6 bar can work as well as shots at 9 bar. Grind, which acts on permeability through d<sup>2</sup>, and dose, which sets the bed thickness, are the strong controls.</p>
+</div>
+<h2>6. Channelling</h2>
+<p>A <dfn id="t-channel">channel</dfn> is a path of locally high permeability through which a disproportionate share of the water flows. Water in a channel has short contact with little coffee and leaves dilute. The coffee next to the channel is over-extracted, and the coffee away from it is under-extracted. The result is a lower yield than uniform flow would give at the same grind, and a cup that can taste bitter and sour at once.</p>
+<p>A two-path model estimates the penalty. Suppose a fraction f of the water passes through channels and extracts the coffee around them to a low yield E<sub>c</sub>, while the rest extracts the bulk to E<sub>b</sub>. If each gram of water carries a similar share of solids, the measured yield is approximately the flow-weighted mean:</p>
+<table class="deq" summary="Equation 2B.4"><tr><td class="f">E &asymp; (1 &minus; f) E<sub>b</sub> + f E<sub>c</sub></td><td class="n" id="eq-channel">(2B.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">f</td><td>fraction of the water flowing through channels (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">E<sub>b</sub>, E<sub>c</sub></td><td>extraction yields of the bulk and of the channel regions (fraction)</td></tr>
+</table>
+<p>With f = 0.3, E<sub>c</sub> = 12% and E<sub>b</sub> = 22%, the shot measures about 19%, three points below uniform flow.</p>
+<p>Practices that reduce channelling all make the puck uniform before water arrives. Grounds are distributed evenly, for example by stirring them with fine needles, then tamped level with no gap at the basket wall. <dfn id="t-pre-infusion">Pre-infusion</dfn> wets the puck at low pressure first, so that it swells and settles before full pressure is applied.</p>
+<div class="quiz">
+<h3>Check your understanding: Sections 4 to 6</h3>
+<form class="quiz-form" id="ch02b-percolation-espresso-q1" action="#answers">
+<div class="q">
+<p class="prompt">1. A 40 g shot at 9.0% TDS comes from 18 g of coffee. What is the extraction yield in percent?</p>
+<p class="opts"><label for="ch02b-percolation-espresso-q1-0">Answer:</label> <input type="text" size="8" name="ch02b-percolation-espresso-q1-0" id="ch02b-percolation-espresso-q1-0"> %</p>
+<div><input type="hidden" name="ch02b-percolation-espresso-q1-0-kind" value="numeric"><input type="hidden" name="ch02b-percolation-espresso-q1-0-ans" value="20"><input type="hidden" name="ch02b-percolation-espresso-q1-0-tol" value="0.05"></div>
+<p class="fb" id="ch02b-percolation-espresso-q1-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. According to Schmieder et al., which variable most directly controls how much of each soluble reaches the espresso cup?</p>
+<p class="opts">
+<input type="radio" name="ch02b-percolation-espresso-q1-1" id="ch02b-percolation-espresso-q1-1-0" value="0"> <label for="ch02b-percolation-espresso-q1-1-0">Flow rate and beverage mass</label><br>
+<input type="radio" name="ch02b-percolation-espresso-q1-1" id="ch02b-percolation-espresso-q1-1-1" value="1"> <label for="ch02b-percolation-espresso-q1-1-1">Brew temperature</label><br>
+<input type="radio" name="ch02b-percolation-espresso-q1-1" id="ch02b-percolation-espresso-q1-1-2" value="2"> <label for="ch02b-percolation-espresso-q1-1-2">Tamping pressure</label><br>
+</p>
+<div><input type="hidden" name="ch02b-percolation-espresso-q1-1-kind" value="choice"><input type="hidden" name="ch02b-percolation-espresso-q1-1-ans" value="0"></div>
+<p class="fb" id="ch02b-percolation-espresso-q1-1-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">3. In the two-path model, what channel fraction f gives a measured yield of 18% when E<sub>b</sub> = 22% and E<sub>c</sub> = 12%?</p>
+<p class="opts"><label for="ch02b-percolation-espresso-q1-2">Answer:</label> <input type="text" size="8" name="ch02b-percolation-espresso-q1-2" id="ch02b-percolation-espresso-q1-2"> </p>
+<div><input type="hidden" name="ch02b-percolation-espresso-q1-2-kind" value="numeric"><input type="hidden" name="ch02b-percolation-espresso-q1-2-ans" value="0.4"><input type="hidden" name="ch02b-percolation-espresso-q1-2-tol" value="0.005"></div>
+<p class="fb" id="ch02b-percolation-espresso-q1-2-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch02b-percolation-espresso-q1"><input type="hidden" name="quiz-n" value="3"><input type="button" class="check" value="Check answers"> <a href="#ans-ch02b-percolation-espresso-q1">Answers</a></p>
+</form>
+</div>
+<h2>7. Designing a recipe</h2>
+<p>The models of this chapter suggest an order of adjustment:</p>
+<ol>
+<li>Fix the ratio by beverage mass (for example 1:2) and fix the dose to suit the basket.</li>
+<li>Adjust the grind until the cup tastes balanced; measure TDS and calculate the extraction yield.</li>
+<li>If yield falls as you grind finer, you are past the peak: grind coarser, consider a smaller dose, and improve distribution.</li>
+<li>Use pressure and temperature only for fine adjustments, because they are weaker controls than grind and beverage mass.</li>
+</ol>
+<p>Record dose, beverage mass, time, TDS and a tasting note for every shot. The uncertainty methods of Chapter 0 apply: with typical refractometer and scale precision, two shots within about 0.5 percentage points of extraction yield cannot be told apart.</p>
+<h2>Looking ahead</h2>
+<p>Chapters 2A and 2B treated water as a neutral carrier that dissolves coffee and flows through it. It is not neutral. The minerals dissolved in brew water react with coffee acids before the cup reaches the taster, and they decide whether a machine scales or corrodes. Chapter 3 asks which properties of water matter for the cup, and by what chemistry.</p>
+<h2>Key equations</h2>
+<table class="eqs" summary="Key equations">
+<tr><th>Quantity</th><th>Equation</th><th>Notes</th></tr>
+<tr><td>Darcy's law</td><td class="eq">Q = &kappa; A &Delta;P / (&mu; L)</td><td>Equation 2B.1.</td></tr>
+<tr><td>Kozeny-Carman</td><td class="eq">&kappa; = d<sup>2</sup>&epsilon;<sup>3</sup> / [180(1 &minus; &epsilon;)<sup>2</sup>]</td><td>Equation 2B.2.</td></tr>
+<tr><td>Reynolds number</td><td class="eq">Re = &rho; v d / &mu;</td><td>Equation 2B.3.</td></tr>
+<tr><td>Hydrostatic pressure</td><td class="eq">&Delta;P = &rho; g h</td><td>Pour-over driving pressure.</td></tr>
+<tr><td>Two-path channelling</td><td class="eq">E &asymp; (1 &minus; f) E<sub>b</sub> + f E<sub>c</sub></td><td>Equation 2B.4.</td></tr>
+</table>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-bypass">bypass</a>; <a href="#t-channel">channel</a>; <a href="#t-darcy-s-law">Darcy's law</a>; <a href="#t-effective-particle-diameter">effective particle diameter</a>; <a href="#t-espresso">Espresso</a>; <a href="#t-hydrostatic-pressure">hydrostatic pressure</a>; <a href="#t-kozeny-carman-relation">Kozeny-Carman relation</a>; <a href="#t-laminar">laminar</a>; <a href="#t-percolation">percolation</a>; <a href="#t-permeability">permeability</a>; <a href="#t-poroelastic-compaction">poroelastic compaction</a>; <a href="#t-porosity">porosity</a>; <a href="#t-porous-medium">porous medium</a>; <a href="#t-pre-infusion">Pre-infusion</a>; <a href="#t-preprint">preprint</a>; <a href="#t-puck">puck</a>; <a href="#t-reynolds-number">Reynolds number</a>; <a href="#t-superficial-velocity">superficial velocity</a>; <a href="#t-viscosity">Viscosity</a>.</p>
+<h2>Labs</h2>
+<div class="lab">
+<h3 id="lab-L2.3">Lab L2.3: Pour height and drawdown</h3>
+<p><span class="lbl">Aim.</span> Test whether the height and smoothness of the pouring jet change strength and drawdown at fixed dose, grind and water.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Pouring from height splashes hot water: use a deep server, keep hands clear, and wear an apron.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>Cone dripper and filters</li>
+<li>Gooseneck kettle</li>
+<li>Ruler or marked stand</li>
+<li>Scale with timer</li>
+<li>Refractometer</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Fix the dose (15 g), water (250 g), grind and temperature.</li>
+<li>Brew three cups with the spout 3 cm above the bed and three with it at the highest point at which the jet stays unbroken (often 10 to 15 cm), in random order.</li>
+<li>Record total brew time, drawdown time (end of pour to end of dripping), beverage mass and TDS.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Run</th><th>Height (cm)</th><th>Brew time (s)</th><th>Drawdown (s)</th><th>Beverage (g)</th><th>TDS (%)</th><th>EY (%)</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Compare the mean extraction yield at each height and compute the standard error of each mean.</li>
+<li>Is the difference larger than the measurement uncertainty from Chapter 0?</li>
+</ol>
+<p><span class="lbl">What to expect.</span> Higher unbroken pours usually give slightly higher extraction; drawdown may lengthen if fines are carried to the filter.</p>
+</div>
+<div class="lab">
+<h3 id="lab-L2.4">Lab L2.4: Espresso: yield against grind</h3>
+<p><span class="lbl">Aim.</span> Find the grind setting at which espresso yield peaks, and compare shot-to-shot variation on either side of it.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Portafilters and group heads are hot; steam wands can scald.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>Espresso machine</li>
+<li>Grinder with repeatable settings</li>
+<li>Scale under the cup</li>
+<li>Refractometer with syringe filters</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Fix the dose and target beverage mass (for example 18 g to 36 g).</li>
+<li>Pull three shots at each of five grind settings from coarse to fine, in random order.</li>
+<li>Stop each shot at the target mass; record time and TDS.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Setting</th><th>Shot</th><th>Time (s)</th><th>Beverage (g)</th><th>TDS (%)</th><th>EY (%)</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Plot extraction yield against grind setting with error bars. Where is the peak?</li>
+<li>Compare the standard deviation of yield at the settings either side of the peak.</li>
+<li>Repeat the best coarse setting with a dose 2 g smaller. Does yield hold?</li>
+</ol>
+<p><span class="lbl">What to expect.</span> Yield rises and then falls as the grind gets finer; variation is often larger at fine settings.</p>
+</div>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section 1]</span> State Darcy's law and give each quantity with its SI unit. <a class="sol" href="ch02b-percolation-espresso-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section 4]</span> Why should espresso be dosed by beverage mass rather than by time? <a class="sol" href="ch02b-percolation-espresso-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section 2]</span> What do paper filters remove that metal filters let through, and why might it matter to a heavy coffee drinker? <a class="sol" href="ch02b-percolation-espresso-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section 1]</span> Calculate the Kozeny-Carman permeability for d = 7 µm at porosities of 0.20 and 0.17. By what factor does it fall? <a class="sol" href="ch02b-percolation-espresso-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section 5]</span> Using the Darcy calculator's default values, predict the flow at 6 bar for a rigid puck. Would a real, compacting puck run faster or slower than this prediction, relative to its flow at 9 bar? <a class="sol" href="ch02b-percolation-espresso-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section 1]</span> Increasing the dose from 18 to 20 g raises the puck thickness from 12.0 to 13.3 mm. At fixed grind and pressure, what does Darcy's law predict for the flow if it was 2.25 mL/s? <a class="sol" href="ch02b-percolation-espresso-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section 1]</span> Compute the Reynolds number for v = 0.85 mm/s, d = 300 µm, ρ = 965 kg/m<sup>3</sup> and μ = 0.30 mPa s. Is Darcy's law plausible? <a class="sol" href="ch02b-percolation-espresso-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section 3]</span> A batch brewer uses 1,500 g of water, 85 g of coffee and 15% bypass. The grounds retain 2.0 g/g and the bed extract reads 1.80%. Find the extraction yield and final strength. <a class="sol" href="ch02b-percolation-espresso-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[B, Section 2]</span> What is the hydrostatic pressure at the bottom of a 5 cm liquid column above a 3 cm wet bed, taking ρ = 970 kg/m<sup>3</sup>? Express it as a fraction of 9 bar. <a class="sol" href="ch02b-percolation-espresso-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[B, Section 1]</span> In the espresso example the permeability was 3.3 × 10<sup>−15</sup> m<sup>2</sup>. What flow would Darcy's law predict at 9 bar with the micro-tomography permeability of 5.5 × 10<sup>−13</sup> m<sup>2</sup>, other values unchanged? <a class="sol" href="ch02b-percolation-espresso-solutions.html#s10">Solution</a></li>
+<li id="p0-11"><span class="tier">[B, Section 1]</span> Water's viscosity is about 0.89 mPa s at 25 °C and 0.30 mPa s at 93 °C. At fixed permeability, how much faster does the hot water flow? <a class="sol" href="ch02b-percolation-espresso-solutions.html#s11">Solution</a></li>
+<li id="p0-12"><span class="tier">[C, Section 4]</span> Explain the espresso grind paradox using both the diffusion time scale of Chapter 2A and the permeability scaling of this chapter. <a class="sol" href="ch02b-percolation-espresso-solutions.html#s12">Solution</a></li>
+<li id="p0-13"><span class="tier">[C, Section 4]</span> Suggest why fines added to an espresso bed lengthen shot time but barely change yield. <a class="sol" href="ch02b-percolation-espresso-solutions.html#s13">Solution</a></li>
+<li id="p0-14"><span class="tier">[C, Section 6]</span> Design an experiment to test whether pre-infusion reduces channelling. State what you would measure and how many shots you would need. <a class="sol" href="ch02b-percolation-espresso-solutions.html#s14">Solution</a></li>
+<li id="p0-15"><span class="tier">[C, Section 5]</span> A colleague proposes raising pump pressure to 12 bar to speed up a slow shot. Using the poroelastic picture, argue for a better adjustment. <a class="sol" href="ch02b-percolation-espresso-solutions.html#s15">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>References</h2>
+<ol>
+<li>Mo C. et al. (2023), Exploring the link between coffee matrix microstructure and flow properties using combined X-ray microtomography and smoothed particle hydrodynamics simulations, <em>Scientific Reports</em> 13:16374.</li>
+<li>Park E., Young M., Mathijssen A.J.T.M. (2025), Pour-over coffee: mixing by a water jet impinging on a granular bed with avalanche dynamics, <em>Physics of Fluids</em> 37(4).</li>
+<li>Urgert R., Katan M.B. (1997), The cholesterol-raising factor from coffee beans, <em>Annual Review of Nutrition</em> 17:305.</li>
+<li>Cameron M.I. et al. (2020), Systematically improving espresso: insights from mathematical modeling and experiment, <em>Matter</em> 2:631.</li>
+<li>The role of fines in espresso extraction dynamics (2024), <em>Scientific Reports</em>.</li>
+<li>Schmieder B.K.L., Pannusch V.B., Vannieuwenhuyse L., Briesen H., Minceva M. (2023), Influence of flow rate, particle size, and temperature on espresso extraction kinetics, <em>Foods</em> 12:2871.</li>
+<li>Waszkiewicz R. et al. (2026), Under pressure: poroelastic regulation of flow in espresso brewing, arXiv:2512.21528 (preprint).</li>
+</ol>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-ch02b-percolation-espresso-q0">Check your understanding: Section 1</h3>
+<ol>
+<li><span class="key">0.25 .</span> <span id="ch02b-percolation-espresso-q0-0-ex">κ scales with d<sup>2</sup>: (1/2)<sup>2</sup> = 0.25.</span></li>
+<li><span class="key">halve the flow.</span> <span id="ch02b-percolation-espresso-q0-1-ex">Q is inversely proportional to L.</span></li>
+</ol>
+<h3 id="ans-ch02b-percolation-espresso-q1">Check your understanding: Sections 4 to 6</h3>
+<ol>
+<li><span class="key">20 %.</span> <span id="ch02b-percolation-espresso-q1-0-ex">E = S m<sub>b</sub>/m<sub>c</sub> = 0.090 × 40/18 = 20.0%.</span></li>
+<li><span class="key">Flow rate and beverage mass.</span> <span id="ch02b-percolation-espresso-q1-1-ex">Flow rate dominated; grind size and temperature had minor effects by comparison.</span></li>
+<li><span class="key">0.4 .</span> <span id="ch02b-percolation-espresso-q1-2-ex">18 = 22 − 10f, so f = 0.4.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="ch02b-percolation-espresso-solutions.html">2B. Extraction II: percolation and espresso solutions</a>.</p>
+
+<div class="nav bottom"><a href="ch02a-extraction-immersion.html" rel="prev" title="2A. Extraction I: immersion, equilibrium and kinetics">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch03-water.html" rel="next" title="3. Water">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

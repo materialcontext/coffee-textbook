@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix E. Statistics for sensory work and experiments - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="d-analytical-methods.html" rel="prev" title="Appendix D. Analytical methods">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <span class="off">Next &gt;</span></div>
+<h1>Appendix E. Statistics for sensory work and experiments</h1>
+<p class="lead">How many cups, tasters and repeats do I need before a difference means something?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Summarise data with a mean, standard deviation, standard error and confidence interval.</li>
+<li>Use the binomial distribution to analyse discrimination tests.</li>
+<li>Choose between paired and independent t-tests, and explain why pairing gains power.</li>
+<li>Run and interpret a one-way ANOVA with a follow-up comparison.</li>
+<li>Fit a straight line by least squares and read its residuals.</li>
+<li>Compute sample sizes and power before running an experiment.</li>
+<li>Explain the ideas behind d' and principal component analysis.</li>
+</ul>
+</div>
+<p>Coffee experiments are small, noisy and expensive: a few roasts, a dozen tasters, a handful of brews. Statistics is the set of tools for deciding what such data can and cannot show. Two errors are common. The first is declaring a difference that is only noise; the second is running an experiment too small to detect a difference that is real. This appendix builds the tools to avoid both, assuming no statistics beyond knowing what an average is.</p>
+<h2>E.1 Describing a sample</h2>
+<p>Measurements vary. If we brewed the same recipe forever, the extraction yields would form a <dfn id="t-population">population</dfn> with some true mean and spread. In practice we have a <dfn id="t-sample">sample</dfn>: a handful of measurements from which to estimate those population values.</p>
+<p>For n values x<sub>1</sub>, …, x<sub>n</sub>, the <dfn id="t-sample-mean">sample mean</dfn> is m<sub>x</sub> = Σx<sub>i</sub>/n (many texts write it as x with a bar). The spread is measured by the <dfn id="t-sample-standard-deviation">standard deviation</dfn>:</p>
+<table class="deq" summary="Equation E.1"><tr><td class="f">s = &radic;[&Sigma;(x<sub>i</sub> &minus; m<sub>x</sub>)<sup>2</sup> / (n &minus; 1)]</td><td class="n" id="eq-sd">(E.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">s</td><td>sample standard deviation (same unit as x)</td></tr>
+<tr><td class="w"></td><td class="s">m<sub>x</sub></td><td>sample mean</td></tr>
+<tr><td class="w"></td><td class="s">n</td><td>number of values</td></tr>
+</table>
+<p>The divisor is n − 1 rather than n because the deviations are measured from a mean calculated from the same data, which makes them slightly too small; dividing by n − 1 corrects for this. The variance is s<sup>2</sup>.</p>
+<p>The standard deviation describes the spread of individual values. The <dfn id="t-standard-error-of-the-mean">standard error</dfn>, SE = s/√n, describes how precisely the mean itself is known (Chapter 0, Equation 0.1).</p>
+<p>A <dfn id="t-confidence-interval">confidence interval</dfn> gives a range for the population mean. A 95% confidence interval is built so that, if the experiment were repeated many times, 95% of such intervals would contain the true mean:</p>
+<table class="deq" summary="Equation E.2"><tr><td class="f">m<sub>x</sub> &plusmn; t<sub>0.975, n&minus;1</sub> &times; SE</td><td class="n" id="eq-ci">(E.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">t<sub>0.975, n&minus;1</sub></td><td>value from Student's t distribution with n − 1 degrees of freedom (2.571 for n = 6; approaches 1.96 for large n)</td></tr>
+</table>
+<p>The <dfn id="t-t-distribution">t distribution</dfn> is used instead of the normal distribution because s is itself an estimate; with few data, the interval must be wider to allow for that extra uncertainty.</p>
+<div class="example">
+<p class="boxhead">Worked example: Six brews</p>
+<p><span class="step">Problem.</span> Six pour-overs of one recipe give extraction yields of 20.1, 20.6, 19.8, 20.4, 20.9 and 20.2%. Find the mean, standard deviation and 95% confidence interval.</p>
+<p><span class="step">Plan.</span> Apply <a href="#eq-sd">Equation E.1</a>, then SE = s/√n and <a href="#eq-ci">Equation E.2</a>.</p>
+<p><span class="step">Solution.</span> Mean: 20.33%. Standard deviation: 0.39. Standard error: 0.39/√6 = 0.158. With t = 2.571, the interval is 20.33 ± 0.41, from 19.93 to 20.74%.</p>
+<p><span class="step">Check.</span> The interval is about ±0.4 points wide. A recipe change that moves extraction by 0.3 points cannot be confirmed with six brews per recipe.</p>
+</div>
+<h2>E.2 Probability and the binomial distribution</h2>
+<p>Discrimination tests (Chapter 1) count successes. If each of n independent trials succeeds with probability p, the number of successes X follows the <dfn id="t-binomial-distribution">binomial distribution</dfn>:</p>
+<table class="deq" summary="Equation E.3"><tr><td class="f">P(X = k) = C(n, k) p<sup>k</sup> (1 &minus; p)<sup>n&minus;k</sup>, where C(n, k) = n! / [k!(n &minus; k)!]</td><td class="n" id="eq-binom">(E.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">C(n, k)</td><td>number of ways to choose which k of the n trials succeed</td></tr>
+</table>
+<p>A <dfn id="t-hypothesis-test">hypothesis test</dfn> starts from a <dfn id="t-null-hypothesis">null hypothesis</dfn>, here that tasters are guessing, and asks how surprising the data would be if it were true. The <dfn id="t-p-value">p-value</dfn> is the probability, assuming the null hypothesis, of a result at least as extreme as the one observed. A small p-value, conventionally below the <dfn id="t-significance-level">significance level</dfn> α = 0.05, leads us to reject the null hypothesis. In a triangle test the guessing probability is 1/3, so the p-value is P(X ≥ observed) with p = 1/3.</p>
+<div class="example">
+<p class="boxhead">Worked example: Twelve trials</p>
+<p><span class="step">Problem.</span> In a triangle test, 8 of 12 assessors pick the odd cup. Is that significant at 0.05?</p>
+<p><span class="step">Plan.</span> Sum <a href="#eq-binom">Equation E.3</a> for k = 8 to 12 with p = 1/3.</p>
+<p><span class="step">Solution.</span> P(X ≥ 8) = 0.0188, below 0.05, so the samples are judged different. With 7 correct, P(X ≥ 7) = 0.066, not significant.</p>
+<p><span class="step">Check.</span> The expected number correct under guessing is 12/3 = 4, so 8 is twice what chance predicts; a small p-value is plausible.</p>
+</div>
+<p>The <dfn id="t-proportion-of-discriminators">proportion of discriminators</dfn> converts the result into the share of the population that perceives the difference: p<sub>d</sub> = (3p<sub>c</sub> − 1)/2, where p<sub>c</sub> is the proportion correct (Chapter 1, Equation 1.2). Eight of twelve gives p<sub>c</sub> = 0.667 and p<sub>d</sub> = 0.50, with wide uncertainty at this sample size.</p>
+<div class="widget">
+<h3>Triangle test: power and proportion of discriminators</h3>
+<form class="w" id="e-statistics-w11" action="#">
+<div><input type="hidden" name="kind" value="triangle-power"></div>
+<div class="f"><label for="e-statistics-w11-n">Trials</label> <input type="text" size="7" name="n" id="e-statistics-w11-n" value="24"> </div>
+<div class="f"><label for="e-statistics-w11-pd">True proportion of discriminators</label> <input type="text" size="7" name="pd" id="e-statistics-w11-pd" value="0.3"> </div>
+<div class="f"><label for="e-statistics-w11-alpha">Significance level</label> <input type="text" size="7" name="alpha" id="e-statistics-w11-alpha" value="0.05"> </div>
+<p class="formula">Probability correct = 1/3 + (2/3) p<sub>d</sub>. Power = P(X &ge; k<sub>crit</sub>) under that probability, where k<sub>crit</sub> is the smallest k with P(X &ge; k | 1/3) &le; &alpha;. From data, p<sub>d</sub> = (3 p<sub>c</sub> &minus; 1)/2.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="e-statistics-w11-out"></div>
+</form>
+</div>
+<h2>E.3 Comparing two means: t-tests</h2>
+<p>A <dfn id="t-t-test">t-test</dfn> asks whether a difference between two means is large compared with its standard error. There are two versions, and the design of the experiment decides which to use.</p>
+<p>Independent samples: two separate groups, such as two coffees each brewed six times. The statistic is t = (m<sub>1</sub> − m<sub>2</sub>)/SE<sub>diff</sub>, where SE<sub>diff</sub> combines the standard errors of both groups.</p>
+<p>Paired samples: each subject provides a value under both conditions, such as each taster scoring both cups. Compute each subject's difference d<sub>i</sub>, then test whether the mean difference is zero:</p>
+<table class="deq" summary="Equation E.4"><tr><td class="f">t = m<sub>d</sub> / (s<sub>d</sub> / &radic;n)</td><td class="n" id="eq-paired">(E.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">m<sub>d</sub></td><td>mean of the differences</td></tr>
+<tr><td class="w"></td><td class="s">s<sub>d</sub></td><td>standard deviation of the differences</td></tr>
+<tr><td class="w"></td><td class="s">n</td><td>number of pairs; degrees of freedom n − 1</td></tr>
+</table>
+<div class="example">
+<p class="boxhead">Worked example: Why pairing matters</p>
+<p><span class="step">Problem.</span> Eight tasters score sweetness for brews A and B on a 0 to 10 scale. Analyse the data as paired and as independent samples.</p>
+<table><thead><tr><th>Taster</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead><tbody>
+<tr><td>A</td><td>7</td><td>6</td><td>8</td><td>5</td><td>7</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><td>B</td><td>6</td><td>6</td><td>6</td><td>4</td><td>6</td><td>5</td><td>7</td><td>6</td></tr>
+</tbody></table>
+<p><span class="step">Plan.</span> For the paired test, compute each taster's difference and apply <a href="#eq-paired">Equation E.4</a>. For comparison, apply the independent test to the same numbers.</p>
+<p><span class="step">Solution.</span> The differences are 1, 0, 2, 1, 1, 1, 0, 2: mean 1.00, standard deviation 0.756. Paired: t = 1.00/(0.756/√8) = 3.74 with 7 degrees of freedom, p = 0.007. Independent: t = 2.08 with 14 degrees of freedom, p = 0.057.</p>
+<p><span class="step">Check.</span> Tasters use the scale differently: taster 3 scores high and taster 4 low. Pairing removes that variation between tasters and leaves the consistent difference within each taster. A design in which every taster judges both samples is usually more powerful, and the analysis must match the design.</p>
+</div>
+<div class="quiz">
+<h3>Check your understanding: Sections E.1 to E.3</h3>
+<form class="quiz-form" id="e-statistics-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. To describe how variable individual espresso shots are, report the</p>
+<p class="opts">
+<input type="radio" name="e-statistics-q0-0" id="e-statistics-q0-0-0" value="0"> <label for="e-statistics-q0-0-0">standard deviation</label><br>
+<input type="radio" name="e-statistics-q0-0" id="e-statistics-q0-0-1" value="1"> <label for="e-statistics-q0-0-1">standard error of the mean</label><br>
+<input type="radio" name="e-statistics-q0-0" id="e-statistics-q0-0-2" value="2"> <label for="e-statistics-q0-0-2">p-value</label><br>
+</p>
+<div><input type="hidden" name="e-statistics-q0-0-kind" value="choice"><input type="hidden" name="e-statistics-q0-0-ans" value="0"></div>
+<p class="fb" id="e-statistics-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. Ten tasters score bitterness for two brews; the differences have mean 0.8 and standard deviation 1.2. What is the paired t statistic?</p>
+<p class="opts"><label for="e-statistics-q0-1">Answer:</label> <input type="text" size="8" name="e-statistics-q0-1" id="e-statistics-q0-1"> </p>
+<div><input type="hidden" name="e-statistics-q0-1-kind" value="numeric"><input type="hidden" name="e-statistics-q0-1-ans" value="2.11"><input type="hidden" name="e-statistics-q0-1-tol" value="0.02"></div>
+<p class="fb" id="e-statistics-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="e-statistics-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-e-statistics-q0">Answers</a></p>
+</form>
+</div>
+<h2>E.4 More than two groups: analysis of variance</h2>
+<p>Comparing three or more means with repeated t-tests inflates the chance of a false positive: ten tests at α = 0.05 have a 40% chance of at least one false positive when nothing differs. <dfn id="t-analysis-of-variance">Analysis of variance</dfn> (ANOVA) tests all groups at once.</p>
+<p>The idea is to split the total variation in the data into two parts: variation between the group means, and variation within the groups. With k groups and N observations in all,</p>
+<table class="deq" summary="Equation E.5"><tr><td class="f">F = [SS<sub>between</sub> / (k &minus; 1)] / [SS<sub>within</sub> / (N &minus; k)]</td><td class="n" id="eq-anova">(E.5)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">SS<sub>between</sub></td><td>sum of squared deviations of group means from the grand mean, weighted by group size</td></tr>
+<tr><td class="w"></td><td class="s">SS<sub>within</sub></td><td>sum of squared deviations of each value from its group mean</td></tr>
+<tr><td class="w"></td><td class="s">F</td><td>ratio of between-group to within-group variance</td></tr>
+</table>
+<p>If all groups share one mean, F is close to 1. A large F means the group means differ by more than the noise within groups can explain. The p-value comes from the F distribution with (k − 1, N − k) degrees of freedom.</p>
+<div class="widget">
+<h3>One-way ANOVA for panel scores</h3>
+<form class="w" id="e-statistics-w19" action="#">
+<div><input type="hidden" name="kind" value="anova"></div>
+<div class="f"><label for="e-statistics-w19-data">One sample per line, scores separated by spaces</label><br><textarea name="data" id="e-statistics-w19-data" rows="6" cols="36">6 7 6 8 7 6
+5 5 6 4 5 6
+7 8 8 7 9 8</textarea></div>
+<p class="formula">F = [SS<sub>between</sub>/(k &minus; 1)] / [SS<sub>within</sub>/(N &minus; k)]; p from the F distribution with (k &minus; 1, N &minus; k) degrees of freedom.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="e-statistics-w19-out"></div>
+</form>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: Three roasts</p>
+<p><span class="step">Problem.</span> Six panellists score the sweetness of three roasts (the calculator's default data). Do the roasts differ, and which pairs differ?</p>
+<p><span class="step">Plan.</span> Run a one-way ANOVA; if it is significant, use Tukey's test, a <dfn id="t-post-hoc-test">post-hoc test</dfn> that compares every pair while keeping the overall false-positive rate at 0.05.</p>
+<p><span class="step">Solution.</span> Means are 6.67, 5.17 and 7.83. F = 17.9 with (2, 15) degrees of freedom, p = 0.0001. Tukey's test finds every pair different at 0.05 (p = 0.011, 0.049 and below 0.001).</p>
+<p><span class="step">Check.</span> Because the same six panellists scored each roast, a two-way ANOVA with panellist as a second factor would remove variation between panellists and be more powerful, for the reason shown in Section E.3.</p>
+</div>
+<p>A two-way ANOVA adds a second factor (panellist, session, brewing method). It can estimate an <dfn id="t-interaction">interaction</dfn>, which tests whether the effect of one factor depends on the level of the other. In descriptive analysis, a panellist-by-sample interaction tests whether panellists agree on the ranking of samples, a standard check of panel performance.</p>
+<h2>E.5 Regression</h2>
+<p><dfn id="t-linear-regression">Linear regression</dfn> fits a straight line y = a + bx to paired data. <dfn id="t-least-squares">Least squares</dfn> chooses a and b to minimise the sum of the squared vertical distances from the points to the line:</p>
+<table class="deq" summary="Equation E.6"><tr><td class="f">b = &Sigma;(x<sub>i</sub> &minus; m<sub>x</sub>)(y<sub>i</sub> &minus; m<sub>y</sub>) / &Sigma;(x<sub>i</sub> &minus; m<sub>x</sub>)<sup>2</sup>, a = m<sub>y</sub> &minus; b m<sub>x</sub></td><td class="n" id="eq-ls">(E.6)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">b</td><td>slope (unit of y per unit of x)</td></tr>
+<tr><td class="w"></td><td class="s">a</td><td>intercept (unit of y)</td></tr>
+<tr><td class="w"></td><td class="s">m<sub>x</sub>, m<sub>y</sub></td><td>means of x and y</td></tr>
+</table>
+<p>R<sup>2</sup> is the fraction of the variation in y that the line explains. The <dfn id="t-residual">residuals</dfn>, observed minus fitted values, are the main diagnostic: they should scatter without pattern. A curve in the residuals means a straight line is the wrong model, even when R<sup>2</sup> is high. The uncertainty of a slope fitted to n evenly spaced points with noise σ is σ/√Σ(x<sub>i</sub> − m<sub>x</sub>)<sup>2</sup>, which Chapter 7 uses to smooth rate of rise.</p>
+<div class="example">
+<p class="boxhead">Worked example: Titratable acidity against strength</p>
+<p><span class="step">Problem.</span> Five brews of one coffee give the following data. Fit titratable acidity against TDS and examine the residuals.</p>
+<table><thead><tr><th>TDS (%)</th><th>1.10</th><th>1.20</th><th>1.30</th><th>1.40</th><th>1.50</th></tr></thead><tbody>
+<tr><td>TA (mmol/L)</td><td>1.32</td><td>1.45</td><td>1.58</td><td>1.66</td><td>1.81</td></tr>
+</tbody></table>
+<p><span class="step">Plan.</span> Apply <a href="#eq-ls">Equation E.6</a>, then compute fitted values and residuals.</p>
+<p><span class="step">Solution.</span> The fit is TA = 0.017 + 1.19 × TDS, with R<sup>2</sup> = 0.994 and a slope standard error of 0.055. The intercept's standard error is 0.072, so the intercept cannot be distinguished from zero. The residuals are −0.006, 0.005, 0.016, −0.023 and 0.008.</p>
+<p><span class="step">Check.</span> The residuals are small and show no trend, and an intercept near zero is consistent with titratable acid being proportional to dissolved solids (Chapter 2A, Section 6).</p>
+</div>
+<p>The <dfn id="t-correlation-coefficient">correlation coefficient</dfn> r measures linear association on a scale from −1 to 1. It says nothing about cause. In brewing data, two variables often correlate because both depend on a third: strength and bitterness both rise as the brew ratio falls.</p>
+<h2>E.6 Power and sample size</h2>
+<p><dfn id="t-statistical-power">Statistical power</dfn> is the probability that an experiment detects a real effect of a stated size. Experiments with low power mostly return "no significant difference" whatever the truth, and the significant results they do produce overstate the effect.</p>
+<p>For comparing two means, the <dfn id="t-effect-size">effect size</dfn> d is the difference divided by the standard deviation. The number of replicates needed per group is approximately</p>
+<table class="deq" summary="Equation E.7"><tr><td class="f">n &asymp; 2 [(z<sub>1&minus;&alpha;/2</sub> + z<sub>power</sub>) / d]<sup>2</sup></td><td class="n" id="eq-n">(E.7)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">z<sub>1&minus;&alpha;/2</sub></td><td>normal quantile for the significance level: 1.96 for α = 0.05</td></tr>
+<tr><td class="w"></td><td class="s">z<sub>power</sub></td><td>normal quantile for the desired power: 0.84 for 80%</td></tr>
+<tr><td class="w"></td><td class="s">d</td><td>effect size: difference divided by standard deviation</td></tr>
+</table>
+<p>For α = 0.05 and 80% power, n ≈ 15.7/d<sup>2</sup>. A large effect (d = 0.8) needs about 25 per group; a medium effect (d = 0.5), about 63. For a paired design the same formula applies without the leading 2, with d defined as the mean difference divided by the standard deviation of the differences: d = 0.5 needs about 32 pairs.</p>
+<div class="widget">
+<h3>Sample size for comparing two means</h3>
+<form class="w" id="e-statistics-w28" action="#">
+<div><input type="hidden" name="kind" value="power"></div>
+<div class="f"><label for="e-statistics-w28-d">Effect size (difference / SD)</label> <input type="text" size="7" name="d" id="e-statistics-w28-d" value="0.8"> </div>
+<div class="f"><label for="e-statistics-w28-alpha">Significance level (two-sided)</label> <input type="text" size="7" name="alpha" id="e-statistics-w28-alpha" value="0.05"> </div>
+<div class="f"><label for="e-statistics-w28-power">Desired power</label> <input type="text" size="7" name="power" id="e-statistics-w28-power" value="0.8"> </div>
+<p class="formula">n per group &asymp; 2 [(z<sub>1&minus;&alpha;/2</sub> + z<sub>power</sub>) / d]<sup>2</sup> (normal approximation; add one or two for small samples).</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="e-statistics-w28-out"></div>
+</form>
+</div>
+<p>For triangle tests, power depends on the proportion of discriminators. With 24 trials and a true p<sub>d</sub> of 0.30, 13 correct answers are needed for significance and the power is 0.55: almost half the time, a difference that 30% of people can perceive will be missed. ISO 4120 provides tables of sample sizes for chosen error rates and p<sub>d</sub>.</p>
+<h2>E.7 Signal detection and d'</h2>
+<p>The proportion of correct answers depends on the test method as well as on the size of the sensory difference: the same pair of coffees gives different proportions correct in a triangle test and in a two-alternative forced choice. <dfn id="t-thurstonian-model">Thurstonian models</dfn> separate the two. They describe the sensory difference as <dfn id="t-d-prime">d'</dfn>, the distance between the two samples' distributions of perceived intensity, measured in units of their standard deviation. For the two-alternative forced choice, d' = √2 z(p<sub>c</sub>), where z(p<sub>c</sub>) is the normal quantile of the proportion correct; 75% correct corresponds to d' = 0.95. The triangle test's relation is more complex and is read from published tables. Because d' does not depend on the test method, it allows results from different tests and laboratories to be compared.</p>
+<h2>E.8 Many attributes at once: principal component analysis</h2>
+<p>A descriptive panel produces a table of samples by attributes. <dfn id="t-principal-component-analysis">Principal component analysis</dfn> (PCA) finds new axes, each a weighted combination of the original attributes, that capture as much as possible of the variation between samples. The first two components often capture most of it and can be drawn as a map: samples that taste alike sit close together, and arrows for the attributes show what separates them. PCA describes structure; it does not test hypotheses, and its axes need interpretation.</p>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-analysis-of-variance">Analysis of variance</a>; <a href="#t-binomial-distribution">binomial distribution</a>; <a href="#t-confidence-interval">confidence interval</a>; <a href="#t-correlation-coefficient">correlation coefficient</a>; <a href="#t-d-prime">d prime</a>; <a href="#t-effect-size">effect size</a>; <a href="#t-hypothesis-test">hypothesis test</a>; <a href="#t-interaction">interaction</a>; <a href="#t-least-squares">Least squares</a>; <a href="#t-linear-regression">Linear regression</a>; <a href="#t-null-hypothesis">null hypothesis</a>; <a href="#t-p-value">p-value</a>; <a href="#t-population">population</a>; <a href="#t-post-hoc-test">post-hoc test</a>; <a href="#t-principal-component-analysis">Principal component analysis</a>; <a href="#t-proportion-of-discriminators">proportion of discriminators</a>; <a href="#t-residual">residual</a>; <a href="#t-sample">sample</a>; <a href="#t-sample-mean">sample mean</a>; <a href="#t-sample-standard-deviation">sample standard deviation</a>; <a href="#t-significance-level">significance level</a>; <a href="#t-standard-error-of-the-mean">standard error of the mean</a>; <a href="#t-statistical-power">Statistical power</a>; <a href="#t-t-distribution">t distribution</a>; <a href="#t-t-test">t-test</a>; <a href="#t-thurstonian-model">Thurstonian model</a>.</p>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section E.1]</span> Explain the difference between a standard deviation and a standard error, and say which you would report to describe how variable a grinder's shots are. <a class="sol" href="e-statistics-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section E.2]</span> In a triangle test, 9 of 30 assessors are correct. Is there evidence of a difference? What is the estimated proportion of discriminators? <a class="sol" href="e-statistics-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section E.4]</span> Why does running ten t-tests at α = 0.05 on data with no real differences give about a 40% chance of a false positive? <a class="sol" href="e-statistics-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section E.1]</span> Five shots give extraction yields of 19.2, 19.8, 18.9, 19.5 and 19.6%. Compute the mean, the standard deviation and a 95% confidence interval (t<sub>0.975, 4</sub> = 2.776). <a class="sol" href="e-statistics-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section E.3]</span> Ten tasters score bitterness for two brews; the differences have mean 0.8 and standard deviation 1.2. With 9 degrees of freedom the two-sided 5% critical value of t is 2.262. Is the difference significant? <a class="sol" href="e-statistics-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section E.6]</span> How many shots per grinder are needed to detect a difference of 0.4 points in extraction yield, if the shot-to-shot standard deviation is 0.5, at α = 0.05 with 80% power? <a class="sol" href="e-statistics-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section E.5]</span> A regression of sourness score on TDS gives a high R<sup>2</sup>, but the residuals are positive at both ends and negative in the middle. What does this mean, and what would you try? <a class="sol" href="e-statistics-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section E.7]</span> A two-alternative forced choice gives 84% correct. Estimate d', using z(0.84) = 0.994. <a class="sol" href="e-statistics-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[C, Section E.3]</span> Design a test of whether a new water recipe changes perceived sourness in filter coffee. Specify the sensory method, number of assessors, controls for order and temperature, and the analysis. <a class="sol" href="e-statistics-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[C, Section E.6]</span> A café ran a triangle test with 6 staff and found no significant difference between its old and new grinder. The manager concludes the grinders are equivalent. Critique the conclusion. <a class="sol" href="e-statistics-solutions.html#s10">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>Further reading</h2>
+<p>Lawless H.T., Heymann H., <em>Sensory Evaluation of Food: Principles and Practices</em>; ISO 4120:2021, <em>Sensory analysis, methodology, triangle test</em>; Montgomery D.C., <em>Design and Analysis of Experiments</em>.</p>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-e-statistics-q0">Check your understanding: Sections E.1 to E.3</h3>
+<ol>
+<li><span class="key">standard deviation.</span> <span id="e-statistics-q0-0-ex">The standard deviation describes individual values; the standard error describes the precision of the mean.</span></li>
+<li><span class="key">2.11 .</span> <span id="e-statistics-q0-1-ex">t = 0.8/(1.2/√10) = 2.11.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="e-statistics-solutions.html">Appendix E. Statistics for sensory work and experiments solutions</a>.</p>
+
+<div class="nav bottom"><a href="d-analytical-methods.html" rel="prev" title="Appendix D. Analytical methods">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <span class="off">Next &gt;</span></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

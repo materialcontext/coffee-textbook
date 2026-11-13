@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions: 9. Capstone: experimental design and one variable followed to the cup - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch09-capstone.html" rel="prev" title="9. Capstone: experimental design and one variable followed to the cup">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <span class="off">Next &gt;</span></div>
+<h1>Solutions: 9. Capstone: experimental design and one variable followed to the cup</h1>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="solution">
+<h3 id="s1">Problem 1 <span class="tier">[A]</span></h3>
+<p class="restate">Rewrite 'Does roast speed affect flavour?' as a testable hypothesis with a direction and a smallest effect of interest.</p>
+<p>For example: 'At matched ground colour (±1 unit) and mass loss (±0.5 points), a roast reaching first crack in 7 minutes has titratable acidity at least 0.1 mmol/L higher than one reaching first crack in 10 minutes, and the difference is detectable by at least 30% of tasters in a triangle test.'</p>
+</div>
+<div class="solution">
+<h3 id="s2">Problem 2 <span class="tier">[A]</span></h3>
+<p class="restate">Explain why randomising the serving order matters in a sensory test.</p>
+<p>Tasters adapt, tire and compare each sample with the one before, and positions carry systematic biases. Randomised, balanced orders prevent these effects from lining up with a treatment.</p>
+</div>
+<div class="solution">
+<h3 id="s3">Problem 3 <span class="tier">[B]</span></h3>
+<p class="restate">A student roasts one batch at each of three charge temperatures and brews each batch five times. They report n = 15 and a significant ANOVA. Critique the design and propose a better one.</p>
+<p>The experimental unit is the roast, so there is one replicate per level; the five brews are pseudo-replicates, and the ANOVA tests brew-to-brew noise rather than charge temperature. Better: at least three roasts per level, randomised or blocked by day, with brews averaged within each roast and the roast used as the unit of analysis.</p>
+</div>
+<div class="solution">
+<h3 id="s4">Problem 4 <span class="tier">[B]</span></h3>
+<p class="restate">In Capstone 1, compute a 95% confidence interval for the fast-minus-slow difference in titratable acidity if each group had six roasts with the same means and standard deviations.</p>
+<p>Standard error = √(0.061<sup>2</sup>/6 + 0.047<sup>2</sup>/6) = 0.0315. With about 10 degrees of freedom, t<sub>0.975</sub> = 2.23, so the interval is 0.207 ± 0.070, from 0.137 to 0.277 mmol/L.</p>
+</div>
+<div class="solution">
+<h3 id="s5">Problem 5 <span class="tier">[B]</span></h3>
+<p class="restate">In Capstone 3, compute the main effect of development time and the interaction contrast from the cell means.</p>
+<p>Development-time main effect = mean(short) − mean(long) = 6.02 − 5.35 = 0.67. Interaction contrast = (6.97 − 6.07) − (5.07 − 4.63) = 0.90 − 0.43 = 0.47: the development-time effect is 0.47 points larger in light roasts.</p>
+</div>
+<div class="solution">
+<h3 id="s6">Problem 6 <span class="tier">[B]</span></h3>
+<p class="restate">A water experiment needs to detect a sourness difference of 0.6 points. The standard deviation between tasters is 1.5, and the standard deviation of within-taster differences is 0.8. How many tasters are needed for a paired design, and how many per group for an independent design?</p>
+<p>Paired: d = 0.6/0.8 = 0.75, so n ≈ (2.80/0.75)<sup>2</sup> = 14 tasters. Independent: d = 0.6/1.5 = 0.4, so n ≈ 2(2.80/0.4)<sup>2</sup> = 98 per group. The paired design is far more efficient.</p>
+</div>
+<div class="solution">
+<h3 id="s7">Problem 7 <span class="tier">[B]</span></h3>
+<p class="restate">Why is matching on ground colour necessary when comparing roast speeds, and what does it not control?</p>
+<p>Without matching, a slower roast to the same temperature is also darker, so the effects of speed and roast degree are confounded. Matching colour does not control the colour difference between surface and centre, mass loss, porosity, or the different chemical paths taken; those are what the comparison is then about.</p>
+</div>
+<div class="solution">
+<h3 id="s8">Problem 8 <span class="tier">[C]</span></h3>
+<p class="restate">Design a capstone to test whether a change in hardness alone is detectable in your café's filter coffee. Include the sample size, sensory method and analysis.</p>
+<p>Prepare two waters with equal alkalinity (for example 40 mg/L) and hardness of 0 or 80 mg/L. Brew each at matched extraction yield in randomised, balanced sessions. Main outcome: a triangle test sized for p<sub>d</sub> = 0.3 (about 40 trials, pooled across sessions). Secondary outcomes: titratable acidity, and descriptive sourness and body with tasters as blocks (paired analysis). Report p<sub>d</sub> with a confidence interval; if the result is not significant, state the p<sub>d</sub> the test could rule out.</p>
+</div>
+<div class="solution">
+<h3 id="s9">Problem 9 <span class="tier">[C]</span></h3>
+<p class="restate">A capstone finds no significant difference between two development times (triangle test, 9 correct of 18, p = 0.11). Write the conclusion a careful scientist would write.</p>
+<p>The triangle test did not detect a difference (9 of 18 correct, p = 0.11). The estimated proportion of discriminators was 0.25, with a confidence interval wide enough to include both zero and values above 0.5. The experiment had little power for differences below about p<sub>d</sub> = 0.5, so it neither demonstrates nor excludes a practically important effect. A test of about 40 trials, or a paired descriptive design, would be needed.</p>
+</div>
+<div class="solution">
+<h3 id="s10">Problem 10 <span class="tier">[C]</span></h3>
+<p class="restate">Explain how you would combine titratable acidity, colour, mass loss and sensory scores into a mechanistic account of a fast-against-slow roast result.</p>
+<p>First confirm that the matched variables (colour, mass loss) really matched. Show that titratable acidity differs in the direction predicted by the formation-and-destruction kinetics of acids and the competing-pathway model (Chapter 8). Show that sensory sourness moves with titratable acidity, as Chapter 1 predicts. Discuss alternative explanations, such as porosity changing extraction (Chapter 7) or water alkalinity (Chapter 3), and how the data rule them out. State what remains unexplained.</p>
+</div>
+
+<div class="nav bottom"><a href="ch09-capstone.html" rel="prev" title="9. Capstone: experimental design and one variable followed to the cup">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <span class="off">Next &gt;</span></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

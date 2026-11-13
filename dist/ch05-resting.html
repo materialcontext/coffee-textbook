@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5. Resting, staling and storage - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch04-grinding.html" rel="prev" title="4. Grinding">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch06-green-coffee.html" rel="next" title="6. Green coffee: the roasting input">Next &gt;</a></div>
+<h1>5. Resting, staling and storage</h1>
+<p class="lead">What changes in roasted coffee after it leaves the roaster, how fast, and what slows it?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Explain where the carbon dioxide in roasted coffee comes from and estimate its volume.</li>
+<li>Fit a Weibull model to degassing data and judge how sensitive the fit is to the assumed total.</li>
+<li>Explain how escaping gas affects wetting, bloom and crema.</li>
+<li>Describe how aroma is lost from beans and from brewed coffee, particularly 2-furfurylthiol.</li>
+<li>Use published freshness indices to design a storage study with replicates.</li>
+<li>Extrapolate shelf life with the Arrhenius equation and state its limits.</li>
+</ul>
+<p class="small">Prerequisites: Chapter 1, Section 12 (aroma methods); Appendix C, Sections C.1, C.3 and C.7 (first-order kinetics, Arrhenius, gases).</p>
+</div>
+<p>A coffee roasted yesterday makes an espresso that foams wildly and tastes sharp and thin. The same coffee two weeks later pulls a calm, balanced shot. Two months later it tastes flat and faintly of cardboard. Three processes are at work here, on three different time scales: gas leaving the bean, aroma compounds leaving or reacting, and oils slowly oxidising.</p>
+<p>This chapter separates them. Sections 1 to 3 treat the gas: how much there is, how fast it leaves, and how it disturbs brewing. Sections 4 and 5 treat staling chemistry. Sections 6 to 8 turn the chemistry into practice: packaging, storage after opening, freezing, and predicting shelf life.</p>
+<h2>1. Gas in roasted coffee</h2>
+<p>Roasting breaks down sugars, amino acids and chlorogenic acids, and many of these reactions release carbon dioxide (Chapter 8). Smaller amounts of carbon monoxide and other gases form too. Part of the gas escapes during roasting; the rest stays trapped in the bean's porous structure, in cells expanded by roasting and connected by narrow channels through their walls. Calculated pressures inside freshly roasted beans are about 550 to 800 kPa, five to eight times atmospheric pressure, and roughly half of the CO<sub>2</sub> formed is estimated to remain in the whole bean when roasting ends [1].</p>
+<p>Freshly roasted coffee holds a few milligrams of CO<sub>2</sub> per gram. The ideal gas law (Appendix C.7) converts that to a volume.</p>
+<div class="example">
+<p class="boxhead">Worked example: How much gas is in a bag?</p>
+<p><span class="step">Problem.</span> A 250 g bag of fresh coffee holds 6 mg of CO<sub>2</sub> per gram. What volume would that gas occupy at 20 °C and atmospheric pressure?</p>
+<p><span class="step">Plan.</span> Find the mass of CO<sub>2</sub>, convert to moles, and apply pV = nRT.</p>
+<p><span class="step">Solution.</span> Mass: 250 × 6 mg = 1.5 g. Amount: 1.5/44.01 = 0.0341 mol. Volume: V = nRT/p = 0.0341 × 8.314 × 293.15/101,325 = 8.2 × 10<sup>−4</sup> m<sup>3</sup>, or 0.82 L.</p>
+<p><span class="step">Check.</span> That is several times the empty space in a typical bag, which is why sealed bags of fresh coffee need a one-way valve (Section 6).</p>
+</div>
+<h2>2. How fast gas leaves: degassing kinetics</h2>
+<p>The loss of CO<sub>2</sub> from roasted coffee over time is called <dfn id="t-degassing">degassing</dfn>. Smrke, Yeretzian and colleagues (2018) measured it by weighing: coffee was sealed in a container vented through a fine tube, and the slow loss of mass was logged for weeks [2]. They compared whole and ground arabica and robusta at different roast degrees and speeds. In every case, the cumulative fraction of gas released, F(t), followed a <dfn id="t-weibull-model">Weibull model</dfn>:</p>
+<table class="deq" summary="Equation 5.1"><tr><td class="f">F(t) = 1 &minus; exp[&minus;(t/&tau;)<sup>&beta;</sup>]</td><td class="n" id="eq-weibull">(5.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">F</td><td>fraction of the releasable gas already released (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">t</td><td>time since roasting (h)</td></tr>
+<tr><td class="w"></td><td class="s">&tau;</td><td>time at which 63% of the gas has left (h)</td></tr>
+<tr><td class="w"></td><td class="s">&beta;</td><td>shape parameter (dimensionless)</td></tr>
+</table>
+<p>When β = 1, <a href="#eq-weibull">Equation 5.1</a> is ordinary first-order release (Appendix C.1), in which a constant fraction of the remaining gas leaves per hour. Values of β below 1 mean the release slows down faster than first order: gas near the surface leaves quickly, while gas deep in the bean lingers. A bean contains gas at many depths, and so many diffusion distances, which produces exactly this shape. Grinding shortens every distance, which is why ground coffee releases most of its gas within minutes to hours. <a href="#fig-weibull">Figure 5.1</a> compares three values of β.</p>
+<div class="figure" id="fig-weibull">
+<img src="figures/ch05-weibull.gif" width="450" height="284" alt="Three curves of fraction of gas released over 30 days for Weibull shape parameters 0.5, 0.7 and 1.0, all with tau of 120 hours; lower beta rises faster at first and then more slowly.">
+<p class="caption">Figure 5.1. Weibull release with τ = 120 h. All three curves cross at 63% at 120 h; compare their slopes before and after that point.</p>
+</div>
+<div class="widget">
+<h3>CO2 release after roasting (Weibull model)</h3>
+<form class="w" id="ch05-resting-w6" action="#">
+<div><input type="hidden" name="kind" value="degassing"></div>
+<div class="f"><label for="ch05-resting-w6-tau">Scale time &tau;</label> <input type="text" size="7" name="tau" id="ch05-resting-w6-tau" value="120"> h</div>
+<div class="f"><label for="ch05-resting-w6-beta">Shape &beta;</label> <input type="text" size="7" name="beta" id="ch05-resting-w6-beta" value="0.7"> </div>
+<div class="f"><label for="ch05-resting-w6-minf">Total releasable gas</label> <input type="text" size="7" name="minf" id="ch05-resting-w6-minf" value="0.6"> % of bean mass</div>
+<p class="formula">Released fraction F(t) = 1 &minus; exp(&minus;(t/&tau;)<sup>&beta;</sup>). Time to reach fraction F: t = &tau; (&minus;ln(1 &minus; F))<sup>1/&beta;</sup>.</p>
+<p class="small">Default parameters are illustrative, not measured values; fit your own from the jar experiment in the chapter.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch05-resting-w6-out"></div>
+</form>
+</div>
+<h3>Fitting a Weibull curve</h3>
+<p>The Weibull model can be turned into a straight line by taking logarithms twice. Rearranging <a href="#eq-weibull">Equation 5.1</a> gives 1 − F = exp[−(t/τ)<sup>β</sup>]. Taking the natural logarithm, −ln(1 − F) = (t/τ)<sup>β</sup>. Taking it again:</p>
+<table class="deq" summary="Equation 5.2"><tr><td class="f">ln[&minus;ln(1 &minus; F)] = &beta; ln t &minus; &beta; ln &tau;</td><td class="n" id="eq-linear">(5.2)</td></tr></table>
+<p>Plotting the left side against ln t gives β as the slope, and τ follows from the intercept. There is a catch: computing F requires the total amount of releasable gas, which you do not know until degassing has finished.</p>
+<div class="example">
+<p class="boxhead">Worked example: Fitting jar data, and the sensitivity to the total</p>
+<p><span class="step">Problem.</span> A jar of 100 g of whole beans loses 0.05, 0.13, 0.20, 0.28, 0.35 and 0.43 g at 6, 24, 48, 96, 168 and 336 hours after roasting. Fit β and τ, assuming the total releasable gas is 0.55 g. Then repeat with 0.50 g.</p>
+<p><span class="step">Plan.</span> Compute F = loss/total at each time, transform with <a href="#eq-linear">Equation 5.2</a>, and fit a straight line by least squares (the calculator below does this).</p>
+<p><span class="step">Solution.</span> With a total of 0.55 g: β = 0.69 and τ = 166 h (6.9 days), with R<sup>2</sup> = 0.997. With 0.50 g: β = 0.73 and τ = 128 h, with R<sup>2</sup> = 0.999.</p>
+<p><span class="step">Check.</span> Both fits look excellent, so the quality of the fit cannot tell you which total is right, yet a 10% change in the assumed total shifts τ by 30%. Continue measuring until the loss curve flattens, or fit the total as a third parameter by non-linear least squares.</p>
+</div>
+<div class="widget">
+<h3>Fit a Weibull degassing curve to your jar data</h3>
+<form class="w" id="ch05-resting-w11" action="#">
+<div><input type="hidden" name="kind" value="weibull-fit"></div>
+<div class="f"><label for="ch05-resting-w11-data">One reading per line: hours since roast, cumulative mass lost (g)</label><br><textarea name="data" id="ch05-resting-w11-data" rows="7" cols="36">6 0.05
+24 0.13
+48 0.20
+96 0.28
+168 0.35
+336 0.43</textarea></div>
+<div class="f"><label for="ch05-resting-w11-total">Estimated total releasable gas</label> <input type="text" size="7" name="total" id="ch05-resting-w11-total" value="0.55"> g</div>
+<p class="formula">ln[&minus;ln(1 &minus; F)] = &beta; ln t &minus; &beta; ln &tau;, with F = loss/total. Slope gives &beta;; intercept gives &tau;.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch05-resting-w11-out"></div>
+</form>
+</div>
+<h2>3. Gas and brewing</h2>
+<p>Escaping CO<sub>2</sub> gets in the way of water. CO<sub>2</sub> is much less soluble in hot water than in cold (Appendix C.7), so when hot water reaches fresh grounds, gas bubbles out quickly, swells the bed and keeps water away from parts of it. The swelling and bubbling is called the <dfn id="t-bloom">bloom</dfn>. Pour-over methods pour a little water first and wait 30 to 45 seconds for the bloom to subside before continuing.</p>
+<p>In espresso, CO<sub>2</sub> dissolves in the water under pressure and comes out of solution as the pressure drops at the basket exit. The bubbles, stabilised by dissolved and suspended coffee material, form the foam called <dfn id="t-crema">crema</dfn>. Very fresh coffee gives thick crema; well-rested coffee, less.</p>
+<p>Gas also disturbs measurement. Grounds that are still degassing lose mass on the scale, and bubbles in a bed or puck open local channels (Chapter 2B). Many roasters rest coffee for several days before filter brewing and for one to three weeks before espresso, but the right interval depends on the roast and method and is an experimental question (Lab L5.1).</p>
+<div class="quiz">
+<h3>Check your understanding: Sections 1 to 3</h3>
+<form class="quiz-form" id="ch05-resting-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. For Weibull release with τ = 100 h and β = 1, what fraction of the gas has left after 100 h?</p>
+<p class="opts"><label for="ch05-resting-q0-0">Answer:</label> <input type="text" size="8" name="ch05-resting-q0-0" id="ch05-resting-q0-0"> </p>
+<div><input type="hidden" name="ch05-resting-q0-0-kind" value="numeric"><input type="hidden" name="ch05-resting-q0-0-ans" value="0.632"><input type="hidden" name="ch05-resting-q0-0-tol" value="0.002"></div>
+<p class="fb" id="ch05-resting-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. A Weibull shape parameter β below 1 indicates</p>
+<p class="opts">
+<input type="radio" name="ch05-resting-q0-1" id="ch05-resting-q0-1-0" value="0"> <label for="ch05-resting-q0-1-0">release that slows faster than first order, with a long tail</label><br>
+<input type="radio" name="ch05-resting-q0-1" id="ch05-resting-q0-1-1" value="1"> <label for="ch05-resting-q0-1-1">release at a constant rate</label><br>
+<input type="radio" name="ch05-resting-q0-1" id="ch05-resting-q0-1-2" value="2"> <label for="ch05-resting-q0-1-2">release that speeds up over time</label><br>
+</p>
+<div><input type="hidden" name="ch05-resting-q0-1-kind" value="choice"><input type="hidden" name="ch05-resting-q0-1-ans" value="0"></div>
+<p class="fb" id="ch05-resting-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch05-resting-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch05-resting-q0">Answers</a></p>
+</form>
+</div>
+<h2>4. Staling chemistry</h2>
+<p>Degassing is not staling. While gas leaves, a second, slower set of processes changes the aroma: volatile compounds escape or react, and oils oxidise. These changes, together called <dfn id="t-staling">staling</dfn>, are what make old coffee taste flat.</p>
+<h3>Measuring freshness with ratios</h3>
+<p>Marin and colleagues (2008) followed 40 volatile compounds in roasted and ground coffee for a year [3]. Most declined, even at −20 °C. They proposed a <dfn id="t-freshness-index">freshness index</dfn>, the ratio of two compounds that move in opposite directions:</p>
+<table class="deq" summary="Equation 5.3"><tr><td class="f">I = [2-furfurylthiol] / [hexanal]</td><td class="n" id="eq-index">(5.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">I</td><td>freshness index; falls as coffee stales (dimensionless)</td></tr>
+</table>
+<p>2-Furfurylthiol, a sulfur compound with a roasted, coffee-like odour (Chapter 1), declines with storage. Hexanal, a product of oil oxidation with a grassy, cardboard-like odour, rises. The index correlated with panel ratings of aroma freshness (R ≥ 0.80). Ratios of 2-methylfuran to 2-butanone and of methanethiol to hexanal were also useful. A ratio of two compounds moving in opposite directions changes faster than either alone, and analytical errors that affect both, such as small differences in sample mass, partly cancel.</p>
+<h3>Why 2-furfurylthiol disappears from the brew</h3>
+<p>Brewed coffee loses aroma within minutes on a hot plate. Sun, Fisk and colleagues traced the loss of 2-furfurylthiol to two routes [4].</p>
+<ol>
+<li>Binding to oxidised phenols. Roasting breaks chlorogenic acids into smaller <dfn id="t-phenol">phenols</dfn>, compounds with an OH group on a benzene ring. One of them, hydroxyhydroquinone, reacts with oxygen to form a <dfn id="t-quinone">quinone</dfn>, a reactive ring compound that thiols attach to (Appendix B.4). The attached thiol no longer has an odour.</li>
+<li>Attack by radicals. A <dfn id="t-radical">radical</dfn> is a molecule with an unpaired electron, which makes it highly reactive. Traces of iron react with hydrogen peroxide in the brew to produce hydroxyl radicals (the <dfn id="t-fenton-reaction">Fenton reaction</dfn>), and these destroy 2-furfurylthiol.</li>
+</ol>
+<p>Adding cysteine, which competes for the quinones, and ascorbic acid (vitamin C), which removes radicals, at 0.045 and 0.05 g/L, raised 2-furfurylthiol by 153% and kept 91% of it after 30 minutes. A panel's rating of flavour intensity in the untreated brew fell from 7.5 to 3.9 in those 30 minutes, while the treated brew stayed at 7.1.</p>
+<div class="evidence">
+<p class="boxhead">Status of the evidence</p>
+<p>The two loss routes are well established for the brew. In whole beans and grounds the chemistry is slower and also involves oxygen, evaporation and oil oxidation; applying the brew mechanism to storage is reasonable but not demonstrated. The additive experiment shows mechanism; it is not a recommendation to add cysteine to coffee.</p>
+</div>
+<h3>Oil oxidation</h3>
+<p>Coffee beans contain 10 to 17% oil, arabica toward the upper end. Unsaturated fatty acids in the oil react with oxygen in a chain reaction carried by radicals, forming aldehydes such as hexanal and, later, rancid and cardboard-like notes. <dfn id="t-lipid-oxidation">Lipid oxidation</dfn> is slower than thiol loss and dominates long-term staling.</p>
+<h2>5. Packaging</h2>
+<p>Packaging slows staling by keeping oxygen out and aroma in. A <dfn id="t-one-way-valve">one-way valve</dfn> lets CO<sub>2</sub> out of a sealed bag without letting air in, so freshly roasted coffee can be sealed immediately. Flushing the bag with nitrogen before sealing lowers the oxygen in the <dfn id="t-headspace">headspace</dfn>, the gas-filled space around the beans. Multilayer films containing a metallised or foil layer block oxygen and water vapour; paper and many compostable films do not, and coffee packed in them stales faster.</p>
+<div class="example">
+<p class="boxhead">Worked example: Oxygen in a resealed bag</p>
+<p><span class="step">Problem.</span> A half-used bag is resealed with 0.4 L of air in the headspace. How much oxygen is available to react with the coffee at 20 °C?</p>
+<p><span class="step">Plan.</span> Air is 21% oxygen by volume; one mole of gas occupies 24.06 L at 20 °C and atmospheric pressure.</p>
+<p><span class="step">Solution.</span> Oxygen volume: 0.21 × 0.4 = 0.084 L. Amount: 0.084/24.06 = 3.5 mmol, or 112 mg.</p>
+<p><span class="step">Check.</span> Every time the bag is opened, that oxygen is replaced. In a tightly sealed bag, CO<sub>2</sub> still leaving the beans dilutes it; in a poorly sealed one, exchange with room air keeps it near 21%.</p>
+</div>
+<h2>6. Storage after opening</h2>
+<p>Smrke and colleagues (2022) compared common ways of storing coffee after opening a valve bag (a screw-cap jar, a clip, adhesive tape and a metal canister) over about nine weeks, with five replicates of each [5]. The ratio of 2-butanone to 2-methylfuran separated the methods best. The screw cap preserved aroma best and the canister worst: the index rose about twice as fast in canisters (slope 0.0667 against 0.0327 per unit time). In canisters and with tape, headspace oxygen reached nearly room-air levels within about a week. Methanethiol fell sharply after opening whatever the method.</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"A metal coffee canister keeps beans fresh." In the 2022 study, canisters preserved aroma worst of the four methods, because their lids let headspace oxygen reach nearly room-air levels within a week. A tight seal matters far more than the container's material or appearance.</p>
+</div>
+<p>The study measured chemistry, not flavour; no sensory panel was run. Its practical message follows from the oxygen data.</p>
+<h2>7. Freezing</h2>
+<p>A Penn State study stored beans of six roast levels frozen and at room temperature, analysed their volatiles, and asked 48 consumers to sort ground samples by smell [6]. Frozen dark roasts stayed close to fresh after nine weeks; room-temperature dark roasts did not. Light roasts lost less aroma than dark roasts at room temperature, consistent with their denser, less porous structure.</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"Freezing ruins coffee." Freezing slows every staling reaction, and in the Penn State study frozen dark roasts stayed close to fresh for nine weeks. The real risk is moisture: opening a cold container in warm, humid air makes water condense on the beans. Freeze sealed portions sized for single use, and let each warm to room temperature before opening it.</p>
+</div>
+<p>Frozen beans ground straight from the freezer also grind finer and with a narrower distribution (Chapter 4).</p>
+<h2>8. Predicting shelf life</h2>
+<p>Shelf life is often estimated by <dfn id="t-accelerated-shelf-life-testing">accelerated shelf-life testing</dfn>: samples are stored at raised temperatures so that they stale faster, a quality marker is measured, and the results are extrapolated to the storage temperature with the Arrhenius equation (Appendix C.3). A 2025 study of packaged specialty coffee found that total polyphenols decreased at a constant rate, a <dfn id="t-zero-order">zero-order</dfn> loss in which the amount lost per day does not depend on how much remains:</p>
+<table class="deq" summary="Equation 5.4"><tr><td class="f">C = C<sub>0</sub> &minus; k t</td><td class="n" id="eq-zero">(5.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">C, C<sub>0</sub></td><td>concentration of the marker now and at the start (e.g. mg/g)</td></tr>
+<tr><td class="w"></td><td class="s">k</td><td>zero-order rate constant (e.g. mg/(g day))</td></tr>
+</table>
+<p>The activation energies were about 49 to 118 kJ/mol, depending on the packaging [7].</p>
+<div class="widget">
+<h3>Arrhenius: activation energy and extrapolation</h3>
+<form class="w" id="ch05-resting-w27" action="#">
+<div><input type="hidden" name="kind" value="arrhenius"></div>
+<div class="f"><label for="ch05-resting-w27-k1">Rate constant at T<sub>1</sub></label> <input type="text" size="7" name="k1" id="ch05-resting-w27-k1" value="0.437"> per day</div>
+<div class="f"><label for="ch05-resting-w27-t1">T<sub>1</sub></label> <input type="text" size="7" name="t1" id="ch05-resting-w27-t1" value="40"> &deg;C</div>
+<div class="f"><label for="ch05-resting-w27-k2">Rate constant at T<sub>2</sub></label> <input type="text" size="7" name="k2" id="ch05-resting-w27-k2" value="2.1"> per day</div>
+<div class="f"><label for="ch05-resting-w27-t2">T<sub>2</sub></label> <input type="text" size="7" name="t2" id="ch05-resting-w27-t2" value="60"> &deg;C</div>
+<div class="f"><label for="ch05-resting-w27-t3">Extrapolate to T<sub>3</sub></label> <input type="text" size="7" name="t3" id="ch05-resting-w27-t3" value="25"> &deg;C</div>
+<p class="formula">E<sub>a</sub> = R ln(k<sub>2</sub>/k<sub>1</sub>) / (1/T<sub>1</sub> &minus; 1/T<sub>2</sub>); k(T<sub>3</sub>) = k<sub>1</sub> exp[&minus;(E<sub>a</sub>/R)(1/T<sub>3</sub> &minus; 1/T<sub>1</sub>)].</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch05-resting-w27-out"></div>
+</form>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: Extrapolating to room temperature</p>
+<p><span class="step">Problem.</span> A quality marker's rate constant is 0.010 per day at 25 °C and 0.060 per day at 45 °C. Estimate the activation energy and the rate in a refrigerator at 5 °C.</p>
+<p><span class="step">Plan.</span> Use the two-temperature form of the Arrhenius equation (Appendix C.3) to find E<sub>a</sub>, then extrapolate.</p>
+<p><span class="step">Solution.</span> E<sub>a</sub> = 8.314 × ln 6/(1/298.15 − 1/318.15) = 14.90/(2.108 × 10<sup>−4</sup>) = 70.7 kJ/mol. At 278.15 K, k = 0.010 × exp[−(70,700/8.314)(1/278.15 − 1/298.15)] = 0.010 × e<sup>−2.05</sup> = 0.0013 per day.</p>
+<p><span class="step">Your turn.</span> What does this predict for the ratio of shelf lives at 5 °C and 25 °C? Then list one reason the prediction could be wrong (the next paragraph gives two).</p>
+</div>
+<p>The extrapolation rests on two assumptions that accelerated tests cannot check by themselves: that the same process operates at every temperature, and that the measured marker is the one that limits acceptability. Oil oxidation, aroma loss and moisture uptake have different activation energies, so the process that limits shelf life at 40 °C need not be the one that limits it at 20 °C. Validate the prediction with at least one measurement at the real storage temperature.</p>
+<h2>Looking ahead</h2>
+<p>Everything in Chapters 1 to 5 starts from roasted coffee. The roaster, in turn, starts from green coffee, and the properties of the green bean set the limits of what roasting can do. Chapter 6 asks what the roaster begins with.</p>
+<h2>Key equations</h2>
+<table class="eqs" summary="Key equations">
+<tr><th>Quantity</th><th>Equation</th><th>Notes</th></tr>
+<tr><td>Weibull release</td><td class="eq">F = 1 &minus; exp[&minus;(t/&tau;)<sup>&beta;</sup>]</td><td>Equation 5.1.</td></tr>
+<tr><td>Linearised Weibull</td><td class="eq">ln[&minus;ln(1 &minus; F)] = &beta; ln t &minus; &beta; ln &tau;</td><td>Equation 5.2.</td></tr>
+<tr><td>Freshness index</td><td class="eq">I = [2-furfurylthiol] / [hexanal]</td><td>Equation 5.3. Marin et al.</td></tr>
+<tr><td>Zero-order loss</td><td class="eq">C = C<sub>0</sub> &minus; kt</td><td>Equation 5.4.</td></tr>
+<tr><td>Time to release a fraction F</td><td class="eq">t<sub>F</sub> = &tau; [&minus;ln(1 &minus; F)]<sup>1/&beta;</sup></td><td>From Equation 5.1.</td></tr>
+</table>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-accelerated-shelf-life-testing">accelerated shelf-life testing</a>; <a href="#t-bloom">bloom</a>; <a href="#t-crema">crema</a>; <a href="#t-degassing">degassing</a>; <a href="#t-fenton-reaction">Fenton reaction</a>; <a href="#t-freshness-index">freshness index</a>; <a href="#t-headspace">headspace</a>; <a href="#t-lipid-oxidation">Lipid oxidation</a>; <a href="#t-one-way-valve">one-way valve</a>; <a href="#t-phenol">phenol</a>; <a href="#t-quinone">quinone</a>; <a href="#t-radical">radical</a>; <a href="#t-staling">staling</a>; <a href="#t-weibull-model">Weibull model</a>; <a href="#t-zero-order">zero-order</a>.</p>
+<div class="quiz">
+<h3>Chapter review</h3>
+<form class="quiz-form" id="ch05-resting-q1" action="#answers">
+<div class="q">
+<p class="prompt">1. Which pair of processes explains the loss of 2-furfurylthiol in brewed coffee?</p>
+<p class="opts">
+<input type="radio" name="ch05-resting-q1-0" id="ch05-resting-q1-0-0" value="0"> <label for="ch05-resting-q1-0-0">Binding to quinones and destruction by hydroxyl radicals</label><br>
+<input type="radio" name="ch05-resting-q1-0" id="ch05-resting-q1-0-1" value="1"> <label for="ch05-resting-q1-0-1">Evaporation and hydrolysis</label><br>
+<input type="radio" name="ch05-resting-q1-0" id="ch05-resting-q1-0-2" value="2"> <label for="ch05-resting-q1-0-2">Oil oxidation and Maillard reactions</label><br>
+</p>
+<div><input type="hidden" name="ch05-resting-q1-0-kind" value="choice"><input type="hidden" name="ch05-resting-q1-0-ans" value="0"></div>
+<p class="fb" id="ch05-resting-q1-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. In the 2022 storage study, which method preserved aroma best after opening?</p>
+<p class="opts">
+<input type="radio" name="ch05-resting-q1-1" id="ch05-resting-q1-1-0" value="0"> <label for="ch05-resting-q1-1-0">Metal canister</label><br>
+<input type="radio" name="ch05-resting-q1-1" id="ch05-resting-q1-1-1" value="1"> <label for="ch05-resting-q1-1-1">Screw cap</label><br>
+<input type="radio" name="ch05-resting-q1-1" id="ch05-resting-q1-1-2" value="2"> <label for="ch05-resting-q1-1-2">Adhesive tape</label><br>
+</p>
+<div><input type="hidden" name="ch05-resting-q1-1-kind" value="choice"><input type="hidden" name="ch05-resting-q1-1-ans" value="1"></div>
+<p class="fb" id="ch05-resting-q1-1-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">3. Using τ = 166 h and β = 0.69, how many hours until half the gas has left?</p>
+<p class="opts"><label for="ch05-resting-q1-2">Answer:</label> <input type="text" size="8" name="ch05-resting-q1-2" id="ch05-resting-q1-2"> h</p>
+<div><input type="hidden" name="ch05-resting-q1-2-kind" value="numeric"><input type="hidden" name="ch05-resting-q1-2-ans" value="97.6"><input type="hidden" name="ch05-resting-q1-2-tol" value="1.5"></div>
+<p class="fb" id="ch05-resting-q1-2-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch05-resting-q1"><input type="hidden" name="quiz-n" value="3"><input type="button" class="check" value="Check answers"> <a href="#ans-ch05-resting-q1">Answers</a></p>
+</form>
+</div>
+<h2>Labs</h2>
+<div class="lab">
+<h3 id="lab-L5.1">Lab L5.1: Degassing of two roast degrees by weighing</h3>
+<p><span class="lbl">Aim.</span> Measure and model CO<sub>2</sub> release from whole beans of two roast degrees.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>Two roast degrees of one coffee roasted on the same day</li>
+<li>Two jars with lids fitted with a short length of fine tubing</li>
+<li>Balance reading to 0.01 g</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Seal 100 g of each roast in a jar within an hour of roasting and weigh immediately.</li>
+<li>Weigh twice daily for at least 21 days at constant room temperature.</li>
+<li>Brew each roast on days 2, 7 and 14 at matched extraction yield and taste them blind.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Hours</th><th>Light: mass lost (g)</th><th>Dark: mass lost (g)</th><th>Notes</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Fit β and τ for each roast, and test the sensitivity of the fit to the assumed total.</li>
+<li>Relate the tasting notes to the fraction of gas released by each brewing day.</li>
+</ol>
+<p><span class="lbl">What to expect.</span> Dark roasts release faster (smaller τ); both have β below 1.</p>
+</div>
+<div class="lab">
+<h3 id="lab-L5.2">Lab L5.2: Aroma loss in a standing brew</h3>
+<p><span class="lbl">Aim.</span> Test whether removing radicals slows aroma loss in hot brewed coffee.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Use food-grade ascorbic acid only; taste small amounts and spit.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>Batch brewer or large pour-over</li>
+<li>Two thermal carafes, or two cups on a warming plate</li>
+<li>Food-grade ascorbic acid</li>
+<li>Balance reading to 0.01 g</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Brew 1 L and divide it between two vessels. Add ascorbic acid at 0.05 g/L to one.</li>
+<li>Hold both at 70 to 80 °C. At 0, 15 and 30 minutes, run triangle tests between the two and rate aroma intensity.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Time (min)</th><th>Triangle correct / n</th><th>Aroma, control</th><th>Aroma, treated</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Does the difference between treated and control grow with time?</li>
+</ol>
+</div>
+<div class="lab">
+<h3 id="lab-L5.3">Lab L5.3: Storage after opening</h3>
+<p><span class="lbl">Aim.</span> Compare two storage methods over four weeks with replicate bags and blind tasting.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>Six bags of one roast from one batch</li>
+<li>Clips and screw-cap jars</li>
+<li>Coded cups</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Open all bags on day 0. Store three closed with clips and decant three into screw-cap jars.</li>
+<li>Each week, brew one dose from each container at matched extraction yield and run a triangle test, pooling replicates.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Week</th><th>Clip mean aroma</th><th>Jar mean aroma</th><th>Triangle correct / n</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Plot aroma against week for each method and compare the slopes.</li>
+</ol>
+</div>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section 2]</span> Explain in one sentence each why ground coffee degasses faster than whole beans and why it stales faster. <a class="sol" href="ch05-resting-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section 2]</span> What does a Weibull shape parameter of 0.6 tell you that a value of 1 would not? <a class="sol" href="ch05-resting-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section 7]</span> Why should frozen coffee be warmed to room temperature in its sealed container before opening? <a class="sol" href="ch05-resting-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section 2]</span> With τ = 120 h and β = 0.7, what fraction of the gas has left after 48 h and after 14 days? <a class="sol" href="ch05-resting-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section 1]</span> How many litres of CO<sub>2</sub> at 20 °C and atmospheric pressure does 1 kg of coffee at 5 mg/g contain? <a class="sol" href="ch05-resting-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section 4]</span> A freshness index falls linearly from 1.20 to 0.80 in 20 days at 25 °C. Coffee is judged stale at 0.60. Predict the day it becomes stale, and give one reason the prediction might fail. <a class="sol" href="ch05-resting-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section 8]</span> Using the worked example in Section 8, what is the ratio of shelf lives at 5 °C and 25 °C, assuming shelf life is inversely proportional to k? <a class="sol" href="ch05-resting-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section 6]</span> In the 2022 storage study the index rose at 0.0667 per unit time in canisters and 0.0327 in screw-cap jars. How much longer does a screw-cap jar take to reach the same change in index? <a class="sol" href="ch05-resting-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[B, Section 4]</span> Why is a ratio of two compounds moving in opposite directions a more sensitive freshness index than either compound alone? <a class="sol" href="ch05-resting-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[C, Section 4]</span> A café notices that batch brew loses aroma within 30 minutes on a hot plate but keeps better in a thermal carafe. Explain using the two loss routes and temperature. <a class="sol" href="ch05-resting-solutions.html#s10">Solution</a></li>
+<li id="p0-11"><span class="tier">[C, Section 3]</span> Design a study to find the best rest time for an espresso blend. Specify the variables, replication and analysis. <a class="sol" href="ch05-resting-solutions.html#s11">Solution</a></li>
+<li id="p0-12"><span class="tier">[C, Section 7]</span> Explain why light roasts stale more slowly at room temperature than dark roasts, using structure and chemistry. <a class="sol" href="ch05-resting-solutions.html#s12">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>References</h2>
+<ol>
+<li>Schenker S. (2000), Investigations on the hot air roasting of coffee beans, Dissertation ETH Zurich No. 13620 (literature review of gas formation and pressure).</li>
+<li>Smrke S. et al. (2018), Time-resolved gravimetric method to assess degassing of roasted coffee, <em>Journal of Agricultural and Food Chemistry</em> 66:5293.</li>
+<li>Marin K., Požrl T., Zlatić E., Plestenjak A. (2008), A new aroma index to determine the aroma quality of roasted and ground coffee during storage, <em>Food Technology and Biotechnology</em>.</li>
+<li>Sun Z., Cui H., Yang N., Ayed C., Zhang X., Fisk I.D., Enhancement of coffee brew aroma through control of the aroma staling pathway of 2-furfurylthiol, University of Nottingham.</li>
+<li>Smrke S., Adam J., Mühlemann S., Lantz I., Yeretzian C. (2022), Effects of different coffee storage methods on coffee freshness after opening of packages, <em>Food Packaging and Shelf Life</em> 33:100893.</li>
+<li>Cotter A.R., Hopfer H., freezing roasted coffee and aroma retention, <em>Beverages</em>; summarised by Penn State News.</li>
+<li>Fernández Rosillo F. et al. (2025), Polyphenol degradation kinetics of specialty coffee in different presentations, <em>Foods</em> 14:3600.</li>
+</ol>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-ch05-resting-q0">Check your understanding: Sections 1 to 3</h3>
+<ol>
+<li><span class="key">0.632 .</span> <span id="ch05-resting-q0-0-ex">F = 1 − e<sup>−1</sup> = 0.632.</span></li>
+<li><span class="key">release that slows faster than first order, with a long tail.</span> <span id="ch05-resting-q0-1-ex">Gas near the surface leaves quickly and gas deep in the bean lingers.</span></li>
+</ol>
+<h3 id="ans-ch05-resting-q1">Chapter review</h3>
+<ol>
+<li><span class="key">Binding to quinones and destruction by hydroxyl radicals.</span> <span id="ch05-resting-q1-0-ex">Thiols attach to oxidised hydroxyhydroquinone and are destroyed by radicals from the Fenton reaction.</span></li>
+<li><span class="key">Screw cap.</span> <span id="ch05-resting-q1-1-ex">The screw cap kept oxygen out best.</span></li>
+<li><span class="key">97.6 h.</span> <span id="ch05-resting-q1-2-ex">t = 166 × (ln 2)<sup>1/0.69</sup> = 166 × 0.588 = 97.6 h.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="ch05-resting-solutions.html">5. Resting, staling and storage solutions</a>.</p>
+
+<div class="nav bottom"><a href="ch04-grinding.html" rel="prev" title="4. Grinding">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch06-green-coffee.html" rel="next" title="6. Green coffee: the roasting input">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

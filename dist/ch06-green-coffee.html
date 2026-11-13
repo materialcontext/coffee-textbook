@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6. Green coffee: the roasting input - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch05-resting.html" rel="prev" title="5. Resting, staling and storage">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch07-roasting-physics.html" rel="next" title="7. Roasting I: heat and mass transfer">Next &gt;</a></div>
+<h1>6. Green coffee: the roasting input</h1>
+<p class="lead">What does the roaster start with, and which properties of the green bean decide what roasting can do?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>State the main components of arabica and robusta green coffee and their consequences for roasting.</li>
+<li>Convert between wet-basis and dry-basis moisture and use them in mass balances.</li>
+<li>Explain water activity and sorption isotherms, and their role in storage stability.</li>
+<li>Estimate the heat needed to roast a batch from its composition and physical properties.</li>
+<li>Describe green coffee grading, defects and the risk of ochratoxin A.</li>
+</ul>
+<p class="small">Prerequisites: Appendix A, Section A.1 (amount of substance); Appendix C, Section C.6 (heat transfer).</p>
+</div>
+<p>Two sacks of green coffee arrive at a roastery. Both are graded specialty arabica, both read 11% moisture, and the roaster applies the same profile to each. One roasts evenly and tastes sweet; the other runs fast, scorches at the edges and tastes flat. Somewhere in the green beans is the difference.</p>
+<p>The chapters so far worked backward from the cup to the roasted bean. This chapter reaches the starting material. It describes what green coffee contains, how its water is held, how much heat a roast must supply, and what defects and contaminants roasting cannot remove. Chapters 7 and 8 then follow the bean through the roaster.</p>
+<h2>1. Composition by species</h2>
+<p>Almost all commercial coffee comes from two species: <em>Coffea arabica</em> (arabica) and <em>Coffea canephora</em>, traded mainly as robusta. Their green beans differ in composition, and the differences carry through roasting into the cup. Percentages here are of <dfn id="t-dry-matter">dry matter</dfn>, the mass that remains after all water has been removed.</p>
+<table><thead><tr><th>Component (% of dry matter)</th><th>Arabica</th><th>Robusta</th></tr></thead><tbody>
+<tr><td>Polysaccharides</td><td>34 to 44</td><td>48 to 55</td></tr>
+<tr><td>Lipids (oils)</td><td>15 to 17</td><td>7 to 10</td></tr>
+<tr><td>Sucrose</td><td>6.25 to 8.45</td><td>0.9 to 4.85</td></tr>
+<tr><td>Caffeine</td><td>0.9 to 1.3</td><td>1.51 to 3.33</td></tr>
+<tr><td>Trigonelline</td><td>0.6 to 2.0</td><td>about 0.6 to 1.24</td></tr>
+<tr><td>Chlorogenic acids</td><td>4 to 12 (both species, combined range)</td><td></td></tr>
+</tbody></table>
+<p>The ranges are those reported by Caporaso and colleagues (2018) and a 2026 review [1][2]. Another study reports robusta sucrose of 4.05 to 7.05%, so the robusta range is wide and overlaps arabica's at its upper end. <a href="#fig-composition">Figure 6.1</a> draws the ranges on one scale.</p>
+<div class="figure" id="fig-composition">
+<img src="figures/ch06-composition.gif" width="500" height="257" alt="Horizontal range bars on a logarithmic percent scale comparing arabica and robusta for polysaccharides, lipids, sucrose, caffeine and trigonelline.">
+<p class="caption">Figure 6.1. Composition ranges of green arabica and robusta, dry basis. The logarithmic scale lets components spanning a hundredfold range appear together; note where the bars overlap and where they do not.</p>
+</div>
+<p><dfn id="t-polysaccharides">Polysaccharides</dfn> are long chains of sugar units that make up the cell walls. <dfn id="t-sucrose">Sucrose</dfn> is ordinary table sugar, a molecule made of one glucose and one fructose unit. <dfn id="t-trigonelline">Trigonelline</dfn> is a nitrogen-containing compound related to vitamin B3. Three differences between the species matter most for roasting.</p>
+<ul>
+<li>Sucrose. Sucrose is a <dfn id="t-precursor">precursor</dfn>, a starting material from which other compounds form, for most of the acids created in roasting and for many caramel-like aroma compounds (Chapter 8). Arabica's higher sucrose gives the roaster more to work with, which is one reason robusta develops less acidity and less sweet aroma.</li>
+<li>Lipids. Arabica contains about twice as much oil. Oil carries aroma, contributes to crema and body, migrates to the surface of dark roasts, and oxidises during staling (Chapter 5).</li>
+<li>Caffeine and chlorogenic acids. Robusta's higher caffeine, and generally higher chlorogenic acid content, raise bitterness after roasting (Chapter 1).</li>
+</ul>
+<p>Robusta also contains more <dfn id="t-reducing-sugar">reducing sugars</dfn>, sugars such as glucose and fructose whose open-chain form has a free carbonyl group able to react with amino acids [1]. They react faster in the browning reactions of Chapter 8 than sucrose, which must first be broken apart.</p>
+<div class="example">
+<p class="boxhead">Worked example: Sucrose in a batch</p>
+<p><span class="step">Problem.</span> A green bean weighs about 0.15 g at 11% moisture, and its dry matter is 7% sucrose. How much sucrose does one bean hold, and how much does a 250 g batch carry into the roaster?</p>
+<p><span class="step">Plan.</span> Find the dry matter first, then the sucrose.</p>
+<p><span class="step">Solution.</span> Dry matter per bean: 0.15 × (1 − 0.11) = 0.134 g. Sucrose: 0.07 × 0.134 = 9.3 mg. For the batch: 250 × 0.89 × 0.07 = 15.6 g.</p>
+<p><span class="step">Check.</span> A medium roast destroys most of that sucrose, so those 15.6 g are the raw material for most of the acids that will later be titrated in the cup.</p>
+</div>
+<h2>2. Water: moisture and water activity</h2>
+<p>Green coffee for roasting typically contains 10 to 12% water. Two different questions can be asked about that water: how much is there, and how available is it?</p>
+<h3>Moisture content</h3>
+<p>Moisture can be expressed on two bases. The <dfn id="t-wet-basis">wet basis</dfn> divides the mass of water by the total mass; trade specifications use it. The <dfn id="t-dry-basis">dry basis</dfn> divides the mass of water by the mass of dry matter; drying and heating calculations use it, because the dry matter stays constant while water leaves. The two convert as follows:</p>
+<table class="deq" summary="Equation 6.1"><tr><td class="f">X = w / (1 &minus; w), and w = X / (1 + X)</td><td class="n" id="eq-db">(6.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">w</td><td>moisture content, wet basis (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">X</td><td>moisture content, dry basis (fraction)</td></tr>
+</table>
+<div class="widget">
+<h3>Moisture: wet and dry basis</h3>
+<form class="w" id="ch06-green-coffee-w6" action="#">
+<div><input type="hidden" name="kind" value="moisture"></div>
+<div class="f"><label for="ch06-green-coffee-w6-wb">Moisture, wet basis</label> <input type="text" size="7" name="wb" id="ch06-green-coffee-w6-wb" value="11"> %</div>
+<div class="f"><label for="ch06-green-coffee-w6-mass">Green mass</label> <input type="text" size="7" name="mass" id="ch06-green-coffee-w6-mass" value="1000"> g</div>
+<p class="formula">Dry basis X = w/(1 &minus; w); water mass = w &times; mass; dry matter = (1 &minus; w) &times; mass.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch06-green-coffee-w6-out"></div>
+</form>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: How much of roast loss is water?</p>
+<p><span class="step">Problem.</span> A 250 g batch at 11.0% moisture leaves the roaster at 215 g, a 14.0% mass loss. If the roasted beans hold 1.5% moisture, how much of the loss is water and how much is dry matter?</p>
+<p><span class="step">Plan.</span> Split both the green and roasted masses into water and dry matter.</p>
+<p><span class="step">Solution.</span> Green: 0.110 × 250 = 27.5 g of water and 222.5 g of dry matter. Roasted: 0.015 × 215 = 3.2 g of water and 211.8 g of dry matter. Water lost: 24.3 g. Dry matter lost: 10.7 g, which is 4.8% of the dry matter, leaving as CO<sub>2</sub>, water formed by reactions, and volatile compounds.</p>
+<p><span class="step">Check.</span> 24.3 + 10.7 = 35.0 g, the total loss. Most of the loss is water; the information about roast degree is in the remaining few percent. Two lots that start at different moisture show different total losses at the same roast degree, so total loss compares batches only within one green lot.</p>
+</div>
+<h3>Water activity</h3>
+<p>Moisture content says how much water is present. <dfn id="t-water-activity">Water activity</dfn> says how available it is, to microbes, to enzymes and to chemical reactions. It is the ratio of the water vapour pressure above the sample to the vapour pressure above pure water at the same temperature:</p>
+<table class="deq" summary="Equation 6.2"><tr><td class="f">a<sub>w</sub> = p / p<sub>0</sub> = ERH / 100</td><td class="n" id="eq-aw">(6.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">a<sub>w</sub></td><td>water activity (0 to 1)</td></tr>
+<tr><td class="w"></td><td class="s">p</td><td>water vapour pressure in equilibrium with the sample (Pa)</td></tr>
+<tr><td class="w"></td><td class="s">p<sub>0</sub></td><td>vapour pressure of pure water at the same temperature (Pa)</td></tr>
+<tr><td class="w"></td><td class="s">ERH</td><td>equilibrium relative humidity: the humidity of air that neither gives water to nor takes water from the sample (%)</td></tr>
+</table>
+<p>The link between moisture content and water activity is the <dfn id="t-sorption-isotherm">sorption isotherm</dfn>: a curve of the moisture content a material reaches in equilibrium with air of each relative humidity, at fixed temperature. Isotherms of foods are S-shaped. At low water activity, water is bound tightly to the solid; in a middle range, more loosely; at high water activity it behaves almost like free water. Because the shape depends on composition and structure, two coffees with the same moisture content can have different water activities.</p>
+<p>A summary of storage trials puts the best range for green coffee at a<sub>w</sub> 0.45 to 0.55, corresponding roughly to 10.5 to 11.5% moisture, with 0.50 the most stable over 18 months. Water activity did not predict cup score, but it did predict how long quality lasted [3]. High water activity favours mould and oxidation; very low water activity is associated with faded, papery flavour after storage.</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"A moisture reading of 11% means the coffee is safe to store." Moisture content does not say how available the water is. Two lots at 11% can sit at different water activities, and a warehouse at high humidity will push any lot upward over time. Water activity, not moisture content alone, governs mould growth and the rate of quality loss.</p>
+</div>
+<div class="evidence">
+<p class="boxhead">Status of the evidence</p>
+<p>The water-activity ranges come from a practitioner's summary of storage trials, not from a peer-reviewed meta-analysis. Their direction agrees with general food science; treat the specific optimum as guidance and check it against your own storage data.</p>
+</div>
+<div class="quiz">
+<h3>Check your understanding: Sections 1 and 2</h3>
+<form class="quiz-form" id="ch06-green-coffee-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. Convert 10.0% wet-basis moisture to dry basis, in percent.</p>
+<p class="opts"><label for="ch06-green-coffee-q0-0">Answer:</label> <input type="text" size="8" name="ch06-green-coffee-q0-0" id="ch06-green-coffee-q0-0"> %</p>
+<div><input type="hidden" name="ch06-green-coffee-q0-0-kind" value="numeric"><input type="hidden" name="ch06-green-coffee-q0-0-ans" value="11.11"><input type="hidden" name="ch06-green-coffee-q0-0-tol" value="0.01"></div>
+<p class="fb" id="ch06-green-coffee-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. Which component of green coffee is the main precursor of the acids formed in roasting?</p>
+<p class="opts">
+<input type="radio" name="ch06-green-coffee-q0-1" id="ch06-green-coffee-q0-1-0" value="0"> <label for="ch06-green-coffee-q0-1-0">Sucrose</label><br>
+<input type="radio" name="ch06-green-coffee-q0-1" id="ch06-green-coffee-q0-1-1" value="1"> <label for="ch06-green-coffee-q0-1-1">Caffeine</label><br>
+<input type="radio" name="ch06-green-coffee-q0-1" id="ch06-green-coffee-q0-1-2" value="2"> <label for="ch06-green-coffee-q0-1-2">Lipids</label><br>
+</p>
+<div><input type="hidden" name="ch06-green-coffee-q0-1-kind" value="choice"><input type="hidden" name="ch06-green-coffee-q0-1-ans" value="0"></div>
+<p class="fb" id="ch06-green-coffee-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch06-green-coffee-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch06-green-coffee-q0">Answers</a></p>
+</form>
+</div>
+<h2>3. Physical properties</h2>
+<p>The roaster must also deal with the bean as a physical object: its size, density and ability to conduct heat.</p>
+<p>Grading. Green coffee is sorted by <dfn id="t-screen-size">screen size</dfn>, the sieve opening a bean will not pass through, in units of 1/64 inch:</p>
+<table class="deq" summary="Equation 6.3"><tr><td class="f">aperture = 25.4 &times; screen / 64</td><td class="n" id="eq-screen">(6.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">aperture</td><td>sieve opening (mm)</td></tr>
+<tr><td class="w"></td><td class="s">screen</td><td>screen number</td></tr>
+</table>
+<p>Screen 17, for example, is 6.75 mm. Lots are also graded by density and by defect count. Uniform size and density help a batch roast evenly, because small or light beans heat faster than large or dense ones in the same drum.</p>
+<p>Density. <dfn id="t-bulk-density">Bulk density</dfn>, the mass of beans that fills a given volume including the gaps between them, is commonly 650 to 750 g/L for green coffee, with dense high-grown beans at the upper end. Roasting roughly halves it, as beans expand and lose mass.</p>
+<p>Thermal properties. A 2025 model of a single bean heating in a roaster used a bean volume of 1.44 × 10<sup>−7</sup> m<sup>3</sup> and a surface area of 1.63 × 10<sup>−4</sup> m<sup>2</sup> [4]. It took the bean's <dfn id="t-thermal-conductivity">thermal conductivity</dfn> as 0.11 W/(m K) and its initial moisture as 0.13 on a dry basis. Thermal conductivity, λ, measures how readily heat flows through a material. Comparing it with how fast heat arrives at the bean's surface shows whether the inside of the bean keeps up with the outside, which Chapter 7 develops using the Biot number.</p>
+<h2>4. A heat budget</h2>
+<p>How much heat does a roast require? Three quantities answer the question. The <dfn id="t-specific-heat-capacity">specific heat capacity</dfn>, c<sub>p</sub>, is the heat needed to warm 1 kg of a material by 1 K: about 1.4 kJ/(kg K) for coffee dry matter and 4.18 kJ/(kg K) for water. For a moist bean the two combine in proportion:</p>
+<table class="deq" summary="Equation 6.4"><tr><td class="f">c<sub>p</sub> = (1 &minus; w) c<sub>p,dry</sub> + w c<sub>p,water</sub></td><td class="n" id="eq-cp">(6.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">c<sub>p</sub></td><td>specific heat capacity of the moist bean (kJ/(kg K))</td></tr>
+<tr><td class="w"></td><td class="s">w</td><td>moisture, wet basis (fraction)</td></tr>
+</table>
+<p>The <dfn id="t-latent-heat-of-vaporisation">latent heat of vaporisation</dfn>, L<sub>v</sub>, about 2,257 kJ/kg, is the heat needed to turn water into vapour without changing its temperature.</p>
+<div class="example">
+<p class="boxhead">Worked example: Where the heat goes</p>
+<p><span class="step">Problem.</span> How much heat does it take to bring 1 kg of green coffee at 11% moisture from 20 to 210 °C, ignoring heat released by reactions and heat lost from the roaster?</p>
+<p><span class="step">Plan.</span> Add three terms: warming the dry matter, warming the water to its boiling point, and evaporating the water.</p>
+<p><span class="step">Solution.</span> Dry matter: 0.89 × 1.4 × 190 = 237 kJ. Water to 100 °C: 0.11 × 4.18 × 80 = 37 kJ. Evaporation: 0.11 × 2,257 = 248 kJ. Total: about 520 kJ.</p>
+<p><span class="step">Check.</span> Evaporation needs about as much heat as warming all the dry matter, as <a href="#fig-heat">Figure 6.2</a> shows. A batch two percentage points wetter needs about 45 kJ/kg more for evaporation alone and will spend longer in the drying phase.</p>
+</div>
+<div class="figure" id="fig-heat">
+<img src="figures/ch06-heatbudget.gif" width="415" height="208" alt="Stacked horizontal bar of heat required to roast 1 kg of green coffee: about 237 kJ to heat dry matter, 37 kJ to heat water to 100 C, and 248 kJ to evaporate it.">
+<p class="caption">Figure 6.2. Heat to take 1 kg of green coffee at 11% moisture from 20 to 210 °C. The evaporation segment is as long as the dry-matter segment.</p>
+</div>
+<p>Chapter 7 turns this budget into an energy balance that follows the bean's temperature through a roast.</p>
+<h2>5. Defects and ochratoxin A</h2>
+<p>Green grading counts defects in a sample, typically 350 g in SCA protocols: entirely black or sour beans, insect damage, broken beans, foreign matter and others, each with a weight in the count. Primary defects, such as fully black or sour beans, carry strong off-flavours, and a few can be detected in a cup.</p>
+<p>A more serious hazard is invisible. A <dfn id="t-mycotoxin">mycotoxin</dfn> is a toxic compound produced by moulds. <dfn id="t-ochratoxin-a">Ochratoxin A</dfn> (OTA) is produced by some <em>Aspergillus</em> and <em>Penicillium</em> moulds when coffee cherries or beans dry slowly or are stored damp. It damages the kidneys and is classified as possibly carcinogenic to humans. The European Union sets maximum levels of 3.0 µg/kg for roasted coffee and 5.0 µg/kg for soluble coffee [5].</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"Roasting destroys mould toxins, so mouldy green coffee is safe once roasted." Roasting destroys part of the OTA present, and kinetic studies have modelled the destruction [6], but the reported reductions vary widely with roast conditions and measurement method. Roasting cannot be relied on to make contaminated coffee safe. Prevention depends on fast, even drying to a safe water activity and dry storage.</p>
+</div>
+<h2>6. What the roaster inherits</h2>
+<p>The green bean sets the limits of roasting. Its water fixes the length and energy of the drying phase. Its sucrose, amino acids and chlorogenic acids are the precursors from which acids, bitterness, colour and aroma will form. Its density and size govern how fast heat reaches the centre of the bean and how evenly a batch roasts. Its oil decides how aroma and staling behave afterwards. Defects and mould contamination cannot be roasted out.</p>
+<p>We can now return to the two sacks. Equal moisture content and grade do not guarantee equal density, size uniformity, sucrose or water activity, and each of these changes how a bean takes heat and what it becomes.</p>
+<h2>Looking ahead</h2>
+<p>With the starting material described, the next step is the process itself. Chapter 7 asks how heat gets into a bean, where that heat goes, and what a roaster's temperature log can and cannot tell us.</p>
+<h2>Key equations</h2>
+<table class="eqs" summary="Key equations">
+<tr><th>Quantity</th><th>Equation</th><th>Notes</th></tr>
+<tr><td>Moisture bases</td><td class="eq">X = w / (1 &minus; w); w = X / (1 + X)</td><td>Equation 6.1.</td></tr>
+<tr><td>Water activity</td><td class="eq">a<sub>w</sub> = p / p<sub>0</sub> = ERH / 100</td><td>Equation 6.2.</td></tr>
+<tr><td>Screen size</td><td class="eq">aperture (mm) = 25.4 &times; screen / 64</td><td>Equation 6.3.</td></tr>
+<tr><td>Moist specific heat</td><td class="eq">c<sub>p</sub> = (1 &minus; w) c<sub>p,dry</sub> + w c<sub>p,water</sub></td><td>Equation 6.4.</td></tr>
+</table>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-bulk-density">Bulk density</a>; <a href="#t-dry-basis">dry basis</a>; <a href="#t-dry-matter">dry matter</a>; <a href="#t-latent-heat-of-vaporisation">latent heat of vaporisation</a>; <a href="#t-mycotoxin">mycotoxin</a>; <a href="#t-ochratoxin-a">Ochratoxin A</a>; <a href="#t-polysaccharides">Polysaccharides</a>; <a href="#t-precursor">precursor</a>; <a href="#t-reducing-sugar">reducing sugar</a>; <a href="#t-screen-size">screen size</a>; <a href="#t-sorption-isotherm">sorption isotherm</a>; <a href="#t-specific-heat-capacity">specific heat capacity</a>; <a href="#t-sucrose">Sucrose</a>; <a href="#t-thermal-conductivity">thermal conductivity</a>; <a href="#t-trigonelline">Trigonelline</a>; <a href="#t-water-activity">Water activity</a>; <a href="#t-wet-basis">wet basis</a>.</p>
+<div class="quiz">
+<h3>Chapter review</h3>
+<form class="quiz-form" id="ch06-green-coffee-q1" action="#answers">
+<div class="q">
+<p class="prompt">1. Two green coffees both have 11% moisture. Their water activities</p>
+<p class="opts">
+<input type="radio" name="ch06-green-coffee-q1-0" id="ch06-green-coffee-q1-0-0" value="0"> <label for="ch06-green-coffee-q1-0-0">must be equal</label><br>
+<input type="radio" name="ch06-green-coffee-q1-0" id="ch06-green-coffee-q1-0-1" value="1"> <label for="ch06-green-coffee-q1-0-1">can differ, because sorption isotherms depend on composition and structure</label><br>
+<input type="radio" name="ch06-green-coffee-q1-0" id="ch06-green-coffee-q1-0-2" value="2"> <label for="ch06-green-coffee-q1-0-2">differ only if their temperatures differ</label><br>
+</p>
+<div><input type="hidden" name="ch06-green-coffee-q1-0-kind" value="choice"><input type="hidden" name="ch06-green-coffee-q1-0-ans" value="1"></div>
+<p class="fb" id="ch06-green-coffee-q1-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. What is the aperture of a screen 18 sieve in millimetres?</p>
+<p class="opts"><label for="ch06-green-coffee-q1-1">Answer:</label> <input type="text" size="8" name="ch06-green-coffee-q1-1" id="ch06-green-coffee-q1-1"> mm</p>
+<div><input type="hidden" name="ch06-green-coffee-q1-1-kind" value="numeric"><input type="hidden" name="ch06-green-coffee-q1-1-ans" value="7.14"><input type="hidden" name="ch06-green-coffee-q1-1-tol" value="0.01"></div>
+<p class="fb" id="ch06-green-coffee-q1-1-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">3. In the heat budget for a 1 kg batch at 11% moisture, which term is largest?</p>
+<p class="opts">
+<input type="radio" name="ch06-green-coffee-q1-2" id="ch06-green-coffee-q1-2-0" value="0"> <label for="ch06-green-coffee-q1-2-0">Warming the water to 100 °C</label><br>
+<input type="radio" name="ch06-green-coffee-q1-2" id="ch06-green-coffee-q1-2-1" value="1"> <label for="ch06-green-coffee-q1-2-1">Evaporating the water</label><br>
+<input type="radio" name="ch06-green-coffee-q1-2" id="ch06-green-coffee-q1-2-2" value="2"> <label for="ch06-green-coffee-q1-2-2">Neither; warming the dry matter is ten times larger</label><br>
+</p>
+<div><input type="hidden" name="ch06-green-coffee-q1-2-kind" value="choice"><input type="hidden" name="ch06-green-coffee-q1-2-ans" value="1"></div>
+<p class="fb" id="ch06-green-coffee-q1-2-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch06-green-coffee-q1"><input type="hidden" name="quiz-n" value="3"><input type="button" class="check" value="Check answers"> <a href="#ans-ch06-green-coffee-q1">Answers</a></p>
+</form>
+</div>
+<h2>Labs</h2>
+<div class="lab">
+<h3 id="lab-L6.1">Lab L6.1: Moisture by oven drying</h3>
+<p><span class="lbl">Aim.</span> Measure the moisture content of green coffee by drying and compare it with a meter reading or the supplier's specification.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Oven at 105 °C and hot dishes: use tongs and heat-resistant gloves.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>Analytical balance (0.001 g)</li>
+<li>Oven at 105 °C</li>
+<li>Aluminium dishes</li>
+<li>Desiccator or sealed jar with silica gel</li>
+<li>Grinder</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Grind about 10 g of green coffee coarsely and weigh three 5 g portions into dried, tared dishes.</li>
+<li>Dry at 105 °C for 16 hours or to constant mass, cool in the desiccator, and weigh.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Dish</th><th>Tare (g)</th><th>Wet sample (g)</th><th>Dry sample (g)</th><th>Moisture, wet basis (%)</th><th>Moisture, dry basis (%)</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Report the mean and standard deviation and compare with the specification.</li>
+<li>Some water is lost during grinding before weighing; estimate how much this biases the result.</li>
+</ol>
+</div>
+<div class="lab">
+<h3 id="lab-L6.2">Lab L6.2: Screen size and bulk density</h3>
+<p><span class="lbl">Aim.</span> Characterise a green lot's size distribution and bulk density, and relate them to roast evenness.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>Screen sieves (for example 14 to 19)</li>
+<li>1 L measuring cylinder</li>
+<li>Balance</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Sieve 300 g through the screen stack and weigh each fraction.</li>
+<li>Pour green beans into the cylinder to 1 L without tapping and weigh them. Repeat three times.</li>
+<li>If a roaster is available, roast two screen fractions separately to the same end temperature and compare their colour.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Screen</th><th>Mass (g)</th><th>Mass %</th><th>Bulk density (g/L)</th><th>Roast colour</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Report the screen distribution and the mean bulk density with its standard deviation.</li>
+</ol>
+</div>
+<div class="lab">
+<h3 id="lab-L6.3">Lab L6.3: Water activity (if a meter is available)</h3>
+<p><span class="lbl">Aim.</span> Measure the water activity of several green coffees and compare it with their moisture content.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>Water activity meter</li>
+<li>Three or more green coffees</li>
+<li>Oven-drying equipment from L6.1</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Measure the water activity of each coffee at a recorded temperature, and its moisture content as in L6.1.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Coffee</th><th>a<sub>w</sub></th><th>Moisture (%)</th><th>Temperature (°C)</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Plot water activity against moisture. Do all coffees fall on one curve?</li>
+</ol>
+</div>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section 1]</span> Name two compositional differences between arabica and robusta and one roasting consequence of each. <a class="sol" href="ch06-green-coffee-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section 2]</span> Convert 13% dry-basis moisture to wet basis. <a class="sol" href="ch06-green-coffee-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section 2]</span> Why can a lot with acceptable moisture content still grow mould? <a class="sol" href="ch06-green-coffee-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section 2]</span> A 1.00 kg batch at 12.0% moisture leaves the roaster at 845 g with 1.8% moisture. Compute the water lost and the dry matter lost, the latter as a percentage of dry matter. <a class="sol" href="ch06-green-coffee-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section 4]</span> Compute the specific heat capacity of green coffee at 11% and at 13% moisture. <a class="sol" href="ch06-green-coffee-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section 4]</span> How much more heat is needed for evaporation in a 12 kg batch at 12.5% moisture than at 10.5%? <a class="sol" href="ch06-green-coffee-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section 3]</span> For the 2025 model bean (V = 1.44 × 10<sup>−7</sup> m<sup>3</sup>, A = 1.63 × 10<sup>−4</sup> m<sup>2</sup>, λ = 0.11 W/(m K)), compute the Biot number hL<sub>c</sub>/λ with L<sub>c</sub> = V/A, for h = 30 and h = 100 W/(m<sup>2</sup> K). What does a value above 0.1 mean? <a class="sol" href="ch06-green-coffee-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section 1]</span> A roaster's 60 kg batch of arabica averages 7.3% sucrose (dry basis) at 11% moisture. How many kilograms of sucrose enter the roaster? <a class="sol" href="ch06-green-coffee-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[C, Section 2]</span> Explain why roast mass loss is a poor measure of roast degree across different green lots, and propose a better one. <a class="sol" href="ch06-green-coffee-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[C, Section 2]</span> A green coffee warehouse sits at 75% relative humidity in the rainy season. Using sorption and water activity, describe the risk and a way to reduce it. <a class="sol" href="ch06-green-coffee-solutions.html#s10">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>References</h2>
+<ol>
+<li>Caporaso N., Whitworth M.B., Grebby S., Fisk I.D. (2018), Non-destructive analysis of sucrose, caffeine and trigonelline on single green coffee beans by hyperspectral imaging, <em>Food Research International</em> 106:193.</li>
+<li>Review of chlorogenic acids and trigonelline in coffee, <em>Trends in Sciences</em> 23(9):13444 (2026).</li>
+<li>Martinez Agudelo Y. (2021), An introduction to water activity in green coffee, <em>Daily Coffee News</em>.</li>
+<li>Bustos-Vanegas J.D. et al. (2025), Modeling and simulation of coffee bean heating during roasting: effect of heat generation, <em>Frontiers in Food Science and Technology</em>.</li>
+<li>Commission Regulation (EU) 2022/1370 amending Regulation (EC) No 1881/2006 as regards maximum levels of ochratoxin A in certain foodstuffs (now consolidated in Regulation (EU) 2023/915).</li>
+<li>Kinetics of ochratoxin A destruction during coffee roasting (INCA repository record).</li>
+</ol>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-ch06-green-coffee-q0">Check your understanding: Sections 1 and 2</h3>
+<ol>
+<li><span class="key">11.11 %.</span> <span id="ch06-green-coffee-q0-0-ex">X = 0.10/0.90 = 0.1111.</span></li>
+<li><span class="key">Sucrose.</span> <span id="ch06-green-coffee-q0-1-ex">Sucrose breaks down into formic, acetic, glycolic and lactic acids, among other products.</span></li>
+</ol>
+<h3 id="ans-ch06-green-coffee-q1">Chapter review</h3>
+<ol>
+<li><span class="key">can differ, because sorption isotherms depend on composition and structure.</span> <span id="ch06-green-coffee-q1-0-ex">Moisture content and water activity are linked by an isotherm specific to each material.</span></li>
+<li><span class="key">7.14 mm.</span> <span id="ch06-green-coffee-q1-1-ex">25.4 × 18/64 = 7.14 mm.</span></li>
+<li><span class="key">Evaporating the water.</span> <span id="ch06-green-coffee-q1-2-ex">Evaporation takes about 248 kJ, slightly more than the 237 kJ for warming the dry matter.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="ch06-green-coffee-solutions.html">6. Green coffee: the roasting input solutions</a>.</p>
+
+<div class="nav bottom"><a href="ch05-resting.html" rel="prev" title="5. Resting, staling and storage">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch07-roasting-physics.html" rel="next" title="7. Roasting I: heat and mass transfer">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

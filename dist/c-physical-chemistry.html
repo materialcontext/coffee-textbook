@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix C. Physical chemistry and transport - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="b-organic-chemistry.html" rel="prev" title="Appendix B. Organic chemistry for coffee">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="d-analytical-methods.html" rel="next" title="Appendix D. Analytical methods">Next &gt;</a></div>
+<h1>Appendix C. Physical chemistry and transport</h1>
+<p class="lead">Which rate laws and transport equations does the book use, and where do they come from?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Integrate first-order and other simple rate laws and use half-lives.</li>
+<li>Describe consecutive reactions and find when an intermediate peaks.</li>
+<li>Use the Arrhenius equation and Q<sub>10</sub>, and estimate an activation energy from two temperatures.</li>
+<li>State Fick's first law, estimate diffusion distances, and interpret the solution for a sphere.</li>
+<li>Write the laws of conduction, convection and radiation, and use the Biot number and a lumped model.</li>
+<li>Use the ideal gas law and Henry's law for gases in coffee.</li>
+</ul>
+</div>
+<p>Three ideas carry most of the physical reasoning in this book: how fast reactions go and how that depends on temperature; how molecules and heat spread through a material; and how gases behave. This appendix develops each from first-year calculus and chemistry. Chapters 2A, 2B, 5, 7 and 8 refer to its sections.</p>
+<h2>C.1 Rate laws</h2>
+<p>The <dfn id="t-reaction-rate">reaction rate</dfn> of a reaction A → products is how fast the concentration of A falls: r = −d[A]/dt. Experiments often find that the rate is proportional to a power of the concentration, r = k[A]<sup>n</sup>. The constant k is the <dfn id="t-rate-constant">rate constant</dfn>, and n is the <dfn id="t-reaction-order">reaction order</dfn>. The order is found by experiment; it cannot in general be read from the balanced equation.</p>
+<p>The most important case is n = 1, a first-order reaction. Its rate law is a differential equation:</p>
+<table class="deq" summary="Equation C.1"><tr><td class="f">d[A]/dt = &minus;k[A]</td><td class="n" id="eq-first">(C.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">[A]</td><td>concentration of A (mol/L)</td></tr>
+<tr><td class="w"></td><td class="s">k</td><td>first-order rate constant (1/s or 1/min)</td></tr>
+</table>
+<p>To solve it, separate the variables: d[A]/[A] = −k dt. Integrate from time 0, when the concentration is [A]<sub>0</sub>, to time t: ln[A] − ln[A]<sub>0</sub> = −kt. Taking exponentials,</p>
+<table class="deq" summary="Equation C.2"><tr><td class="f">[A] = [A]<sub>0</sub> e<sup>&minus;kt</sup></td><td class="n" id="eq-firstsol">(C.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">[A]<sub>0</sub></td><td>concentration at t = 0 (mol/L)</td></tr>
+</table>
+<p>The <dfn id="t-half-life">half-life</dfn>, the time for the concentration to halve, follows by setting [A] = [A]<sub>0</sub>/2: t<sub>1/2</sub> = ln 2/k. For a first-order reaction it does not depend on the starting amount. After three half-lives one eighth remains.</p>
+<p>Plotting ln[A] against t gives a straight line of slope −k for a first-order process. Curvature in that plot is the first sign that one exponential is not enough, as with the two particle populations of Chapter 2A and the Weibull degassing of Chapter 5.</p>
+<p>Other orders integrate in the same way:</p>
+<table><thead><tr><th>Order</th><th>Rate law</th><th>Integrated form</th><th>Half-life</th></tr></thead><tbody>
+<tr><td>0</td><td>r = k</td><td>[A] = [A]<sub>0</sub> − kt</td><td>[A]<sub>0</sub>/2k</td></tr>
+<tr><td>1</td><td>r = k[A]</td><td>[A] = [A]<sub>0</sub>e<sup>−kt</sup></td><td>ln 2/k</td></tr>
+<tr><td>2</td><td>r = k[A]<sup>2</sup></td><td>1/[A] − 1/[A]<sub>0</sub> = kt</td><td>1/(k[A]<sub>0</sub>)</td></tr>
+</tbody></table>
+<p>Many processes in coffee are <dfn id="t-pseudo-first-order">pseudo-first-order</dfn>: a second reactant, such as water or oxygen in the headspace, is present in such excess that its concentration barely changes, so it can be absorbed into k.</p>
+<h2>C.2 Consecutive reactions</h2>
+<p>Roasting forms some compounds and then destroys them. The simplest model is a pair of first-order steps, A → B → C, with rate constants k<sub>1</sub> and k<sub>2</sub>, starting from pure A. A falls exponentially, as in <a href="#eq-firstsol">Equation C.2</a>. Species B is formed from A and lost to C, so d[B]/dt = k<sub>1</sub>[A] − k<sub>2</sub>[B]. Solving this equation gives</p>
+<table class="deq" summary="Equation C.3"><tr><td class="f">[B] = [A]<sub>0</sub> k<sub>1</sub>/(k<sub>2</sub> &minus; k<sub>1</sub>) (e<sup>&minus;k<sub>1</sub>t</sup> &minus; e<sup>&minus;k<sub>2</sub>t</sup>)</td><td class="n" id="eq-consec">(C.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">k<sub>1</sub>, k<sub>2</sub></td><td>rate constants of the first and second steps (1/min)</td></tr>
+</table>
+<div class="deeper">
+<p class="boxhead">Going further: Solving for B</p>
+<p>Substitute [A] = [A]<sub>0</sub>e<sup>−k<sub>1</sub>t</sup> into d[B]/dt + k<sub>2</sub>[B] = k<sub>1</sub>[A]. Multiply both sides by the integrating factor e<sup>k<sub>2</sub>t</sup>, which turns the left side into d([B]e<sup>k<sub>2</sub>t</sup>)/dt. Integrate from 0, where [B] = 0, to t: [B]e<sup>k<sub>2</sub>t</sup> = [A]<sub>0</sub>k<sub>1</sub>(e<sup>(k<sub>2</sub> − k<sub>1</sub>)t</sup> − 1)/(k<sub>2</sub> − k<sub>1</sub>). Multiplying by e<sup>−k<sub>2</sub>t</sup> gives <a href="#eq-consec">Equation C.3</a>.</p>
+</div>
+<p>Setting d[B]/dt = 0 gives the time at which B peaks:</p>
+<table class="deq" summary="Equation C.4"><tr><td class="f">t<sub>max</sub> = ln(k<sub>1</sub>/k<sub>2</sub>) / (k<sub>1</sub> &minus; k<sub>2</sub>)</td><td class="n" id="eq-tmax">(C.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">t<sub>max</sub></td><td>time at which the intermediate B is greatest (min)</td></tr>
+</table>
+<p>and the peak amount [B]<sub>max</sub>/[A]<sub>0</sub> = (k<sub>2</sub>/k<sub>1</sub>)<sup>k<sub>2</sub>/(k<sub>1</sub> − k<sub>2</sub>)</sup>.</p>
+<div class="example">
+<p class="boxhead">Worked example: An intermediate that peaks</p>
+<p><span class="step">Problem.</span> With k<sub>1</sub> = 0.3 and k<sub>2</sub> = 0.1 per minute at constant temperature, when does B peak and how much is there?</p>
+<p><span class="step">Plan.</span> Apply <a href="#eq-tmax">Equation C.4</a> and the peak formula.</p>
+<p><span class="step">Solution.</span> t<sub>max</sub> = ln 3/0.2 = 5.49 min. [B]<sub>max</sub>/[A]<sub>0</sub> = (1/3)<sup>0.1/0.2</sup> = 3<sup>−0.5</sup> = 0.577.</p>
+<p><span class="step">Check.</span> Stopping before 5.5 min leaves A unconverted; stopping after it loses B to C. Chapter 8 treats acids formed and destroyed during roasting this way, with temperature rising so that both rate constants change with time.</p>
+</div>
+<div class="widget">
+<h3>Formation and destruction during a roast: A to B to C</h3>
+<form class="w" id="c-physical-chemistry-w11" action="#">
+<div><input type="hidden" name="kind" value="kinetics"></div>
+<div class="f"><label for="c-physical-chemistry-w11-t0">Bean temperature at start</label> <input type="text" size="7" name="t0" id="c-physical-chemistry-w11-t0" value="100"> &deg;C</div>
+<div class="f"><label for="c-physical-chemistry-w11-rate">Heating rate</label> <input type="text" size="7" name="rate" id="c-physical-chemistry-w11-rate" value="10"> &deg;C/min</div>
+<div class="f"><label for="c-physical-chemistry-w11-tend">Final temperature</label> <input type="text" size="7" name="tend" id="c-physical-chemistry-w11-tend" value="225"> &deg;C</div>
+<div class="f"><label for="c-physical-chemistry-w11-ea1">E<sub>a</sub>, formation of B</label> <input type="text" size="7" name="ea1" id="c-physical-chemistry-w11-ea1" value="100"> kJ/mol</div>
+<div class="f"><label for="c-physical-chemistry-w11-ea2">E<sub>a</sub>, destruction of B</label> <input type="text" size="7" name="ea2" id="c-physical-chemistry-w11-ea2" value="140"> kJ/mol</div>
+<div class="f"><label for="c-physical-chemistry-w11-k1ref">Formation rate constant at 190 &deg;C</label> <input type="text" size="7" name="k1ref" id="c-physical-chemistry-w11-k1ref" value="0.3"> per min</div>
+<div class="f"><label for="c-physical-chemistry-w11-k2ref">Destruction rate constant at 190 &deg;C</label> <input type="text" size="7" name="k2ref" id="c-physical-chemistry-w11-k2ref" value="0.1"> per min</div>
+<p class="formula">dA/dt = &minus;k<sub>1</sub>A, dB/dt = k<sub>1</sub>A &minus; k<sub>2</sub>B, with k<sub>i</sub>(T) = k<sub>i,ref</sub> exp[&minus;(E<sub>a,i</sub>/R)(1/T &minus; 1/T<sub>ref</sub>)], T in kelvin, T<sub>ref</sub> = 463.15 K. Temperature rises linearly until the final temperature, then the roast ends.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="c-physical-chemistry-w11-out"></div>
+</form>
+</div>
+<h2>C.3 Temperature dependence: the Arrhenius equation</h2>
+<p>Rate constants rise steeply with temperature. The <dfn id="t-arrhenius-equation">Arrhenius equation</dfn> describes the rise:</p>
+<table class="deq" summary="Equation C.5"><tr><td class="f">k = A exp(&minus;E<sub>a</sub> / RT)</td><td class="n" id="eq-arr">(C.5)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">A</td><td>pre-exponential factor (same unit as k)</td></tr>
+<tr><td class="w"></td><td class="s">E<sub>a</sub></td><td>activation energy (J/mol)</td></tr>
+<tr><td class="w"></td><td class="s">R</td><td>gas constant, 8.314 (J/(mol K))</td></tr>
+<tr><td class="w"></td><td class="s">T</td><td>absolute temperature (K)</td></tr>
+</table>
+<p>The <dfn id="t-activation-energy">activation energy</dfn> is the energy barrier that colliding molecules must overcome to react. The exponential factor is the fraction of molecules with enough energy, and it grows rapidly with temperature. Taking logarithms gives ln k = ln A − (E<sub>a</sub>/R)(1/T), so a plot of ln k against 1/T is a straight line of slope −E<sub>a</sub>/R.</p>
+<p>Writing the logarithmic form at two temperatures and subtracting removes A:</p>
+<table class="deq" summary="Equation C.6"><tr><td class="f">E<sub>a</sub> = R ln(k<sub>2</sub>/k<sub>1</sub>) / (1/T<sub>1</sub> &minus; 1/T<sub>2</sub>)</td><td class="n" id="eq-ea">(C.6)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">k<sub>1</sub>, k<sub>2</sub></td><td>rate constants at temperatures T<sub>1</sub> and T<sub>2</sub></td></tr>
+</table>
+<p>The <dfn id="t-q10">Q10</dfn> factor, the ratio of rates 10 K apart, expresses the same information over a narrow range: Q<sub>10</sub> = exp[(E<sub>a</sub>/R)(1/T − 1/(T + 10))]. The rule of thumb that rates double every 10 °C near room temperature corresponds to E<sub>a</sub> ≈ 53 kJ/mol.</p>
+<div class="figure" id="fig-arrhenius">
+<img src="figures/appc-arrhenius.gif" width="459" height="269" alt="Logarithmic plot of rate constant relative to its value at 190 degrees against temperature, for activation energies 60, 100 and 150 kJ per mol; steeper lines for higher activation energy.">
+<p class="caption">Figure C.1. Arrhenius sensitivity across the roasting range. Compare the slopes: a higher activation energy makes a reaction more sensitive to temperature, so changing the heating path changes the balance between reactions.</p>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: Accelerated storage</p>
+<p><span class="step">Problem.</span> A staling marker forms with first-order rate constants of 0.437 per day at 40 °C and 2.10 per day at 60 °C. Find the activation energy, the rate constant and half-life at 25 °C, and Q<sub>10</sub> between 25 and 35 °C.</p>
+<p><span class="step">Plan.</span> Apply <a href="#eq-ea">Equation C.6</a>, then <a href="#eq-arr">Equation C.5</a> in ratio form to extrapolate.</p>
+<p><span class="step">Solution.</span> E<sub>a</sub> = 8.314 × ln(4.805)/(1/313.15 − 1/333.15) = 68.1 kJ/mol. At 25 °C: k = 0.437 exp[−(68,080/8.314)(1/298.15 − 1/313.15)] = 0.117 per day, a half-life of ln 2/0.117 = 5.9 days. Q<sub>10</sub> between 25 and 35 °C is 2.44.</p>
+<p><span class="step">Check.</span> The extrapolation assumes the same mechanism at all three temperatures, which accelerated tests cannot verify on their own (Chapter 5, Section 8).</p>
+</div>
+<div class="widget">
+<h3>Arrhenius: activation energy and extrapolation</h3>
+<form class="w" id="c-physical-chemistry-w19" action="#">
+<div><input type="hidden" name="kind" value="arrhenius"></div>
+<div class="f"><label for="c-physical-chemistry-w19-k1">Rate constant at T<sub>1</sub></label> <input type="text" size="7" name="k1" id="c-physical-chemistry-w19-k1" value="0.437"> per day</div>
+<div class="f"><label for="c-physical-chemistry-w19-t1">T<sub>1</sub></label> <input type="text" size="7" name="t1" id="c-physical-chemistry-w19-t1" value="40"> &deg;C</div>
+<div class="f"><label for="c-physical-chemistry-w19-k2">Rate constant at T<sub>2</sub></label> <input type="text" size="7" name="k2" id="c-physical-chemistry-w19-k2" value="2.1"> per day</div>
+<div class="f"><label for="c-physical-chemistry-w19-t2">T<sub>2</sub></label> <input type="text" size="7" name="t2" id="c-physical-chemistry-w19-t2" value="60"> &deg;C</div>
+<div class="f"><label for="c-physical-chemistry-w19-t3">Extrapolate to T<sub>3</sub></label> <input type="text" size="7" name="t3" id="c-physical-chemistry-w19-t3" value="25"> &deg;C</div>
+<p class="formula">E<sub>a</sub> = R ln(k<sub>2</sub>/k<sub>1</sub>) / (1/T<sub>1</sub> &minus; 1/T<sub>2</sub>); k(T<sub>3</sub>) = k<sub>1</sub> exp[&minus;(E<sub>a</sub>/R)(1/T<sub>3</sub> &minus; 1/T<sub>1</sub>)].</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="c-physical-chemistry-w19-out"></div>
+</form>
+</div>
+<p>At roasting temperatures the spread between reactions matters more than any single activation energy. From 190 to 200 °C, a reaction with E<sub>a</sub> = 60 kJ/mol speeds up by a factor of 1.39, one with 100 kJ/mol by 1.73, and one with 150 kJ/mol by 2.28. Reactions with higher activation energies gain more from heat, so the temperature path decides which products dominate.</p>
+<div class="quiz">
+<h3>Check your understanding: Sections C.1 to C.3</h3>
+<form class="quiz-form" id="c-physical-chemistry-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. A first-order process has a half-life of 12 days. What fraction remains after 30 days?</p>
+<p class="opts"><label for="c-physical-chemistry-q0-0">Answer:</label> <input type="text" size="8" name="c-physical-chemistry-q0-0" id="c-physical-chemistry-q0-0"> </p>
+<div><input type="hidden" name="c-physical-chemistry-q0-0-kind" value="numeric"><input type="hidden" name="c-physical-chemistry-q0-0-ans" value="0.177"><input type="hidden" name="c-physical-chemistry-q0-0-tol" value="0.002"></div>
+<p class="fb" id="c-physical-chemistry-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. A rate constant doubles between 180 and 190 °C. What is the activation energy in kJ/mol?</p>
+<p class="opts"><label for="c-physical-chemistry-q0-1">Answer:</label> <input type="text" size="8" name="c-physical-chemistry-q0-1" id="c-physical-chemistry-q0-1"> kJ/mol</p>
+<div><input type="hidden" name="c-physical-chemistry-q0-1-kind" value="numeric"><input type="hidden" name="c-physical-chemistry-q0-1-ans" value="121"><input type="hidden" name="c-physical-chemistry-q0-1-tol" value="1"></div>
+<p class="fb" id="c-physical-chemistry-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="c-physical-chemistry-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-c-physical-chemistry-q0">Answers</a></p>
+</form>
+</div>
+<h2>C.4 Diffusion</h2>
+<p><dfn id="t-diffusion">Diffusion</dfn> is the net movement of molecules from high to low concentration caused by their random thermal motion. <dfn id="t-fick-s-first-law">Fick's first law</dfn> states that the flux of molecules is proportional to the concentration gradient:</p>
+<table class="deq" summary="Equation C.7"><tr><td class="f">J = &minus;D dc/dx</td><td class="n" id="eq-fick">(C.7)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">J</td><td>diffusive flux: amount crossing unit area per unit time (mol/(m<sup>2</sup> s))</td></tr>
+<tr><td class="w"></td><td class="s">D</td><td>diffusivity (m<sup>2</sup>/s)</td></tr>
+<tr><td class="w"></td><td class="s">dc/dx</td><td>concentration gradient (mol/m<sup>4</sup>)</td></tr>
+</table>
+<p>The minus sign says that molecules move down the gradient. Combining Fick's first law with conservation of mass gives Fick's second law, ∂c/∂t = D ∂<sup>2</sup>c/∂x<sup>2</sup>, which describes how a concentration profile changes over time.</p>
+<p>A useful result needs no solution at all. A molecule moving randomly travels a net distance that grows with the square root of time, not in proportion to it. The <dfn id="t-diffusion-length">diffusion length</dfn> in time t is of order</p>
+<table class="deq" summary="Equation C.8"><tr><td class="f">L &asymp; &radic;(D t)</td><td class="n" id="eq-dlen">(C.8)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">L</td><td>typical distance diffused (m)</td></tr>
+<tr><td class="w"></td><td class="s">t</td><td>time (s)</td></tr>
+</table>
+<p>With D = 2 × 10<sup>−10</sup> m<sup>2</sup>/s, typical for small molecules in a wet plant tissue, three minutes gives √(2 × 10<sup>−10</sup> × 180) = 1.9 × 10<sup>−4</sup> m, about 190 µm. Particles much larger than this cannot be emptied in a three-minute brew. Turning <a href="#eq-dlen">Equation C.8</a> around, the time to diffuse a distance a is of order a<sup>2</sup>/D: doubling the distance quadruples the time.</p>
+<div class="deeper">
+<p class="boxhead">Going further: The solution for a sphere</p>
+<p>In a sphere of radius a with uniform initial concentration and its surface held at zero, Fick's second law in spherical coordinates is ∂c/∂t = D (1/r<sup>2</sup>) ∂/∂r(r<sup>2</sup> ∂c/∂r). Substituting u = rc turns it into the one-dimensional equation ∂u/∂t = D ∂<sup>2</sup>u/∂r<sup>2</sup>, with u = 0 at r = 0 and r = a. Separating variables gives modes sin(nπr/a) that decay as exp(−n<sup>2</sup>π<sup>2</sup>Dt/a<sup>2</sup>). Matching the initial condition and integrating over the volume gives the fraction still inside:</p>
+<p>M(t)/M<sub>0</sub> = (6/π<sup>2</sup>) Σ<sub>n=1</sub><sup>∞</sup> (1/n<sup>2</sup>) exp(−n<sup>2</sup>π<sup>2</sup>Dt/a<sup>2</sup>).</p>
+<p>At t = 0 the sum equals π<sup>2</sup>/6, so the fraction is 1. The n = 1 term has time constant a<sup>2</sup>/(π<sup>2</sup>D), Equation 2A.7; the higher terms vanish quickly.</p>
+</div>
+<h2>C.5 Viscosity</h2>
+<p><dfn id="t-viscosity">Viscosity</dfn> is a fluid's resistance to flowing. Water's viscosity falls steeply with temperature: about 1.00 mPa s at 20 °C, 0.89 at 25 °C, 0.47 at 60 °C and 0.30 near 93 °C. Darcy's law (Chapter 2B) makes flow through a coffee bed inversely proportional to viscosity, so at fixed permeability water near 93 °C flows about three times faster than at room temperature.</p>
+<h2>C.6 Heat transfer</h2>
+<p>Heat moves by three routes, each with its own law.</p>
+<p><dfn id="t-conduction">Conduction</dfn> carries heat through a material: q = −λ dT/dx, where λ is the thermal conductivity in W/(m K). It has the same form as Fick's first law.</p>
+<p><dfn id="t-convection">Convection</dfn> carries heat between a surface and a moving fluid: q = h(T<sub>∞</sub> − T<sub>s</sub>), where h is the <dfn id="t-heat-transfer-coefficient">heat-transfer coefficient</dfn>, T<sub>∞</sub> the fluid temperature and T<sub>s</sub> the surface temperature. Forced flow of hot air gives h from tens to a few hundred W/(m<sup>2</sup> K).</p>
+<p><dfn id="t-radiation">Radiation</dfn> carries heat as infrared light: q = εσ(T<sub>surr</sub><sup>4</sup> − T<sub>s</sub><sup>4</sup>), with σ = 5.67 × 10<sup>−8</sup> W/(m<sup>2</sup> K<sup>4</sup>), temperatures in kelvin and ε the emissivity (Chapter 7).</p>
+<h3>Lumped bodies and the Biot number</h3>
+<p>If heat spreads through the inside of a body much faster than it arrives at the surface, the body's temperature stays nearly uniform. An energy balance on the whole body is then enough: m c<sub>p</sub> dT/dt = hA(T<sub>∞</sub> − T). This is a first-order equation like <a href="#eq-first">Equation C.1</a>, with solution</p>
+<table class="deq" summary="Equation C.9"><tr><td class="f">T<sub>&infin;</sub> &minus; T = (T<sub>&infin;</sub> &minus; T<sub>0</sub>) e<sup>&minus;t/&tau;<sub>h</sub></sup>, with &tau;<sub>h</sub> = m c<sub>p</sub> / (hA)</td><td class="n" id="eq-lumped">(C.9)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">&tau;<sub>h</sub></td><td>thermal time constant (s)</td></tr>
+<tr><td class="w"></td><td class="s">m</td><td>mass of the body (kg)</td></tr>
+<tr><td class="w"></td><td class="s">c<sub>p</sub></td><td>specific heat capacity (J/(kg K))</td></tr>
+<tr><td class="w"></td><td class="s">A</td><td>surface area (m<sup>2</sup>)</td></tr>
+</table>
+<p>The Biot number, Bi = hL<sub>c</sub>/λ with L<sub>c</sub> = volume/area (a third of the radius for a sphere), decides whether this <dfn id="t-lumped-model">lumped model</dfn> is valid (Equation 7.3). For Bi below about 0.1 it is accurate; larger values mean the surface runs ahead of the centre. The time for heat to reach the centre is of order r<sup>2</sup>/α, where α = λ/(ρc<sub>p</sub>) is the thermal diffusivity, the heat-flow counterpart of D in <a href="#eq-dlen">Equation C.8</a>.</p>
+<div class="example">
+<p class="boxhead">Worked example: Is a coffee bean lumped?</p>
+<p><span class="step">Problem.</span> Model a green bean as a sphere of volume 0.125 cm<sup>3</sup> with λ = 0.15 W/(m K), density 1,200 kg/m<sup>3</sup> and c<sub>p</sub> = 1.7 kJ/(kg K), heated by air with h = 50 W/(m<sup>2</sup> K). Find the Biot number and the internal heating time.</p>
+<p><span class="step">Plan.</span> Find the radius from the volume, then L<sub>c</sub> = r/3, Bi and r<sup>2</sup>/α.</p>
+<p><span class="step">Solution.</span> r = (3V/4π)<sup>1/3</sup> = 3.1 mm, so L<sub>c</sub> = 1.03 mm and Bi = 50 × 0.00103/0.15 = 0.34. The thermal diffusivity is α = 0.15/(1,200 × 1,700) = 7.4 × 10<sup>−8</sup> m<sup>2</sup>/s, so r<sup>2</sup>/α ≈ 130 s.</p>
+<p><span class="step">Check.</span> Bi exceeds 0.1, so the bean is not lumped: during a fast roast the centre can lag the surface by tens of degrees for a minute or more. Every input is uncertain by up to a factor of two and the bean is not a sphere, so the existence of the lag is reliable while its size is not. Chapter 7 compares this estimate with measurements.</p>
+</div>
+<p>A batch of beans in a drum is a different system. Heat reaches the pile through the drum wall and the air, the beans mix, and a lumped balance for the whole batch (Chapter 7) describes the average bean temperature with an effective hA per kilogram that bundles all three routes.</p>
+<h2>C.7 Gases</h2>
+<p>The <dfn id="t-ideal-gas-law">ideal gas law</dfn> gives the volume of a known amount of gas:</p>
+<table class="deq" summary="Equation C.10"><tr><td class="f">pV = nRT</td><td class="n" id="eq-gas">(C.10)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">p</td><td>pressure (Pa)</td></tr>
+<tr><td class="w"></td><td class="s">V</td><td>volume (m<sup>3</sup>)</td></tr>
+<tr><td class="w"></td><td class="s">n</td><td>amount of gas (mol)</td></tr>
+</table>
+<p><dfn id="t-henry-s-law">Henry's law</dfn> gives how much gas dissolves in a liquid:</p>
+<table class="deq" summary="Equation C.11"><tr><td class="f">c = k<sub>H</sub> p</td><td class="n" id="eq-henry">(C.11)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">c</td><td>dissolved concentration (mol/L)</td></tr>
+<tr><td class="w"></td><td class="s">k<sub>H</sub></td><td>Henry's law constant (mol/(L atm))</td></tr>
+<tr><td class="w"></td><td class="s">p</td><td>partial pressure of the gas above the liquid (atm)</td></tr>
+</table>
+<p>For CO<sub>2</sub> in water, k<sub>H</sub> is about 0.034 mol/(L atm) at 25 °C and several times smaller near 90 °C. Hot brewing water therefore holds little CO<sub>2</sub>, and gas released from fresh grounds forms bubbles: the bloom (Chapter 5).</p>
+<div class="example">
+<p class="boxhead">Worked example: Gas from an espresso dose</p>
+<p><span class="step">Problem.</span> How much CO<sub>2</sub>, as a volume at 20 °C and 1 atm, is released by 18 g of coffee containing 4 mg/g?</p>
+<p><span class="step">Plan.</span> Convert mass to moles, then apply <a href="#eq-gas">Equation C.10</a>.</p>
+<p><span class="step">Solution.</span> The amount is 72 mg/44.01 g/mol = 1.64 × 10<sup>−3</sup> mol, so the volume is V = nRT/p = 1.64 × 10<sup>−3</sup> × 8.314 × 293.15/101,325 = 3.9 × 10<sup>−5</sup> m<sup>3</sup>, or 39 mL.</p>
+<p><span class="step">Check.</span> That is roughly the volume of the shot itself, which is why fresh espresso foams so heavily.</p>
+</div>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-activation-energy">activation energy</a>; <a href="#t-arrhenius-equation">Arrhenius equation</a>; <a href="#t-conduction">Conduction</a>; <a href="#t-convection">Convection</a>; <a href="#t-diffusion">Diffusion</a>; <a href="#t-diffusion-length">diffusion length</a>; <a href="#t-fick-s-first-law">Fick's first law</a>; <a href="#t-half-life">half-life</a>; <a href="#t-heat-transfer-coefficient">heat-transfer coefficient</a>; <a href="#t-henry-s-law">Henry's law</a>; <a href="#t-ideal-gas-law">ideal gas law</a>; <a href="#t-lumped-model">lumped model</a>; <a href="#t-pseudo-first-order">pseudo-first-order</a>; <a href="#t-q10">Q10</a>; <a href="#t-radiation">Radiation</a>; <a href="#t-rate-constant">rate constant</a>; <a href="#t-reaction-order">reaction order</a>; <a href="#t-reaction-rate">reaction rate</a>; <a href="#t-viscosity">Viscosity</a>.</p>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section C.1]</span> Derive the first-order half-life t<sub>1/2</sub> = ln 2/k from Equation C.2. <a class="sol" href="c-physical-chemistry-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section C.3]</span> Convert 190 °C and 225 °C to kelvin and compute 1/T for each. <a class="sol" href="c-physical-chemistry-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section C.4]</span> Estimate how far a solute with D = 5 × 10<sup>−10</sup> m<sup>2</sup>/s diffuses in 25 s, the length of an espresso shot. <a class="sol" href="c-physical-chemistry-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section C.2]</span> For A → B → C with k<sub>1</sub> = 0.5 and k<sub>2</sub> = 0.2 per minute, find t<sub>max</sub> and [B]<sub>max</sub>/[A]<sub>0</sub>. <a class="sol" href="c-physical-chemistry-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section C.3]</span> Two reactions have activation energies of 80 and 140 kJ/mol and equal rate constants at 200 °C. What is the ratio of their rate constants at 220 °C? <a class="sol" href="c-physical-chemistry-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section C.3]</span> What activation energy corresponds to Q<sub>10</sub> = 2 between 25 and 35 °C? <a class="sol" href="c-physical-chemistry-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section C.4]</span> Show that the sphere series gives a fraction remaining of 1 at t = 0, using Σ 1/n<sup>2</sup> = π<sup>2</sup>/6. <a class="sol" href="c-physical-chemistry-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section C.6]</span> Compute the lumped time constant m c<sub>p</sub>/(hA) for the bean in the worked example (mass 0.15 g, c<sub>p</sub> 1.7 kJ/(kg K), r = 3.1 mm, h = 50 W/(m<sup>2</sup> K)). Why is a real drum roast far slower? <a class="sol" href="c-physical-chemistry-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[B, Section C.7]</span> How many moles of CO<sub>2</sub> dissolve in 1 L of water at 25 °C in equilibrium with air containing 0.042% CO<sub>2</sub>? <a class="sol" href="c-physical-chemistry-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[C, Section C.3]</span> A storage study measured a staling rate at 40 and 60 °C and extrapolated to 20 °C. List two ways the extrapolation could fail and an experiment to check it. <a class="sol" href="c-physical-chemistry-solutions.html#s10">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>Further reading</h2>
+<p>Atkins P., de Paula J., <em>Physical Chemistry</em>, chapters on kinetics and transport; Crank J., <em>The Mathematics of Diffusion</em>, for the sphere solution; Incropera F.P., DeWitt D.P., <em>Fundamentals of Heat and Mass Transfer</em>, for the Biot number and lumped analysis.</p>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-c-physical-chemistry-q0">Check your understanding: Sections C.1 to C.3</h3>
+<ol>
+<li><span class="key">0.177 .</span> <span id="c-physical-chemistry-q0-0-ex">k = ln 2/12 = 0.0578 per day; e<sup>−0.0578 × 30</sup> = 0.177.</span></li>
+<li><span class="key">121 kJ/mol.</span> <span id="c-physical-chemistry-q0-1-ex">8.314 ln 2/(1/453.15 − 1/463.15) = 121 kJ/mol.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="c-physical-chemistry-solutions.html">Appendix C. Physical chemistry and transport solutions</a>.</p>
+
+<div class="nav bottom"><a href="b-organic-chemistry.html" rel="prev" title="Appendix B. Organic chemistry for coffee">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="d-analytical-methods.html" rel="next" title="Appendix D. Analytical methods">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

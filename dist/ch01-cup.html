@@ -1,0 +1,599 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1. The cup: perception and composition - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch00-measurement.html" rel="prev" title="0. Instruments and measurement">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch02a-extraction-immersion.html" rel="next" title="2A. Extraction I: immersion, equilibrium and kinetics">Next &gt;</a></div>
+<h1>1. The cup: perception and composition</h1>
+<p class="lead">What is in the cup, how do we perceive it, and how reliably can we measure perception?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Describe the taste, smell and touch pathways that combine into flavour.</li>
+<li>Measure a detection threshold and name the main biases in sensory judgement.</li>
+<li>Choose between triangle, duo-trio, two-alternative and tetrad tests, analyse the result, and plan the number of trials.</li>
+<li>Describe the SCA Coffee Value Assessment and explain why it separates description from preference.</li>
+<li>Relate sourness to titratable acidity and acid identity, and bitterness to specific compounds and receptors.</li>
+<li>State the current evidence on coffee sweetness and body.</li>
+<li>Interpret aroma research that uses dilution analysis, odour activity values and omission tests.</li>
+</ul>
+<p class="small">Prerequisites: Chapter 0; Appendix A, Section A.5 (acids and pH); Appendix E, Sections E.2 to E.4 (binomial distribution, comparing means).</p>
+</div>
+<p>A roaster gives you two cups of the same coffee, brewed with two different waters, and asks whether they taste different. You taste them and think one is brighter. When you taste again, you are less sure. Is there a difference? If there is, what is it, and what substance in the cup is responsible?</p>
+<p>Answering requires three kinds of knowledge, and this chapter supplies each in turn. The first is how human perception works, since the taster is the instrument. The second is how to design a tasting so that its result means something, which is a problem in statistics. The third is what the cup contains, so that a perceived difference can be traced to chemistry. The later chapters of the book follow those substances back through brewing and roasting.</p>
+<h2>1. Three senses build flavour</h2>
+<p>What we call the flavour of coffee is assembled in the brain from three separate senses. Knowing which sense carries which part of the experience tells us where to look for its cause.</p>
+<p>Taste. On the tongue and palate, <dfn id="t-taste-receptor-cell">taste receptor cells</dfn> carry protein <dfn id="t-receptor">receptors</dfn>, molecules that bind particular substances and send a signal when they do. Five taste qualities are well established:</p>
+<table><thead><tr><th>Quality</th><th>Receptor</th><th>Example in coffee</th></tr></thead><tbody>
+<tr><td>Sweet</td><td>a pair of proteins, T1R2 and T1R3</td><td>sugars (present only in traces)</td></tr>
+<tr><td>Umami</td><td>T1R1 with T1R3</td><td>glutamate (minor)</td></tr>
+<tr><td>Bitter</td><td>a family of about 25 proteins called TAS2Rs</td><td>caffeine, chlorogenic acid breakdown products</td></tr>
+<tr><td>Sour</td><td>a channel, OTOP1, that lets hydrogen ions into the cell</td><td>organic acids</td></tr>
+<tr><td>Salty</td><td>sodium channels and other routes</td><td>minerals (minor)</td></tr>
+</tbody></table>
+<p>Smell. Several hundred kinds of <dfn id="t-olfactory-receptor">olfactory receptors</dfn> in the upper nasal cavity respond to <dfn id="t-volatile">volatile compounds</dfn>, substances that evaporate readily enough to travel through air. Volatiles reach the nose by two routes. Sniffing the cup carries them in through the nostrils (<dfn id="t-orthonasal">orthonasal</dfn> smell). Drinking carries them from the back of the mouth up into the nasal cavity as you swallow and breathe out (<dfn id="t-retronasal">retronasal</dfn> smell). Almost all the descriptors that distinguish one coffee from another, from blueberry to toasted bread, are retronasal aroma. Pinch your nose while sipping and those notes disappear, while sourness and bitterness remain.</p>
+<p>Touch. Nerves in the mouth detect temperature, thickness, particles and the drying, puckering sensation called <dfn id="t-astringency">astringency</dfn>. These sensations make up <dfn id="t-mouthfeel">mouthfeel</dfn>, which coffee tasters call body.</p>
+<p>The brain combines the three inputs and refers them all to the mouth. That is why retronasal aroma is usually reported as "taste", and why the senses interact: an aroma learned as sweet can raise rated sweetness, and bitterness can suppress perceived sourness.</p>
+<h2>2. The taster as an instrument</h2>
+<p>Chapter 0 described any instrument by its detection limit, resolution, drift and bias. A taster has all four, and each can be measured.</p>
+<h3>Thresholds</h3>
+<p>The <dfn id="t-detection-threshold">detection threshold</dfn> is the lowest concentration at which a substance can be told apart from a blank. The <dfn id="t-recognition-threshold">recognition threshold</dfn>, usually higher, is the concentration at which its quality can be named. A standard way to measure the detection threshold is the ascending forced-choice method (ASTM E679). At each concentration the taster receives three cups, one spiked and two blank, and must pick the spiked one. Concentrations rise in steps, usually doubling. The <dfn id="t-best-estimate-threshold">best-estimate threshold</dfn> is the geometric mean of the last concentration missed and the first concentration from which every answer is correct:</p>
+<table class="deq" summary="Equation 1.1"><tr><td class="f">BET = &radic;(c<sub>miss</sub> c<sub>hit</sub>)</td><td class="n" id="eq-bet">(1.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">BET</td><td>best-estimate threshold (same unit as c)</td></tr>
+<tr><td class="w"></td><td class="s">c<sub>miss</sub></td><td>highest concentration answered wrongly (e.g. g/L)</td></tr>
+<tr><td class="w"></td><td class="s">c<sub>hit</sub></td><td>lowest concentration answered correctly from then on (e.g. g/L)</td></tr>
+</table>
+<p>The geometric mean is used because concentrations rise by constant factors, so the midpoint on a logarithmic scale is the natural estimate.</p>
+<div class="example">
+<p class="boxhead">Worked example: A threshold estimate</p>
+<p><span class="step">Problem.</span> A taster misses citric acid at 0.10 g/L and identifies it correctly at 0.20, 0.40 and 0.80 g/L. Estimate the detection threshold.</p>
+<p><span class="step">Plan.</span> Apply <a href="#eq-bet">Equation 1.1</a> to the last miss and the first sustained hit.</p>
+<p><span class="step">Solution.</span> BET = √(0.10 × 0.20) = 0.14 g/L.</p>
+<p><span class="step">Check.</span> The estimate lies between the two concentrations, closer to the lower in absolute terms but exactly halfway on a logarithmic scale.</p>
+</div>
+<p>Thresholds differ between people by factors of four or more and are spread roughly evenly on a logarithmic scale. A group threshold is therefore the geometric mean of individual thresholds.</p>
+<h3>Scales and calibration</h3>
+<p>To describe how strong an attribute is, tasters rate <dfn id="t-intensity">intensity</dfn> on a line or a scale numbered from 0 to 15. Untrained people use scales differently: one taster's 5 is another's 9. Trained panels therefore anchor the scale with <dfn id="t-reference-standard">reference standards</dfn>, physical samples assigned fixed values, for example a citric acid solution of stated strength as sourness 5. Even after training, tasters keep some personal offset, which is why experiments in which every taster scores every sample are more powerful (Appendix E.3).</p>
+<h3>Bias</h3>
+<p>Five biases distort judgements. Expectation: knowing which cup is which changes the score. The halo effect: one strong attribute raises the scores of others. Contrast: a cup tasted after a very sour cup seems less sour. Position: tasters favour the first or middle sample. Adaptation: sensitivity falls with repeated exposure. The standard controls are to code cups with random three-digit numbers, to randomise and balance the serving order, to rinse and rest between samples, and to serve every sample at the same temperature.</p>
+<div class="quiz">
+<h3>Check your understanding: Sections 1 and 2</h3>
+<form class="quiz-form" id="ch01-cup-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. A taster wearing a nose clip can still detect</p>
+<p class="opts">
+<input type="radio" name="ch01-cup-q0-0" id="ch01-cup-q0-0-0" value="0"> <label for="ch01-cup-q0-0-0">blueberry and chocolate notes</label><br>
+<input type="radio" name="ch01-cup-q0-0" id="ch01-cup-q0-0-1" value="1"> <label for="ch01-cup-q0-0-1">sourness and bitterness</label><br>
+<input type="radio" name="ch01-cup-q0-0" id="ch01-cup-q0-0-2" value="2"> <label for="ch01-cup-q0-0-2">neither</label><br>
+</p>
+<div><input type="hidden" name="ch01-cup-q0-0-kind" value="choice"><input type="hidden" name="ch01-cup-q0-0-ans" value="1"></div>
+<p class="fb" id="ch01-cup-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. A taster misses caffeine at 0.15 g/L and identifies it from 0.30 g/L upward. What is the best-estimate threshold in g/L?</p>
+<p class="opts"><label for="ch01-cup-q0-1">Answer:</label> <input type="text" size="8" name="ch01-cup-q0-1" id="ch01-cup-q0-1"> g/L</p>
+<div><input type="hidden" name="ch01-cup-q0-1-kind" value="numeric"><input type="hidden" name="ch01-cup-q0-1-ans" value="0.21"><input type="hidden" name="ch01-cup-q0-1-tol" value="0.005"></div>
+<p class="fb" id="ch01-cup-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch01-cup-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch01-cup-q0">Answers</a></p>
+</form>
+</div>
+<h2>3. Is there a difference? Discrimination tests</h2>
+<p>We return to the opening question: do the two cups differ? A <dfn id="t-discrimination-test">discrimination test</dfn> answers exactly that and nothing more.</p>
+<table><thead><tr><th>Test</th><th>Task</th><th>Probability of a correct guess</th></tr></thead><tbody>
+<tr><td>Triangle (ISO 4120)</td><td>Three cups, two alike: pick the odd one</td><td>1/3</td></tr>
+<tr><td>Duo-trio</td><td>A reference cup and two test cups: pick the test cup that matches the reference</td><td>1/2</td></tr>
+<tr><td>Two-alternative forced choice (2-AFC)</td><td>Two cups: pick the one with more of a named attribute</td><td>1/2</td></tr>
+<tr><td>Tetrad</td><td>Four cups, two of each sample: sort them into two pairs</td><td>1/3</td></tr>
+</tbody></table>
+<p>The <dfn id="t-triangle-test">triangle test</dfn> is the most widely used. Suppose twelve tasters each do one triangle test and eight pick the odd cup. Is that evidence of a difference?</p>
+<p>The analysis starts from a <dfn id="t-null-hypothesis">null hypothesis</dfn>, the assumption that there is no perceptible difference, so that every taster is guessing with a probability of 1/3 of being right. Under that assumption the number of correct answers follows the <dfn id="t-binomial-distribution">binomial distribution</dfn> (Appendix E.2). The <dfn id="t-p-value">p-value</dfn> is the probability, computed under the null hypothesis, of getting a result at least as extreme as the one observed. If it is small, conventionally below 0.05, we reject the null hypothesis and conclude that the samples differ. <a href="#fig-triangle">Figure 1.1</a> shows the distribution for twelve trials.</p>
+<div class="figure" id="fig-triangle">
+<img src="figures/ch01-triangle.gif" width="457" height="273" alt="Bar chart of the binomial distribution of correct answers out of 12 under guessing, with bars from 8 upwards highlighted as the significant region.">
+<p class="caption">Figure 1.1. Number of correct answers out of 12 triangle tests when every taster guesses. The shaded bars, 8 or more, together have probability 0.019: rarely produced by guessing alone.</p>
+</div>
+<p>The probability of eight or more correct answers by guessing is 0.019, so eight of twelve is significant. Seven of twelve would give 0.066, not significant. Six of twelve feels convincing but happens by luck 18% of the time.</p>
+<div class="widget">
+<h3>Triangle test significance</h3>
+<form class="w" id="ch01-cup-w9" action="#">
+<div><input type="hidden" name="kind" value="triangle"></div>
+<div class="f"><label for="ch01-cup-w9-n">Number of trials</label> <input type="text" size="7" name="n" id="ch01-cup-w9-n" value="12"> </div>
+<div class="f"><label for="ch01-cup-w9-k">Correct identifications</label> <input type="text" size="7" name="k" id="ch01-cup-w9-k" value="8"> </div>
+<p class="formula">p = P(X &ge; k) for X ~ Binomial(n, 1/3) = sum over j from k to n of C(n, j) (1/3)<sup>j</sup> (2/3)<sup>n&minus;j</sup>.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch01-cup-w9-out"></div>
+</form>
+</div>
+<p>A significant result says only that some tasters perceived a difference. How many? If a fraction p<sub>d</sub> of the population can genuinely tell the samples apart, those people always answer correctly and the rest guess. The <dfn id="t-proportion-of-discriminators">proportion of discriminators</dfn>, p<sub>d</sub>, is linked to the proportion of correct answers, p<sub>c</sub>, by</p>
+<table class="deq" summary="Equation 1.2"><tr><td class="f">p<sub>c</sub> = 1/3 + (2/3) p<sub>d</sub></td><td class="n" id="eq-pc">(1.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">p<sub>c</sub></td><td>probability of a correct answer (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">p<sub>d</sub></td><td>proportion of the population who perceive the difference (fraction)</td></tr>
+</table>
+<p>Eight correct of twelve gives p<sub>c</sub> = 0.667 and, rearranging <a href="#eq-pc">Equation 1.2</a>, p<sub>d</sub> = (3p<sub>c</sub> − 1)/2 = 0.50, with wide uncertainty at this sample size.</p>
+<div class="quiz">
+<h3>Check your understanding: Section 3</h3>
+<form class="quiz-form" id="ch01-cup-q1" action="#answers">
+<div class="q">
+<p class="prompt">1. A triangle test gives 14 correct out of 30. Estimate the proportion of discriminators.</p>
+<p class="opts"><label for="ch01-cup-q1-0">Answer:</label> <input type="text" size="8" name="ch01-cup-q1-0" id="ch01-cup-q1-0"> </p>
+<div><input type="hidden" name="ch01-cup-q1-0-kind" value="numeric"><input type="hidden" name="ch01-cup-q1-0-ans" value="0.2"><input type="hidden" name="ch01-cup-q1-0-tol" value="0.01"></div>
+<p class="fb" id="ch01-cup-q1-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. In a duo-trio test the probability of a correct guess is</p>
+<p class="opts">
+<input type="radio" name="ch01-cup-q1-1" id="ch01-cup-q1-1-0" value="0"> <label for="ch01-cup-q1-1-0">1/3</label><br>
+<input type="radio" name="ch01-cup-q1-1" id="ch01-cup-q1-1-1" value="1"> <label for="ch01-cup-q1-1-1">1/2</label><br>
+<input type="radio" name="ch01-cup-q1-1" id="ch01-cup-q1-1-2" value="2"> <label for="ch01-cup-q1-1-2">1/4</label><br>
+</p>
+<div><input type="hidden" name="ch01-cup-q1-1-kind" value="choice"><input type="hidden" name="ch01-cup-q1-1-ans" value="1"></div>
+<p class="fb" id="ch01-cup-q1-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch01-cup-q1"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch01-cup-q1">Answers</a></p>
+</form>
+</div>
+<h2>4. Planning a test: how many trials?</h2>
+<p>A test that finds no difference is only informative if it could have found one. The <dfn id="t-statistical-power">statistical power</dfn> of a test is the probability that it detects a difference of a stated size. With the triangle test, the size is naturally expressed as p<sub>d</sub>.</p>
+<div class="example">
+<p class="boxhead">Worked example: Planning a triangle test</p>
+<p><span class="step">Problem.</span> How many triangle trials are needed to detect p<sub>d</sub> = 0.30 with 80% power, testing at the 0.05 level?</p>
+<p><span class="step">Plan.</span> If p<sub>d</sub> = 0.30, <a href="#eq-pc">Equation 1.2</a> gives p<sub>c</sub> = 1/3 + (2/3)(0.30) = 0.533. For each candidate number of trials n, find the smallest number of correct answers that would be significant under guessing (p = 1/3), then compute the probability of reaching it when p = 0.533. Increase n until that probability reaches 0.80.</p>
+<p><span class="step">Solution.</span> With 24 trials, 13 correct are needed and the probability of reaching 13 when p = 0.533 is only 0.55. The first n that reaches 0.80 is 40 trials, needing 19 correct.</p>
+<p><span class="step">Check.</span> More trials are needed than most cafés would run. A café-scale test of 6 to 12 trials can detect only large differences.</p>
+</div>
+<div class="widget">
+<h3>Triangle test: power and proportion of discriminators</h3>
+<form class="w" id="ch01-cup-w16" action="#">
+<div><input type="hidden" name="kind" value="triangle-power"></div>
+<div class="f"><label for="ch01-cup-w16-n">Trials</label> <input type="text" size="7" name="n" id="ch01-cup-w16-n" value="24"> </div>
+<div class="f"><label for="ch01-cup-w16-pd">True proportion of discriminators</label> <input type="text" size="7" name="pd" id="ch01-cup-w16-pd" value="0.3"> </div>
+<div class="f"><label for="ch01-cup-w16-alpha">Significance level</label> <input type="text" size="7" name="alpha" id="ch01-cup-w16-alpha" value="0.05"> </div>
+<p class="formula">Probability correct = 1/3 + (2/3) p<sub>d</sub>. Power = P(X &ge; k<sub>crit</sub>) under that probability, where k<sub>crit</sub> is the smallest k with P(X &ge; k | 1/3) &le; &alpha;. From data, p<sub>d</sub> = (3 p<sub>c</sub> &minus; 1)/2.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch01-cup-w16-out"></div>
+</form>
+</div>
+<p>The tetrad and 2-AFC tests detect the same sensory difference with fewer trials than the triangle, because the taster's decision wastes less information. The 2-AFC requires naming the attribute in advance, so it suits a question such as "is cup A more sour?" but not "do they differ at all?". A method-independent measure of the size of a sensory difference, called d', is introduced in Appendix E.7.</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"We ran a triangle test with six staff and found no difference, so the two grinders are equivalent." With six trials, five correct are needed for significance, and if 30% of people could perceive the difference the chance of five or more correct is about 0.14. Such a test usually misses a real difference. Failure to find a difference is evidence of equivalence only when the test had high power for the smallest difference that matters.</p>
+</div>
+<h2>5. Describing and judging: the Coffee Value Assessment</h2>
+<p>Discrimination tests ask whether samples differ. Two other kinds of test ask how. <dfn id="t-descriptive-analysis">Descriptive analysis</dfn> asks which attributes are present and how strong they are. <dfn id="t-affective-test">Affective tests</dfn> ask how much a person likes the result. A trained panel can agree that a coffee is intensely acidic and still disagree on whether the acidity is good, so the two questions should be kept apart.</p>
+<p>In 2024 the Specialty Coffee Association adopted a new cupping standard, the <dfn id="t-coffee-value-assessment">Coffee Value Assessment</dfn> (CVA), in three documents [1]:</p>
+<ul>
+<li>SCA 102-2024 specifies sample preparation: roast, grind, ratio, water and timing.</li>
+<li>SCA 103-2024 specifies descriptive assessment: intensity ratings of fragrance, aroma, flavour, aftertaste, acidity, sweetness and mouthfeel, plus a checklist of descriptors.</li>
+<li>SCA 104-2024 specifies affective assessment: the cupper's judgement of quality, recorded separately.</li>
+</ul>
+<p>The previous SCAA form (2004) gave each attribute one score that mixed intensity and quality, so a high acidity score could mean either "very acidic" or "pleasantly acidic". Separating the two follows standard practice in sensory science: trained cuppers should agree on description, while preferences are expected to differ. The SCA's Q Grader programme, which certifies cuppers, now also includes physical assessment of green coffee and extrinsic information such as origin and processing [2].</p>
+<p>Descriptive profiling outside coffee cupping follows ISO 13299, and panellists are selected and trained under ISO 8586 [3]. Panel data are analysed by <dfn id="t-analysis-of-variance">analysis of variance</dfn> (ANOVA, Appendix E.4) with panellist and sample as factors. If panellists rank the samples differently from one another, the analysis shows it as a panellist-by-sample interaction, and the panel needs recalibration.</p>
+<h2>6. A shared vocabulary: lexicons and flavour wheels</h2>
+<p>Descriptive analysis needs words that mean the same thing to every taster. A <dfn id="t-sensory-lexicon">sensory lexicon</dfn> provides them: a list of attributes, each with a written definition, a physical reference sample and an intensity anchor. The World Coffee Research lexicon was developed by trained panels at Kansas State University and UC Davis.</p>
+<p>The SCA and WCR Coffee Taster's Flavor Wheel (2016) was built from that lexicon by a statistical method [4]. Panellists sorted the lexicon's attributes into groups of similar items. Counting how often each pair of attributes was grouped together gave a measure of similarity, and <dfn id="t-hierarchical-clustering">hierarchical clustering</dfn>, a method that repeatedly merges the most similar items into groups, produced a tree. The branches of that tree became the tiers of the wheel. An attribute's position therefore reflects measured similarity rather than an editor's judgement, and the wheel is only as good as the lexicon behind it.</p>
+<h2>7. What is in the cup</h2>
+<p>We now turn from the instrument to what it measures. A filter coffee is 98.5 to 98.8% water. The remaining 1.2 to 1.5% contains several hundred compounds, but a few groups account for most of what tasters notice. Each group below is defined here and treated chemically in Chapter 8.</p>
+<table><thead><tr><th>Group</th><th>What it is</th><th>Sensory role</th></tr></thead><tbody>
+<tr><td>Organic acids</td><td>small molecules with an acidic group: citric, malic, acetic, quinic, phosphoric</td><td>sourness</td></tr>
+<tr><td>Chlorogenic acids</td><td>compounds made of caffeic acid joined to quinic acid; abundant in green coffee</td><td>bitterness and astringency after roasting</td></tr>
+<tr><td>Lactones of chlorogenic acids</td><td>ring-shaped products formed from chlorogenic acids in roasting</td><td>bitterness</td></tr>
+<tr><td>Alkaloids</td><td>nitrogen-containing compounds: caffeine, trigonelline</td><td>some bitterness</td></tr>
+<tr><td>Carbohydrates</td><td>dissolved polysaccharides, traces of sugar</td><td>body</td></tr>
+<tr><td>Melanoidins</td><td>brown polymers formed in roasting</td><td>colour, body, astringency</td></tr>
+<tr><td>Lipids</td><td>oils, including cafestol and kahweol</td><td>body in unfiltered coffee</td></tr>
+<tr><td>Volatiles</td><td>aroma compounds such as 2-furfurylthiol and guaiacol</td><td>aroma</td></tr>
+</tbody></table>
+<p>Green arabica contains roughly 4 to 12% <dfn id="t-chlorogenic-acids">chlorogenic acids</dfn> and 0.6 to 2.0% trigonelline by dry mass [5]. Caffeine is about 1.2% in arabica and 2.2% in robusta. Roasting converts part of the chlorogenic acids to <dfn id="t-chlorogenic-acid-lactones">lactones</dfn>, ring-shaped molecules formed when an acid group and an alcohol group in the same molecule join and release water (Appendix B.3). Roasting also destroys much of the trigonelline and builds <dfn id="t-melanoidins">melanoidins</dfn> and volatiles. Chapter 8 follows each of these reactions.</p>
+<h2>8. Acids and sourness</h2>
+<p>Of all the attributes tasters notice, sourness has the clearest link to a measurable quantity. A meta-analysis (a study that combines the data of many studies) covered 129 publications and more than 8,000 data points on coffee acids [6]. Most of the data concerned chlorogenic acids; only 22% concerned other organic acids. Citric and malic acids dominate the organic acids of green coffee and are destroyed by roasting. Acetic acid increases during roasting, largely from the breakdown of sugar. In arabica, organic acids tended to be lowest at medium roast, but roast level did not predict individual acid concentrations in general. Few studies link individual acids to sensory scores.</p>
+<p>Total acid gives the stronger result. In drip coffee, titratable acidity (Chapter 0, Section 6) predicted trained-panel sourness far better than pH did. Titratable acidity rose with TDS, and sourness was highest in strong brews with low extraction yield (Chapter 2A) [7].</p>
+<p>Acid identity still matters, for three reasons. Acids differ in how much of each remains undissociated at brew pH near 5 (Appendix A.5). They differ in taste quality: citric and malic acids read as fruit, phosphoric as sharp, acetic as vinegar above low levels. And acetic acid is volatile, so it is smelled as well as tasted. Two brews with equal titratable acidity can therefore differ in the character of their sourness. The minerals in brew water also neutralise part of the acid before it is tasted (Chapter 3).</p>
+<h2>9. Bitterness</h2>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"Coffee is bitter because of caffeine." Decaffeinated coffee is still bitter, and receptor studies show why. Coffee's bitter compounds act mainly through two bitter receptors, TAS2R43 and TAS2R46. In laboratory cells carrying TAS2R43, caffeine needed about 30 times the concentration of mozambioside, a bitter compound from arabica, to produce the same response. It needed about 300 times the concentration of bengalensol, which forms from mozambioside during roasting [8]. Caffeine contributes to bitterness, but it is one of the weakest bitter compounds in the cup.</p>
+</div>
+<p>The same study found that cafestol and kahweol, two oil-soluble compounds of the class called <dfn id="t-diterpene">diterpenes</dfn>, also activated the receptors, and that kahweol partly blocked the response to mozambioside. Many people carry a version of the TAS2R43 gene that does not produce a working receptor, which is one source of genuine differences between tasters [8]. In 2026 a structure of TAS2R43 determined by cryo-electron microscopy, a method that images frozen proteins at near-atomic resolution, showed it binding caffeine, chlorogenic acid, catechol, cafestol and kahweol [9].</p>
+<p>Most of coffee's bitterness is created by roasting. Lactones of chlorogenic acids dominate in light to medium roasts. In dark roasts they break down further into compounds called phenylindanes, whose bitterness is harsher and lingers longer (Chapter 8).</p>
+<div class="evidence">
+<p class="boxhead">Status of the evidence</p>
+<p>Experiments with receptors in cultured cells show which molecules can trigger a receptor and at what concentration. They do not show how bitter a cup tastes, which depends on concentrations, interactions and the taster. Linking the two requires taste tests on coffee itself. The receptor work establishes that caffeine is a weak trigger and that several roast compounds are strong ones; it does not divide up the bitterness of a particular cup.</p>
+</div>
+<h2>10. Sweetness</h2>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"Coffee tastes sweet because of its sugar." Brewed coffee contains about 100 mg/L of sugars, about one twentieth of the sucrose detection threshold of roughly 2,000 mg/L. In a study with 125 trained tasters, coffees still differed in rated sweetness by up to 6 points on a 15-point scale, and the coffees with the most sugar were rated least sweet [10].</p>
+</div>
+<p>Wearing nose clips shrank the range of sweetness ratings from 6 to 3.6 points [10]. Aroma therefore contributes: caramel, vanilla and fruit volatiles are learned as sweet and raise rated sweetness. But substantial differences remained without aroma, so some non-volatile compounds that are not sugars must also contribute; they have not yet been identified. Low bitterness and moderate sourness may let sweetness be noticed more easily, but that remains a hypothesis.</p>
+<div class="quiz">
+<h3>Check your understanding: Sections 7 to 10</h3>
+<form class="quiz-form" id="ch01-cup-q2" action="#answers">
+<div class="q">
+<p class="prompt">1. Which measurement best predicts trained-panel sourness in drip coffee?</p>
+<p class="opts">
+<input type="radio" name="ch01-cup-q2-0" id="ch01-cup-q2-0-0" value="0"> <label for="ch01-cup-q2-0-0">Titratable acidity</label><br>
+<input type="radio" name="ch01-cup-q2-0" id="ch01-cup-q2-0-1" value="1"> <label for="ch01-cup-q2-0-1">pH</label><br>
+<input type="radio" name="ch01-cup-q2-0" id="ch01-cup-q2-0-2" value="2"> <label for="ch01-cup-q2-0-2">Caffeine concentration</label><br>
+</p>
+<div><input type="hidden" name="ch01-cup-q2-0-kind" value="choice"><input type="hidden" name="ch01-cup-q2-0-ans" value="0"></div>
+<p class="fb" id="ch01-cup-q2-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. In receptor experiments, caffeine activated the bitter receptor TAS2R43</p>
+<p class="opts">
+<input type="radio" name="ch01-cup-q2-1" id="ch01-cup-q2-1-0" value="0"> <label for="ch01-cup-q2-1-0">more strongly than any roast compound</label><br>
+<input type="radio" name="ch01-cup-q2-1" id="ch01-cup-q2-1-1" value="1"> <label for="ch01-cup-q2-1-1">only at much higher concentrations than mozambioside or bengalensol</label><br>
+<input type="radio" name="ch01-cup-q2-1" id="ch01-cup-q2-1-2" value="2"> <label for="ch01-cup-q2-1-2">not at all</label><br>
+</p>
+<div><input type="hidden" name="ch01-cup-q2-1-kind" value="choice"><input type="hidden" name="ch01-cup-q2-1-ans" value="1"></div>
+<p class="fb" id="ch01-cup-q2-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch01-cup-q2"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch01-cup-q2">Answers</a></p>
+</form>
+</div>
+<h2>11. Body and mouthfeel</h2>
+<p>The usual account of body is physical: thickness comes from <dfn id="t-viscosity">viscosity</dfn> (resistance to flow) and from suspended material such as oil droplets, fine particles and dissolved polysaccharides. Paper filters remove most oil and fines, so a paper-filtered cup feels thinner than the same coffee from a French press.</p>
+<p>That account leaves a puzzle: the viscosity of brewed coffee differs from that of water by only a few percent. Work at Ohio State University with panels of certified cuppers divided mouthfeel into chalkiness, mouth-coating, astringency and thickness, and linked these attributes to particular compounds [11]. Astringency was associated with fractions of the melanoidins, and other attributes with two chlorogenic acids, 3- and 4-caffeoylquinic acid, at concentrations where they could act on the mouth's sensory nerves rather than by thickening the liquid.</p>
+<div class="evidence">
+<p class="boxhead">Status of the evidence</p>
+<p>The chemical account of mouthfeel comes mainly from one research group and was first reported at a scientific meeting. It is plausible and consistent with the small differences in viscosity, but it needs independent replication. Expect the balance between the physical and chemical accounts to be revised.</p>
+</div>
+<h2>12. Aroma: finding the compounds that matter</h2>
+<p>More than 1,000 volatile compounds have been identified in roasted coffee, but only a few dozen shape its aroma. Finding them takes methods that combine chemical analysis with the human nose.</p>
+<p>In <dfn id="t-gas-chromatography">gas chromatography</dfn> (GC), a mixture of volatiles is carried by a gas through a long, thin column, and each compound leaves the column at its own characteristic time (Appendix D.6). In <dfn id="t-gas-chromatography-olfactometry">gas chromatography-olfactometry</dfn> (GC-O), the gas leaving the column is split: part goes to a detector, and part to a sniffing port where a trained assessor records each odour and when it appears.</p>
+<p><dfn id="t-aroma-extract-dilution-analysis">Aroma extract dilution analysis</dfn> (AEDA) repeats GC-O on a series of dilutions of the aroma extract, usually halving the concentration each time. A compound's <dfn id="t-flavour-dilution-factor">flavour dilution factor</dfn> is the highest dilution at which it can still be smelled:</p>
+<table class="deq" summary="Equation 1.3"><tr><td class="f">FD = 2<sup>n</sup></td><td class="n" id="eq-fd">(1.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">FD</td><td>flavour dilution factor (dimensionless)</td></tr>
+<tr><td class="w"></td><td class="s">n</td><td>number of twofold dilutions after which the odour is still detected</td></tr>
+</table>
+<p>A second screening measure compares a compound's concentration with its <dfn id="t-odour-threshold">odour threshold</dfn>, the lowest concentration at which it can be smelled in a stated medium. The ratio is the <dfn id="t-odour-activity-value">odour activity value</dfn>:</p>
+<table class="deq" summary="Equation 1.4"><tr><td class="f">OAV = c / c<sub>t</sub></td><td class="n" id="eq-oav">(1.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">OAV</td><td>odour activity value (dimensionless)</td></tr>
+<tr><td class="w"></td><td class="s">c</td><td>concentration of the compound in the coffee (&micro;g/L)</td></tr>
+<tr><td class="w"></td><td class="s">c<sub>t</sub></td><td>odour threshold of the compound in the same medium (&micro;g/L)</td></tr>
+</table>
+<p>A compound with OAV above 1 is present above its threshold and may contribute to aroma.</p>
+<div class="example">
+<p class="boxhead">Worked example: Comparing two odorants</p>
+<p><span class="step">Problem.</span> In a brew, 2-furfurylthiol is present at 20 µg/L and its odour threshold in water is 0.01 µg/L. Guaiacol is present at 3,000 µg/L with a threshold of 2.5 µg/L. Which is likely to matter more?</p>
+<p><span class="step">Plan.</span> Compute each odour activity value with <a href="#eq-oav">Equation 1.4</a>.</p>
+<p><span class="step">Solution.</span> 2-Furfurylthiol: 20/0.01 = 2,000. Guaiacol: 3,000/2.5 = 1,200. The thiol has the higher OAV despite being present at 150 times lower concentration.</p>
+<p><span class="step">Check.</span> Both values are far above 1, so both are likely to matter. The values in this example are illustrative orders of magnitude, not one coffee's measurements.</p>
+</div>
+<div class="widget">
+<h3>Odour activity values</h3>
+<form class="w" id="ch01-cup-w35" action="#">
+<div><input type="hidden" name="kind" value="oav"></div>
+<div class="f"><label for="ch01-cup-w35-data">One compound per line: name, concentration, odour threshold (same units)</label><br><textarea name="data" id="ch01-cup-w35-data" rows="7" cols="36">2-furfurylthiol 20 0.01
+guaiacol 3000 2.5
+4-vinylguaiacol 40000 20
+methional 250 0.2
+furaneol 100000 25</textarea></div>
+<p class="formula">OAV = concentration / odour threshold. Compounds with OAV &gt; 1 are candidates for contributing to aroma; recombination and omission tests confirm it.</p>
+<p class="small">Example values are illustrative orders of magnitude for teaching, not measurements of one coffee.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch01-cup-w35-out"></div>
+</form>
+</div>
+<p>Both screening methods have limits. They ignore how quickly perceived intensity rises above threshold, and they ignore interactions in which one odour masks or enhances another. The confirmation is a <dfn id="t-recombination-test">recombination test</dfn>: a model mixture is made from pure compounds at the concentrations measured in the coffee and compared with the real coffee. In an <dfn id="t-omission-test">omission test</dfn>, one compound at a time is left out of the mixture and tasters perform triangle tests to see whether its absence is noticed.</p>
+<p>In filtered coffee, AEDA found 40 odour-active compounds. Among the most potent were (E)-β-damascenone, methional, 3-mercapto-3-methylbutyl formate, furaneol and several phenols. 2-Furfurylthiol, 2-methyl-3-furanthiol and several phenols were far more concentrated in filtered coffee than in instant coffee [12]. A 2025 study of commercial medium-roast arabica coffees found 25 compounds with OAV above 1, including furaneol, 4-vinylguaiacol, guaiacol, furfural, isovaleric acid and linalool, and confirmed guaiacol, furaneol and trimethylpyrazine by omission tests [13]. That study reported no thiols. Thiols are present in trace amounts and are easily lost or missed without a dedicated extraction method (Appendix D.7). The two lists disagree mainly because of method, so read the methods section of an odorant study before its results.</p>
+<h2>Looking ahead</h2>
+<p>We now know what tasters can detect, how to test whether they detect it reliably, and which groups of compounds produce sourness, bitterness, aroma and body. All of those compounds reach the cup by dissolving out of ground coffee into water. Chapter 2A asks how they do so, how far the process can go, and how fast.</p>
+<h2>Key equations</h2>
+<table class="eqs" summary="Key equations">
+<tr><th>Quantity</th><th>Equation</th><th>Notes</th></tr>
+<tr><td>Best-estimate threshold</td><td class="eq">BET = &radic;(c<sub>miss</sub> c<sub>hit</sub>)</td><td>Equation 1.1.</td></tr>
+<tr><td>Triangle test, correct rate</td><td class="eq">p<sub>c</sub> = 1/3 + (2/3)p<sub>d</sub></td><td>Equation 1.2.</td></tr>
+<tr><td>Flavour dilution factor</td><td class="eq">FD = 2<sup>n</sup></td><td>Equation 1.3.</td></tr>
+<tr><td>Odour activity value</td><td class="eq">OAV = c / c<sub>t</sub></td><td>Equation 1.4. Same medium and units.</td></tr>
+</table>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-affective-test">Affective test</a>; <a href="#t-analysis-of-variance">analysis of variance</a>; <a href="#t-aroma-extract-dilution-analysis">Aroma extract dilution analysis</a>; <a href="#t-astringency">astringency</a>; <a href="#t-best-estimate-threshold">best-estimate threshold</a>; <a href="#t-binomial-distribution">binomial distribution</a>; <a href="#t-chlorogenic-acid-lactones">chlorogenic acid lactones</a>; <a href="#t-chlorogenic-acids">chlorogenic acids</a>; <a href="#t-coffee-value-assessment">Coffee Value Assessment</a>; <a href="#t-descriptive-analysis">Descriptive analysis</a>; <a href="#t-detection-threshold">detection threshold</a>; <a href="#t-discrimination-test">discrimination test</a>; <a href="#t-diterpene">diterpene</a>; <a href="#t-flavour-dilution-factor">flavour dilution factor</a>; <a href="#t-gas-chromatography">gas chromatography</a>; <a href="#t-gas-chromatography-olfactometry">gas chromatography-olfactometry</a>; <a href="#t-hierarchical-clustering">hierarchical clustering</a>; <a href="#t-intensity">intensity</a>; <a href="#t-melanoidins">melanoidins</a>; <a href="#t-mouthfeel">mouthfeel</a>; <a href="#t-null-hypothesis">null hypothesis</a>; <a href="#t-odour-activity-value">odour activity value</a>; <a href="#t-odour-threshold">odour threshold</a>; <a href="#t-olfactory-receptor">olfactory receptor</a>; <a href="#t-omission-test">omission test</a>; <a href="#t-orthonasal">orthonasal</a>; <a href="#t-p-value">p-value</a>; <a href="#t-proportion-of-discriminators">proportion of discriminators</a>; <a href="#t-receptor">receptor</a>; <a href="#t-recognition-threshold">recognition threshold</a>; <a href="#t-recombination-test">recombination test</a>; <a href="#t-reference-standard">reference standard</a>; <a href="#t-retronasal">retronasal</a>; <a href="#t-sensory-lexicon">sensory lexicon</a>; <a href="#t-statistical-power">statistical power</a>; <a href="#t-taste-receptor-cell">taste receptor cell</a>; <a href="#t-triangle-test">triangle test</a>; <a href="#t-viscosity">viscosity</a>; <a href="#t-volatile">volatile</a>.</p>
+<div class="quiz">
+<h3>Chapter review</h3>
+<form class="quiz-form" id="ch01-cup-q3" action="#answers">
+<div class="q">
+<p class="prompt">1. A duo-trio test has a guessing probability of 1/2. With 20 trials, how many correct answers are needed for significance at 0.05 (one-sided)?</p>
+<p class="opts"><label for="ch01-cup-q3-0">Answer:</label> <input type="text" size="8" name="ch01-cup-q3-0" id="ch01-cup-q3-0"> </p>
+<div><input type="hidden" name="ch01-cup-q3-0-kind" value="numeric"><input type="hidden" name="ch01-cup-q3-0-ans" value="15"><input type="hidden" name="ch01-cup-q3-0-tol" value="0"></div>
+<p class="fb" id="ch01-cup-q3-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. With nose clips on, trained tasters' differences in coffee sweetness were</p>
+<p class="opts">
+<input type="radio" name="ch01-cup-q3-1" id="ch01-cup-q3-1-0" value="0"> <label for="ch01-cup-q3-1-0">eliminated</label><br>
+<input type="radio" name="ch01-cup-q3-1" id="ch01-cup-q3-1-1" value="1"> <label for="ch01-cup-q3-1-1">smaller but still present</label><br>
+<input type="radio" name="ch01-cup-q3-1" id="ch01-cup-q3-1-2" value="2"> <label for="ch01-cup-q3-1-2">larger than without clips</label><br>
+</p>
+<div><input type="hidden" name="ch01-cup-q3-1-kind" value="choice"><input type="hidden" name="ch01-cup-q3-1-ans" value="1"></div>
+<p class="fb" id="ch01-cup-q3-1-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">3. What does SCA 104-2024 cover?</p>
+<p class="opts">
+<input type="radio" name="ch01-cup-q3-2" id="ch01-cup-q3-2-0" value="0"> <label for="ch01-cup-q3-2-0">Sample preparation</label><br>
+<input type="radio" name="ch01-cup-q3-2" id="ch01-cup-q3-2-1" value="1"> <label for="ch01-cup-q3-2-1">Descriptive assessment</label><br>
+<input type="radio" name="ch01-cup-q3-2" id="ch01-cup-q3-2-2" value="2"> <label for="ch01-cup-q3-2-2">Affective assessment of quality</label><br>
+</p>
+<div><input type="hidden" name="ch01-cup-q3-2-kind" value="choice"><input type="hidden" name="ch01-cup-q3-2-ans" value="2"></div>
+<p class="fb" id="ch01-cup-q3-2-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">4. Why can two odorant studies of similar coffees disagree about thiols?</p>
+<p class="opts">
+<input type="radio" name="ch01-cup-q3-3" id="ch01-cup-q3-3-0" value="0"> <label for="ch01-cup-q3-3-0">Thiols vary randomly between cups</label><br>
+<input type="radio" name="ch01-cup-q3-3" id="ch01-cup-q3-3-1" value="1"> <label for="ch01-cup-q3-3-1">Thiols are at trace levels and need dedicated extraction and detection</label><br>
+<input type="radio" name="ch01-cup-q3-3" id="ch01-cup-q3-3-2" value="2"> <label for="ch01-cup-q3-3-2">Thiols have no odour</label><br>
+</p>
+<div><input type="hidden" name="ch01-cup-q3-3-kind" value="choice"><input type="hidden" name="ch01-cup-q3-3-ans" value="1"></div>
+<p class="fb" id="ch01-cup-q3-3-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch01-cup-q3"><input type="hidden" name="quiz-n" value="4"><input type="button" class="check" value="Check answers"> <a href="#ans-ch01-cup-q3">Answers</a></p>
+</form>
+</div>
+<h2>Labs</h2>
+<div class="lab">
+<h3 id="lab-L1.1">Lab L1.1: Thresholds for four tastants</h3>
+<p><span class="lbl">Aim.</span> Measure your detection thresholds for citric acid, malic acid, caffeine and sucrose by ascending forced choice.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Use food-grade chemicals, weigh them in a clean area, and spit rather than swallow. Do not swallow caffeine solutions above 1 g/L in quantity.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>Food-grade citric acid, malic acid, caffeine and sucrose</li>
+<li>Balance reading to 0.01 g</li>
+<li>Brew water (the same water for blanks and solutions)</li>
+<li>Small coded cups</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Prepare a stock of each tastant and dilute it in factors of two to give six concentrations (for example citric acid 0.025 to 0.8 g/L; sucrose 0.5 to 16 g/L).</li>
+<li>At each step, a partner presents three coded cups, one spiked, in random positions. Identify the spiked cup.</li>
+<li>Work from the lowest to the highest concentration and record each answer as correct or incorrect.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Tastant</th><th>Concentration (g/L)</th><th>Correct?</th><th>Notes</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Compute your best-estimate threshold for each tastant.</li>
+<li>Pool the class results: compute the geometric mean for each tastant and the spread in factors of two.</li>
+</ol>
+<p><span class="lbl">What to expect.</span> Individual thresholds spread over a factor of four or more; sucrose thresholds near or above 2 g/L.</p>
+</div>
+<div class="lab">
+<h3 id="lab-L1.2">Lab L1.2: A properly sized triangle test</h3>
+<p><span class="lbl">Aim.</span> Plan a triangle test for a stated difference, run it, and interpret the p-value and the proportion of discriminators.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>One coffee brewed two ways (for example with two waters or at two grind settings)</li>
+<li>Coded cups</li>
+<li>A randomised order sheet</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Decide the smallest proportion of discriminators worth detecting, and use the power calculator to choose the number of trials.</li>
+<li>Use each of the six serving orders (AAB, ABA, BAA, BBA, BAB, ABB) equally often.</li>
+<li>Serve at a fixed temperature and record each assessor's choice.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Trial</th><th>Order</th><th>Correct?</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Compute the p-value and the proportion of discriminators.</li>
+<li>If the result is not significant, state the proportion of discriminators your test could have detected with 80% power.</li>
+</ol>
+</div>
+<div class="lab">
+<h3 id="lab-L1.3">Lab L1.3: Nose-clip sweetness</h3>
+<p><span class="lbl">Aim.</span> Repeat at small scale the finding that aroma contributes to coffee sweetness.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>Three coffees of different origin or roast</li>
+<li>Nose clips</li>
+<li>Sucrose references at 1, 2 and 4 g/L in water</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Calibrate on the sucrose references, anchoring them at 2, 4 and 7 on a 0 to 15 scale.</li>
+<li>Rate the sweetness of each coffee, coded and in random order, first with nose clips and then without, in separate sessions.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Taster</th><th>Coffee</th><th>Sweetness, clip</th><th>Sweetness, no clip</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Compare the range of mean sweetness across coffees with and without clips.</li>
+<li>Use a paired t-test on each taster's clip-minus-no-clip difference (Appendix E.3).</li>
+</ol>
+<p><span class="lbl">What to expect.</span> Ratings and their range fall with nose clips; some differences between coffees may remain.</p>
+</div>
+<div class="lab">
+<h3 id="lab-L1.4">Lab L1.4: A small descriptive profile</h3>
+<p><span class="lbl">Aim.</span> Profile three coffees on anchored scales and test whether the panel repeats itself.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>Three coffees brewed to the same TDS and extraction yield</li>
+<li>Reference anchors: citric acid (sour), caffeine (bitter), sucrose (sweet)</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Agree on five attributes and their reference anchors.</li>
+<li>Each panellist rates every coffee twice, in separate sessions, under random codes.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Panellist</th><th>Session</th><th>Coffee</th><th>Sour</th><th>Bitter</th><th>Sweet</th><th>Body</th><th>Aftertaste</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Run a one-way ANOVA for each attribute across the three coffees.</li>
+<li>For each panellist, compare the scores from sessions 1 and 2. Who is most repeatable?</li>
+</ol>
+</div>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section 1]</span> Name the receptor or channel associated with each of sweet, umami, bitter and sour taste. <a class="sol" href="ch01-cup-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section 1]</span> Explain why pinching your nose removes 'blueberry' from a coffee but not its sourness. <a class="sol" href="ch01-cup-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section 5]</span> What is the difference between SCA 103 and SCA 104? <a class="sol" href="ch01-cup-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section 2]</span> Five tasters have sucrose thresholds of 1.0, 2.0, 2.0, 4.0 and 8.0 g/L. Compute the group threshold as a geometric mean, and explain why the arithmetic mean is a poor summary. <a class="sol" href="ch01-cup-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section 3]</span> In a 2-AFC test, 15 of 20 assessors choose the more sour cup correctly. Compute the one-sided p-value. <a class="sol" href="ch01-cup-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section 3]</span> Twelve tasters run a triangle test and seven are correct. Is the result significant at 0.05, and what is the estimated proportion of discriminators? <a class="sol" href="ch01-cup-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section 12]</span> Compute odour activity values for compound X at 50 µg/L with threshold 0.5 µg/L and compound Y at 5,000 µg/L with threshold 200 µg/L. Rank them, and state one limitation of the ranking. <a class="sol" href="ch01-cup-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section 12]</span> In AEDA, an odorant is still detected after 9 twofold dilutions but not after 10. What is its flavour dilution factor? <a class="sol" href="ch01-cup-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[B, Section 10]</span> Brewed coffee contains about 100 mg/L of sugars. By what factor is this below a sucrose threshold of 2 g/L, and what does that imply? <a class="sol" href="ch01-cup-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[B, Section 8]</span> Using the pK<sub>a</sub> values in Appendix A.5, what fraction of acetic acid and of malic acid (first acidic group) is undissociated at pH 5.0? Which acid contributes more neutral molecules per mole? <a class="sol" href="ch01-cup-solutions.html#s10">Solution</a></li>
+<li id="p0-11"><span class="tier">[C, Section 4]</span> A café's triangle test with six staff finds no significant difference between two grinders. The manager concludes they are equivalent. Critique the conclusion and propose a better test. <a class="sol" href="ch01-cup-solutions.html#s11">Solution</a></li>
+<li id="p0-12"><span class="tier">[C, Section 9]</span> Design a study to test whether TAS2R43 genotype affects rated coffee bitterness. Include your reasoning about sample size. <a class="sol" href="ch01-cup-solutions.html#s12">Solution</a></li>
+<li id="p0-13"><span class="tier">[C, Section 12]</span> Two published key-odorant lists for medium-roast arabica disagree about thiols. Give three methodological reasons and propose how to resolve the disagreement. <a class="sol" href="ch01-cup-solutions.html#s13">Solution</a></li>
+<li id="p0-14"><span class="tier">[C, Section 10]</span> A café claims its new roast is sweeter. Design a test that separates aroma-driven sweetness from taste-driven sweetness. <a class="sol" href="ch01-cup-solutions.html#s14">Solution</a></li>
+<li id="p0-15"><span class="tier">[C, Section 5]</span> Why does the 2004 SCAA form's combination of intensity and quality in one score make cuppers hard to compare? <a class="sol" href="ch01-cup-solutions.html#s15">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>References</h2>
+<ol>
+<li>SCA, The SCA officially adopts CVA descriptive and affective assessments as new cupping standards (SCA 102-2024, 103-2024, 104-2024).</li>
+<li>SCA, Evolved Q Grader program, education.sca.coffee/q-grader.</li>
+<li>ISO 4120:2021 (triangle test); ISO 13299 (sensory profiling); ISO 8586 (selection and training of assessors).</li>
+<li>Spencer M. et al. (2016), Using single free sorting and multivariate exploratory methods to design a new coffee taster's flavor wheel, <em>Journal of Food Science</em>.</li>
+<li>Review of chlorogenic acids and trigonelline in coffee, <em>Trends in Sciences</em> 23(9):13444 (2026).</li>
+<li>Yeager S.E., Batali M.E., Guinard J.-X., Ristenpart W.D., Acids in coffee: a review of sensory measurements and meta-analysis of chemical composition, <em>Critical Reviews in Food Science and Nutrition</em>.</li>
+<li>Batali M.E. et al., titratable acidity, pH and sourness in drip coffee; summarised in SCA <em>25</em>, issue 15.</li>
+<li>Lang T., Behrens M., Somoza V. and colleagues (Leibniz-LSB at TUM, 2020), bitter receptors for coffee compounds.</li>
+<li>Kim Y., Roth B.L. et al. (2026), structure of the bitter taste receptor TAS2R43, <em>Nature Structural and Molecular Biology</em>.</li>
+<li>SCA <em>25</em>, issue 22, How sweet coffee tastes: towards an understanding of coffee sweetness.</li>
+<li>Ohio State University mouthfeel research (2021), reported at the American Chemical Society fall meeting; summarised by Daily Coffee News.</li>
+<li>Sanz C., Czerny M., Cid C., Schieberle P. (2002), Comparison of potent odorants in a filtered coffee brew and in an instant coffee beverage, <em>European Food Research and Technology</em> 214:299.</li>
+<li>Chen X. et al. (2025), Identification of key aroma-active compounds in commercial coffee using GC-O/AEDA and OAV analysis, <em>Foods</em> 14:3192.</li>
+</ol>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-ch01-cup-q0">Check your understanding: Sections 1 and 2</h3>
+<ol>
+<li><span class="key">sourness and bitterness.</span> <span id="ch01-cup-q0-0-ex">Taste qualities are sensed in the mouth. Descriptors such as blueberry are retronasal aroma and need airflow to the nose.</span></li>
+<li><span class="key">0.21 g/L.</span> <span id="ch01-cup-q0-1-ex">√(0.15 × 0.30) = 0.21 g/L.</span></li>
+</ol>
+<h3 id="ans-ch01-cup-q1">Check your understanding: Section 3</h3>
+<ol>
+<li><span class="key">0.2 .</span> <span id="ch01-cup-q1-0-ex">p<sub>c</sub> = 14/30 = 0.467; p<sub>d</sub> = (3 × 0.467 − 1)/2 = 0.20.</span></li>
+<li><span class="key">1/2.</span> <span id="ch01-cup-q1-1-ex">The taster chooses between two test cups, one of which matches the reference.</span></li>
+</ol>
+<h3 id="ans-ch01-cup-q2">Check your understanding: Sections 7 to 10</h3>
+<ol>
+<li><span class="key">Titratable acidity.</span> <span id="ch01-cup-q2-0-ex">Titratable acidity tracked sourness far better than pH in the UC Davis drip coffee work.</span></li>
+<li><span class="key">only at much higher concentrations than mozambioside or bengalensol.</span> <span id="ch01-cup-q2-1-ex">About 30 and 300 times higher concentrations were needed for the same response.</span></li>
+</ol>
+<h3 id="ans-ch01-cup-q3">Chapter review</h3>
+<ol>
+<li><span class="key">15 .</span> <span id="ch01-cup-q3-0-ex">P(X ≥ 15 | n = 20, p = 0.5) = 0.021; P(X ≥ 14) = 0.058.</span></li>
+<li><span class="key">smaller but still present.</span> <span id="ch01-cup-q3-1-ex">The range fell from 6 to 3.6 points on a 15-point scale, so aroma contributes but is not the whole story.</span></li>
+<li><span class="key">Affective assessment of quality.</span> <span id="ch01-cup-q3-2-ex">SCA 102 covers preparation, 103 description and 104 the cupper's judgement of quality.</span></li>
+<li><span class="key">Thiols are at trace levels and need dedicated extraction and detection.</span> <span id="ch01-cup-q3-3-ex">Without a thiol-specific method, thiols are lost or fall below detection.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="ch01-cup-solutions.html">1. The cup: perception and composition solutions</a>.</p>
+
+<div class="nav bottom"><a href="ch00-measurement.html" rel="prev" title="0. Instruments and measurement">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch02a-extraction-immersion.html" rel="next" title="2A. Extraction I: immersion, equilibrium and kinetics">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

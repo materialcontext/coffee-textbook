@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions: Appendix E. Statistics for sensory work and experiments - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="e-statistics.html" rel="prev" title="Appendix E. Statistics for sensory work and experiments">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <span class="off">Next &gt;</span></div>
+<h1>Solutions: Appendix E. Statistics for sensory work and experiments</h1>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="solution">
+<h3 id="s1">Problem 1 <span class="tier">[A]</span></h3>
+<p class="restate">Explain the difference between a standard deviation and a standard error, and say which you would report to describe how variable a grinder's shots are.</p>
+<p>The standard deviation describes the spread of individual values; the standard error describes the uncertainty of the mean and falls as 1/√n. Shot-to-shot variability is a property of individual shots, so report the standard deviation.</p>
+</div>
+<div class="solution">
+<h3 id="s2">Problem 2 <span class="tier">[A]</span></h3>
+<p class="restate">In a triangle test, 9 of 30 assessors are correct. Is there evidence of a difference? What is the estimated proportion of discriminators?</p>
+<p>Guessing predicts 10 of 30; 9 is below that, so there is no evidence of a difference (p &gt; 0.5). p<sub>c</sub> = 0.30 gives p<sub>d</sub> = −0.05, which is taken as zero.</p>
+</div>
+<div class="solution">
+<h3 id="s3">Problem 3 <span class="tier">[A]</span></h3>
+<p class="restate">Why does running ten t-tests at α = 0.05 on data with no real differences give about a 40% chance of a false positive?</p>
+<p>If the tests are independent, the probability of no false positive is 0.95<sup>10</sup> = 0.599, so the probability of at least one is 0.401.</p>
+</div>
+<div class="solution">
+<h3 id="s4">Problem 4 <span class="tier">[B]</span></h3>
+<p class="restate">Five shots give extraction yields of 19.2, 19.8, 18.9, 19.5 and 19.6%. Compute the mean, the standard deviation and a 95% confidence interval (t<sub>0.975, 4</sub> = 2.776).</p>
+<p>Mean 19.40%. Deviations −0.2, 0.4, −0.5, 0.1, 0.2; their squares sum to 0.50; s = √(0.50/4) = 0.354. SE = 0.158. Interval: 19.40 ± 0.44, from 18.96 to 19.84%.</p>
+</div>
+<div class="solution">
+<h3 id="s5">Problem 5 <span class="tier">[B]</span></h3>
+<p class="restate">Ten tasters score bitterness for two brews; the differences have mean 0.8 and standard deviation 1.2. With 9 degrees of freedom the two-sided 5% critical value of t is 2.262. Is the difference significant?</p>
+<p>t = 0.8/(1.2/√10) = 0.8/0.379 = 2.11, below 2.262, so the difference is not significant at 0.05.</p>
+</div>
+<div class="solution">
+<h3 id="s6">Problem 6 <span class="tier">[B]</span></h3>
+<p class="restate">How many shots per grinder are needed to detect a difference of 0.4 points in extraction yield, if the shot-to-shot standard deviation is 0.5, at α = 0.05 with 80% power?</p>
+<p>d = 0.8; n ≈ 2(2.80/0.8)<sup>2</sup> = 24.5, so 25 shots per grinder.</p>
+</div>
+<div class="solution">
+<h3 id="s7">Problem 7 <span class="tier">[B]</span></h3>
+<p class="restate">A regression of sourness score on TDS gives a high R<sup>2</sup>, but the residuals are positive at both ends and negative in the middle. What does this mean, and what would you try?</p>
+<p>The relationship curves: a straight line is the wrong model over this range. Try adding a squared term or transforming a variable, or add extraction yield, which Chapter 2A suggests also drives sourness.</p>
+</div>
+<div class="solution">
+<h3 id="s8">Problem 8 <span class="tier">[B]</span></h3>
+<p class="restate">A two-alternative forced choice gives 84% correct. Estimate d', using z(0.84) = 0.994.</p>
+<p>d' = √2 × 0.994 = 1.41.</p>
+</div>
+<div class="solution">
+<h3 id="s9">Problem 9 <span class="tier">[C]</span></h3>
+<p class="restate">Design a test of whether a new water recipe changes perceived sourness in filter coffee. Specify the sensory method, number of assessors, controls for order and temperature, and the analysis.</p>
+<p>Run a triangle test first to establish whether there is any difference, then a paired rating design in which each assessor rates both waters, brewed from one coffee and grinder on the same day. Randomise and balance serving order, code cups with random three-digit numbers, and serve at a fixed temperature. For a paired design aiming at d = 0.5, about 32 assessors are needed (or 16 assessors over two sessions, analysed with assessor and session as factors). Analyse with a paired t-test or a two-way ANOVA with assessor as a factor, and measure titratable acidity and TDS of each brew to check the chemistry.</p>
+</div>
+<div class="solution">
+<h3 id="s10">Problem 10 <span class="tier">[C]</span></h3>
+<p class="restate">A café ran a triangle test with 6 staff and found no significant difference between its old and new grinder. The manager concludes the grinders are equivalent. Critique the conclusion.</p>
+<p>With 6 trials, 5 correct are needed for significance, and if 30% of people could perceive the difference the probability of 5 or more correct is only about 0.14. Failing to reject the null hypothesis is not evidence of equivalence. Showing equivalence needs a larger test designed with a stated maximum acceptable p<sub>d</sub> and high power (ISO 4120 similarity testing), or an instrumental comparison of particle size and extraction variability.</p>
+</div>
+
+<div class="nav bottom"><a href="e-statistics.html" rel="prev" title="Appendix E. Statistics for sensory work and experiments">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <span class="off">Next &gt;</span></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

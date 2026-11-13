@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions: 2B. Extraction II: percolation and espresso - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch02b-percolation-espresso.html" rel="prev" title="2B. Extraction II: percolation and espresso">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <span class="off">Next &gt;</span></div>
+<h1>Solutions: 2B. Extraction II: percolation and espresso</h1>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="solution">
+<h3 id="s1">Problem 1 <span class="tier">[A]</span></h3>
+<p class="restate">State Darcy's law and give each quantity with its SI unit.</p>
+<p>Q = κ A ΔP/(μ L): Q flow rate (m<sup>3</sup>/s), κ permeability (m<sup>2</sup>), A cross-section (m<sup>2</sup>), ΔP pressure difference (Pa), μ dynamic viscosity (Pa s), L bed thickness (m).</p>
+</div>
+<div class="solution">
+<h3 id="s2">Problem 2 <span class="tier">[A]</span></h3>
+<p class="restate">Why should espresso be dosed by beverage mass rather than by time?</p>
+<p>Beverage mass fixes how much water passed through and therefore, for a given strength, how much was extracted. Time depends on flow resistance, which varies with grind, fines and puck preparation; it diagnoses the flow but does not measure extraction.</p>
+</div>
+<div class="solution">
+<h3 id="s3">Problem 3 <span class="tier">[A]</span></h3>
+<p class="restate">What do paper filters remove that metal filters let through, and why might it matter to a heavy coffee drinker?</p>
+<p>Fines, insoluble oils and most of the cafestol and kahweol. These compounds raise blood cholesterol at high intakes of unfiltered coffee.</p>
+</div>
+<div class="solution">
+<h3 id="s4">Problem 4 <span class="tier">[B]</span></h3>
+<p class="restate">Calculate the Kozeny-Carman permeability for d = 7 µm at porosities of 0.20 and 0.17. By what factor does it fall?</p>
+<p>ε = 0.20: κ = (7 × 10<sup>−6</sup>)<sup>2</sup> × 0.008/(180 × 0.64) = 3.40 × 10<sup>−15</sup> m<sup>2</sup>. ε = 0.17: ε<sup>3</sup> = 0.004913 and (1 − ε)<sup>2</sup> = 0.6889, so κ = 49 × 10<sup>−12</sup> × 0.004913/(180 × 0.6889) = 1.94 × 10<sup>−15</sup> m<sup>2</sup>. It falls to 0.57 of its value.</p>
+</div>
+<div class="solution">
+<h3 id="s5">Problem 5 <span class="tier">[B]</span></h3>
+<p class="restate">Using the Darcy calculator's default values, predict the flow at 6 bar for a rigid puck. Would a real, compacting puck run faster or slower than this prediction, relative to its flow at 9 bar?</p>
+<p>For a rigid puck Q scales with ΔP: 2.25 × 6/9 = 1.50 mL/s. A compacting puck is less compressed at 6 bar, so its permeability is higher than at 9 bar; its real flow at 6 bar will be closer to its 9 bar flow than the rigid prediction suggests.</p>
+</div>
+<div class="solution">
+<h3 id="s6">Problem 6 <span class="tier">[B]</span></h3>
+<p class="restate">Increasing the dose from 18 to 20 g raises the puck thickness from 12.0 to 13.3 mm. At fixed grind and pressure, what does Darcy's law predict for the flow if it was 2.25 mL/s?</p>
+<p>Q scales as 1/L: 2.25 × 12.0/13.3 = 2.03 mL/s. Real pucks also compact differently, so this is a first estimate.</p>
+</div>
+<div class="solution">
+<h3 id="s7">Problem 7 <span class="tier">[B]</span></h3>
+<p class="restate">Compute the Reynolds number for v = 0.85 mm/s, d = 300 µm, ρ = 965 kg/m<sup>3</sup> and μ = 0.30 mPa s. Is Darcy's law plausible?</p>
+<p>Re = 965 × 8.5 × 10<sup>−4</sup> × 3 × 10<sup>−4</sup>/(3 × 10<sup>−4</sup>) = 0.82. Below about 1 viscous forces dominate, so Darcy's law is a reasonable approximation on average.</p>
+</div>
+<div class="solution">
+<h3 id="s8">Problem 8 <span class="tier">[B]</span></h3>
+<p class="restate">A batch brewer uses 1,500 g of water, 85 g of coffee and 15% bypass. The grounds retain 2.0 g/g and the bed extract reads 1.80%. Find the extraction yield and final strength.</p>
+<p>Through the bed: 1,275 g; retained: 170 g; extract: 1,105 g. Solids: 0.0180 × 1,105 = 19.9 g, so E = 19.9/85 = 23.4%. Final mass: 1,105 + 225 = 1,330 g, so S = 19.9/1,330 = 1.50%.</p>
+</div>
+<div class="solution">
+<h3 id="s9">Problem 9 <span class="tier">[B]</span></h3>
+<p class="restate">What is the hydrostatic pressure at the bottom of a 5 cm liquid column above a 3 cm wet bed, taking ρ = 970 kg/m<sup>3</sup>? Express it as a fraction of 9 bar.</p>
+<p>ΔP = 970 × 9.81 × 0.08 = 761 Pa. 9 bar = 9 × 10<sup>5</sup> Pa, so the ratio is 8.5 × 10<sup>−4</sup>.</p>
+</div>
+<div class="solution">
+<h3 id="s10">Problem 10 <span class="tier">[B]</span></h3>
+<p class="restate">In the espresso example the permeability was 3.3 × 10<sup>−15</sup> m<sup>2</sup>. What flow would Darcy's law predict at 9 bar with the micro-tomography permeability of 5.5 × 10<sup>−13</sup> m<sup>2</sup>, other values unchanged?</p>
+<p>Flow scales with κ: 2.2 × (5.5 × 10<sup>−13</sup>/3.3 × 10<sup>−15</sup>) ≈ 370 mL/s, impossible for a real shot. The low-pressure imaging value cannot describe the loaded, fines-clogged puck.</p>
+</div>
+<div class="solution">
+<h3 id="s11">Problem 11 <span class="tier">[B]</span></h3>
+<p class="restate">Water's viscosity is about 0.89 mPa s at 25 °C and 0.30 mPa s at 93 °C. At fixed permeability, how much faster does the hot water flow?</p>
+<p>Q scales as 1/μ: 0.89/0.30 = 3.0 times faster.</p>
+</div>
+<div class="solution">
+<h3 id="s12">Problem 12 <span class="tier">[C]</span></h3>
+<p class="restate">Explain the espresso grind paradox using both the diffusion time scale of Chapter 2A and the permeability scaling of this chapter.</p>
+<p>Finer grinding shortens diffusion times (as d<sup>2</sup>), which should raise yield. It also lowers permeability (as d<sup>2</sup>), so small non-uniformities in a low-permeability bed grow into channels. Beyond some fineness, the yield lost to channelled flow outweighs the yield gained from faster diffusion, which produces a peak.</p>
+</div>
+<div class="solution">
+<h3 id="s13">Problem 13 <span class="tier">[C]</span></h3>
+<p class="restate">Suggest why fines added to an espresso bed lengthen shot time but barely change yield.</p>
+<p>Fines dominate the effective diameter in Kozeny-Carman, so adding them lowers permeability and slows the flow. They hold a small share of the dose and empty almost instantly, adding little yield; the larger particles gain only slightly from the longer contact at fixed beverage mass.</p>
+</div>
+<div class="solution">
+<h3 id="s14">Problem 14 <span class="tier">[C]</span></h3>
+<p class="restate">Design an experiment to test whether pre-infusion reduces channelling. State what you would measure and how many shots you would need.</p>
+<p>Alternate shots with and without pre-infusion at fixed dose, grind and beverage mass, in random order. Use the standard deviation of extraction yield as the main outcome (less channelling should give higher, less variable yields), with mean yield as a secondary outcome. Detecting a 0.5 point change in mean yield with a standard deviation of 0.6 at 80% power needs about 23 shots per condition (Appendix E.6); comparing variances needs more.</p>
+</div>
+<div class="solution">
+<h3 id="s15">Problem 15 <span class="tier">[C]</span></h3>
+<p class="restate">A colleague proposes raising pump pressure to 12 bar to speed up a slow shot. Using the poroelastic picture, argue for a better adjustment.</p>
+<p>Above the critical pressure flow levels off, so 12 bar will barely increase it and may compact the puck further. A coarser grind raises permeability with the square of the effective size, and a smaller dose reduces the bed thickness; both act directly on flow. Better distribution can also remove local resistances.</p>
+</div>
+
+<div class="nav bottom"><a href="ch02b-percolation-espresso.html" rel="prev" title="2B. Extraction II: percolation and espresso">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <span class="off">Next &gt;</span></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

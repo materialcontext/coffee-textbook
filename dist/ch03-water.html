@@ -1,0 +1,450 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3. Water - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch02b-percolation-espresso.html" rel="prev" title="2B. Extraction II: percolation and espresso">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch04-grinding.html" rel="next" title="4. Grinding">Next &gt;</a></div>
+<h1>3. Water</h1>
+<p class="lead">Which properties of brew water change the cup, and by what chemistry?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Read a water report, convert its ions to common units and check its charge balance.</li>
+<li>Calculate the proportions of carbon dioxide, bicarbonate and carbonate in water at a given pH.</li>
+<li>Predict how much coffee acid a given alkalinity neutralises.</li>
+<li>Explain why current evidence ranks alkalinity above hardness for flavour, and how that evidence revised an earlier hypothesis.</li>
+<li>Design brew water from salts or by blending, and assess the risk of scale and corrosion.</li>
+</ul>
+<p class="small">Prerequisites: Chapter 0, Section 6 (titratable acidity); Appendix A, Sections A.2 to A.7 (units, equilibrium, acids and bases, solubility).</p>
+</div>
+<p>A roastery changes the water in its cupping room. The old water was distilled water with a little magnesium salt added; the new water follows the Specialty Coffee Association standard. Within a week the cuppers complain that every coffee has lost its brightness. The coffees have not changed. What in the water could flatten their acidity, and why would one water do it and not the other?</p>
+<p>A cup of filter coffee is more than 98% water, and that water arrives carrying dissolved minerals. This chapter identifies which of them matter, explains the chemistry by which they act, and shows how to design water for brewing and for equipment. Along the way it follows a scientific argument from a plausible hypothesis, through popular practice, to the experiments that tested it.</p>
+<h2>1. What is dissolved in water</h2>
+<p>Natural water dissolves minerals from the rocks it passes through. The minerals separate into <dfn id="t-ion">ions</dfn>, atoms or groups of atoms that carry an electric charge. Positive ions are <dfn id="t-cation">cations</dfn>; negative ions are <dfn id="t-anion">anions</dfn>. A water report lists their concentrations in mg/L. The ions that matter for coffee are:</p>
+<table><thead><tr><th>Cations</th><th>Anions</th><th>Other</th></tr></thead><tbody>
+<tr><td>calcium, Ca<sup>2+</sup></td><td>bicarbonate, HCO<sub>3</sub><sup>−</sup></td><td>pH</td></tr>
+<tr><td>magnesium, Mg<sup>2+</sup></td><td>chloride, Cl<sup>−</sup></td><td>chlorine or chloramine (disinfectant)</td></tr>
+<tr><td>sodium, Na<sup>+</sup></td><td>sulfate, SO<sub>4</sub><sup>2−</sup></td><td></td></tr>
+<tr><td>potassium, K<sup>+</sup></td><td>nitrate, NO<sub>3</sub><sup>−</sup></td><td></td></tr>
+</tbody></table>
+<p>Two summary quantities describe most of what matters for coffee. Both are reported in a unit that seems strange at first, mg/L "as CaCO<sub>3</sub>", explained in Appendix A.2. The unit converts ions with different masses and charges onto one scale by asking how much calcium carbonate would contain the same amount of charge.</p>
+<p><dfn id="t-hardness">Hardness</dfn> is the concentration of the doubly charged cations, calcium and magnesium:</p>
+<table class="deq" summary="Equation 3.1"><tr><td class="f">H = 100.09 &times; ([Ca<sup>2+</sup>] + [Mg<sup>2+</sup>])</td><td class="n" id="eq-hard">(3.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">H</td><td>total hardness (mg/L as CaCO<sub>3</sub>)</td></tr>
+<tr><td class="w"></td><td class="s">[Ca<sup>2+</sup>], [Mg<sup>2+</sup>]</td><td>concentrations of calcium and magnesium (mmol/L)</td></tr>
+</table>
+<p><dfn id="t-alkalinity">Alkalinity</dfn> is the water's capacity to neutralise acid. In drinking water it comes almost entirely from bicarbonate:</p>
+<table class="deq" summary="Equation 3.2"><tr><td class="f">Alk = 50.04 &times; [HCO<sub>3</sub><sup>&minus;</sup>]</td><td class="n" id="eq-alk">(3.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">Alk</td><td>total alkalinity (mg/L as CaCO<sub>3</sub>)</td></tr>
+<tr><td class="w"></td><td class="s">[HCO<sub>3</sub><sup>&minus;</sup>]</td><td>concentration of bicarbonate (mmol/L)</td></tr>
+</table>
+<p>The factor is half that in <a href="#eq-hard">Equation 3.1</a> because one bicarbonate neutralises one hydrogen ion, while one carbonate ion (in CaCO<sub>3</sub>) neutralises two.</p>
+<p>Hardness and alkalinity are often confused because the most common source of both is dissolved limestone, which supplies calcium and bicarbonate together. They are independent quantities. Magnesium sulfate adds hardness and no alkalinity; sodium bicarbonate adds alkalinity and no hardness.</p>
+<h3>Checking a report: the charge balance</h3>
+<p>Water is electrically neutral, so the total positive charge of its cations must equal the total negative charge of its anions. Charge is counted in <dfn id="t-milliequivalent">milliequivalents</dfn> (meq): one millimole of an ion with charge z carries z milliequivalents of charge. A report whose cations and anions do not balance is either wrong or incomplete.</p>
+<table class="deq" summary="Equation 3.3"><tr><td class="f">e = (&Sigma; cations &minus; &Sigma; anions) / (&Sigma; cations + &Sigma; anions)</td><td class="n" id="eq-balance">(3.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">e</td><td>charge balance error (fraction; within &plusmn;5% is acceptable)</td></tr>
+<tr><td class="w"></td><td class="s">&Sigma;</td><td>sum of the ions' charges (meq/L)</td></tr>
+</table>
+<div class="example">
+<p class="boxhead">Worked example: Checking a water report</p>
+<p><span class="step">Problem.</span> A report lists Ca<sup>2+</sup> 32, Mg<sup>2+</sup> 8, Na<sup>+</sup> 12, K<sup>+</sup> 2, HCO<sub>3</sub><sup>−</sup> 110, Cl<sup>−</sup> 18, SO<sub>4</sub><sup>2−</sup> 24 and NO<sub>3</sub><sup>−</sup> 4 mg/L. Check the charge balance, and find the hardness and alkalinity.</p>
+<p><span class="step">Plan.</span> Convert each ion to meq/L (mg/L ÷ molar mass × charge), sum, and apply <a href="#eq-balance">Equation 3.3</a>; then use <a href="#eq-hard">Equation 3.1</a> and <a href="#eq-alk">Equation 3.2</a>.</p>
+<p><span class="step">Solution.</span> Cations: Ca 32/40.08 × 2 = 1.597, Mg 8/24.31 × 2 = 0.658, Na 12/22.99 = 0.522, K 2/39.10 = 0.051; total 2.828 meq/L. Anions: HCO<sub>3</sub> 110/61.02 = 1.803, Cl 18/35.45 = 0.508, SO<sub>4</sub> 24/96.06 × 2 = 0.500, NO<sub>3</sub> 4/62.00 = 0.065; total 2.875 meq/L. The error is (2.828 − 2.875)/(2.828 + 2.875) = −0.8%. Hardness = (0.798 + 0.329) × 100.09 = 113 mg/L as CaCO<sub>3</sub>. Alkalinity = 1.803 × 50.04 = 90 mg/L as CaCO<sub>3</sub>.</p>
+<p><span class="step">Check.</span> The balance error is well within ±5%, so the report is internally consistent. The water is moderately hard and fairly alkaline.</p>
+</div>
+<div class="widget">
+<h3>Hardness and alkalinity from an ion analysis</h3>
+<form class="w" id="ch03-water-w7" action="#">
+<div><input type="hidden" name="kind" value="water-ions"></div>
+<div class="f"><label for="ch03-water-w7-ca">Calcium, Ca<sup>2+</sup></label> <input type="text" size="7" name="ca" id="ch03-water-w7-ca" value="20"> mg/L</div>
+<div class="f"><label for="ch03-water-w7-mg">Magnesium, Mg<sup>2+</sup></label> <input type="text" size="7" name="mg" id="ch03-water-w7-mg" value="8"> mg/L</div>
+<div class="f"><label for="ch03-water-w7-na">Sodium, Na<sup>+</sup></label> <input type="text" size="7" name="na" id="ch03-water-w7-na" value="10"> mg/L</div>
+<div class="f"><label for="ch03-water-w7-hco3">Bicarbonate, HCO<sub>3</sub><sup>&minus;</sup></label> <input type="text" size="7" name="hco3" id="ch03-water-w7-hco3" value="50"> mg/L</div>
+<p class="formula">Hardness (as CaCO<sub>3</sub>) = 2.497 &times; Ca + 4.118 &times; Mg. Alkalinity (as CaCO<sub>3</sub>) = 0.820 &times; HCO<sub>3</sub>.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch03-water-w7-out"></div>
+</form>
+</div>
+<h2>2. The carbonate system</h2>
+<p>Alkalinity depends on bicarbonate, and bicarbonate belongs to a family of three related forms of dissolved carbon. Carbon dioxide dissolves in water and reacts with it as a weak acid in two steps (Appendix A.5):</p>
+<p>CO<sub>2</sub>(aq) + H<sub>2</sub>O ↔ H<sup>+</sup> + HCO<sub>3</sub><sup>−</sup>, with pK<sub>a1</sub> ≈ 6.35;</p>
+<p>HCO<sub>3</sub><sup>−</sup> ↔ H<sup>+</sup> + CO<sub>3</sub><sup>2−</sup>, with pK<sub>a2</sub> ≈ 10.33 (both at 25 °C).</p>
+<p>The fraction of dissolved carbon in each form depends only on pH. Calculating these fractions is called <dfn id="t-speciation">speciation</dfn>. Writing K<sub>1</sub> = 10<sup>−6.35</sup> and K<sub>2</sub> = 10<sup>−10.33</sup> for the two acid constants, the fraction present as bicarbonate is</p>
+<table class="deq" summary="Equation 3.4"><tr><td class="f">&alpha;<sub>1</sub> = [H<sup>+</sup>]K<sub>1</sub> / ([H<sup>+</sup>]<sup>2</sup> + [H<sup>+</sup>]K<sub>1</sub> + K<sub>1</sub>K<sub>2</sub>)</td><td class="n" id="eq-alpha">(3.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">&alpha;<sub>1</sub></td><td>fraction of dissolved inorganic carbon present as bicarbonate (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">[H<sup>+</sup>]</td><td>hydrogen ion concentration, 10<sup>−pH</sup> (mol/L)</td></tr>
+</table>
+<p>The fractions as CO<sub>2</sub> and as carbonate have the same denominator, with numerators [H<sup>+</sup>]<sup>2</sup> and K<sub>1</sub>K<sub>2</sub> respectively. <a href="#fig-speciation">Figure 3.1</a> plots all three.</p>
+<div class="figure" id="fig-speciation">
+<img src="figures/ch03-speciation.gif" width="450" height="269" alt="Speciation diagram of dissolved carbon dioxide, bicarbonate and carbonate fractions against pH from 3 to 14, with bands marking typical brew water pH and coffee pH.">
+<p class="caption">Figure 3.1. Carbonate speciation at 25 °C. Find the two shaded bands: in brew water (pH 6.5 to 7.5) dissolved carbon is mostly bicarbonate; at coffee pH near 5 it is almost all CO<sub>2</sub>.</p>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: Speciation of a brew water</p>
+<p><span class="step">Problem.</span> A water at pH 7.5 has 40 mg/L alkalinity as CaCO<sub>3</sub>. How much of its dissolved carbon is bicarbonate, CO<sub>2</sub> and carbonate?</p>
+<p><span class="step">Plan.</span> Compute the three fractions at pH 7.5, then use the alkalinity to find the total dissolved carbon.</p>
+<p><span class="step">Solution.</span> At pH 7.5 the fractions are 0.066 (CO<sub>2</sub>), 0.933 (bicarbonate) and 0.0014 (carbonate). Alkalinity is 40/50.04 = 0.799 meq/L. Each bicarbonate contributes one equivalent and each carbonate two, so the total dissolved carbon is 0.799/(0.933 + 2 × 0.0014) = 0.855 mmol/L. That is 48.6 mg/L of bicarbonate, 2.5 mg/L of dissolved CO<sub>2</sub> and only 0.07 mg/L of carbonate.</p>
+<p><span class="step">Check.</span> The three fractions sum to 1.000, and bicarbonate dominates as the figure predicts.</p>
+</div>
+<div class="widget">
+<h3>Carbonate speciation</h3>
+<form class="w" id="ch03-water-w13" action="#">
+<div><input type="hidden" name="kind" value="speciation"></div>
+<div class="f"><label for="ch03-water-w13-ph">pH</label> <input type="text" size="7" name="ph" id="ch03-water-w13-ph" value="7.5"> </div>
+<div class="f"><label for="ch03-water-w13-alk">Alkalinity</label> <input type="text" size="7" name="alk" id="ch03-water-w13-alk" value="40"> mg/L as CaCO<sub>3</sub></div>
+<div class="f"><label for="ch03-water-w13-pka1">pK<sub>a1</sub></label> <input type="text" size="7" name="pka1" id="ch03-water-w13-pka1" value="6.35"> </div>
+<div class="f"><label for="ch03-water-w13-pka2">pK<sub>a2</sub></label> <input type="text" size="7" name="pka2" id="ch03-water-w13-pka2" value="10.33"> </div>
+<p class="formula">&alpha;<sub>0</sub> = [H<sup>+</sup>]<sup>2</sup>/D, &alpha;<sub>1</sub> = [H<sup>+</sup>]K<sub>1</sub>/D, &alpha;<sub>2</sub> = K<sub>1</sub>K<sub>2</sub>/D, D = [H<sup>+</sup>]<sup>2</sup> + [H<sup>+</sup>]K<sub>1</sub> + K<sub>1</sub>K<sub>2</sub>.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch03-water-w13-out"></div>
+</form>
+</div>
+<p>The figure also shows what happens when brew water meets coffee. At the pH of a brew, near 5, almost all dissolved carbon is CO<sub>2</sub>. The bicarbonate in the water has taken up hydrogen ions from the coffee's acids, and the CO<sub>2</sub> formed escapes from the hot liquid.</p>
+<h2>3. Alkalinity neutralises coffee acids</h2>
+<p>That last observation is the key to the chapter. Each bicarbonate ion removes one acidic hydrogen from a coffee acid, written HA:</p>
+<table class="deq" summary="Equation 3.5"><tr><td class="f">HA + HCO<sub>3</sub><sup>&minus;</sup> &rarr; A<sup>&minus;</sup> + CO<sub>2</sub> + H<sub>2</sub>O</td><td class="n" id="eq-neut">(3.5)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">HA</td><td>a coffee acid with its acidic hydrogen</td></tr>
+<tr><td class="w"></td><td class="s">A<sup>&minus;</sup></td><td>the acid's conjugate base, which does not taste sour</td></tr>
+</table>
+<div class="example">
+<p class="boxhead">Worked example: How much acid does the water remove?</p>
+<p><span class="step">Problem.</span> A 300 mL cup is brewed with water of 40 mg/L alkalinity. The finished brew has a titratable acidity of 1.6 mmol/L (Chapter 0). How much acid did the water neutralise, compared with what remains?</p>
+<p><span class="step">Plan.</span> Convert alkalinity to mmol/L of bicarbonate with <a href="#eq-alk">Equation 3.2</a>; one bicarbonate neutralises one acidic hydrogen (<a href="#eq-neut">Equation 3.5</a>).</p>
+<p><span class="step">Solution.</span> Bicarbonate: 40/50.04 = 0.80 mmol/L, so 0.80 × 0.300 = 0.24 mmol is neutralised in the cup. The titratable acid remaining is 1.6 × 0.300 = 0.48 mmol. The water has removed a third of the acid that would otherwise have been there.</p>
+<p><span class="step">Check.</span> At 120 mg/L alkalinity the water would neutralise 0.72 mmol, more than the cup retains. Alkalinity acts directly on titratable acidity, the quantity that best predicts sourness (Chapter 1).</p>
+</div>
+<p>Neutralisation also raises the brew's pH slightly, and by turning acids into their conjugate bases it changes the balance between the undissociated and dissociated forms, which may affect the character of the sourness as well as its intensity.</p>
+<div class="widget">
+<h3>Brew water from distilled water and salts</h3>
+<form class="w" id="ch03-water-w18" action="#">
+<div><input type="hidden" name="kind" value="water-recipe"></div>
+<div class="f"><label for="ch03-water-w18-epsom">Epsom salt, MgSO<sub>4</sub>&middot;7H<sub>2</sub>O</label> <input type="text" size="7" name="epsom" id="ch03-water-w18-epsom" value="0.12"> g per litre</div>
+<div class="f"><label for="ch03-water-w18-cacl">Calcium chloride dihydrate, CaCl<sub>2</sub>&middot;2H<sub>2</sub>O</label> <input type="text" size="7" name="cacl" id="ch03-water-w18-cacl" value="0"> g per litre</div>
+<div class="f"><label for="ch03-water-w18-soda">Baking soda, NaHCO<sub>3</sub></label> <input type="text" size="7" name="soda" id="ch03-water-w18-soda" value="0.068"> g per litre</div>
+<p class="formula">Ion mg/L = salt g/L &times; 1000 &times; (ion molar mass / salt molar mass). Molar masses: MgSO<sub>4</sub>&middot;7H<sub>2</sub>O 246.47, CaCl<sub>2</sub>&middot;2H<sub>2</sub>O 147.01, NaHCO<sub>3</sub> 84.01, Mg 24.305, Ca 40.078, Na 22.990, HCO<sub>3</sub> 61.017 g/mol.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch03-water-w18-out"></div>
+</form>
+</div>
+<div class="quiz">
+<h3>Check your understanding: Sections 1 to 3</h3>
+<form class="quiz-form" id="ch03-water-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. A water contains 20 mg/L Ca<sup>2+</sup> and no magnesium. What is its hardness in mg/L as CaCO<sub>3</sub>?</p>
+<p class="opts"><label for="ch03-water-q0-0">Answer:</label> <input type="text" size="8" name="ch03-water-q0-0" id="ch03-water-q0-0"> mg/L</p>
+<div><input type="hidden" name="ch03-water-q0-0-kind" value="numeric"><input type="hidden" name="ch03-water-q0-0-ans" value="49.9"><input type="hidden" name="ch03-water-q0-0-tol" value="0.2"></div>
+<p class="fb" id="ch03-water-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. How many millimoles of acidic hydrogen does 250 mL of water with 80 mg/L alkalinity neutralise?</p>
+<p class="opts"><label for="ch03-water-q0-1">Answer:</label> <input type="text" size="8" name="ch03-water-q0-1" id="ch03-water-q0-1"> mmol</p>
+<div><input type="hidden" name="ch03-water-q0-1-kind" value="numeric"><input type="hidden" name="ch03-water-q0-1-ans" value="0.4"><input type="hidden" name="ch03-water-q0-1-tol" value="0.01"></div>
+<p class="fb" id="ch03-water-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch03-water-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch03-water-q0">Answers</a></p>
+</form>
+</div>
+<h2>4. Cations: a hypothesis from computation</h2>
+<p>Alkalinity acts through simple acid-base chemistry. A more elaborate idea about the cations dominated coffee practice for a decade, and its history shows how claims should be tested.</p>
+<p>In 2014, Hendon and the Colonna-Dashwoods estimated how strongly sodium, magnesium and calcium ions bind to representative coffee compounds [1]. They used <dfn id="t-density-functional-theory">density functional theory</dfn>, a method that computes how strongly molecules attract one another from the physics of their electrons. Binding was stronger for ions with higher charge and smaller size, so magnesium bound most strongly. They proposed that cations in brew water bind coffee compounds and help pull them out of the grounds, so that magnesium-rich water would extract more. They also pointed out that the conductivity meters often used to measure water do not show which ions are present. Magnesium-heavy water recipes became popular as a result.</p>
+<p>The proposal rested on calculated binding strengths, not on brewing or tasting. It was a hypothesis, and it made predictions that experiments could test.</p>
+<h2>5. Experimental tests</h2>
+<p>Bratthäll, Figueira and Nording (2024) added magnesium chloride or calcium chloride either to the water before brewing or to the finished coffee, and measured citric, malic, lactic and quinic acids [2]. At drinking-water concentrations, the acid content changed only slightly; at ten times those concentrations changes became noticeable. In most cases, salt added before brewing and salt added afterwards gave similar results. If cations were pulling acids out of the grounds, salt present during brewing should have mattered more than salt added after extraction was over. The authors concluded that acid extraction proceeds largely independently of water composition, while interactions in the finished brew may still affect flavour.</p>
+<p>Rune and colleagues (2026) brewed one Colombian coffee in ultrapure water with added calcium, magnesium and bicarbonate. Concentrations ranged from the low end of recommended values to extremes, with bicarbonate up to 300 mg/L. The cups were evaluated by trained panels using screening tests and descriptive analysis [3]. Hardness alone produced no marked change in flavour, even with calcium above typical drinking-water levels. Bicarbonate had a clear effect across its whole range: more alkalinity reduced acidity, fruitiness and complexity and increased roasted and bitter notes. Small interactions between calcium and bicarbonate were explained by calcium carbonate precipitating and lowering the effective alkalinity.</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"Magnesium in brew water extracts more flavour." The idea came from calculated binding energies, not from brewing. Experiments found that salts added before or after brewing changed acid content similarly, and that hardness alone had no marked effect on flavour, while bicarbonate had a large one. On current evidence, the water property that changes the cup most is alkalinity, through acid neutralisation.</p>
+</div>
+<div class="evidence">
+<p class="boxhead">Status of the evidence</p>
+<p>Both experimental studies are recent and each used a narrow range of coffees; the sensory study used one. The result concerns acids and overall flavour, and does not exclude effects of cations on other compounds or in espresso. But chemistry and sensory work point the same way, and the direction agrees with the stoichiometry of Section 3.</p>
+</div>
+<p>We can now answer the opening question. The old cupping water had no alkalinity; the SCA standard water has about 40 mg/L. The new water neutralises part of every coffee's acid before it is tasted.</p>
+<h2>6. Standards and recipes</h2>
+<p>The SCA water standard of 2009 gives these targets [4]:</p>
+<table><thead><tr><th>Property</th><th>Target</th><th>Acceptable range</th></tr></thead><tbody>
+<tr><td>Total dissolved solids</td><td>150 mg/L</td><td>75 to 250</td></tr>
+<tr><td>Calcium hardness</td><td>68 mg/L as CaCO<sub>3</sub></td><td>17 to 85</td></tr>
+<tr><td>Total alkalinity</td><td>about 40 mg/L as CaCO<sub>3</sub></td><td>near 40</td></tr>
+<tr><td>pH</td><td>7.0</td><td>6.5 to 7.5</td></tr>
+<tr><td>Sodium</td><td>about 10 mg/L</td><td></td></tr>
+<tr><td>Chlorine</td><td>0</td><td></td></tr>
+</tbody></table>
+<p>Published recipes differ mainly in alkalinity and in whether the hardness comes with sulfate or chloride. Given the evidence of Section 5, alkalinity is the first variable to test. Some commercial mineral products contain no alkalinity at all; they produce sharp, acidic cups and leave equipment without protection against corrosion (Section 8).</p>
+<h3>Making water from salts</h3>
+<p>Distilled or reverse-osmosis water plus weighed salts gives complete control. Because the masses needed per litre are tenths of a gram, it is easier to make a <dfn id="t-concentrate">concentrate</dfn>: a known mass of one salt dissolved in a known mass of distilled water, dosed by weight into each batch. Keep calcium and bicarbonate in separate concentrates, because together they can precipitate calcium carbonate.</p>
+<div class="example">
+<p class="boxhead">Worked example: A two-concentrate recipe</p>
+<p><span class="step">Problem.</span> Design concentrates that give water with 68 mg/L hardness from calcium and 40 mg/L alkalinity, using calcium chloride dihydrate (CaCl<sub>2</sub>·2H<sub>2</sub>O, 147.01 g/mol) and sodium bicarbonate (84.01 g/mol).</p>
+<p><span class="step">Plan.</span> Convert each target to mmol/L, then to mg/L of salt, then choose a concentrate strength and dose.</p>
+<p><span class="step">Solution.</span> Calcium: 68/100.09 = 0.679 mmol/L, so 0.679 × 147.01 = 99.9 mg/L of the dihydrate. A concentrate of 10.0 g in 1,000 g of distilled water, dosed at 10.0 g per litre, delivers it. Alkalinity: 40/50.04 = 0.799 mmol/L of bicarbonate, so 0.799 × 84.01 = 67.1 mg/L of sodium bicarbonate, which also adds 18.4 mg/L of sodium. A concentrate of 6.71 g per 1,000 g, dosed at 10.0 g per litre, delivers it.</p>
+<p><span class="step">Check.</span> Use the molar mass of the hydrated salt, including its water; using anhydrous CaCl<sub>2</sub> (110.98 g/mol) would supply a third too much calcium.</p>
+</div>
+<h3>Blending</h3>
+<p>If tap water is too alkaline, blending it with reverse-osmosis water lowers alkalinity and hardness together. Treating reverse-osmosis water as free of ions, the fraction of tap water needed is</p>
+<table class="deq" summary="Equation 3.6"><tr><td class="f">f<sub>tap</sub> = Alk<sub>target</sub> / Alk<sub>tap</sub></td><td class="n" id="eq-blend">(3.6)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">f<sub>tap</sub></td><td>fraction of tap water in the blend (fraction)</td></tr>
+</table>
+<div class="widget">
+<h3>Blending tap water with reverse-osmosis water</h3>
+<form class="w" id="ch03-water-w27" action="#">
+<div><input type="hidden" name="kind" value="blend"></div>
+<div class="f"><label for="ch03-water-w27-tapalk">Tap alkalinity</label> <input type="text" size="7" name="tapalk" id="ch03-water-w27-tapalk" value="120"> mg/L CaCO<sub>3</sub></div>
+<div class="f"><label for="ch03-water-w27-taphard">Tap hardness</label> <input type="text" size="7" name="taphard" id="ch03-water-w27-taphard" value="180"> mg/L CaCO<sub>3</sub></div>
+<div class="f"><label for="ch03-water-w27-target">Target alkalinity</label> <input type="text" size="7" name="target" id="ch03-water-w27-target" value="40"> mg/L CaCO<sub>3</sub></div>
+<div class="f"><label for="ch03-water-w27-vol">Volume to make</label> <input type="text" size="7" name="vol" id="ch03-water-w27-vol" value="10"> L</div>
+<p class="formula">Fraction of tap water f = target / tap alkalinity (RO water assumed ion-free). Hardness of the blend = f &times; tap hardness.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch03-water-w27-out"></div>
+</form>
+</div>
+<p>With tap water at 120 mg/L alkalinity and 180 mg/L hardness, a 40 mg/L target needs one part tap water to two parts reverse-osmosis water, and the blend has 60 mg/L hardness.</p>
+<h2>7. Treatment</h2>
+<p>Each treatment method removes something different.</p>
+<ul>
+<li><dfn id="t-activated-carbon">Activated carbon</dfn> adsorbs chlorine and many organic off-flavours. Chloramine, a longer-lasting disinfectant, needs longer contact time or a catalytic carbon.</li>
+<li><dfn id="t-ion-exchange">Ion exchange</dfn> resins swap ions in the water for ions held on the resin. A sodium-form softener replaces calcium and magnesium with sodium, lowering hardness and leaving alkalinity unchanged. It prevents scale without improving flavour.</li>
+<li>A hydrogen-form (weak-acid) resin replaces cations with hydrogen ions, which react with bicarbonate to form CO<sub>2</sub>. It removes alkalinity and is widely used in cafés for that reason.</li>
+<li><dfn id="t-reverse-osmosis">Reverse osmosis</dfn> forces water through a membrane that holds back most ions. The product is then remineralised or blended [5].</li>
+</ul>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"Softened water is better coffee water." A sodium-exchange softener removes hardness but leaves alkalinity unchanged, so the water still neutralises coffee acid as before. It protects equipment from scale; it does not change the property that most affects flavour.</p>
+</div>
+<h2>8. Scale and corrosion</h2>
+<p>Water that is good for flavour must also be safe for equipment. Calcium carbonate deposits as <dfn id="t-scale">scale</dfn> when the product of calcium and carbonate concentrations exceeds calcite's <dfn id="t-solubility-product">solubility product</dfn>, K<sub>sp</sub> (Appendix A.7). Heating makes scaling more likely for two reasons: calcite becomes less soluble as temperature rises, and heat drives CO<sub>2</sub> out of the water, which shifts bicarbonate toward carbonate. Boilers therefore scale even when tap water does not.</p>
+<p>The <dfn id="t-langelier-saturation-index">Langelier saturation index</dfn> summarises the tendency. It compares the actual pH with pH<sub>s</sub>, the pH at which the water would be exactly saturated with calcite:</p>
+<table class="deq" summary="Equation 3.7"><tr><td class="f">LSI = pH &minus; pH<sub>s</sub></td><td class="n" id="eq-lsi">(3.7)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">LSI</td><td>Langelier saturation index; positive values predict scale, strongly negative values predict corrosion</td></tr>
+<tr><td class="w"></td><td class="s">pH<sub>s</sub></td><td>saturation pH, from Equation 3.8</td></tr>
+</table>
+<p>A widely used empirical formula gives pH<sub>s</sub> from four measurements:</p>
+<table class="deq" summary="Equation 3.8"><tr><td class="f">pH<sub>s</sub> = (9.3 + A + B) &minus; (C + D)</td><td class="n" id="eq-phs">(3.8)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">A</td><td>(log<sub>10</sub> TDS − 1)/10, with TDS in mg/L</td></tr>
+<tr><td class="w"></td><td class="s">B</td><td>−13.12 log<sub>10</sub>(T + 273) + 34.55, with T in °C</td></tr>
+<tr><td class="w"></td><td class="s">C</td><td>log<sub>10</sub>(calcium hardness) − 0.4, in mg/L as CaCO<sub>3</sub></td></tr>
+<tr><td class="w"></td><td class="s">D</td><td>log<sub>10</sub>(alkalinity), in mg/L as CaCO<sub>3</sub></td></tr>
+</table>
+<p>The terms follow from the chemistry. More calcium (C) or more alkalinity (D) lowers pH<sub>s</sub>, making saturation easier to reach. Higher temperature lowers B, which also lowers pH<sub>s</sub>, reflecting calcite's falling solubility. More total dissolved solids (A) raises pH<sub>s</sub> slightly, because other ions reduce the effective concentrations of calcium and carbonate.</p>
+<div class="example">
+<p class="boxhead">Worked example: Scale at boiler temperature</p>
+<p><span class="step">Problem.</span> Compare SCA target water (TDS 150, calcium hardness 68, alkalinity 40, pH 7.0) with hard tap water (TDS 300, calcium hardness 150, alkalinity 120, pH 7.8), at 25 °C and at 95 °C.</p>
+<p><span class="step">Plan.</span> Compute A, B, C and D with <a href="#eq-phs">Equation 3.8</a>, then the LSI with <a href="#eq-lsi">Equation 3.7</a>.</p>
+<p><span class="step">Solution.</span> SCA water: pH<sub>s</sub> = 8.47 at 25 °C and 7.27 at 95 °C, so LSI = −1.47 and −0.27; undersaturated at both temperatures. Hard tap water: LSI = +0.12 at 25 °C, near saturation, and +1.32 at 95 °C, strongly scaling.</p>
+<p><span class="step">Check.</span> The calculation holds pH fixed. In a real boiler, pH rises as CO<sub>2</sub> escapes, which makes the hard-water case worse.</p>
+</div>
+<p>Very soft water with almost no alkalinity cannot scale, but it is aggressive to copper and brass. Espresso machine water is therefore a compromise [6]: low enough alkalinity for good flavour, enough hardness and alkalinity to avoid corrosion, and not so much that the boiler scales.</p>
+<h2>Looking ahead</h2>
+<p>Water and coffee meet at the surface of the ground particles, and the last three chapters have assumed those particles. Chapter 4 asks what a grinder actually produces, how to describe a grind with numbers, and which features of the grind control flow and extraction.</p>
+<h2>Key equations</h2>
+<table class="eqs" summary="Key equations">
+<tr><th>Quantity</th><th>Equation</th><th>Notes</th></tr>
+<tr><td>Hardness</td><td class="eq">H = 100.09 &times; ([Ca<sup>2+</sup>] + [Mg<sup>2+</sup>])</td><td>Equation 3.1. mmol/L in, mg/L as CaCO<sub>3</sub> out.</td></tr>
+<tr><td>Alkalinity</td><td class="eq">Alk = 50.04 &times; [HCO<sub>3</sub><sup>&minus;</sup>]</td><td>Equation 3.2.</td></tr>
+<tr><td>Bicarbonate fraction</td><td class="eq">&alpha;<sub>1</sub> = [H<sup>+</sup>]K<sub>1</sub> / ([H<sup>+</sup>]<sup>2</sup> + [H<sup>+</sup>]K<sub>1</sub> + K<sub>1</sub>K<sub>2</sub>)</td><td>Equation 3.4.</td></tr>
+<tr><td>Blending</td><td class="eq">f<sub>tap</sub> = Alk<sub>target</sub> / Alk<sub>tap</sub></td><td>Equation 3.6.</td></tr>
+<tr><td>Langelier index</td><td class="eq">LSI = pH &minus; pH<sub>s</sub></td><td>Equations 3.7 and 3.8.</td></tr>
+</table>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-activated-carbon">Activated carbon</a>; <a href="#t-alkalinity">Alkalinity</a>; <a href="#t-anion">anion</a>; <a href="#t-cation">cation</a>; <a href="#t-concentrate">concentrate</a>; <a href="#t-density-functional-theory">density functional theory</a>; <a href="#t-hardness">Hardness</a>; <a href="#t-ion">ion</a>; <a href="#t-ion-exchange">Ion exchange</a>; <a href="#t-langelier-saturation-index">Langelier saturation index</a>; <a href="#t-milliequivalent">milliequivalent</a>; <a href="#t-reverse-osmosis">Reverse osmosis</a>; <a href="#t-scale">scale</a>; <a href="#t-solubility-product">solubility product</a>; <a href="#t-speciation">speciation</a>.</p>
+<div class="quiz">
+<h3>Chapter review</h3>
+<form class="quiz-form" id="ch03-water-q1" action="#answers">
+<div class="q">
+<p class="prompt">1. In the 2026 sensory study, which water variable had a clear effect on coffee flavour across its whole range?</p>
+<p class="opts">
+<input type="radio" name="ch03-water-q1-0" id="ch03-water-q1-0-0" value="0"> <label for="ch03-water-q1-0-0">Calcium hardness</label><br>
+<input type="radio" name="ch03-water-q1-0" id="ch03-water-q1-0-1" value="1"> <label for="ch03-water-q1-0-1">Magnesium hardness</label><br>
+<input type="radio" name="ch03-water-q1-0" id="ch03-water-q1-0-2" value="2"> <label for="ch03-water-q1-0-2">Bicarbonate (alkalinity)</label><br>
+</p>
+<div><input type="hidden" name="ch03-water-q1-0-kind" value="choice"><input type="hidden" name="ch03-water-q1-0-ans" value="2"></div>
+<p class="fb" id="ch03-water-q1-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. A sodium-exchange water softener</p>
+<p class="opts">
+<input type="radio" name="ch03-water-q1-1" id="ch03-water-q1-1-0" value="0"> <label for="ch03-water-q1-1-0">removes alkalinity</label><br>
+<input type="radio" name="ch03-water-q1-1" id="ch03-water-q1-1-1" value="1"> <label for="ch03-water-q1-1-1">removes hardness but leaves alkalinity unchanged</label><br>
+<input type="radio" name="ch03-water-q1-1" id="ch03-water-q1-1-2" value="2"> <label for="ch03-water-q1-1-2">removes both</label><br>
+</p>
+<div><input type="hidden" name="ch03-water-q1-1-kind" value="choice"><input type="hidden" name="ch03-water-q1-1-ans" value="1"></div>
+<p class="fb" id="ch03-water-q1-1-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">3. Why does a boiler scale when the same water does not scale in the pipes?</p>
+<p class="opts">
+<input type="radio" name="ch03-water-q1-2" id="ch03-water-q1-2-0" value="0"> <label for="ch03-water-q1-2-0">Heating lowers calcite solubility and drives off CO<sub>2</sub>, shifting bicarbonate to carbonate</label><br>
+<input type="radio" name="ch03-water-q1-2" id="ch03-water-q1-2-1" value="1"> <label for="ch03-water-q1-2-1">Heating adds calcium</label><br>
+<input type="radio" name="ch03-water-q1-2" id="ch03-water-q1-2-2" value="2"> <label for="ch03-water-q1-2-2">Boilers are made of reactive metals</label><br>
+</p>
+<div><input type="hidden" name="ch03-water-q1-2-kind" value="choice"><input type="hidden" name="ch03-water-q1-2-ans" value="0"></div>
+<p class="fb" id="ch03-water-q1-2-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch03-water-q1"><input type="hidden" name="quiz-n" value="3"><input type="button" class="check" value="Check answers"> <a href="#ans-ch03-water-q1">Answers</a></p>
+</form>
+</div>
+<h2>Labs</h2>
+<div class="lab">
+<h3 id="lab-L3.1">Lab L3.1: Alkalinity against hardness</h3>
+<p><span class="lbl">Aim.</span> Separate the effects of hardness and alkalinity on the cup, following the design of Rune et al. at small scale.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Label all concentrates and do not store them in drink containers.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>Distilled or reverse-osmosis water</li>
+<li>Concentrates of Epsom salt, calcium chloride dihydrate and sodium bicarbonate</li>
+<li>pH meter and NaOH for titration</li>
+<li>Refractometer</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Prepare five waters: (a) no hardness, no alkalinity; (b) 70 mg/L hardness from magnesium, no alkalinity; (c) 70 mg/L hardness from calcium, no alkalinity; (d) 70 hardness, 40 alkalinity; (e) 70 hardness, 120 alkalinity.</li>
+<li>Brew one coffee in each water at matched extraction yield (adjust the grind so that yields agree within ±0.5 points).</li>
+<li>Run duo-trio tests of (a) against (b), (b) against (c), and (d) against (e).</li>
+<li>Rate sourness, bitterness and fruitiness of all five blind; titrate 50 mL of each to pH 8.2.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Water</th><th>Hardness</th><th>Alkalinity</th><th>EY (%)</th><th>pH</th><th>TA (mmol/L)</th><th>Sour</th><th>Bitter</th><th>Fruity</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Which duo-trio comparisons were significant?</li>
+<li>Plot titratable acidity and sourness against alkalinity, and against hardness at zero alkalinity.</li>
+</ol>
+<p><span class="lbl">What to expect.</span> Small or no differences among (a), (b) and (c); clear differences between (d) and (e), with lower titratable acidity and sourness at higher alkalinity.</p>
+</div>
+<div class="lab">
+<h3 id="lab-L3.2">Lab L3.2: Alkalinity titration of tap water</h3>
+<p><span class="lbl">Aim.</span> Measure your tap water's alkalinity by titration to pH 4.5 and compare it with the utility's report.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>pH meter</li>
+<li>0.0200 mol/L hydrochloric acid</li>
+<li>Burette or graduated syringe</li>
+<li>100 mL sample</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Titrate 100.0 mL of tap water to pH 4.5 while stirring; record the volume of acid.</li>
+<li>Repeat twice.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Run</th><th>Acid volume (mL)</th><th>Alkalinity (mg/L as CaCO<sub>3</sub>)</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Alkalinity = c<sub>acid</sub> × V<sub>acid</sub> × 50,040 / V<sub>sample</sub>, with c in mol/L and both volumes in the same unit.</li>
+<li>Compare with the utility report and with test-strip readings if you have them.</li>
+</ol>
+</div>
+<div class="lab">
+<h3 id="lab-L3.3">Lab L3.3: Scale on boiling</h3>
+<p><span class="lbl">Aim.</span> Observe calcium carbonate precipitating on heating and relate it to the Langelier index.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Boiling water and hot glass.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>Two clear heat-resistant beakers</li>
+<li>Hard tap water (or distilled water with calcium chloride and bicarbonate concentrates)</li>
+<li>Distilled water</li>
+<li>Hot plate</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Boil 500 mL of each water down to 250 mL.</li>
+<li>Cool, then compare turbidity and deposits on the glass. Titrate the alkalinity of the cooled hard water.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Water</th><th>Alkalinity before</th><th>Alkalinity after</th><th>Observation</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Compute the LSI at 25 and 95 °C for each water. Does the observation match?</li>
+<li>Explain why the alkalinity of the boiled hard water fell.</li>
+</ol>
+</div>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section 1]</span> A water report gives Mg<sup>2+</sup> 12 mg/L. What hardness does it contribute, as CaCO<sub>3</sub>? <a class="sol" href="ch03-water-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section 1]</span> Name a salt that adds hardness without alkalinity, and one that adds alkalinity without hardness. <a class="sol" href="ch03-water-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section 2]</span> Why is dissolved carbon in coffee at pH 5 almost entirely CO<sub>2</sub>? <a class="sol" href="ch03-water-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section 1]</span> Check the charge balance of a water with Ca 40, Mg 10 and Na 20 mg/L, and HCO<sub>3</sub><sup>−</sup> 150, Cl<sup>−</sup> 30 and SO<sub>4</sub><sup>2−</sup> 20 mg/L. <a class="sol" href="ch03-water-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section 2]</span> At pH 8.3, what fraction of dissolved carbon is bicarbonate, and what fraction is carbonate? <a class="sol" href="ch03-water-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section 6]</span> Tap water has 150 mg/L alkalinity and 220 mg/L hardness. What blend with reverse-osmosis water gives 50 mg/L alkalinity, and what is the blend's hardness? <a class="sol" href="ch03-water-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section 6]</span> How many milligrams of potassium bicarbonate (100.12 g/mol) per litre give 30 mg/L alkalinity? <a class="sol" href="ch03-water-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section 1]</span> A titration of 100.0 mL of tap water uses 3.60 mL of 0.0200 mol/L HCl to reach pH 4.5. Find the alkalinity. <a class="sol" href="ch03-water-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[B, Section 3]</span> A 12 L batch brew uses water at 100 mg/L alkalinity. How many millimoles of acid does the water neutralise, and how does that compare with a titratable acidity of 1.6 mmol/L in the finished brew? <a class="sol" href="ch03-water-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[B, Section 8]</span> Compute the Langelier index at 95 °C for water with TDS 200, calcium hardness 100, alkalinity 80 and pH 7.5. <a class="sol" href="ch03-water-solutions.html#s10">Solution</a></li>
+<li id="p0-11"><span class="tier">[C, Section 5]</span> Explain why salts added before or after brewing giving similar acid results argues against the cation-binding extraction hypothesis. <a class="sol" href="ch03-water-solutions.html#s11">Solution</a></li>
+<li id="p0-12"><span class="tier">[C, Section 5]</span> Explain why calcium and bicarbonate together can have a smaller effect on flavour than bicarbonate alone, as Rune et al. observed. <a class="sol" href="ch03-water-solutions.html#s12">Solution</a></li>
+<li id="p0-13"><span class="tier">[C, Section 8]</span> Design café water for an espresso machine with a copper boiler and a house espresso meant to keep its acidity. State targets and justify them with the Langelier index and the flavour evidence. <a class="sol" href="ch03-water-solutions.html#s13">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>References</h2>
+<ol>
+<li>Hendon C.H., Colonna-Dashwood L., Colonna-Dashwood M. (2014), The role of dissolved cations in coffee extraction, <em>Journal of Agricultural and Food Chemistry</em> 62:4947.</li>
+<li>Bratthäll T., Figueira J., Nording M.L. (2024), Influence of divalent cations on the extraction of organic acids in coffee determined by GC-MS and NMR, <em>Heliyon</em> 10:e26625.</li>
+<li>Rune C.J.B., Steen I., Kjærgaard E.R., Maroun Z., Bredie W.L.P., Kjaergaard H.G. (2026), Impact of water composition on coffee sensory properties: a comprehensive analysis, <em>Journal of Food Science</em> 91(9):e71434.</li>
+<li>SCAA Standards Committee, Water for Brewing Specialty Coffee (revised 2009).</li>
+<li>Wellinger M., Smrke S., Yeretzian C. (2018), <em>The SCA Water Quality Handbook</em>.</li>
+<li>Navarini L., Rivetti D. (2010), Water quality for espresso coffee, <em>Food Chemistry</em> 122:424.</li>
+</ol>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-ch03-water-q0">Check your understanding: Sections 1 to 3</h3>
+<ol>
+<li><span class="key">49.9 mg/L.</span> <span id="ch03-water-q0-0-ex">20/40.08 = 0.499 mmol/L; × 100.09 = 49.9.</span></li>
+<li><span class="key">0.4 mmol.</span> <span id="ch03-water-q0-1-ex">80/50.04 = 1.60 mmol/L; × 0.250 L = 0.40 mmol.</span></li>
+</ol>
+<h3 id="ans-ch03-water-q1">Chapter review</h3>
+<ol>
+<li><span class="key">Bicarbonate (alkalinity).</span> <span id="ch03-water-q1-0-ex">Hardness alone produced no marked change; bicarbonate reduced acidity and fruitiness and increased roasted and bitter notes.</span></li>
+<li><span class="key">removes hardness but leaves alkalinity unchanged.</span> <span id="ch03-water-q1-1-ex">It swaps Ca<sup>2+</sup> and Mg<sup>2+</sup> for Na<sup>+</sup>; bicarbonate is untouched.</span></li>
+<li><span class="key">Heating lowers calcite solubility and drives off CO<sub>2</sub>, shifting bicarbonate to carbonate.</span> <span id="ch03-water-q1-2-ex">Both effects raise the ion product relative to K<sub>sp</sub>.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="ch03-water-solutions.html">3. Water solutions</a>.</p>
+
+<div class="nav bottom"><a href="ch02b-percolation-espresso.html" rel="prev" title="2B. Extraction II: percolation and espresso">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch04-grinding.html" rel="next" title="4. Grinding">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

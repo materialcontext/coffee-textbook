@@ -1,0 +1,506 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0. Instruments and measurement - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="b-notation.html" rel="prev" title="Notation">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch01-cup.html" rel="next" title="1. The cup: perception and composition">Next &gt;</a></div>
+<h1>0. Instruments and measurement</h1>
+<p class="lead">How do I know a number is good enough to act on?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Report any measurement as a value with an uncertainty, and classify the uncertainty as random or systematic.</li>
+<li>Calibrate a scale, a thermometer and a refractometer, and fit a calibration line by least squares.</li>
+<li>Propagate uncertainty through sums, products and quotients, including extraction yield.</li>
+<li>Measure extraction yield by oven drying and correct it for liquid retained in the grounds.</li>
+<li>Titrate a brew to pH 8.2, report titratable acidity, and explain why it differs from pH.</li>
+<li>Explain why roast colour and particle size readings belong to one instrument and one method.</li>
+</ul>
+<p class="small">Prerequisites: Appendix A, Sections A.1 and A.2 (amount of substance, concentration); Appendix E, Section E.1 (mean and standard deviation).</p>
+</div>
+<p>Two baristas compare grinders. With the old grinder their pour-over measured an extraction of 20.3%; with the new one, 20.7%. One says the new grinder extracts more. The other says the difference is noise. Neither can settle the argument, because neither knows how far a single measurement can be trusted.</p>
+<p>Every later chapter of this book asks a question of the same kind: did a change in water, grind, rest or roast change the cup? This chapter builds the tools to answer it. We start with what a measurement is, then work through the instruments a coffee laboratory uses (scale, thermometer, refractometer, pH meter) and finish with the human taster, the least precise instrument of all.</p>
+<h2>1. A measurement has two parts</h2>
+<p>A measured value is incomplete without a statement of how far it might be from the true value. That statement is the <dfn id="t-measurement-uncertainty">uncertainty</dfn>, written after the value with a plus-or-minus sign. A dose weighed as 15.0 g on a scale that is reliable to 0.1 g is reported as 15.0 ± 0.1 g. Omitting the uncertainty does not make a number more exact; it only hides whether two results differ.</p>
+<h3>Random and systematic error</h3>
+<p>Errors come in two kinds, and they need different remedies.</p>
+<p><dfn id="t-random-error">Random error</dfn> scatters repeated readings around their average. The last digit of a refractometer flickers; one pour is a gram heavier than the next. Repeating a measurement and averaging reduces random error.</p>
+<p><dfn id="t-systematic-error">Systematic error</dfn> shifts every reading in the same direction by the same amount. A thermometer that reads 2 °C low is wrong by 2 °C every time, so averaging a hundred readings leaves the 2 °C error untouched. Only <dfn id="t-calibration">calibration</dfn>, comparing the instrument against something whose value is known, removes systematic error.</p>
+<p>Two related words are often confused. <dfn id="t-precision">Precision</dfn> describes how closely repeated readings agree with each other. <dfn id="t-accuracy">Accuracy</dfn> describes how close their average is to the true value. A refractometer can be precise and inaccurate at once: it gives the same reading every time, and that reading is wrong.</p>
+<h3>Quantifying random error</h3>
+<p>The scatter of n repeated readings x<sub>1</sub>, x<sub>2</sub>, …, x<sub>n</sub> is measured by the <dfn id="t-sample-standard-deviation">standard deviation</dfn>, s, defined in Appendix E.1. Roughly two thirds of individual readings fall within one standard deviation of the mean.</p>
+<p>The average of n readings is more reliable than any single reading. Its uncertainty is the <dfn id="t-standard-error-of-the-mean">standard error</dfn>:</p>
+<table class="deq" summary="Equation 0.1"><tr><td class="f">SE = s / &radic;n</td><td class="n" id="eq-se">(0.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">s</td><td>standard deviation of the individual readings (same unit as the readings)</td></tr>
+<tr><td class="w"></td><td class="s">n</td><td>number of independent readings</td></tr>
+</table>
+<p>Because of the square root, halving the standard error requires four times as many readings. <a href="#eq-se">Equation 0.1</a> applies only to random error; systematic error does not shrink with n.</p>
+<p>The uncertainty also fixes how many digits are worth reporting. If a calculation gives an extraction yield of 22.48 ± 0.38%, the second decimal place carries no information, and the result is written 22.5 ± 0.4%. Digits that the uncertainty does not support are not <dfn id="t-significant-figures">significant figures</dfn>.</p>
+<h3>Combining uncertainties</h3>
+<p>Most results are calculated from several measurements, each with its own uncertainty. If the errors are independent of one another, they partly cancel, and the combined uncertainty is smaller than the simple sum. The rule for combining them is called addition <dfn id="t-in-quadrature">in quadrature</dfn>: square the individual uncertainties, add the squares, and take the square root.</p>
+<p>For a sum or difference such as q = x + y, the absolute uncertainties combine:</p>
+<table class="deq" summary="Equation 0.2"><tr><td class="f">&delta;q = &radic;[(&delta;x)<sup>2</sup> + (&delta;y)<sup>2</sup>]</td><td class="n" id="eq-sum">(0.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">&delta;x, &delta;y</td><td>uncertainties of the measured quantities x and y (same unit as x and y)</td></tr>
+<tr><td class="w"></td><td class="s">&delta;q</td><td>uncertainty of the result q</td></tr>
+</table>
+<p>For a product or quotient such as q = xy/z, the relative uncertainties (each uncertainty divided by its value) combine:</p>
+<table class="deq" summary="Equation 0.3"><tr><td class="f">&delta;q/q = &radic;[(&delta;x/x)<sup>2</sup> + (&delta;y/y)<sup>2</sup> + (&delta;z/z)<sup>2</sup>]</td><td class="n" id="eq-product">(0.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">&delta;q/q</td><td>relative uncertainty of the result (dimensionless)</td></tr>
+</table>
+<div class="deeper">
+<p class="boxhead">Going further: Where the quadrature rule comes from</p>
+<p>For a result q(x, y) that depends on two independent measurements, a small error δx changes q by about (∂q/∂x)δx, and similarly for y. The variance of a sum of independent random quantities is the sum of their variances, so (δq)<sup>2</sup> = (∂q/∂x)<sup>2</sup>(δx)<sup>2</sup> + (∂q/∂y)<sup>2</sup>(δy)<sup>2</sup>. For q = x + y both derivatives equal 1, which gives <a href="#eq-sum">Equation 0.2</a>. For q = xy, ∂q/∂x = y; dividing through by q<sup>2</sup> gives <a href="#eq-product">Equation 0.3</a>. Simple addition of the uncertainties is the worst case, in which every error happens to push the same way.</p>
+</div>
+<p>To apply <a href="#eq-product">Equation 0.3</a> to coffee we need the two quantities that the rest of the book is built on. The <dfn id="t-total-dissolved-solids">total dissolved solids</dfn> (TDS) of a brew is the mass of dissolved coffee material per mass of brew; we write it S, for strength, and quote it in percent. The <dfn id="t-extraction-yield">extraction yield</dfn> (EY), written E, is the fraction of the dry coffee that ended up dissolved. For a pour-over, where all the dissolved material we count is in the cup,</p>
+<table class="deq" summary="Equation 0.4"><tr><td class="f">E = S m<sub>b</sub> / m<sub>c</sub></td><td class="n" id="eq-ey">(0.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">E</td><td>extraction yield (fraction; quoted in %)</td></tr>
+<tr><td class="w"></td><td class="s">S</td><td>total dissolved solids, as a mass fraction (fraction; quoted in %)</td></tr>
+<tr><td class="w"></td><td class="s">m<sub>b</sub></td><td>mass of beverage (g)</td></tr>
+<tr><td class="w"></td><td class="s">m<sub>c</sub></td><td>mass of dry coffee (the dose) (g)</td></tr>
+</table>
+<p>Chapter 2A derives <a href="#eq-ey">Equation 0.4</a> and its counterpart for immersion brewing.</p>
+<div class="example">
+<p class="boxhead">Worked example: Uncertainty of an extraction yield</p>
+<p><span class="step">Problem.</span> A pour-over uses a dose of 15.0 ± 0.1 g, gives 250 ± 1 g of beverage, and reads 1.35 ± 0.02% TDS. Find the extraction yield and its uncertainty.</p>
+<p><span class="step">Plan.</span> Calculate E from <a href="#eq-ey">Equation 0.4</a>. It is a product and quotient, so combine relative uncertainties with <a href="#eq-product">Equation 0.3</a>.</p>
+<p><span class="step">Solution.</span> From <a href="#eq-ey">Equation 0.4</a>, E = 0.0135 × 250 / 15.0 = 0.225, or 22.5%. The relative uncertainties are 0.02/1.35 = 1.48% for TDS, 1/250 = 0.40% for the beverage and 0.1/15.0 = 0.67% for the dose. Combined: √(1.48<sup>2</sup> + 0.40<sup>2</sup> + 0.67<sup>2</sup>) = 1.68%. The absolute uncertainty is 0.0168 × 22.5 = 0.38 percentage points, so E = 22.5 ± 0.4%.</p>
+<p><span class="step">Check.</span> The TDS term dominates, so the combined relative uncertainty should be a little above 1.48%; it is. A better scale would barely help; a better TDS measurement would.</p>
+</div>
+<p>The answer resolves the baristas' argument: with these instruments, single brews at 20.3% and 20.7% cannot be told apart.</p>
+<div class="widget">
+<h3>Uncertainty of an extraction yield</h3>
+<form class="w" id="ch00-measurement-w12" action="#">
+<div><input type="hidden" name="kind" value="ey-uncertainty"></div>
+<div class="f"><label for="ch00-measurement-w12-dose">Dose</label> <input type="text" size="7" name="dose" id="ch00-measurement-w12-dose" value="15"> g</div>
+<div class="f"><label for="ch00-measurement-w12-ddose">&plusmn;</label> <input type="text" size="7" name="ddose" id="ch00-measurement-w12-ddose" value="0.1"> g</div>
+<div class="f"><label for="ch00-measurement-w12-bev">Beverage mass</label> <input type="text" size="7" name="bev" id="ch00-measurement-w12-bev" value="250"> g</div>
+<div class="f"><label for="ch00-measurement-w12-dbev">&plusmn;</label> <input type="text" size="7" name="dbev" id="ch00-measurement-w12-dbev" value="1"> g</div>
+<div class="f"><label for="ch00-measurement-w12-tds">TDS</label> <input type="text" size="7" name="tds" id="ch00-measurement-w12-tds" value="1.35"> %</div>
+<div class="f"><label for="ch00-measurement-w12-dtds">&plusmn;</label> <input type="text" size="7" name="dtds" id="ch00-measurement-w12-dtds" value="0.02"> %</div>
+<p class="formula">(&delta;EY/EY)<sup>2</sup> = (&delta;TDS/TDS)<sup>2</sup> + (&delta;B/B)<sup>2</sup> + (&delta;D/D)<sup>2</sup> for EY = TDS &times; B / D.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch00-measurement-w12-out"></div>
+</form>
+</div>
+<div class="quiz">
+<h3>Check your understanding: Section 1</h3>
+<form class="quiz-form" id="ch00-measurement-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. Averaging twenty refractometer readings of one sample reduces</p>
+<p class="opts">
+<input type="radio" name="ch00-measurement-q0-0" id="ch00-measurement-q0-0-0" value="0"> <label for="ch00-measurement-q0-0-0">random error only</label><br>
+<input type="radio" name="ch00-measurement-q0-0" id="ch00-measurement-q0-0-1" value="1"> <label for="ch00-measurement-q0-0-1">systematic error only</label><br>
+<input type="radio" name="ch00-measurement-q0-0" id="ch00-measurement-q0-0-2" value="2"> <label for="ch00-measurement-q0-0-2">both random and systematic error</label><br>
+</p>
+<div><input type="hidden" name="ch00-measurement-q0-0-kind" value="choice"><input type="hidden" name="ch00-measurement-q0-0-ans" value="0"></div>
+<p class="fb" id="ch00-measurement-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. Ten readings have a standard deviation of 0.030%. What is the standard error of their mean, in %?</p>
+<p class="opts"><label for="ch00-measurement-q0-1">Answer:</label> <input type="text" size="8" name="ch00-measurement-q0-1" id="ch00-measurement-q0-1"> %</p>
+<div><input type="hidden" name="ch00-measurement-q0-1-kind" value="numeric"><input type="hidden" name="ch00-measurement-q0-1-ans" value="0.0095"><input type="hidden" name="ch00-measurement-q0-1-tol" value="0.0005"></div>
+<p class="fb" id="ch00-measurement-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch00-measurement-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch00-measurement-q0">Answers</a></p>
+</form>
+</div>
+<h2>2. Mass</h2>
+<p>Having seen that uncertainty decides what a number can tell us, we turn to the instruments, starting with the one used most often. Coffee and kitchen scales weigh with a <dfn id="t-load-cell">load cell</dfn>, a metal element whose electrical resistance changes slightly as it bends under load. Four properties decide whether a scale can be trusted.</p>
+<p><dfn id="t-resolution">Resolution</dfn> is the smallest step the display shows. It is not the uncertainty: a scale that displays 0.1 g may repeat only to 0.2 g.</p>
+<p><dfn id="t-linearity">Linearity</dfn> is whether the reading is proportional to the true mass across the range you use. To check it, weigh objects of known mass at several points across the range. Plotting reading against known mass should give a straight line through the origin with slope 1.</p>
+<p><dfn id="t-repeatability">Repeatability</dfn> is the standard deviation of repeated weighings of one object, removing and replacing it each time.</p>
+<p><dfn id="t-drift">Drift</dfn> is a slow change of reading with time. Load cells drift as they warm, and a cup of hot coffee loses a few tenths of a gram per minute by evaporation. Weigh beverage promptly, or cover the cup.</p>
+<h2>3. Temperature</h2>
+<p>A thermometer is calibrated at two fixed points. Crushed ice stirred in water is at 0.0 °C. Water boils at 100 °C only at standard sea-level pressure; the boiling point falls by about 0.3 °C for every 100 m of altitude and shifts by a few tenths of a degree with the weather.</p>
+<p>A probe also has a <dfn id="t-response-time">response time</dfn>: a thick probe can take thirty seconds to settle. That lag is small in a kettle and large in a roaster, where bean temperature changes by several degrees per minute (Chapter 7).</p>
+<p>Location matters as much as calibration. The water in the kettle, the slurry in a dripper and the bed beneath it can differ by several degrees. Always record where a temperature was measured.</p>
+<h2>4. Refractometry</h2>
+<p>Weighing and temperature are familiar. The measurement of dissolved solids is not, and most of the quantitative work in Chapters 1 to 5 depends on it.</p>
+<p>When light passes from one transparent material into another, it changes direction. The amount of bending depends on the <dfn id="t-refractive-index">refractive index</dfn> of each material, a number that rises as more material is dissolved in a liquid. A <dfn id="t-refractometer">refractometer</dfn> measures the refractive index of a drop of liquid on a glass prism. At the low concentrations of brewed coffee, refractive index rises almost in proportion to dissolved solids, and the instrument converts the reading to TDS with a calibration curve stored by the manufacturer.</p>
+<p>Three practical consequences follow.</p>
+<ol>
+<li>Temperature. Refractive index falls as temperature rises. Instruments compensate, but a hot sample keeps changing as it cools on the prism. Cool samples to room temperature in a sealed cup first, so that no water evaporates.</li>
+<li>Particles. Suspended particles scatter light and bias the reading. Unfiltered samples (espresso, French press) must be settled or filtered. If you filter, filter every sample the same way and say so, since filtering can also remove some dissolved material.</li>
+<li>Calibration basis. The conversion is specific to coffee solids. A sugar refractometer reads in degrees Brix (grams of sucrose per 100 g of solution) and needs a separate conversion factor.</li>
+</ol>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>A refractometer that displays 1.35% TDS has measured TDS to ±0.01%. The display resolution is 0.01%, but the reading also carries the instrument's calibration error, the effect of sample temperature and particles, and the variation between samples drawn from the same brew. Lab L0.3 measures that sampling variation directly; it is usually two or three times the display resolution.</p>
+</div>
+<h3>Calibrating against standards made by mass</h3>
+<p>The most reliable way to calibrate a refractometer is to make solutions whose TDS is known because you weighed every component. Liang, Chan and Ristenpart (2021) calibrated their instrument this way, using solutions of instant coffee between 0.5 and 4 g per 100 g of water [1].</p>
+<p>The procedure has four steps. First, dry a sample of instant coffee in a low oven to find its moisture content. Second, dissolve weighed amounts of instant coffee in weighed water. Third, compute each standard's true TDS as mass of dry solids divided by total mass. Fourth, read each standard several times.</p>
+<p>The readings are then compared with the true values by fitting a straight line. The method of <dfn id="t-least-squares">least squares</dfn> chooses the slope and intercept that make the sum of squared vertical distances from the points to the line as small as possible (Appendix E.5). The slope shows whether the instrument scales correctly, the intercept shows whether it is correctly zeroed, and the scatter of the points about the line estimates the precision of a single reading. <a href="#fig-calibration">Figure 0.1</a> shows such a fit.</p>
+<div class="figure" id="fig-calibration">
+<img src="figures/ch00-calibration.gif" width="465" height="319" alt="Calibration line: refractometer reading against known TDS for five standards, with small residuals below.">
+<p class="caption">Figure 0.1. Calibration of a refractometer against five standards made by mass (teaching data). The lower panel shows the residuals, the differences between each reading and the fitted line; a good calibration leaves residuals that scatter without pattern.</p>
+</div>
+<div class="widget">
+<h3>Calibration line by least squares</h3>
+<form class="w" id="ch00-measurement-w18" action="#">
+<div><input type="hidden" name="kind" value="calibration"></div>
+<div class="f"><label for="ch00-measurement-w18-data">Pairs, one per line: known value, instrument reading</label><br><textarea name="data" id="ch00-measurement-w18-data" rows="6" cols="36">0.50 0.52
+1.00 1.01
+1.50 1.53
+2.00 2.02
+3.00 3.05</textarea></div>
+<p class="formula">Reading = a + b &times; known. b = S<sub>xy</sub>/S<sub>xx</sub>, a = mean(y) &minus; b mean(x); residual SD s = &radic;(&Sigma;e<sup>2</sup>/(n &minus; 2)).</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch00-measurement-w18-out"></div>
+</form>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: Correcting a reading with a calibration line</p>
+<p><span class="step">Problem.</span> A calibration gives reading = 0.0057 + 1.0127 × true, both in % TDS. A brew reads 1.373%. What is its true TDS, and how large is the error if the calibration is ignored?</p>
+<p><span class="step">Plan.</span> Invert the calibration line to express the true value in terms of the reading.</p>
+<p><span class="step">Solution.</span> true = (reading − 0.0057)/1.0127 = (1.373 − 0.0057)/1.0127 = 1.350%. Using the raw reading would overstate TDS by 0.023 percentage points, a relative error of 1.7%.</p>
+<p><span class="step">Check.</span> A slope 1.3% above 1 and a small positive intercept both push readings up, so the corrected value must be below the reading. It is. The 1.7% systematic error is as large as the whole random uncertainty found in Section 1.</p>
+</div>
+<h3>Zeroing</h3>
+<p>The zero point depends on the water used to set it. Zero with your brew water to measure only the solids that came from the coffee. Zero with distilled water to measure everything dissolved, including the minerals already in the water. With 150 mg/L of minerals in the brew water the difference is 0.015% TDS, which shifts extraction yield by about one percentage point at filter strength. Record which you did.</p>
+<h3>How well do instruments agree?</h3>
+<p>Commercial coffee refractometers agree closely with one another but are rarely compared with an independent standard. In one informal comparison of three instruments, two current models differed by at most 0.007% TDS across three brews, while an older model differed from both and scattered more; the comparison had no reference standard [2]. Calibrate your own instrument, keep the method fixed, and report the method with every result.</p>
+<div class="quiz">
+<h3>Check your understanding: Section 4</h3>
+<form class="quiz-form" id="ch00-measurement-q1" action="#answers">
+<div class="q">
+<p class="prompt">1. A refractometer is zeroed with distilled water and then reads a brew made with mineral-rich water. The TDS of the coffee alone is</p>
+<p class="opts">
+<input type="radio" name="ch00-measurement-q1-0" id="ch00-measurement-q1-0-0" value="0"> <label for="ch00-measurement-q1-0-0">overstated by the minerals' contribution</label><br>
+<input type="radio" name="ch00-measurement-q1-0" id="ch00-measurement-q1-0-1" value="1"> <label for="ch00-measurement-q1-0-1">understated by the minerals' contribution</label><br>
+<input type="radio" name="ch00-measurement-q1-0" id="ch00-measurement-q1-0-2" value="2"> <label for="ch00-measurement-q1-0-2">unaffected</label><br>
+</p>
+<div><input type="hidden" name="ch00-measurement-q1-0-kind" value="choice"><input type="hidden" name="ch00-measurement-q1-0-ans" value="0"></div>
+<p class="fb" id="ch00-measurement-q1-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. A calibration gives reading = 0.010 + 0.985 × true. A brew reads 1.380%. What is its true TDS, in %?</p>
+<p class="opts"><label for="ch00-measurement-q1-1">Answer:</label> <input type="text" size="8" name="ch00-measurement-q1-1" id="ch00-measurement-q1-1"> %</p>
+<div><input type="hidden" name="ch00-measurement-q1-1-kind" value="numeric"><input type="hidden" name="ch00-measurement-q1-1-ans" value="1.391"><input type="hidden" name="ch00-measurement-q1-1-tol" value="0.002"></div>
+<p class="fb" id="ch00-measurement-q1-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch00-measurement-q1"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch00-measurement-q1">Answers</a></p>
+</form>
+</div>
+<h2>5. Extraction yield by oven drying</h2>
+<p>A refractometer infers dissolved solids indirectly. Oven drying measures extraction directly: weigh the dry dose, brew, dry the spent grounds in a low oven (about 100 °C) until their mass stops changing, and weigh them again. The mass lost by the grounds is the mass extracted.</p>
+<p>The method contains a hidden bias. Spent grounds hold liquid, and in an immersion brew that liquid has the same TDS as the cup. When the grounds are dried, the solids dissolved in that retained liquid stay behind on the grounds and are counted as unextracted. Let r be the <dfn id="t-brew-ratio">brew ratio</dfn>, the mass of brew water per gram of dry coffee, and r<sub>ret</sub> the mass of liquid retained per gram of grounds. Liang and colleagues showed that for immersion brews [1]</p>
+<table class="deq" summary="Equation 0.5"><tr><td class="f">E<sub>oven</sub> &asymp; E (1 &minus; r<sub>ret</sub> / r)</td><td class="n" id="eq-oven">(0.5)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">E<sub>oven</sub></td><td>extraction yield measured by drying the grounds (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">E</td><td>true extraction yield (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">r<sub>ret</sub></td><td>liquid retained per gram of grounds (g/g)</td></tr>
+<tr><td class="w"></td><td class="s">r</td><td>brew ratio, water per gram of dry coffee (g/g)</td></tr>
+</table>
+<p>They also estimated that about 2.3% of the dissolved solids are lost by evaporation during drying [1].</p>
+<div class="example">
+<p class="boxhead">Worked example: Correcting an oven-dried yield</p>
+<p><span class="step">Problem.</span> An immersion brew uses 20.0 g of coffee and 320 g of water. After decanting, 280 g of liquid is recovered. Drying the grounds shows a mass loss of 3.70 g. Find the true extraction yield.</p>
+<p><span class="step">Plan.</span> Compute the apparent yield, estimate r<sub>ret</sub> from the missing liquid, then correct with <a href="#eq-oven">Equation 0.5</a>.</p>
+<p><span class="step">Solution.</span> Apparent yield: 3.70/20.0 = 18.5%. The brew ratio is r = 320/20.0 = 16. About 320 − 280 = 40 g of liquid stayed in the grounds, so r<sub>ret</sub> ≈ 40/20.0 = 2.0 g/g (neglecting the small mass of dissolved solids). Correction factor: 1 − 2.0/16 = 0.875. True yield: 18.5/0.875 = 21.1%.</p>
+<p><span class="step">Check.</span> The correction raises the yield, as it must, since the bias counts extracted solids as unextracted. Its size, 2.6 percentage points, is larger than every random error in Section 1.</p>
+</div>
+<p>A second gravimetric method dries a weighed portion of the beverage itself and weighs the residue. It gives TDS directly and is the reference against which refractometers are ultimately judged. It needs an analytical balance reading to 0.001 g, because 20 g of brew at 1.3% leaves only 0.26 g of residue.</p>
+<h2>6. pH and titratable acidity</h2>
+<p>Sourness is one of the attributes tasters notice first, and two different measurements are used to describe the acid behind it.</p>
+<p><dfn id="t-ph">pH</dfn> measures the hydrogen ions that are free in solution at the moment of measurement: pH = −log<sub>10</sub>[H<sup>+</sup>], with [H<sup>+</sup>] in mol/L (Appendix A.5). Most acids in coffee are <dfn id="t-weak-acid">weak acids</dfn>: at the pH of a brew, most of their molecules keep their hydrogen ions rather than releasing them. Those undissociated molecules hardly affect pH.</p>
+<p><dfn id="t-titratable-acidity">Titratable acidity</dfn> counts them too. In a <dfn id="t-titration">titration</dfn>, a base of known concentration (here sodium hydroxide, NaOH) is added to a measured volume of brew until the pH reaches a chosen <dfn id="t-endpoint">endpoint</dfn>. Each hydroxide ion removes one hydrogen ion, so the amount of base added equals the number of acidic hydrogens that the acids could give up between the starting pH and the endpoint.</p>
+<table class="deq" summary="Equation 0.6"><tr><td class="f">TA = c<sub>NaOH</sub> V<sub>NaOH</sub> / V<sub>sample</sub></td><td class="n" id="eq-ta">(0.6)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">TA</td><td>titratable acidity (mol/L (quoted in mmol/L))</td></tr>
+<tr><td class="w"></td><td class="s">c<sub>NaOH</sub></td><td>concentration of the sodium hydroxide (mol/L)</td></tr>
+<tr><td class="w"></td><td class="s">V<sub>NaOH</sub></td><td>volume of sodium hydroxide added to reach the endpoint (L)</td></tr>
+<tr><td class="w"></td><td class="s">V<sub>sample</sub></td><td>volume of brew titrated (L)</td></tr>
+</table>
+<p>The UC Davis coffee group titrates 50 mL of brew to pH 8.2 [3]. Across 744 drip brews, titratable acidity rose in proportion to TDS and tracked trained tasters' ratings of sourness closely. pH hardly changed with brewing strength, tracked sourness weakly or not at all, and followed roast level instead [3]. In a separate study, hot and cold brew had almost the same pH (4.85 to 5.13) while hot brew had more titratable acid [4].</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>A lower pH means a more sour coffee. Brewed coffee is a <dfn id="t-buffer">buffer</dfn>, a solution that resists changes in pH because it contains weak acids together with their salts (Appendix A.6). Making a brew stronger adds acid and salt in roughly fixed proportion, so pH barely moves while the total acid rises. Tasters respond to the total. Across brews of one coffee, titratable acidity predicts sourness; pH does not.</p>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: From a titration to titratable acidity</p>
+<p><span class="step">Problem.</span> 50.0 mL of brew needs 4.10 mL of 0.0200 mol/L NaOH to reach pH 8.2. Find the titratable acidity.</p>
+<p><span class="step">Plan.</span> Convert the volume of base to moles, then divide by the sample volume (<a href="#eq-ta">Equation 0.6</a>).</p>
+<p><span class="step">Solution.</span> Moles of NaOH = 4.10 × 10<sup>−3</sup> L × 0.0200 mol/L = 8.20 × 10<sup>−5</sup> mol. TA = 8.20 × 10<sup>−5</sup> mol / 0.0500 L = 1.64 × 10<sup>−3</sup> mol/L = 1.64 mmol/L.</p>
+<p><span class="step">Check.</span> Units: mol divided by L gives mol/L. Typical drip coffee lies between about 1 and 2.5 mmol/L by this method, so the value is plausible.</p>
+<p><span class="step">Your turn.</span> Some laboratories report TA as milligrams of citric acid per litre. Citric acid (192.1 g/mol) gives up three hydrogen ions. Show that 1.64 mmol/L corresponds to 105 mg/L as citric acid. The convention allows comparison; it does not mean the acid is citric.</p>
+</div>
+<p>A pH meter is calibrated with two <dfn id="t-buffer-solution">buffer solutions</dfn> of known pH that bracket the samples (pH 4 and 7 for coffee) and rinsed between samples. Its glass electrode responds slowly in dilute solutions and its reading shifts with temperature, so measure all samples at one temperature. Appendix D.2 explains how the electrode works.</p>
+<div class="quiz">
+<h3>Check your understanding: Section 6</h3>
+<form class="quiz-form" id="ch00-measurement-q2" action="#answers">
+<div class="q">
+<p class="prompt">1. Two coffees have the same pH, but one tastes much more sour. Which measurement is most likely to differ?</p>
+<p class="opts">
+<input type="radio" name="ch00-measurement-q2-0" id="ch00-measurement-q2-0-0" value="0"> <label for="ch00-measurement-q2-0-0">Titratable acidity</label><br>
+<input type="radio" name="ch00-measurement-q2-0" id="ch00-measurement-q2-0-1" value="1"> <label for="ch00-measurement-q2-0-1">Refractive index of the brew water</label><br>
+<input type="radio" name="ch00-measurement-q2-0" id="ch00-measurement-q2-0-2" value="2"> <label for="ch00-measurement-q2-0-2">Roast colour</label><br>
+</p>
+<div><input type="hidden" name="ch00-measurement-q2-0-kind" value="choice"><input type="hidden" name="ch00-measurement-q2-0-ans" value="0"></div>
+<p class="fb" id="ch00-measurement-q2-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. 50.0 mL of cold brew needs 2.95 mL of 0.0200 mol/L NaOH to reach pH 8.2. What is its titratable acidity in mmol/L?</p>
+<p class="opts"><label for="ch00-measurement-q2-1">Answer:</label> <input type="text" size="8" name="ch00-measurement-q2-1" id="ch00-measurement-q2-1"> mmol/L</p>
+<div><input type="hidden" name="ch00-measurement-q2-1-kind" value="numeric"><input type="hidden" name="ch00-measurement-q2-1-ans" value="1.18"><input type="hidden" name="ch00-measurement-q2-1-tol" value="0.01"></div>
+<p class="fb" id="ch00-measurement-q2-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch00-measurement-q2"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch00-measurement-q2">Answers</a></p>
+</form>
+</div>
+<h2>7. Roast colour</h2>
+<p>Roast degree is usually reported as a colour reading. A <dfn id="t-reflectance">reflectance</dfn> instrument shines light on a sample, usually ground coffee pressed flat, and measures the fraction reflected. Coffee instruments report on their own scales (Agtron-type numbers or proprietary units). General-purpose colorimeters report CIE L*a*b* coordinates, in which L* is lightness from 0 (black) to 100 (white) (Appendix D.10). Readings from different instruments are not interchangeable, and grind size and how firmly the sample is pressed both change the number [5].</p>
+<p>A colour reading is one number for a bean whose surface and centre can differ (Chapter 7). When researchers want two roasts at the same degree, they therefore match them on two independent measures. In an ETH Zurich study, hot-air roasts made at high and low temperature were matched on L* (24.06 against 24.02) before any other property was compared. They were also matched on roast loss, the fraction of mass lost in roasting (15.33% against 15.81%) [6]. Record ground colour and mass loss for every roast you make.</p>
+<h2>8. Particle size</h2>
+<p>A grind is described by its <dfn id="t-particle-size-distribution">particle size distribution</dfn>, the proportion of material in each range of particle sizes. It is measured by sieving, by laser diffraction or by image analysis. Each method counts particles differently, so their results cannot be compared directly, and grinder speed and feed rate also change the result [7]. Low-cost image analysis from a phone camera resolves small particles better than sieves [8]. Chapter 4 develops the statistics. Until then, treat "grind size" without a named method as an incomplete measurement.</p>
+<h2>9. The taster as an instrument</h2>
+<p>A human taster has the same properties as any instrument. A <dfn id="t-threshold">threshold</dfn> is the smallest concentration of a substance that the taster can detect. Resolution is the smallest difference the taster can detect between two samples. Drift comes from fatigue and adaptation, and bias from expectation, serving order and even the colour of the cup. International standards specify how to select and train assessors and how to run tasting tests [9]. Chapter 1 shows how to measure thresholds and how to design tests whose results survive statistical analysis. Until then, record the conditions of every tasting: time of day, what you ate beforehand, the serving order and how many samples came before each one.</p>
+<h2>Looking ahead</h2>
+<p>We can now attach an honest uncertainty to a mass, a temperature, a TDS reading and a titration. The one instrument we have not yet calibrated is the person drinking the coffee. Chapter 1 asks what that instrument detects, how its readings can be made reliable, and which substances in the cup it is responding to.</p>
+<h2>Key equations</h2>
+<table class="eqs" summary="Key equations">
+<tr><th>Quantity</th><th>Equation</th><th>Notes</th></tr>
+<tr><td>Standard error of a mean</td><td class="eq">SE = s / &radic;n</td><td>Equation 0.1. Reduces random error only.</td></tr>
+<tr><td>Product or quotient</td><td class="eq">&delta;q/q = &radic;[&Sigma;(&delta;x<sub>i</sub>/x<sub>i</sub>)<sup>2</sup>]</td><td>Equation 0.3. Independent errors.</td></tr>
+<tr><td>Extraction yield, percolation</td><td class="eq">E = S m<sub>b</sub> / m<sub>c</sub></td><td>Equation 0.4.</td></tr>
+<tr><td>Oven-yield bias, immersion</td><td class="eq">E<sub>oven</sub> &asymp; E (1 &minus; r<sub>ret</sub>/r)</td><td>Equation 0.5. Liang et al. 2021.</td></tr>
+<tr><td>Titratable acidity</td><td class="eq">TA = c<sub>NaOH</sub> V<sub>NaOH</sub> / V<sub>sample</sub></td><td>Equation 0.6. Endpoint pH 8.2.</td></tr>
+</table>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-accuracy">Accuracy</a>; <a href="#t-brew-ratio">brew ratio</a>; <a href="#t-buffer">buffer</a>; <a href="#t-buffer-solution">buffer solution</a>; <a href="#t-calibration">calibration</a>; <a href="#t-drift">Drift</a>; <a href="#t-endpoint">endpoint</a>; <a href="#t-extraction-yield">extraction yield</a>; <a href="#t-in-quadrature">in quadrature</a>; <a href="#t-least-squares">least squares</a>; <a href="#t-linearity">Linearity</a>; <a href="#t-load-cell">load cell</a>; <a href="#t-measurement-uncertainty">measurement uncertainty</a>; <a href="#t-particle-size-distribution">particle size distribution</a>; <a href="#t-ph">pH</a>; <a href="#t-precision">Precision</a>; <a href="#t-random-error">Random error</a>; <a href="#t-reflectance">reflectance</a>; <a href="#t-refractive-index">refractive index</a>; <a href="#t-refractometer">refractometer</a>; <a href="#t-repeatability">Repeatability</a>; <a href="#t-resolution">Resolution</a>; <a href="#t-response-time">response time</a>; <a href="#t-sample-standard-deviation">sample standard deviation</a>; <a href="#t-significant-figures">significant figures</a>; <a href="#t-standard-error-of-the-mean">standard error of the mean</a>; <a href="#t-systematic-error">Systematic error</a>; <a href="#t-threshold">threshold</a>; <a href="#t-titratable-acidity">Titratable acidity</a>; <a href="#t-titration">titration</a>; <a href="#t-total-dissolved-solids">total dissolved solids</a>; <a href="#t-weak-acid">weak acid</a>.</p>
+<div class="quiz">
+<h3>Chapter review</h3>
+<form class="quiz-form" id="ch00-measurement-q3" action="#answers">
+<div class="q">
+<p class="prompt">1. A brew has dose 20.0 ± 0.1 g, beverage 320 ± 2 g and TDS 1.30 ± 0.03%. What is the relative uncertainty of its extraction yield, in percent?</p>
+<p class="opts"><label for="ch00-measurement-q3-0">Answer:</label> <input type="text" size="8" name="ch00-measurement-q3-0" id="ch00-measurement-q3-0"> %</p>
+<div><input type="hidden" name="ch00-measurement-q3-0-kind" value="numeric"><input type="hidden" name="ch00-measurement-q3-0-ans" value="2.4"><input type="hidden" name="ch00-measurement-q3-0-tol" value="0.15"></div>
+<p class="fb" id="ch00-measurement-q3-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. An immersion brew is dried to measure extraction. Ignoring the liquid held in the grounds makes the measured yield</p>
+<p class="opts">
+<input type="radio" name="ch00-measurement-q3-1" id="ch00-measurement-q3-1-0" value="0"> <label for="ch00-measurement-q3-1-0">too high</label><br>
+<input type="radio" name="ch00-measurement-q3-1" id="ch00-measurement-q3-1-1" value="1"> <label for="ch00-measurement-q3-1-1">too low</label><br>
+<input type="radio" name="ch00-measurement-q3-1" id="ch00-measurement-q3-1-2" value="2"> <label for="ch00-measurement-q3-1-2">unaffected</label><br>
+</p>
+<div><input type="hidden" name="ch00-measurement-q3-1-kind" value="choice"><input type="hidden" name="ch00-measurement-q3-1-ans" value="1"></div>
+<p class="fb" id="ch00-measurement-q3-1-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">3. Which property of a scale is tested by weighing one object ten times?</p>
+<p class="opts">
+<input type="radio" name="ch00-measurement-q3-2" id="ch00-measurement-q3-2-0" value="0"> <label for="ch00-measurement-q3-2-0">Linearity</label><br>
+<input type="radio" name="ch00-measurement-q3-2" id="ch00-measurement-q3-2-1" value="1"> <label for="ch00-measurement-q3-2-1">Repeatability</label><br>
+<input type="radio" name="ch00-measurement-q3-2" id="ch00-measurement-q3-2-2" value="2"> <label for="ch00-measurement-q3-2-2">Resolution</label><br>
+</p>
+<div><input type="hidden" name="ch00-measurement-q3-2-kind" value="choice"><input type="hidden" name="ch00-measurement-q3-2-ans" value="1"></div>
+<p class="fb" id="ch00-measurement-q3-2-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">4. Why do researchers match roasts on both colour and mass loss?</p>
+<p class="opts">
+<input type="radio" name="ch00-measurement-q3-3" id="ch00-measurement-q3-3-0" value="0"> <label for="ch00-measurement-q3-3-0">Colour readings are too imprecise to use</label><br>
+<input type="radio" name="ch00-measurement-q3-3" id="ch00-measurement-q3-3-1" value="1"> <label for="ch00-measurement-q3-3-1">Colour describes the ground surface, while mass loss reflects the whole bean, and the two can disagree</label><br>
+<input type="radio" name="ch00-measurement-q3-3" id="ch00-measurement-q3-3-2" value="2"> <label for="ch00-measurement-q3-3-2">Mass loss is required by the SCA standard</label><br>
+</p>
+<div><input type="hidden" name="ch00-measurement-q3-3-kind" value="choice"><input type="hidden" name="ch00-measurement-q3-3-ans" value="1"></div>
+<p class="fb" id="ch00-measurement-q3-3-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch00-measurement-q3"><input type="hidden" name="quiz-n" value="4"><input type="button" class="check" value="Check answers"> <a href="#ans-ch00-measurement-q3">Answers</a></p>
+</form>
+</div>
+<h2>Labs</h2>
+<div class="lab">
+<h3 id="lab-L0.1">Lab L0.1: Calibrating the instruments</h3>
+<p><span class="lbl">Aim.</span> Establish the linearity, repeatability and calibration of your scale, thermometer and refractometer.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Boiling water scalds: use a stable kettle and a heat-resistant container.</li>
+<li>Wipe up spills near electrical scales.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>0.1 g scale and, if available, an analytical balance (0.001 g)</li>
+<li>Objects of known mass or a calibrated flask</li>
+<li>Thermometer, crushed ice, kettle</li>
+<li>Refractometer, instant coffee, distilled water, small sealed cups</li>
+<li>Low oven for the moisture content of the instant coffee</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Dry 5 g of instant coffee at 100 °C to constant mass to find its moisture content.</li>
+<li>Prepare five standards by mass between 0.5 and 3.0% true TDS, correcting for the moisture you measured.</li>
+<li>Read each standard three times at room temperature, wiping the prism between readings.</li>
+<li>Weigh one object ten times, removing and replacing it each time.</li>
+<li>Check the thermometer in stirred ice water and in boiling water; look up the boiling point for your altitude.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Standard</th><th>Solids (g)</th><th>Water (g)</th><th>True TDS (%)</th><th>Reading 1</th><th>Reading 2</th><th>Reading 3</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Fit reading against true TDS by least squares with the calibration calculator. Report slope, intercept and residual standard deviation.</li>
+<li>Compute the standard deviation of the ten weighings.</li>
+<li>Write down the corrections you will apply to future refractometer and thermometer readings.</li>
+</ol>
+<p><span class="lbl">What to expect.</span> Slopes within a few percent of 1 and residual standard deviations of 0.01 to 0.02% TDS are typical of current coffee refractometers.</p>
+</div>
+<div class="lab">
+<h3 id="lab-L0.2">Lab L0.2: Titratable acidity and pH of three brews</h3>
+<p><span class="lbl">Aim.</span> Measure pH and titratable acidity of brews that differ in strength, and compare them.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Sodium hydroxide solution damages eyes: wear eye protection and gloves.</li>
+<li>Label all solutions.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>pH meter with pH 4 and 7 buffers</li>
+<li>Burette or 10 mL graduated syringe</li>
+<li>0.0200 mol/L NaOH (standardised; see Appendix D.2)</li>
+<li>50 mL volumetric pipette or graduated cylinder</li>
+<li>Three brews of one coffee at about 1.0, 1.3 and 1.6% TDS</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Calibrate the pH meter with both buffers.</li>
+<li>Cool each brew to room temperature in a covered cup and measure its pH.</li>
+<li>Titrate 50.0 mL of each brew with NaOH, stirring, to a stable pH of 8.2; record the volume.</li>
+<li>Repeat each titration once.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Brew</th><th>TDS (%)</th><th>pH</th><th>NaOH (mL) run 1</th><th>NaOH (mL) run 2</th><th>TA (mmol/L)</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Plot titratable acidity against TDS and against pH.</li>
+<li>Which tracks strength more closely? Compare your answer with the UC Davis results in Section 6.</li>
+</ol>
+<p><span class="lbl">What to expect.</span> Titratable acidity should rise roughly in proportion to TDS while pH changes by only a few hundredths.</p>
+</div>
+<div class="lab">
+<h3 id="lab-L0.3">Lab L0.3: Repeatability of one TDS measurement</h3>
+<p><span class="lbl">Aim.</span> Find how much of the spread in your extraction yields comes from measurement rather than from brewing.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>One brew</li>
+<li>Refractometer</li>
+<li>A second operator if possible</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Take ten samples from one well-stirred brew and read each once.</li>
+<li>If possible, have a second person repeat the ten readings using their own sampling technique.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Sample</th><th>Operator 1 reading</th><th>Operator 2 reading</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Compute the mean and standard deviation for each operator.</li>
+<li>Use the standard deviation as the TDS uncertainty in the uncertainty calculator. What is the resulting uncertainty in extraction yield?</li>
+</ol>
+</div>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section 1]</span> Define precision and accuracy, and give a coffee example of an instrument that is precise but inaccurate. <a class="sol" href="ch00-measurement-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section 1]</span> Why does averaging not remove the error of a thermometer that reads 2 °C low? <a class="sol" href="ch00-measurement-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[A, Section 4]</span> List three reasons a refractometer reading can differ from the true TDS of a brew. <a class="sol" href="ch00-measurement-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section 1]</span> An espresso uses 18.0 ± 0.1 g of coffee, yields 40.0 ± 0.5 g, and reads 9.50 ± 0.10% TDS. Compute the extraction yield and its uncertainty. <a class="sol" href="ch00-measurement-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section 1]</span> You weigh 100 g of water ten times and find a standard deviation of 0.08 g. What is the standard error of the mean, and what does it describe? <a class="sol" href="ch00-measurement-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section 3]</span> At 1,200 m altitude, what boiling-point reading would you expect from a correct thermometer, using 0.3 °C per 100 m? <a class="sol" href="ch00-measurement-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section 4]</span> You make a standard from 2.000 g of instant coffee containing 3.5% moisture dissolved in 98.000 g of water. What is its true TDS? <a class="sol" href="ch00-measurement-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section 4]</span> Your brew water contains 120 mg/L of dissolved solids, and you zero the refractometer with distilled water. By how much does the reading overstate the coffee's own TDS, and what does that do to the extraction yield of a brew reading 1.30%? <a class="sol" href="ch00-measurement-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[B, Section 5]</span> An immersion brew of 15 g in 240 g of water retains 2.2 g of liquid per gram of grounds. By what factor does the oven method underestimate the yield? <a class="sol" href="ch00-measurement-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[B, Section 6]</span> Express a titratable acidity of 1.18 mmol/L as mg/L of citric acid equivalents. <a class="sol" href="ch00-measurement-solutions.html#s10">Solution</a></li>
+<li id="p0-11"><span class="tier">[C, Section 4]</span> Design a procedure to decide whether two refractometers give different readings for filter coffee. Include sampling, replication and the analysis. <a class="sol" href="ch00-measurement-solutions.html#s11">Solution</a></li>
+<li id="p0-12"><span class="tier">[C, Section 1]</span> A colleague reports that a new grinder raised their extraction yield from 20.3% to 20.7%. List what you would need to know before believing it. <a class="sol" href="ch00-measurement-solutions.html#s12">Solution</a></li>
+<li id="p0-13"><span class="tier">[C, Section 7]</span> Why should a roasting experiment match samples on both roast colour and mass loss rather than colour alone? <a class="sol" href="ch00-measurement-solutions.html#s13">Solution</a></li>
+<li id="p0-14"><span class="tier">[C, Section 6]</span> Explain why a pH meter can show almost no change across brews of different strength while titratable acidity changes a lot. <a class="sol" href="ch00-measurement-solutions.html#s14">Solution</a></li>
+<li id="p0-15"><span class="tier">[C, Section 7]</span> A home roaster reports roast degree only as 'Agtron 65'. What further information would you need to compare that roast with yours? <a class="sol" href="ch00-measurement-solutions.html#s15">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>References</h2>
+<ol>
+<li>Liang J., Chan K.C., Ristenpart W.D. (2021), An equilibrium desorption model for the strength and extraction yield of full immersion brewed coffee, <em>Scientific Reports</em> 11:6904.</li>
+<li>Socratic Coffee (2015), Measuring total dissolved solids: a refractometer comparison, part II, socraticcoffee.com.</li>
+<li>Batali M.E., Cotter A.R., Frost S.C., Ristenpart W.D., Guinard J.-X., titratable acidity, pH and sourness in drip brew coffee, <em>ACS Food Science and Technology</em>; summarised in SCA <em>25</em> magazine, issue 15.</li>
+<li>Rao N.Z., Fuller M. (2018), Acidity and antioxidant activity of cold brew coffee, <em>Scientific Reports</em> 8.</li>
+<li>Roasted coffee beans characterization through optoelectronic color sensing, Brazilian coffee research repository (sbicafe.ufv.br).</li>
+<li>Schenker S. (2000), <em>Investigations on the Hot Air Roasting of Coffee Beans</em>, Dissertation ETH Zurich No. 13620.</li>
+<li>Gagné J. (2023), What I learned from analyzing 300 particle size distributions for 24 espresso grinders, <em>Coffee ad Astra</em>.</li>
+<li>Home-Barista forum, software for analysing grinder particle size distribution with a phone camera.</li>
+<li>ISO 4120:2021 Sensory analysis, triangle test; ISO 13299:2016 sensory profile; ISO 8586 selection and training of assessors.</li>
+</ol>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-ch00-measurement-q0">Check your understanding: Section 1</h3>
+<ol>
+<li><span class="key">random error only.</span> <span id="ch00-measurement-q0-0-ex">Averaging reduces scatter. A calibration offset is identical in every reading and survives averaging.</span></li>
+<li><span class="key">0.0095 %.</span> <span id="ch00-measurement-q0-1-ex">SE = 0.030/√10 = 0.0095%.</span></li>
+</ol>
+<h3 id="ans-ch00-measurement-q1">Check your understanding: Section 4</h3>
+<ol>
+<li><span class="key">overstated by the minerals' contribution.</span> <span id="ch00-measurement-q1-0-ex">Zeroing with distilled water counts the dissolved minerals of the brew water as if they came from the coffee.</span></li>
+<li><span class="key">1.391 %.</span> <span id="ch00-measurement-q1-1-ex">true = (1.380 − 0.010)/0.985 = 1.391%.</span></li>
+</ol>
+<h3 id="ans-ch00-measurement-q2">Check your understanding: Section 6</h3>
+<ol>
+<li><span class="key">Titratable acidity.</span> <span id="ch00-measurement-q2-0-ex">Titratable acidity counts all acidic hydrogens up to the endpoint and tracks sourness better than pH.</span></li>
+<li><span class="key">1.18 mmol/L.</span> <span id="ch00-measurement-q2-1-ex">2.95 × 10<sup>−3</sup> × 0.0200 = 5.90 × 10<sup>−5</sup> mol in 0.0500 L gives 1.18 mmol/L.</span></li>
+</ol>
+<h3 id="ans-ch00-measurement-q3">Chapter review</h3>
+<ol>
+<li><span class="key">2.4 %.</span> <span id="ch00-measurement-q3-0-ex">Relative errors 0.50%, 0.63% and 2.31% combine in quadrature to about 2.4%.</span></li>
+<li><span class="key">too low.</span> <span id="ch00-measurement-q3-1-ex">Solids dissolved in the retained liquid stay on the grounds and are counted as unextracted.</span></li>
+<li><span class="key">Repeatability.</span> <span id="ch00-measurement-q3-2-ex">Repeatability is the spread of repeated weighings of one object.</span></li>
+<li><span class="key">Colour describes the ground surface, while mass loss reflects the whole bean, and the two can disagree.</span> <span id="ch00-measurement-q3-3-ex">Two roasts can match on one measure and differ on the other, especially when heating rates differ.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="ch00-measurement-solutions.html">0. Instruments and measurement solutions</a>.</p>
+
+<div class="nav bottom"><a href="b-notation.html" rel="prev" title="Notation">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch01-cup.html" rel="next" title="1. The cup: perception and composition">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>

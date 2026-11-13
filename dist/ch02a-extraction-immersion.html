@@ -1,0 +1,450 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2A. Extraction I: immersion, equilibrium and kinetics - Upstream</title>
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+<div class="page">
+<div class="nav top"><a href="ch01-cup.html" rel="prev" title="1. The cup: perception and composition">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch02b-percolation-espresso.html" rel="next" title="2B. Extraction II: percolation and espresso">Next &gt;</a></div>
+<h1>2A. Extraction I: immersion, equilibrium and kinetics</h1>
+<p class="lead">How do solubles leave the grounds, how far can they go, and how fast?</p>
+<noscript><p class="note">Script is off. Calculators show their formulas; answers and solutions are linked from each question.</p></noscript>
+<div class="objectives">
+<p class="boxhead">After this chapter you can</p>
+<ul>
+<li>Write mass balances for immersion and percolation brews and calculate extraction yield from each.</li>
+<li>Use the equilibrium desorption model to predict strength and yield from brew ratio, and explain why immersion yield at equilibrium does not depend on the ratio.</li>
+<li>Estimate how long solubles take to leave a particle, and explain why small and large particles extract on different time scales.</li>
+<li>Fit a two-population kinetic model to measurements of strength over time.</li>
+<li>Place a brew on the brewing control chart and predict how grind, ratio, time and temperature move it.</li>
+<li>Relate titratable acidity and sourness to position on the chart.</li>
+</ul>
+<p class="small">Prerequisites: Chapter 0, Section 1 (TDS, extraction yield, uncertainty); Appendix A, Section A.2 (concentration units); Appendix C, Sections C.1 and C.4 (first-order kinetics, diffusion).</p>
+</div>
+<p>Leave a French press for eight minutes instead of four, and many baristas will say the coffee is over-extracted. Measure it, and the extraction yield has barely moved. Steep a weak brew for an hour, and its yield still stops near 21%, never approaching the 30% of the bean that is soluble. Something limits how far immersion extraction can go, and something sets how fast it gets there.</p>
+<p>This chapter builds the two ideas that explain both observations: equilibrium, which sets the end point, and diffusion, which sets the pace. We use immersion brewing, where all the water and all the coffee sit together, because it is the simplest geometry. Chapter 2B applies the same ideas to water flowing through a bed.</p>
+<h2>1. Strength, extraction and the mass balance</h2>
+<p>Two numbers describe a brew. The first is its strength, the total dissolved solids S defined in Chapter 0: the mass of dissolved coffee material per unit mass of brew, written as a fraction (0.0135) or a percentage (1.35%). Strength is what a taster perceives as intensity. The second is the extraction yield E: the fraction of the dry coffee that has dissolved. Extraction yield describes how far the process has gone.</p>
+<p>The two are linked by a <dfn id="t-mass-balance">mass balance</dfn>, an account of where every gram ends up. We need four masses: the dose of dry coffee m<sub>c</sub>, the brew water m<sub>w</sub>, the beverage collected m<sub>b</sub>, and the dissolved solids m<sub>s</sub>. The <dfn id="t-brew-ratio">brew ratio</dfn> is the water per gram of coffee:</p>
+<table class="deq" summary="Equation 2A.1"><tr><td class="f">r = m<sub>w</sub> / m<sub>c</sub></td><td class="n" id="eq-ratio">(2A.1)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">r</td><td>brew ratio (g/g)</td></tr>
+<tr><td class="w"></td><td class="s">m<sub>w</sub></td><td>mass of brew water (g)</td></tr>
+<tr><td class="w"></td><td class="s">m<sub>c</sub></td><td>mass of dry coffee (g)</td></tr>
+</table>
+<h3>Percolation</h3>
+<p>In a <dfn id="t-percolation">percolation</dfn> brew (pour-over, batch filter, espresso), fresh water passes through a bed of grounds and leaves as beverage. If we count only the solids in the cup, then m<sub>s</sub> = S m<sub>b</sub>, and</p>
+<table class="deq" summary="Equation 2A.2"><tr><td class="f">E = m<sub>s</sub> / m<sub>c</sub> = S m<sub>b</sub> / m<sub>c</sub></td><td class="n" id="eq-perc">(2A.2)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">E</td><td>extraction yield (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">S</td><td>strength (TDS) of the beverage (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">m<sub>b</sub></td><td>mass of beverage (g)</td></tr>
+</table>
+<p>The liquid left in the bed at the end is ignored. In percolation that liquid is the last water to pass through, which is weaker than the cup, so ignoring it causes only a small error.</p>
+<h3>Immersion</h3>
+<p>In an <dfn id="t-immersion">immersion</dfn> brew (French press, cupping bowl), all the water and all the coffee sit together. At the end, the liquid trapped in the grounds has the same strength as the liquid poured off, so it cannot be ignored. We derive the extraction yield in three steps.</p>
+<ol>
+<li>All the dissolved solids are in the liquid, and the liquid's mass is the water plus the solids: m<sub>w</sub> + m<sub>s</sub>.</li>
+<li>The strength is the fraction of that liquid that is solids: S = m<sub>s</sub>/(m<sub>w</sub> + m<sub>s</sub>).</li>
+<li>Multiplying out gives S m<sub>w</sub> + S m<sub>s</sub> = m<sub>s</sub>, so m<sub>s</sub>(1 − S) = S m<sub>w</sub> and m<sub>s</sub> = S m<sub>w</sub>/(1 − S).</li>
+</ol>
+<p>Dividing by the dose and using <a href="#eq-ratio">Equation 2A.1</a>:</p>
+<table class="deq" summary="Equation 2A.3"><tr><td class="f">E = r S / (1 &minus; S)</td><td class="n" id="eq-imm">(2A.3)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">E</td><td>extraction yield (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">r</td><td>brew ratio (g/g)</td></tr>
+<tr><td class="w"></td><td class="s">S</td><td>strength (TDS) of the liquid (fraction)</td></tr>
+</table>
+<div class="example">
+<p class="boxhead">Worked example: Two formulas, two answers</p>
+<p><span class="step">Problem.</span> 15.0 g of coffee steeps in 250 g of water. The liquid reads 1.35% TDS, and you pour off 215 g. Find the extraction yield.</p>
+<p><span class="step">Plan.</span> The brew is an immersion brew, so use <a href="#eq-imm">Equation 2A.3</a>. Compare with the result of wrongly using the percolation formula.</p>
+<p><span class="step">Solution.</span> The brew ratio is r = 250/15.0 = 16.7. Then E = 16.7 × 0.0135/(1 − 0.0135) = 0.228, or 22.8%. The percolation formula would give 0.0135 × 215/15.0 = 19.4%.</p>
+<p><span class="step">Check.</span> The difference comes from the 35 g of liquid left in the grounds, at full strength, whose solids the percolation formula discards. Using the wrong formula understates immersion extraction by more than three percentage points.</p>
+</div>
+<p>A related quantity is the <dfn id="t-retained-liquid">retained liquid</dfn>, r<sub>ret</sub>, the mass of liquid held per gram of grounds after brewing. For filter grinds it is about 2 g/g, which is why a 300 g pour-over from 18 to 20 g of coffee yields only about 260 to 270 g in the cup.</p>
+<div class="widget">
+<h3>Recipe from a brew ratio</h3>
+<form class="w" id="ch02a-extraction-immersion-w8" action="#">
+<div><input type="hidden" name="kind" value="recipe"></div>
+<div class="f"><label for="ch02a-extraction-immersion-w8-ratio">Brew ratio (water : coffee)</label> <input type="text" size="7" name="ratio" id="ch02a-extraction-immersion-w8-ratio" value="16"> : 1</div>
+<div class="f"><label for="ch02a-extraction-immersion-w8-water">Brew water</label> <input type="text" size="7" name="water" id="ch02a-extraction-immersion-w8-water" value="300"> g</div>
+<div class="f"><label for="ch02a-extraction-immersion-w8-lrr">Liquid retained per gram of grounds</label> <input type="text" size="7" name="lrr" id="ch02a-extraction-immersion-w8-lrr" value="2"> g/g</div>
+<p class="formula">Dose = water / ratio. Beverage &asymp; water &minus; retained liquid &times; dose.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch02a-extraction-immersion-w8-out"></div>
+</form>
+</div>
+<h2>2. How far can extraction go? The equilibrium model</h2>
+<p>Roughly 30% of a roasted bean can dissolve in hot water, yet immersion brews stop near 21%. Liang, Chan and Ristenpart (2021) explained the gap with a <dfn id="t-desorption">desorption</dfn> model [1]. Desorption is the release of a substance from a solid surface into a liquid; its reverse, the uptake of dissolved material back onto the solid, is <dfn id="t-adsorption">adsorption</dfn>.</p>
+<p>The model treats all soluble material as a single substance, an approximation called <dfn id="t-lumped-model">lumping</dfn>. Let M be the mass of soluble material in the dose, which is E<sub>max</sub> m<sub>c</sub>, where the <dfn id="t-maximum-extractable-fraction">maximum extractable fraction</dfn> E<sub>max</sub> ≈ 0.30. At some moment a mass x of it has dissolved and M − x remains in the grounds.</p>
+<ul>
+<li>Material leaves the grounds at a rate proportional to the amount still there: k<sub>D</sub>(M − x).</li>
+<li>Material returns to the grounds at a rate proportional to the amount in solution: k<sub>A</sub> x.</li>
+</ul>
+<p>At <dfn id="t-equilibrium">equilibrium</dfn> the two rates are equal, so k<sub>D</sub>(M − x) = k<sub>A</sub> x. Solving for the fraction dissolved:</p>
+<table class="deq" summary="Equation 2A.4"><tr><td class="f">x / M = K = k<sub>D</sub> / (k<sub>D</sub> + k<sub>A</sub>)</td><td class="n" id="eq-keq">(2A.4)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">K</td><td>extraction equilibrium constant: the fraction of soluble material in solution at equilibrium (dimensionless)</td></tr>
+<tr><td class="w"></td><td class="s">k<sub>D</sub>, k<sub>A</sub></td><td>rate constants for desorption and adsorption (1/min)</td></tr>
+</table>
+<p>We call K the <dfn id="t-extraction-equilibrium-constant">extraction equilibrium constant</dfn>. The extraction yield at equilibrium is the dissolved mass divided by the dose, x/m<sub>c</sub> = K M/m<sub>c</sub>:</p>
+<table class="deq" summary="Equation 2A.5"><tr><td class="f">E<sub>eq</sub> = K E<sub>max</sub></td><td class="n" id="eq-eqy">(2A.5)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">E<sub>eq</sub></td><td>extraction yield at equilibrium (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">E<sub>max</sub></td><td>maximum extractable fraction of the dry coffee (fraction)</td></tr>
+</table>
+<p>The brew ratio does not appear. To find the strength, set <a href="#eq-eqy">Equation 2A.5</a> equal to the immersion mass balance, <a href="#eq-imm">Equation 2A.3</a>: K E<sub>max</sub> = r S/(1 − S). Writing E for K E<sub>max</sub>, multiplying out gives E − E S = r S, so S(r + E) = E, and</p>
+<table class="deq" summary="Equation 2A.6"><tr><td class="f">S<sub>eq</sub> = K E<sub>max</sub> / (r + K E<sub>max</sub>)</td><td class="n" id="eq-eqs">(2A.6)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">S<sub>eq</sub></td><td>strength at equilibrium (fraction)</td></tr>
+</table>
+<p>Because K E<sub>max</sub> ≈ 0.2 is small compared with any brew ratio, the strength falls roughly as 1/r.</p>
+<p>Fitted to one-litre immersion brews over a wide range of ratios, the model gave K = 0.717 ± 0.007, so K E<sub>max</sub> = 0.215. Measured equilibrium yields averaged 20.7 ± 1.1% against the predicted 21.5%, and strength was almost exactly proportional to 1/r. In traditional cupping, K was 0.79 for regular and 0.73 for decaffeinated coffee. K did not change between 80 and 99 °C, nor with grind size or roast level over the ranges tested [1]. <a href="#fig-equilibrium">Figure 2A.1</a> shows the predictions.</p>
+<div class="figure" id="fig-equilibrium">
+<img src="figures/ch02a-equilibrium.gif" width="476" height="284" alt="Graph of equilibrium TDS falling with brew ratio while extraction yield stays constant at about 21.5 percent.">
+<p class="caption">Figure 2A.1. Immersion at equilibrium predicted by the desorption model (K = 0.717, E<sub>max</sub> = 0.30). Notice that the yield line is flat: the ratio changes strength, not yield.</p>
+</div>
+<div class="widget">
+<h3>Immersion at equilibrium (desorption model)</h3>
+<form class="w" id="ch02a-extraction-immersion-w17" action="#">
+<div><input type="hidden" name="kind" value="equilibrium"></div>
+<div class="f"><label for="ch02a-extraction-immersion-w17-k">Equilibrium constant K</label> <input type="text" size="7" name="k" id="ch02a-extraction-immersion-w17-k" value="0.717"> </div>
+<div class="f"><label for="ch02a-extraction-immersion-w17-emax">Maximum extractable fraction E<sub>max</sub></label> <input type="text" size="7" name="emax" id="ch02a-extraction-immersion-w17-emax" value="0.3"> </div>
+<div class="f"><label for="ch02a-extraction-immersion-w17-rlo">Brew ratio from</label> <input type="text" size="7" name="rlo" id="ch02a-extraction-immersion-w17-rlo" value="8"> : 1</div>
+<div class="f"><label for="ch02a-extraction-immersion-w17-rhi">to</label> <input type="text" size="7" name="rhi" id="ch02a-extraction-immersion-w17-rhi" value="20"> : 1</div>
+<p class="formula">EY = K E<sub>max</sub> (independent of ratio). TDS = K E<sub>max</sub> / (R + K E<sub>max</sub>), R = water/coffee.</p>
+<p class="small">Default K is the value Liang, Chan and Ristenpart (2021) fitted for 1 L brews.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch02a-extraction-immersion-w17-out"></div>
+</form>
+</div>
+<p>The model has three practical consequences. In immersion, the ratio sets the strength, and the coffee sets the yield. Waiting longer cannot raise yield once equilibrium is reached. And the familiar target of 18 to 22% extraction is, for immersion at equilibrium, mainly a property of the coffee rather than of the recipe.</p>
+<div class="misc">
+<p class="boxhead">Common misconception</p>
+<p>"Steeping a French press longer over-extracts it." If the brew has reached equilibrium, its extraction yield cannot rise further, so a longer steep cannot raise yield. The flavour can still change, through cooling, loss of aroma to the air, oxidation and slow reactions in solution, and a coarse grind may not yet be at equilibrium after four minutes. Measure strength at both times before blaming extraction (Problem 11).</p>
+</div>
+<div class="evidence">
+<p class="boxhead">Status of the evidence</p>
+<p>The equilibrium model was fitted by one laboratory to one coffee in large batches and to cupping. It treats all solubles as one substance, which cannot be strictly true: caffeine, acids and melanoidins differ in how strongly they bind to the grounds and how fast they move. Its predictions for total dissolved solids are well supported. Its usefulness for individual flavour compounds is untested. E<sub>max</sub> = 0.30 was assumed rather than measured for each coffee.</p>
+</div>
+<div class="quiz">
+<h3>Check your understanding: Sections 1 and 2</h3>
+<form class="quiz-form" id="ch02a-extraction-immersion-q0" action="#answers">
+<div class="q">
+<p class="prompt">1. A French press uses 30 g of coffee in 500 g of water, and the liquid reads 1.30% TDS. What is the extraction yield in percent?</p>
+<p class="opts"><label for="ch02a-extraction-immersion-q0-0">Answer:</label> <input type="text" size="8" name="ch02a-extraction-immersion-q0-0" id="ch02a-extraction-immersion-q0-0"> %</p>
+<div><input type="hidden" name="ch02a-extraction-immersion-q0-0-kind" value="numeric"><input type="hidden" name="ch02a-extraction-immersion-q0-0-ans" value="21.95"><input type="hidden" name="ch02a-extraction-immersion-q0-0-tol" value="0.1"></div>
+<p class="fb" id="ch02a-extraction-immersion-q0-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. According to the equilibrium model, doubling the brew ratio of an immersion brew at equilibrium will</p>
+<p class="opts">
+<input type="radio" name="ch02a-extraction-immersion-q0-1" id="ch02a-extraction-immersion-q0-1-0" value="0"> <label for="ch02a-extraction-immersion-q0-1-0">roughly halve the strength and leave the yield unchanged</label><br>
+<input type="radio" name="ch02a-extraction-immersion-q0-1" id="ch02a-extraction-immersion-q0-1-1" value="1"> <label for="ch02a-extraction-immersion-q0-1-1">halve both strength and yield</label><br>
+<input type="radio" name="ch02a-extraction-immersion-q0-1" id="ch02a-extraction-immersion-q0-1-2" value="2"> <label for="ch02a-extraction-immersion-q0-1-2">leave strength unchanged and double yield</label><br>
+</p>
+<div><input type="hidden" name="ch02a-extraction-immersion-q0-1-kind" value="choice"><input type="hidden" name="ch02a-extraction-immersion-q0-1-ans" value="0"></div>
+<p class="fb" id="ch02a-extraction-immersion-q0-1-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch02a-extraction-immersion-q0"><input type="hidden" name="quiz-n" value="2"><input type="button" class="check" value="Check answers"> <a href="#ans-ch02a-extraction-immersion-q0">Answers</a></p>
+</form>
+</div>
+<h2>3. How fast? Diffusion out of a particle</h2>
+<p>Equilibrium tells us where extraction ends. To know how long it takes, we have to follow solubles out of a particle. Water reaches broken cells on the surface of a coffee particle almost immediately, and their contents dissolve within seconds. Solubles deeper inside must travel through the particle to reach the surface. They travel by <dfn id="t-diffusion">diffusion</dfn>, the net movement of molecules from regions of high concentration to regions of low concentration, caused by their random thermal motion.</p>
+<p>How quickly a substance diffuses is described by its <dfn id="t-diffusivity">diffusivity</dfn> D, in m<sup>2</sup>/s. Appendix C.4 shows that in a time t a molecule typically wanders a distance of order √(Dt). Turning that around, the time to diffuse out of a particle of radius a is of order a<sup>2</sup>/D. For a sphere, solving the diffusion equation exactly (see the box below) gives the precise <dfn id="t-time-constant">time constant</dfn>:</p>
+<table class="deq" summary="Equation 2A.7"><tr><td class="f">&tau; = a<sup>2</sup> / (&pi;<sup>2</sup> D)</td><td class="n" id="eq-tau">(2A.7)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">&tau;</td><td>time constant for solute leaving a sphere (s)</td></tr>
+<tr><td class="w"></td><td class="s">a</td><td>particle radius (m)</td></tr>
+<tr><td class="w"></td><td class="s">D</td><td>diffusivity of the solute inside the particle (m<sup>2</sup>/s)</td></tr>
+</table>
+<p>After the first few seconds, the solute remaining in the particle falls approximately as e<sup>−t/τ</sup>: after one time constant 37% remains, after three time constants 5%.</p>
+<p>The most important feature of <a href="#eq-tau">Equation 2A.7</a> is the square. Halving the particle diameter quarters the extraction time. A fine particle of 100 µm and a coarse particle of 800 µm differ in time constant by a factor of 8<sup>2</sup> = 64. <a href="#fig-diffusion">Figure 2A.2</a> shows release curves for three sizes.</p>
+<div class="figure" id="fig-diffusion">
+<img src="figures/ch02a-diffusion.gif" width="450" height="284" alt="Three curves of fraction released against time for particles of 100, 400 and 800 micrometres; the smallest reaches nearly complete release in under a minute while the largest is far from complete at ten minutes.">
+<p class="caption">Figure 2A.2. Release of solute from spheres of three diameters (exact solution, illustrative D = 2 × 10<sup>−10</sup> m<sup>2</sup>/s). Compare the times at which each curve reaches 90%: they scale with the square of the diameter.</p>
+</div>
+<div class="deeper">
+<p class="boxhead">Going further: The exact solution for a sphere</p>
+<p>Fick's second law in spherical coordinates, ∂c/∂t = D (1/r<sup>2</sup>) ∂/∂r(r<sup>2</sup> ∂c/∂r), describes how concentration c changes inside the particle. With a uniform starting concentration and the surface held at zero, separating variables (Appendix C.4) gives the fraction released:</p>
+<p>F(t) = 1 − (6/π<sup>2</sup>) Σ<sub>n=1</sub><sup>∞</sup> (1/n<sup>2</sup>) exp(−n<sup>2</sup>π<sup>2</sup>Dt/a<sup>2</sup>).</p>
+<p>The n = 1 term decays most slowly, with time constant a<sup>2</sup>/(π<sup>2</sup>D), which is <a href="#eq-tau">Equation 2A.7</a>. The higher terms die away within seconds, which is why a single exponential describes the later stage of release.</p>
+</div>
+<div class="widget">
+<h3>Diffusion time for a spherical particle</h3>
+<form class="w" id="ch02a-extraction-immersion-w27" action="#">
+<div><input type="hidden" name="kind" value="diffusion"></div>
+<div class="f"><label for="ch02a-extraction-immersion-w27-d">Particle diameter</label> <input type="text" size="7" name="d" id="ch02a-extraction-immersion-w27-d" value="600"> &micro;m</div>
+<div class="f"><label for="ch02a-extraction-immersion-w27-diff">Effective diffusivity D</label> <input type="text" size="7" name="diff" id="ch02a-extraction-immersion-w27-diff" value="0.0000000002"> m<sup>2</sup>/s</div>
+<p class="formula">For a sphere of radius a, the slowest-decaying term of the series solution decays with time constant &tau; = a<sup>2</sup>/(&pi;<sup>2</sup>D).</p>
+<p class="small">Effective diffusivities inside coffee particles are uncertain; vary D to see the scaling with d<sup>2</sup>.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch02a-extraction-immersion-w27-out"></div>
+</form>
+</div>
+<div class="example">
+<p class="boxhead">Worked example: Fines against boulders</p>
+<p><span class="step">Problem.</span> Take D = 2 × 10<sup>−10</sup> m<sup>2</sup>/s. Find the time constants of a 600 µm particle, a 100 µm fine and a 1,000 µm boulder, and the fraction of solute the boulder still holds after a three-minute brew.</p>
+<p><span class="step">Plan.</span> Apply <a href="#eq-tau">Equation 2A.7</a> with a = d/2, then use the d<sup>2</sup> scaling for the other sizes.</p>
+<p><span class="step">Solution.</span> For d = 600 µm, a = 3 × 10<sup>−4</sup> m and τ = (3 × 10<sup>−4</sup>)<sup>2</sup>/(π<sup>2</sup> × 2 × 10<sup>−10</sup>) = 45.6 s. For the fine, τ = 45.6 × (100/600)<sup>2</sup> = 1.27 s. For the boulder, τ = 45.6 × (1000/600)<sup>2</sup> = 127 s. Using the first term of the exact solution, after 180 s the boulder retains (6/π<sup>2</sup>) e<sup>−180/127</sup> ≈ 0.15, or 15%.</p>
+<p><span class="step">Check.</span> The fine is effectively empty after a few seconds, so fines set the early strength; boulders set how much a longer contact time adds. Real diffusivities in coffee are poorly known and differ between compounds, so trust the ratios more than the absolute times.</p>
+</div>
+<h2>4. Two populations of solubles</h2>
+<p>A single particle size cannot describe a real grind, which contains fines and boulders together, and each particle has broken surface cells as well as intact cells inside. Moroney and colleagues built models on this picture and checked them against measured extraction curves for filter coffee [2][3]. A simple version with two populations, one fast and one slow, describes the strength S(t) of an immersion brew over time:</p>
+<table class="deq" summary="Equation 2A.8"><tr><td class="f">S(t) = S<sub>&infin;</sub> [1 &minus; &phi; e<sup>&minus;t/&tau;<sub>1</sub></sup> &minus; (1 &minus; &phi;) e<sup>&minus;t/&tau;<sub>2</sub></sup>]</td><td class="n" id="eq-twopop">(2A.8)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">S<sub>&infin;</sub></td><td>final strength (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">&phi;</td><td>fraction of extractable material in the fast population (fraction)</td></tr>
+<tr><td class="w"></td><td class="s">&tau;<sub>1</sub>, &tau;<sub>2</sub></td><td>time constants of the fast and slow populations, τ<sub>1</sub> much smaller than τ<sub>2</sub> (min)</td></tr>
+</table>
+<h3>Fitting the slow time constant</h3>
+<p>At late times the fast term has died away, so 1 − S/S<sub>∞</sub> ≈ (1 − φ) e<sup>−t/τ<sub>2</sub></sup>. Taking natural logarithms,</p>
+<p>ln(1 − S/S<sub>∞</sub>) ≈ ln(1 − φ) − t/τ<sub>2</sub>,</p>
+<p>which is a straight line in t. Its slope is −1/τ<sub>2</sub> and its intercept is ln(1 − φ). Early points lie above the line, because the fast population has not yet finished dissolving; the gap closes after a few multiples of τ<sub>1</sub>. With only four or five samples you can usually estimate τ<sub>2</sub> and φ, but not τ<sub>1</sub>, which is often shorter than the time to your first sample.</p>
+<div class="example">
+<p class="boxhead">Worked example: Fitting immersion data</p>
+<p><span class="step">Problem.</span> An immersion brew reads 0.88, 1.06, 1.20, 1.31 and 1.35% TDS at 1, 2, 4, 8 and 16 minutes. Estimate τ<sub>2</sub> and φ.</p>
+<p><span class="step">Plan.</span> Take S<sub>∞</sub> slightly above the last reading, compute ln(1 − S/S<sub>∞</sub>) for each point, and fit a straight line to the late points.</p>
+<p><span class="step">Solution.</span> With S<sub>∞</sub> = 1.36%, the values of ln(1 − S/S<sub>∞</sub>) are −1.04, −1.51, −2.14, −3.30 and −4.91. A least-squares line through the 4, 8 and 16 minute points has slope −0.227 per minute and intercept −1.34. So τ<sub>2</sub> = 1/0.227 = 4.4 min and 1 − φ = e<sup>−1.34</sup> = 0.26: about three quarters of the extractable solids came out in the fast stage.</p>
+<p><span class="step">Check.</span> The 1 and 2 minute points (−1.04 and −1.51) lie above the line's values at those times (−1.57 and −1.79), as expected while the fast population is still dissolving.</p>
+<p><span class="step">Your turn.</span> Repeat the fit with S<sub>∞</sub> = 1.38%. Problem 10 asks how sensitive τ<sub>2</sub> is to this choice.</p>
+</div>
+<h2>5. Temperature acts on rate</h2>
+<p>Hot water extracts faster, because diffusivity rises and viscosity falls with temperature. A separate question is whether temperature changes what is extracted when a brew reaches the same strength and yield.</p>
+<p>Two results from UC Davis address it. In the equilibrium study, K did not change between 80 and 99 °C [1]. In a sensory study, drip coffee was brewed at 87, 90 and 93 °C to the same strength and extraction yield, and a trained panel found little difference between them [4]. Within the ordinary hot-brewing range, temperature therefore behaves mainly as a rate variable: it changes how quickly a brew reaches a given strength and yield, and brews that arrive at the same point taste similar.</p>
+<p>Cold brew is the exception that marks the edge of that range. Steeped for many hours at or below room temperature, it reaches a pH similar to hot brew (4.85 to 5.13 in one study) but lower titratable acidity, and hot brew showed greater antioxidant activity [5]. Low temperatures do change composition.</p>
+<div class="evidence">
+<p class="boxhead">Status of the evidence</p>
+<p>The temperature result comes from drip brewing between 87 and 93 °C. It has not been established for espresso, for very light roasts brewed cool, or for individual aroma compounds, whose loss to the air rises with temperature. Treat "temperature is a rate variable" as a well-supported rule for hot filter brewing, not a general law.</p>
+</div>
+<h2>6. The brewing control chart</h2>
+<p>With strength and yield defined, every brew can be drawn as a point on one graph. In the 1950s Ernest Lockhart plotted strength on the vertical axis against extraction yield on the horizontal axis. This <dfn id="t-brewing-control-chart">brewing control chart</dfn> turns a brew recipe into geometry. Rearranging <a href="#eq-perc">Equation 2A.2</a> gives the line on which every percolation brew of a given beverage-to-dose ratio lies:</p>
+<table class="deq" summary="Equation 2A.9"><tr><td class="f">S = E (m<sub>c</sub> / m<sub>b</sub>)</td><td class="n" id="eq-chart">(2A.9)</td></tr></table>
+<table class="where" summary="Symbols">
+<tr><td class="w">where</td><td class="s">m<sub>b</sub>/m<sub>c</sub></td><td>beverage-to-dose ratio (g/g)</td></tr>
+</table>
+<p>Each ratio is a straight line through the origin with slope m<sub>c</sub>/m<sub>b</sub>. At a fixed ratio, changes in grind, time or agitation move a brew along its line; changing the ratio moves it to another line. <a href="#fig-chart">Figure 2A.3</a> shows lines for ratios from 14 to 18.</p>
+<div class="figure" id="fig-chart">
+<img src="figures/ch02a-chart.gif" width="450" height="310" alt="Brewing chart with TDS on the vertical axis and extraction yield on the horizontal axis, showing straight lines for beverage-to-dose ratios from 14 to 18.">
+<p class="caption">Figure 2A.3. The brewing control chart for percolation, with lines of constant beverage-to-dose ratio. Lockhart's nine labelled zones are deliberately left out (see text).</p>
+</div>
+<p>Lockhart divided the chart into nine rectangular zones with sensory labels such as "bitter" and "under-developed", and for decades the zones were taught as fact. In 2023 a UC Davis group re-mapped the chart with a trained descriptive panel and a large consumer study [6]. The panel found attributes changing gradually across the chart rather than switching at zone boundaries. Bitterness was highest at high strength and high extraction, agreeing with Lockhart. Consumers split into two groups that preferred different regions of the chart. The authors cautioned that the consumers were young and North American [7]. The calculator below draws the chart without zones and shades your ratio line.</p>
+<div class="widget">
+<h3>Extraction calculator and brewing chart</h3>
+<form class="w" id="ch02a-extraction-immersion-w40" action="#">
+<div><input type="hidden" name="kind" value="extraction"></div>
+<div class="f"><label for="ch02a-extraction-immersion-w40-method">Method</label> <select name="method" id="ch02a-extraction-immersion-w40-method"><option value="perc">Percolation (pour-over, espresso)</option><option value="imm" selected>Full immersion</option></select></div>
+<div class="f"><label for="ch02a-extraction-immersion-w40-dose">Dry coffee dose</label> <input type="text" size="7" name="dose" id="ch02a-extraction-immersion-w40-dose" value="15"> g</div>
+<div class="f"><label for="ch02a-extraction-immersion-w40-liquid">Beverage mass (percolation) or water mass (immersion)</label> <input type="text" size="7" name="liquid" id="ch02a-extraction-immersion-w40-liquid" value="250"> g</div>
+<div class="f"><label for="ch02a-extraction-immersion-w40-tds">Measured TDS</label> <input type="text" size="7" name="tds" id="ch02a-extraction-immersion-w40-tds" value="1.35"> %</div>
+<p class="formula">Percolation: EY = TDS &times; beverage mass / dose. Immersion: EY = TDS &times; water / ((1 &minus; TDS) &times; dose).</p>
+<div><input type="hidden" name="grid" value="1,1.6,0.05,16,24,0.5"></div>
+<table class="bcc" summary="Brewing chart: TDS against extraction yield">
+<tr><th>TDS %</th><th>16</th><th></th><th>17</th><th></th><th>18</th><th></th><th>19</th><th></th><th>20</th><th></th><th>21</th><th></th><th>22</th><th></th><th>23</th><th></th><th>24</th></tr>
+<tr><th>1.60</th><td id="ch02a-extraction-immersion-w40-c-0-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-0-16">&nbsp;</td></tr>
+<tr><th>1.55</th><td id="ch02a-extraction-immersion-w40-c-1-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-1-16">&nbsp;</td></tr>
+<tr><th>1.50</th><td id="ch02a-extraction-immersion-w40-c-2-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-2-16">&nbsp;</td></tr>
+<tr><th>1.45</th><td id="ch02a-extraction-immersion-w40-c-3-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-3-16">&nbsp;</td></tr>
+<tr><th>1.40</th><td id="ch02a-extraction-immersion-w40-c-4-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-4-16">&nbsp;</td></tr>
+<tr><th>1.35</th><td id="ch02a-extraction-immersion-w40-c-5-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-5-16">&nbsp;</td></tr>
+<tr><th>1.30</th><td id="ch02a-extraction-immersion-w40-c-6-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-6-16">&nbsp;</td></tr>
+<tr><th>1.25</th><td id="ch02a-extraction-immersion-w40-c-7-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-7-16">&nbsp;</td></tr>
+<tr><th>1.20</th><td id="ch02a-extraction-immersion-w40-c-8-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-8-16">&nbsp;</td></tr>
+<tr><th>1.15</th><td id="ch02a-extraction-immersion-w40-c-9-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-9-16">&nbsp;</td></tr>
+<tr><th>1.10</th><td id="ch02a-extraction-immersion-w40-c-10-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-10-16">&nbsp;</td></tr>
+<tr><th>1.05</th><td id="ch02a-extraction-immersion-w40-c-11-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-11-16">&nbsp;</td></tr>
+<tr><th>1.00</th><td id="ch02a-extraction-immersion-w40-c-12-0">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-1">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-2">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-3">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-4">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-5">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-6">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-7">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-8">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-9">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-10">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-11">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-12">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-13">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-14">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-15">&nbsp;</td><td id="ch02a-extraction-immersion-w40-c-12-16">&nbsp;</td></tr>
+<tr><th></th><th colspan="17">Extraction yield %</th></tr>
+</table>
+<p class="small">The marked cell is your brew. Shaded cells lie on your brew ratio: changing grind or time moves a brew along this line, changing the ratio moves the line. Zones are deliberately not drawn; see the chapter text.</p>
+<p><input type="button" class="calc" value="Calculate"></p>
+<div class="out" id="ch02a-extraction-immersion-w40-out"></div>
+</form>
+</div>
+<h3>Where sourness sits on the chart</h3>
+<p>Across 744 drip brews, titratable acidity rose in proportion to strength and showed no relationship with extraction yield: stronger coffee contains proportionally more acid, however far extraction went. Trained-panel sourness followed titratable acidity but also depended strongly on extraction, and was highest at high strength and low extraction [8]. A plausible explanation is that acids dissolve early and fast, so at low extraction they dominate the cup. At higher extraction, bitter and roasted compounds that dissolve later mask sourness. Chapter 1 discussed how one taste can suppress another.</p>
+<div class="quiz">
+<h3>Check your understanding: Sections 3 to 6</h3>
+<form class="quiz-form" id="ch02a-extraction-immersion-q1" action="#answers">
+<div class="q">
+<p class="prompt">1. If the diffusion time constant of an 800 µm particle is 80 s, what is it for a 200 µm particle of the same material, in seconds?</p>
+<p class="opts"><label for="ch02a-extraction-immersion-q1-0">Answer:</label> <input type="text" size="8" name="ch02a-extraction-immersion-q1-0" id="ch02a-extraction-immersion-q1-0"> s</p>
+<div><input type="hidden" name="ch02a-extraction-immersion-q1-0-kind" value="numeric"><input type="hidden" name="ch02a-extraction-immersion-q1-0-ans" value="5"><input type="hidden" name="ch02a-extraction-immersion-q1-0-tol" value="0.01"></div>
+<p class="fb" id="ch02a-extraction-immersion-q1-0-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">2. Two drip brews have identical strength and extraction yield but were brewed at 87 °C and 93 °C. You should expect</p>
+<p class="opts">
+<input type="radio" name="ch02a-extraction-immersion-q1-1" id="ch02a-extraction-immersion-q1-1-0" value="0"> <label for="ch02a-extraction-immersion-q1-1-0">a large difference in bitterness</label><br>
+<input type="radio" name="ch02a-extraction-immersion-q1-1" id="ch02a-extraction-immersion-q1-1-1" value="1"> <label for="ch02a-extraction-immersion-q1-1-1">little sensory difference</label><br>
+<input type="radio" name="ch02a-extraction-immersion-q1-1" id="ch02a-extraction-immersion-q1-1-2" value="2"> <label for="ch02a-extraction-immersion-q1-1-2">the cooler brew to be more acidic</label><br>
+</p>
+<div><input type="hidden" name="ch02a-extraction-immersion-q1-1-kind" value="choice"><input type="hidden" name="ch02a-extraction-immersion-q1-1-ans" value="1"></div>
+<p class="fb" id="ch02a-extraction-immersion-q1-1-fb"></p>
+</div>
+<div class="q">
+<p class="prompt">3. On the percolation chart, what beverage-to-dose ratio passes through 1.35% TDS at 20.25% extraction?</p>
+<p class="opts"><label for="ch02a-extraction-immersion-q1-2">Answer:</label> <input type="text" size="8" name="ch02a-extraction-immersion-q1-2" id="ch02a-extraction-immersion-q1-2"> </p>
+<div><input type="hidden" name="ch02a-extraction-immersion-q1-2-kind" value="numeric"><input type="hidden" name="ch02a-extraction-immersion-q1-2-ans" value="15"><input type="hidden" name="ch02a-extraction-immersion-q1-2-tol" value="0.01"></div>
+<p class="fb" id="ch02a-extraction-immersion-q1-2-fb"></p>
+</div>
+<p><input type="hidden" name="quiz-key" value="ch02a-extraction-immersion-q1"><input type="hidden" name="quiz-n" value="3"><input type="button" class="check" value="Check answers"> <a href="#ans-ch02a-extraction-immersion-q1">Answers</a></p>
+</form>
+</div>
+<h2>7. Agitation</h2>
+<p>Stirring does not change the equilibrium, but it speeds the approach to it. Around each particle sits a thin layer of liquid that moves with the particle and is depleted of solute faster than it is replaced. Solute must diffuse across this <dfn id="t-boundary-layer">boundary layer</dfn> as well as through the particle. Stirring thins the layer and carries fresh liquid to the particle surface. In immersion brewing, a stir at the start matters most, because it breaks up dry clumps and the floating crust so that all the coffee is wetted. In percolation, the pour itself agitates the bed, as Chapter 2B shows.</p>
+<h2>Looking ahead</h2>
+<p>Immersion is the simplest case: all the water meets all the coffee, and equilibrium sets the end point. Most coffee is brewed differently, by pushing water through a bed of grounds. Then the flow rate decides how long the water and coffee are in contact, and the bed itself resists the flow. Chapter 2B asks what controls that flow, and why espresso behaves so differently from filter coffee.</p>
+<h2>Key equations</h2>
+<table class="eqs" summary="Key equations">
+<tr><th>Quantity</th><th>Equation</th><th>Notes</th></tr>
+<tr><td>Brew ratio</td><td class="eq">r = m<sub>w</sub> / m<sub>c</sub></td><td>Equation 2A.1.</td></tr>
+<tr><td>Extraction yield, percolation</td><td class="eq">E = S m<sub>b</sub> / m<sub>c</sub></td><td>Equation 2A.2.</td></tr>
+<tr><td>Extraction yield, immersion</td><td class="eq">E = r S / (1 &minus; S)</td><td>Equation 2A.3.</td></tr>
+<tr><td>Equilibrium yield and strength</td><td class="eq">E<sub>eq</sub> = K E<sub>max</sub>; S<sub>eq</sub> = K E<sub>max</sub> / (r + K E<sub>max</sub>)</td><td>Equations 2A.5 and 2A.6.</td></tr>
+<tr><td>Diffusion time constant, sphere</td><td class="eq">&tau; = a<sup>2</sup> / (&pi;<sup>2</sup> D)</td><td>Equation 2A.7.</td></tr>
+<tr><td>Two-population kinetics</td><td class="eq">S(t) = S<sub>&infin;</sub>[1 &minus; &phi;e<sup>&minus;t/&tau;<sub>1</sub></sup> &minus; (1 &minus; &phi;)e<sup>&minus;t/&tau;<sub>2</sub></sup>]</td><td>Equation 2A.8.</td></tr>
+</table>
+<h2 id="key-terms">Key terms</h2>
+<p class="kt"><a href="#t-adsorption">adsorption</a>; <a href="#t-boundary-layer">boundary layer</a>; <a href="#t-brew-ratio">brew ratio</a>; <a href="#t-brewing-control-chart">brewing control chart</a>; <a href="#t-desorption">desorption</a>; <a href="#t-diffusion">diffusion</a>; <a href="#t-diffusivity">diffusivity</a>; <a href="#t-equilibrium">equilibrium</a>; <a href="#t-extraction-equilibrium-constant">extraction equilibrium constant</a>; <a href="#t-immersion">immersion</a>; <a href="#t-lumped-model">lumped model</a>; <a href="#t-mass-balance">mass balance</a>; <a href="#t-maximum-extractable-fraction">maximum extractable fraction</a>; <a href="#t-percolation">percolation</a>; <a href="#t-retained-liquid">retained liquid</a>; <a href="#t-time-constant">time constant</a>.</p>
+<h2>Labs</h2>
+<div class="lab">
+<h3 id="lab-L2.1">Lab L2.1: Immersion extraction curve and equilibrium constant</h3>
+<p><span class="lbl">Aim.</span> Measure an immersion extraction curve, fit its slow time constant, and estimate K from equilibrium brews at several ratios.</p>
+<p class="lbl">Safety</p>
+<ul>
+<li>Hot water and glass: use heat-resistant vessels and pour slowly.</li>
+</ul>
+<p class="lbl">Materials</p>
+<ul>
+<li>Refractometer (or analytical balance for drying)</li>
+<li>Kettle and thermometer</li>
+<li>Three identical heat-resistant vessels with lids</li>
+<li>Syringe filters or paper filter cones</li>
+<li>One coffee, ground for French press</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Brew 15 g in 250 g of water at a recorded temperature, stir once at 30 s, and cover.</li>
+<li>At 1, 2, 4, 8 and 16 minutes, draw about 5 mL from mid-depth, filter it, seal it and let it cool.</li>
+<li>Read all samples at room temperature.</li>
+<li>Separately brew 15 g at ratios of 8, 12, 16 and 20, covered, for 20 minutes, and read the final TDS of each.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Run</th><th>Ratio</th><th>Time (min)</th><th>TDS (%)</th><th>ln(1 − S/S<sub>∞</sub>)</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Fit τ<sub>2</sub> and φ as in Section 4.</li>
+<li>For the ratio series, compute E = rS/(1 − S) for each brew. Is E independent of r? Estimate K E<sub>max</sub> as their mean.</li>
+<li>Plot S against 1/r and compare with Equation 2A.6.</li>
+</ol>
+<p><span class="lbl">What to expect.</span> Extraction yields near 20 to 23% at all ratios if equilibrium is reached; strength roughly proportional to 1/r.</p>
+</div>
+<div class="lab">
+<h3 id="lab-L2.2">Lab L2.2: A nine-brew grid on the control chart</h3>
+<p><span class="lbl">Aim.</span> Map how grind and ratio move brews on the chart, and taste the results blind.</p>
+<p class="lbl">Materials</p>
+<ul>
+<li>Cone dripper and filters</li>
+<li>Grinder</li>
+<li>Refractometer</li>
+<li>Scale and kettle</li>
+<li>Cups labelled with random codes</li>
+</ul>
+<p class="lbl">Method</p>
+<ol>
+<li>Choose three grind settings and three beverage-to-dose ratios (for example 15, 16.5 and 18).</li>
+<li>Brew all nine combinations in random order on one day; record dose, beverage mass and TDS.</li>
+<li>Have a partner code the cups; taste blind and score sourness, bitterness and liking on 0 to 15 scales.</li>
+</ol>
+<p class="lbl">Data sheet</p>
+<table class="datasheet" summary="Blank data sheet">
+<tr><th>Code</th><th>Grind</th><th>Ratio</th><th>Beverage (g)</th><th>TDS (%)</th><th>EY (%)</th><th>Sour</th><th>Bitter</th><th>Liking</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="lbl">Analysis</p>
+<ol>
+<li>Plot each brew on the chart and label it with its scores.</li>
+<li>Where is bitterness highest? Where is sourness highest? Compare with Section 6.</li>
+</ol>
+</div>
+<h2>Problems</h2>
+<div class="problems">
+<ol class="plist" start="1">
+<li id="p0-1"><span class="tier">[A, Section 1]</span> State the difference between strength and extraction yield, and describe a brew that is strong but under-extracted. <a class="sol" href="ch02a-extraction-immersion-solutions.html#s1">Solution</a></li>
+<li id="p0-2"><span class="tier">[A, Section 1]</span> Why is the percolation formula a reasonable approximation for pour-over but not for immersion? <a class="sol" href="ch02a-extraction-immersion-solutions.html#s2">Solution</a></li>
+<li id="p0-3"><span class="tier">[B, Section 2]</span> Derive Equation 2A.6 for the equilibrium strength, starting from Equations 2A.3 and 2A.5. <a class="sol" href="ch02a-extraction-immersion-solutions.html#s3">Solution</a></li>
+<li id="p0-4"><span class="tier">[B, Section 2]</span> Using K = 0.717 and E<sub>max</sub> = 0.30, predict the equilibrium strength for immersion ratios of 10, 15 and 20. <a class="sol" href="ch02a-extraction-immersion-solutions.html#s4">Solution</a></li>
+<li id="p0-5"><span class="tier">[B, Section 1]</span> A 300 g pour-over from 20 g of coffee yields 262 g of beverage. Estimate the liquid retained per gram of grounds. <a class="sol" href="ch02a-extraction-immersion-solutions.html#s5">Solution</a></li>
+<li id="p0-6"><span class="tier">[B, Section 3]</span> If τ for a 600 µm particle is 45.6 s, what is it for 400 µm and 1,000 µm particles? <a class="sol" href="ch02a-extraction-immersion-solutions.html#s6">Solution</a></li>
+<li id="p0-7"><span class="tier">[B, Section 3]</span> Using only the slow exponential, what fraction of a particle's solute remains after three time constants? <a class="sol" href="ch02a-extraction-immersion-solutions.html#s7">Solution</a></li>
+<li id="p0-8"><span class="tier">[B, Section 6]</span> A brew lies at 1.20% TDS and 18.0% extraction yield with a beverage-to-dose ratio of 15. You grind finer and reach 20.4% extraction at the same ratio. What is the new strength? <a class="sol" href="ch02a-extraction-immersion-solutions.html#s8">Solution</a></li>
+<li id="p0-9"><span class="tier">[B, Section 6]</span> What beverage-to-dose ratio places a brew at 1.25% TDS and 20.0% extraction yield? <a class="sol" href="ch02a-extraction-immersion-solutions.html#s9">Solution</a></li>
+<li id="p0-10"><span class="tier">[B, Section 4]</span> Repeat the fitting example with S<sub>∞</sub> = 1.38%. How sensitive is τ<sub>2</sub> to the assumed final strength? <a class="sol" href="ch02a-extraction-immersion-solutions.html#s10">Solution</a></li>
+<li id="p0-11"><span class="tier">[C, Section 2]</span> A barista claims that steeping a French press for 8 minutes instead of 4 over-extracts it. Using the equilibrium model and the kinetics of Section 4, evaluate the claim and design a test. <a class="sol" href="ch02a-extraction-immersion-solutions.html#s11">Solution</a></li>
+<li id="p0-12"><span class="tier">[C, Section 2]</span> Why is one equilibrium constant unlikely to describe caffeine, chlorogenic acids and melanoidins equally well? What experiment would test this? <a class="sol" href="ch02a-extraction-immersion-solutions.html#s12">Solution</a></li>
+<li id="p0-13"><span class="tier">[C, Section 3]</span> Using the d<sup>2</sup> scaling, explain why a grinder that produces more fines at the same median size can produce a stronger brew in a fixed short contact time. <a class="sol" href="ch02a-extraction-immersion-solutions.html#s13">Solution</a></li>
+<li id="p0-14"><span class="tier">[C, Section 6]</span> Propose an explanation of why sourness is highest at high strength and low extraction, while titratable acidity depends only on strength. <a class="sol" href="ch02a-extraction-immersion-solutions.html#s14">Solution</a></li>
+</ol>
+<p class="small">Tiers: A recall, B calculation, C analysis or design.</p>
+</div>
+<h2>References</h2>
+<ol>
+<li>Liang J., Chan K.C., Ristenpart W.D. (2021), An equilibrium desorption model for the strength and extraction yield of full immersion brewed coffee, <em>Scientific Reports</em> 11:6904.</li>
+<li>Moroney K.M. et al. (2015), Modelling of coffee extraction during brewing using multiscale methods: an experimentally validated model, <em>Chemical Engineering Science</em>.</li>
+<li>Moroney K.M. et al. (2016), Coffee extraction kinetics in a well mixed system.</li>
+<li>Batali M.E., Ristenpart W.D., Guinard J.-X., brew temperature at fixed strength and extraction has little impact on the sensory profile of drip brew coffee, <em>Scientific Reports</em>; summarised by the SCA.</li>
+<li>Rao N.Z., Fuller M. (2018), Acidity and antioxidant activity of cold brew coffee, <em>Scientific Reports</em> 8.</li>
+<li>Batali M.E. et al. (2023), A new Coffee Brewing Control Chart relating sensory properties and consumer liking to brew strength, extraction yield, and brew ratio, <em>Journal of Food Science</em> 88:2168.</li>
+<li>Fresh Cup, Why the new Coffee Brewing Control Chart is a big deal.</li>
+<li>Batali M.E., Cotter A.R., Frost S.C., Ristenpart W.D., Guinard J.-X., titratable acidity, pH and sourness in drip coffee, <em>ACS Food Science and Technology</em>; summarised in SCA <em>25</em> magazine, issue 15.</li>
+</ol>
+<div class="answers">
+<h2 id="answers">Answers to self-checks</h2>
+<h3 id="ans-ch02a-extraction-immersion-q0">Check your understanding: Sections 1 and 2</h3>
+<ol>
+<li><span class="key">21.95 %.</span> <span id="ch02a-extraction-immersion-q0-0-ex">r = 16.67; E = 16.67 × 0.0130/0.987 = 0.2195, or 21.95%.</span></li>
+<li><span class="key">roughly halve the strength and leave the yield unchanged.</span> <span id="ch02a-extraction-immersion-q0-1-ex">E<sub>eq</sub> = K E<sub>max</sub> does not depend on r, while S<sub>eq</sub> falls roughly as 1/r.</span></li>
+</ol>
+<h3 id="ans-ch02a-extraction-immersion-q1">Check your understanding: Sections 3 to 6</h3>
+<ol>
+<li><span class="key">5 s.</span> <span id="ch02a-extraction-immersion-q1-0-ex">τ scales with d<sup>2</sup>: 80 × (200/800)<sup>2</sup> = 5 s.</span></li>
+<li><span class="key">little sensory difference.</span> <span id="ch02a-extraction-immersion-q1-1-ex">At fixed strength and extraction, a trained panel found little difference across this range.</span></li>
+<li><span class="key">15 .</span> <span id="ch02a-extraction-immersion-q1-2-ex">m<sub>b</sub>/m<sub>c</sub> = E/S = 20.25/1.35 = 15.0.</span></li>
+</ol>
+</div>
+<p class="small">Worked solutions to all problems: <a href="ch02a-extraction-immersion-solutions.html">2A. Extraction I: immersion, equilibrium and kinetics solutions</a>.</p>
+
+<div class="nav bottom"><a href="ch01-cup.html" rel="prev" title="1. The cup: perception and composition">&lt; Previous</a> | <a href="index.html">Contents</a> | <a href="glossary.html">Glossary</a> | <a href="ch02b-percolation-espresso.html" rel="next" title="2B. Extraction II: percolation and espresso">Next &gt;</a></div>
+<p class="foot">Upstream, Second edition, version 2.2 (<a href="changes.html">changes and errata</a>). &copy; 2026 [Author name]. Licensed for personal use; see <a href="license.html">licence</a>.</p>
+</div>
+<script type="text/javascript" src="book.js"></script>
+</body>
+</html>
